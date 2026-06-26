@@ -60,15 +60,17 @@ export default function PrivacidadePage() {
   return (
     <>
       {/* Header */}
-      <section className="relative bg-dark-mid pt-32 pb-16 overflow-hidden">
+      <section className="relative pt-32 pb-16 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0"
           style={{
-            backgroundImage: "repeating-linear-gradient(45deg, #5C88B5 0, #5C88B5 1px, transparent 0, transparent 50%)",
-            backgroundSize: "20px 20px",
+            backgroundImage: "url('/images/privacidade-banner.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
           aria-hidden="true"
         />
+        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
             Legal

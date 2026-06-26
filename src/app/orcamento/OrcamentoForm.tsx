@@ -1,12 +1,34 @@
 "use client";
 
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState } from "react";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { SEGMENTS } from "@/lib/constants";
-import SelectField from "@/components/shared/SelectField";
+import CustomSelect from "@/components/shared/CustomSelect";
+
+const SEGMENTO_OPTIONS = [
+  ...SEGMENTS.map((s) => ({ value: s.slug, label: s.name })),
+  { value: "outro", label: "Outro" },
+];
+
+const TIPO_INTERESSE_OPTIONS = [
+  { value: "locacao", label: "Locação" },
+  { value: "venda", label: "Venda" },
+  { value: "manutencao", label: "Manutenção" },
+  { value: "outro", label: "Outro" },
+];
+
+const PRODUTO_OPTIONS = [
+  { value: "galpao-lona", label: "Galpão de Lona" },
+  { value: "galpao-metalico", label: "Galpão Metálico" },
+  { value: "galpao-hibrido", label: "Galpão Híbrido CoberECOsteel" },
+  { value: "mezanino", label: "Mezanino Metálico" },
+  { value: "projeto-especial", label: "Projeto Especial" },
+  { value: "niveladora", label: "Niveladora de Doca" },
+  { value: "nao-sei", label: "Não sei ainda" },
+];
 
 const schema = z.object({
   nome: z.string().min(2, "Nome deve ter ao menos 2 caracteres"),
@@ -37,6 +59,7 @@ export default function OrcamentoForm() {
   const {
     register,
     handleSubmit,
+    control,
     formState: { errors, isSubmitting },
     reset,
   } = useForm<FormData>({
@@ -192,55 +215,58 @@ export default function OrcamentoForm() {
 
       {/* Row: Segmento + Tipo de interesse */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <SelectField
-          label="Segmento de Atuação"
-          required
-          variant="gold"
-          error={errors.segmento?.message}
-          aria-invalid={!!errors.segmento}
-          {...register("segmento")}
-        >
-          <option value="">Selecione o segmento</option>
-          {SEGMENTS.map((s) => (
-            <option key={s.slug} value={s.slug}>{s.name}</option>
-          ))}
-          <option value="outro">Outro</option>
-        </SelectField>
-        <SelectField
-          label="Tipo de Interesse"
-          required
-          variant="gold"
-          error={errors.tipoInteresse?.message}
-          aria-invalid={!!errors.tipoInteresse}
-          {...register("tipoInteresse")}
-        >
-          <option value="">Selecione o tipo</option>
-          <option value="locacao">Locação</option>
-          <option value="venda">Venda</option>
-          <option value="manutencao">Manutenção</option>
-          <option value="outro">Outro</option>
-        </SelectField>
+        <Controller
+          name="segmento"
+          control={control}
+          render={({ field }) => (
+            <CustomSelect
+              label="Segmento de Atuação"
+              required
+              variant="gold"
+              placeholder="Selecione o segmento"
+              value={field.value || ""}
+              onChange={field.onChange}
+              options={SEGMENTO_OPTIONS}
+              error={errors.segmento?.message}
+            />
+          )}
+        />
+        <Controller
+          name="tipoInteresse"
+          control={control}
+          render={({ field }) => (
+            <CustomSelect
+              label="Tipo de Interesse"
+              required
+              variant="gold"
+              placeholder="Selecione o tipo"
+              value={field.value || ""}
+              onChange={field.onChange}
+              options={TIPO_INTERESSE_OPTIONS}
+              error={errors.tipoInteresse?.message}
+            />
+          )}
+        />
       </div>
 
       {/* Row: Produto + Área */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <SelectField
-          label="Produto de Interesse"
-          required
-          variant="gold"
-          error={errors.produto?.message}
-          aria-invalid={!!errors.produto}
-          {...register("produto")}
-        >
-          <option value="">Selecione o produto</option>
-          <option value="galpao-lona">Galpão de Lona</option>
-          <option value="galpao-metalico">Galpão Metálico</option>
-          <option value="galpao-hibrido">Galpão Híbrido CoberECOsteel</option>
-          <option value="mezanino">Mezanino Metálico</option>
-          <option value="projeto-especial">Projeto Especial</option>
-          <option value="niveladora">Niveladora de Doca</option>
-          <option value="nao-sei">Não sei ainda</option>
-        </SelectField>
+        <Controller
+          name="produto"
+          control={control}
+          render={({ field }) => (
+            <CustomSelect
+              label="Produto de Interesse"
+              required
+              variant="gold"
+              placeholder="Selecione o produto"
+              value={field.value || ""}
+              onChange={field.onChange}
+              options={PRODUTO_OPTIONS}
+              error={errors.produto?.message}
+            />
+          )}
+        />
         <div>
           <label htmlFor="areaNecessaria" className={labelClass}>
             Área Aproximada (m²)

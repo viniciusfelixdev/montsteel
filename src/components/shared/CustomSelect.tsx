@@ -1,0 +1,140 @@
+"use client";
+
+import { useState, useRef, useEffect, useId } from "react";
+import { ChevronDown, Check } from "lucide-react";
+
+export interface SelectOption {
+  value: string;
+  label: string;
+}
+
+type Variant = "gold" | "blue";
+
+interface CustomSelectProps {
+  label?: string;
+  required?: boolean;
+  error?: string;
+  variant?: Variant;
+  value: string;
+  onChange: (value: string) => void;
+  options: SelectOption[];
+  placeholder?: string;
+  name?: string;
+}
+
+const accent: Record<Variant, { ring: string; chevron: string; active: string; check: string }> = {
+  gold: {
+    ring: "focus:border-cobersteel-gold focus:ring-1 focus:ring-cobersteel-gold/20 hover:border-cobersteel-gold/40",
+    chevron: "text-cobersteel-gold",
+    active: "bg-cobersteel-gold/15 text-cobersteel-gold",
+    check: "text-cobersteel-gold",
+  },
+  blue: {
+    ring: "focus:border-cobersteel-blue focus:ring-1 focus:ring-cobersteel-blue/20 hover:border-cobersteel-blue/40",
+    chevron: "text-cobersteel-blue",
+    active: "bg-cobersteel-blue/15 text-cobersteel-blue",
+    check: "text-cobersteel-blue",
+  },
+};
+
+export default function CustomSelect({
+  label,
+  required,
+  error,
+  variant = "blue",
+  value,
+  onChange,
+  options,
+  placeholder = "Selecione",
+  name,
+}: CustomSelectProps) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const listId = useId();
+  const styles = accent[variant];
+
+  const selected = options.find((o) => o.value === value);
+
+  useEffect(() => {
+    function onClickOutside(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
+  return (
+    <div className="flex flex-col gap-1.5" ref={ref}>
+      {label && (
+        <label className="text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">
+          {label} {required && <span className="text-cobersteel-gold">*</span>}
+        </label>
+      )}
+
+      <div className="relative">
+        {/* hidden input para envio nativo de formulário, se necessário */}
+        {name && <input type="hidden" name={name} value={value} />}
+
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-haspopup="listbox"
+          aria-expanded={open}
+          aria-controls={listId}
+          className={`
+            w-full flex items-center justify-between gap-2 bg-dark-steel border rounded-lg
+            px-4 py-3 text-sm text-left transition-all cursor-pointer focus:outline-none
+            ${selected ? "text-white" : "text-[#64748B]"}
+            ${error ? "border-red-500/60" : "border-dark-border"}
+            ${styles.ring}
+          `}
+        >
+          <span className="truncate">{selected ? selected.label : placeholder}</span>
+          <ChevronDown
+            className={`w-4 h-4 flex-shrink-0 transition-transform ${open ? "rotate-180" : ""} ${styles.chevron}`}
+            aria-hidden="true"
+          />
+        </button>
+
+        {open && (
+          <ul
+            id={listId}
+            role="listbox"
+            className="absolute z-30 mt-2 w-full bg-dark-mid border border-dark-border rounded-lg shadow-xl py-1.5"
+          >
+            {options.map((opt) => {
+              const isActive = opt.value === value;
+              return (
+                <li key={opt.value} role="option" aria-selected={isActive}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onChange(opt.value);
+                      setOpen(false);
+                    }}
+                    className={`
+                      w-full flex items-center justify-between gap-2 px-4 py-2.5 text-sm text-left transition-colors
+                      ${isActive ? styles.active : "text-white/80 hover:bg-dark-steel hover:text-white"}
+                    `}
+                  >
+                    <span className="truncate">{opt.label}</span>
+                    {isActive && <Check className={`w-4 h-4 flex-shrink-0 ${styles.check}`} aria-hidden="true" />}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+      </div>
+
+      {error && <p className="text-xs text-red-400">{error}</p>}
+    </div>
+  );
+}

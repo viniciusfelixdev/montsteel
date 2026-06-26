@@ -6,8 +6,24 @@ import {
   Package, Truck, Wrench, HardHat, Layers, ArrowLeft,
   CheckCircle2, ChevronRight, Send, AlertCircle,
 } from "lucide-react";
-import SelectField from "@/components/shared/SelectField";
+import CustomSelect from "@/components/shared/CustomSelect";
 import { CONTACT_INFO } from "@/lib/constants";
+
+const CATEGORIA_OPTIONS = [
+  { value: "aco", label: "Aço e Perfis Metálicos" },
+  { value: "coberturas", label: "Coberturas e Vedações" },
+  { value: "fixacao", label: "Fixação e Acabamentos" },
+  { value: "logistica", label: "Logística e Transporte" },
+  { value: "servicos", label: "Serviços e Mão de Obra" },
+  { value: "outro", label: "Outro" },
+];
+
+const ATUACAO_OPTIONS = [
+  { value: "local", label: "Local (cidade/região)" },
+  { value: "estadual", label: "Estadual" },
+  { value: "regional", label: "Regional (2–4 estados)" },
+  { value: "nacional", label: "Nacional" },
+];
 
 const categorias = [
   {
@@ -332,36 +348,24 @@ export default function FornecedoresPage() {
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <SelectField
+                <CustomSelect
                   label="Categoria de Fornecimento"
                   required
                   variant="blue"
                   name="categoria"
                   value={form.categoria}
-                  onChange={handleChange}
-                >
-                  <option value="" disabled>Selecione</option>
-                  <option value="aco">Aço e Perfis Metálicos</option>
-                  <option value="coberturas">Coberturas e Vedações</option>
-                  <option value="fixacao">Fixação e Acabamentos</option>
-                  <option value="logistica">Logística e Transporte</option>
-                  <option value="servicos">Serviços e Mão de Obra</option>
-                  <option value="outro">Outro</option>
-                </SelectField>
-                <SelectField
+                  onChange={(v) => setForm((prev) => ({ ...prev, categoria: v }))}
+                  options={CATEGORIA_OPTIONS}
+                />
+                <CustomSelect
                   label="Área de Atuação"
                   required
                   variant="blue"
                   name="atuacao"
                   value={form.atuacao}
-                  onChange={handleChange}
-                >
-                  <option value="" disabled>Selecione</option>
-                  <option value="local">Local (cidade/região)</option>
-                  <option value="estadual">Estadual</option>
-                  <option value="regional">Regional (2–4 estados)</option>
-                  <option value="nacional">Nacional</option>
-                </SelectField>
+                  onChange={(v) => setForm((prev) => ({ ...prev, atuacao: v }))}
+                  options={ATUACAO_OPTIONS}
+                />
               </div>
 
               <div>

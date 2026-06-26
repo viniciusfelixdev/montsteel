@@ -36,28 +36,28 @@ export default function NormasAbntPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[#F4F7FA] to-[#E2E8F0] pt-32 pb-20 overflow-hidden">
         <div
-          className="absolute inset-0"
+          className="absolute inset-x-0 top-20 bottom-0"
           style={{
-            backgroundImage: "url('/images/normas-abnt-banner.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
+            backgroundImage: "url('/images/normas/abnt-logo-blue.png')",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "right 2rem center",
+            backgroundSize: "auto 60%",
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
+          <p className="text-[#0047BB] text-xs font-semibold uppercase tracking-widest mb-3">
             Institucional
           </p>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-dark-steel mb-4"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
-            CONFORMIDADE COM <span className="text-cobersteel-blue">NORMAS ABNT</span>
+            CONFORMIDADE COM <span className="text-[#0047BB]">NORMAS ABNT</span>
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl leading-relaxed">
+          <p className="text-lg text-[#475569] max-w-2xl leading-relaxed">
             Cada projeto CoberSteel é desenvolvido sob medida para você e calculado em conformidade com as normas brasileiras e internacionais — porque segurança estrutural não é opcional.
           </p>
         </div>

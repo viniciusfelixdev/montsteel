@@ -30,7 +30,7 @@ const variantStyles: Record<SelectVariant, { select: string; chevron: string; la
 };
 
 const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(
-  ({ label, error, required, variant = "default", children, className, ...props }, ref) => {
+  ({ label, error, required, variant = "default", children, className, style, ...props }, ref) => {
     const styles = variantStyles[variant];
 
     return (
@@ -44,10 +44,12 @@ const SelectField = forwardRef<HTMLSelectElement, SelectFieldProps>(
         <div className="relative">
           <select
             ref={ref}
+            style={{ colorScheme: "dark", ...style }}
             className={`
               w-full appearance-none bg-dark-steel border border-dark-border rounded-lg
               px-4 py-3 pr-10 text-sm text-white
               focus:outline-none transition-all cursor-pointer
+              [&>option]:bg-dark-mid [&>option]:text-white
               ${styles.select}
               ${error ? "border-red-500/60" : ""}
               ${className ?? ""}
