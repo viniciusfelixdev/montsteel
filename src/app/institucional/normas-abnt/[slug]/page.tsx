@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, AlertCircle } from "lucide-react";
 import { getNorma, NORMAS } from "@/lib/normas";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 // Logo ABNT (azul forte) usada alinhada à direita em qualquer norma sem imagem específica.
 const DEFAULT_NORMA_IMAGE = "/images/normas/abnt-logo-blue.png";
@@ -27,6 +28,7 @@ export async function generateMetadata({
   return {
     title: `${norma.codigo} — ${norma.titulo} | CoberSteel`,
     description: norma.resumo,
+    alternates: { canonical: `/institucional/normas-abnt/${norma.slug}` },
   };
 }
 
@@ -78,6 +80,14 @@ export default async function NormaPage({
           />
         )}
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            tone={onLight ? "light" : "dark"}
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Normas ABNT", href: "/institucional/normas-abnt" },
+              { label: norma.codigo },
+            ]}
+          />
           <Link
             href="/institucional/normas-abnt"
             className={`inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg transition-all mb-8 group border ${

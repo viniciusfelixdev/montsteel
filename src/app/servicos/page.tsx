@@ -3,11 +3,13 @@ import Link from "next/link";
 import {
   Wrench, ShieldCheck, Zap, Expand, Truck, ClipboardList,
 } from "lucide-react";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Serviços e Manutenções | CoberSteel — Galpões e Coberturas Industriais",
   description:
     "Instalação, montagem, manutenção preventiva e corretiva, ampliações e deslocamento de galpões industriais. Equipe especializada CoberSteel em todo o Brasil.",
+  alternates: { canonical: "/servicos" },
 };
 
 const servicos = [
@@ -95,6 +97,12 @@ export default function ServicosPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Serviços" },
+            ]}
+          />
           <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
             Serviços
           </p>

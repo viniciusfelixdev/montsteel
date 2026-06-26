@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "CoberSteel | Galpões de Lona, Metálicos e Coberturas Industriais — Ibaté/SP",
   description:
     "Galpões e coberturas industriais para locação e venda. Mais de 25 anos de experiência. Projetos conforme normas ABNT. Atendemos todo o Brasil.",
+  alternates: { canonical: "/" },
 };
 
 export default function HomePage() {

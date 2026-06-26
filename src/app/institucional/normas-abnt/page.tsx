@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ShieldCheck, CheckCircle2, FileText, AlertTriangle, ChevronRight } from "lucide-react";
 import { NORMAS } from "@/lib/normas";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Conformidade com Normas ABNT | CoberSteel — Galpões e Coberturas Industriais",
   description:
     "Todos os projetos CoberSteel são desenvolvidos conforme as normas ABNT para estruturas metálicas e galpões industriais. Segurança técnica em cada detalhe.",
+  alternates: { canonical: "/institucional/normas-abnt" },
 };
 
 const pilares = [
@@ -48,6 +50,13 @@ export default function NormasAbntPage() {
           aria-hidden="true"
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            tone="light"
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Normas ABNT" },
+            ]}
+          />
           <p className="text-[#0047BB] text-xs font-semibold uppercase tracking-widest mb-3">
             Institucional
           </p>

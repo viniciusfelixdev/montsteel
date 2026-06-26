@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Shield, Zap, Leaf, Award, Target, Eye, Heart } from "lucide-react";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Quem Somos | CoberSteel — Galpões e Coberturas Industriais",
   description:
     "Conheça a CoberSteel: mais de 25 anos de experiência em infraestrutura industrial flexível. Nossa história, missão, visão e valores.",
+  alternates: { canonical: "/institucional/quem-somos" },
 };
 
 const timeline = [
@@ -41,6 +43,12 @@ export default function QuemSomosPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Quem Somos" },
+            ]}
+          />
           <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
             Institucional
           </p>

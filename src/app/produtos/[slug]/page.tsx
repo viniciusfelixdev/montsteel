@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { PRODUCTS_DATA, getProduct } from "@/lib/products";
 import { CONTACT_INFO } from "@/lib/constants";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 const PRODUCT_IMAGES: Record<string, string> = {
   "mezaninos-metalicos": "/images/produtos/mezaninos-metalicos.png",
@@ -29,6 +30,7 @@ export async function generateMetadata({
   return {
     title: `${product.name} | CoberSteel — Galpões e Coberturas Industriais`,
     description: product.tagline,
+    alternates: { canonical: `/produtos/${product.slug}` },
   };
 }
 
@@ -72,6 +74,13 @@ export default async function ProdutoPage({
           </>
         )}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Produtos" },
+              { label: product.name },
+            ]}
+          />
           <Link
             href="/#produtos"
             className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 hover:border-white px-4 py-2 rounded-lg transition-all mb-6 group"

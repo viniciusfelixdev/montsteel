@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade | CoberSteel",
   description:
     "Saiba como a CoberSteel coleta, usa e protege seus dados pessoais conforme a Lei Geral de Proteção de Dados (LGPD).",
+  alternates: { canonical: "/institucional/privacidade" },
 };
 
 const sections = [
@@ -72,6 +74,12 @@ export default function PrivacidadePage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Política de Privacidade" },
+            ]}
+          />
           <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
             Legal
           </p>

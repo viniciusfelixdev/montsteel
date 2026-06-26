@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { MapPin, Mail, Clock, Users, TrendingUp, Shield, Heart, Briefcase, ArrowRight } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 const vagas = [
   {
@@ -42,6 +43,7 @@ export const metadata: Metadata = {
   title: "Trabalhe Conosco | CoberSteel — Galpões e Coberturas Industriais",
   description:
     "Faça parte do time CoberSteel. Confira nossas oportunidades e envie seu currículo para trabalhar com infraestrutura industrial de ponta.",
+  alternates: { canonical: "/institucional/trabalhe-conosco" },
 };
 
 const beneficios = [
@@ -75,6 +77,12 @@ export default function TrabalheCOnoscoPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Trabalhe Conosco" },
+            ]}
+          />
           <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
             Institucional
           </p>
