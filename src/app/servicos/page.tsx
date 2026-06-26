@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  Wrench, ShieldCheck, Zap, Expand, Truck, ClipboardList,
+  Wrench, ShieldCheck, Zap, Expand, Truck, ClipboardList, CheckCircle2,
+  type LucideIcon,
 } from "lucide-react";
+
+type Servico = {
+  icon: LucideIcon;
+  titulo: string;
+  badge?: string;
+  desc: string;
+  itens: string[];
+};
 
 export const metadata: Metadata = {
   title: "Serviços e Manutenções | CoberSteel — Galpões e Coberturas Industriais",
@@ -11,7 +20,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/servicos" },
 };
 
-const servicos = [
+const servicos: Servico[] = [
   {
     icon: Wrench,
     titulo: "Instalação e Montagem",
@@ -37,9 +46,10 @@ const servicos = [
   {
     icon: Zap,
     titulo: "Manutenção Corretiva",
+    badge: "Resposta em até 48h",
     desc: "Atendimento ágil para restaurar a integridade estrutural após danos causados por eventos climáticos, impactos ou deterioração natural. Priorizamos a segurança e a continuidade da sua operação.",
     itens: [
-      "Atendimento emergencial em até 48h",
+      "Atendimento emergencial prioritário",
       "Diagnóstico técnico preciso",
       "Execução com peças originais",
       "Garantia no serviço executado",
@@ -112,59 +122,56 @@ export default function ServicosPage() {
       </section>
 
       {/* Serviços */}
-      <section className="bg-dark-steel py-20">
+      <section className="bg-dark-steel py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="max-w-2xl mb-14">
+            <h2
+              className="text-4xl sm:text-5xl font-black uppercase text-white leading-none"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              O QUE FAZEMOS <span className="text-cobersteel-blue">POR VOCÊ</span>
+            </h2>
+            <p className="text-[#94A3B8] leading-relaxed mt-4">
+              Soluções completas para cada etapa da vida da sua estrutura — da montagem inicial à manutenção contínua, sempre com responsabilidade técnica.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {servicos.map((s) => (
               <div
                 key={s.titulo}
-                className="bg-dark-mid border border-dark-border rounded-xl p-8 flex flex-col gap-5"
+                className="group bg-dark-mid border border-dark-border rounded-2xl p-8 flex flex-col gap-6 transition-all duration-200 hover:border-cobersteel-gold/40 hover:-translate-y-1"
               >
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-cobersteel-gold/20 border border-cobersteel-gold/30 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-xl bg-cobersteel-gold/15 border border-cobersteel-gold/30 flex items-center justify-center flex-shrink-0 group-hover:bg-cobersteel-gold/25 transition-colors">
                     <s.icon className="w-6 h-6 text-cobersteel-gold" aria-hidden="true" />
                   </div>
                   <div>
-                    <h2
-                      className="text-xl font-black uppercase text-white mb-2"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                    >
-                      {s.titulo}
-                    </h2>
+                    <div className="flex items-center flex-wrap gap-x-3 gap-y-1.5 mb-2">
+                      <h3
+                        className="text-xl font-black uppercase text-white leading-tight"
+                        style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                      >
+                        {s.titulo}
+                      </h3>
+                      {s.badge && (
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide text-cobersteel-gold bg-cobersteel-gold/10 border border-cobersteel-gold/30 px-2.5 py-1 rounded-full">
+                          <Zap className="w-3 h-3" aria-hidden="true" />
+                          {s.badge}
+                        </span>
+                      )}
+                    </div>
                     <p className="text-sm text-[#94A3B8] leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-dark-border">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-2.5 pt-6 mt-auto border-t border-dark-border">
                   {s.itens.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs text-[#94A3B8]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold flex-shrink-0" aria-hidden="true" />
+                    <li key={item} className="flex items-start gap-2 text-xs text-[#94A3B8] leading-snug">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-cobersteel-gold/80 flex-shrink-0 mt-0.5" aria-hidden="true" />
                       {item}
                     </li>
                   ))}
                 </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Diferenciais */}
-      <section className="bg-dark-mid py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-3 gap-6 text-center">
-            {[
-              { num: "+25", label: "Anos de experiência em manutenção industrial" },
-              { num: "48h", label: "Tempo máximo de resposta para emergências" },
-              { num: "100%", label: "Serviços com ART de engenharia" },
-            ].map((d) => (
-              <div key={d.label} className="p-6">
-                <p
-                  className="text-5xl font-black text-cobersteel-gold mb-2"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  {d.num}
-                </p>
-                <p className="text-sm text-[#94A3B8]">{d.label}</p>
               </div>
             ))}
           </div>

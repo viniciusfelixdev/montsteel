@@ -132,7 +132,7 @@ export default function NormasAbntPage() {
               <Link
                 key={n.codigo}
                 href={`/institucional/normas-abnt/${n.slug}`}
-                className={`grid sm:grid-cols-4 gap-4 px-6 py-5 border-b border-dark-border last:border-0 hover:bg-cobersteel-blue/10 hover:border-l-2 hover:border-l-cobersteel-blue transition-all group ${
+                className={`grid sm:grid-cols-4 gap-4 px-6 py-5 border-b border-dark-border last:border-0 hover:bg-cobersteel-blue/10 transition-colors group ${
                   i % 2 === 0 ? "bg-dark-steel" : "bg-dark-mid"
                 }`}
               >
@@ -149,7 +149,7 @@ export default function NormasAbntPage() {
                     <p className="text-xs text-[#94A3B8] leading-relaxed">{n.resumo}</p>
                   </div>
                   <ChevronRight
-                    className="w-4 h-4 text-[#94A3B8] group-hover:text-cobersteel-blue flex-shrink-0 mt-0.5 transition-colors"
+                    className="w-4 h-4 text-[#94A3B8] group-hover:text-cobersteel-blue group-hover:translate-x-1 flex-shrink-0 mt-0.5 transition-all"
                     aria-hidden="true"
                   />
                 </div>
