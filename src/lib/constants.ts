@@ -12,6 +12,8 @@ export const CONTACT_INFO = {
   whatsappLink: "https://wa.me/5516997977613",
   instagram: "https://instagram.com/cobersteel",
   youtube: "https://youtube.com/@cobersteel",
+  facebook: "https://facebook.com/cobersteel",
+  linkedin: "https://linkedin.com/company/cobersteel",
 };
 
 export const COMPANY_NUMBERS = [

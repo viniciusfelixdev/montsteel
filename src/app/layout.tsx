@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
+import ScrollToTop from "@/components/shared/ScrollToTop";
 import Analytics from "@/components/shared/Analytics";
 import CookieConsent from "@/components/shared/CookieConsent";
 import StructuredData from "@/components/shared/StructuredData";
@@ -54,6 +55,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppButton />
+        <ScrollToTop />
         <CookieConsent />
         <Analytics />
         <StructuredData />

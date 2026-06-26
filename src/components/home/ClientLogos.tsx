@@ -2,16 +2,65 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRef, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const clients = [
   { name: "ArcelorMittal", file: "arcelor.png" },
-  { name: "Heineken", file: "heineken.png" },
-  { name: "Usina Furlan", file: "usina furlan.png" },
+  { name: "Heineken", file: "heineken.svg" },
+  { name: "Usina Furlan", file: "usina-furlan.png" },
+  { name: "Denusa — Destilaria Nova União", file: "denusa.png" },
+  { name: "Suzano", file: "suzano.svg" },
+  { name: "Santa Isabel", file: "santaisabel.svg" },
+  { name: "Vale", file: "vale.png" },
+  { name: "Zilor", file: "zilor.svg" },
+  { name: "Grupo Agronelli", file: "agroneli.png" },
+  { name: "MR Lit", file: "mrlit.svg" },
+  { name: "Katrium Indústrias Químicas", file: "katrium.png" },
+  { name: "Luft Logistics", file: "luft.png" },
 ];
 
 export default function ClientLogos() {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+  // Lista duplicada para o loop infinito ser contínuo.
+  const loop = [...clients, ...clients];
+
+  // Rolagem automática contínua com loop perfeito.
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    let raf: number;
+    const speed = 0.5; // px por frame
+
+    const step = () => {
+      if (el && !pausedRef.current) {
+        el.scrollLeft += speed;
+        const half = el.scrollWidth / 2;
+        if (el.scrollLeft >= half) el.scrollLeft -= half;
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const nudge = (dir: number) => {
+    const el = trackRef.current;
+    if (!el) return;
+    const half = el.scrollWidth / 2;
+    const amount = 260;
+
+    // Mantém a posição na primeira metade e garante espaço para rolar
+    // nos dois sentidos, pulando para a cópia idêntica (invisível).
+    if (el.scrollLeft >= half) el.scrollLeft -= half;
+    if (dir < 0 && el.scrollLeft < amount) el.scrollLeft += half;
+
+    el.scrollBy({ left: dir * amount, behavior: "smooth" });
+  };
+
   return (
-    <section className="bg-dark-steel py-16" aria-labelledby="clientes-titulo">
+    <section className="bg-dark-steel py-16 overflow-hidden" aria-labelledby="clientes-titulo">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -30,16 +79,45 @@ export default function ClientLogos() {
             Mais de 25 anos entregando soluções para os maiores players da indústria nacional
           </p>
         </motion.div>
+      </div>
 
-        <div className="flex flex-wrap justify-center items-center gap-6">
-          {clients.map((client, i) => (
-            <motion.div
-              key={client.name}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-xl px-8 py-5 flex items-center justify-center"
+      {/* Carrossel */}
+      <div
+        className="relative"
+        onMouseEnter={() => { pausedRef.current = true; }}
+        onMouseLeave={() => { pausedRef.current = false; }}
+      >
+        {/* Fades laterais */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 z-10 bg-gradient-to-r from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 z-10 bg-gradient-to-l from-dark-steel to-transparent" aria-hidden="true" />
+
+        {/* Setas */}
+        <button
+          type="button"
+          onClick={() => nudge(-1)}
+          aria-label="Logos anteriores"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-dark-mid/90 border border-dark-border text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+        >
+          <ChevronLeft className="w-5 h-5" aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          onClick={() => nudge(1)}
+          aria-label="Próximos logos"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-dark-mid/90 border border-dark-border text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+        >
+          <ChevronRight className="w-5 h-5" aria-hidden="true" />
+        </button>
+
+        <div
+          ref={trackRef}
+          className="no-scrollbar flex items-center gap-6 overflow-x-auto px-14"
+        >
+          {loop.map((client, i) => (
+            <div
+              key={`${client.file}-${i}`}
+              className="shrink-0 bg-white rounded-xl px-8 py-5 flex items-center justify-center"
+              aria-hidden={i >= clients.length}
             >
               <Image
                 src={`/images/clients/${client.file}`}
@@ -48,7 +126,7 @@ export default function ClientLogos() {
                 height={80}
                 className="h-16 w-auto object-contain"
               />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

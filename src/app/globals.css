@@ -47,3 +47,12 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Carrossel de logos: esconde a barra de rolagem do trilho */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

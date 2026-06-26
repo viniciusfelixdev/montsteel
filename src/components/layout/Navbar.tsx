@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { NAV_PRODUCTS, NAV_INSTITUCIONAL, SEGMENTS, BLOG_URL } from "@/lib/constants";
+import SocialLinks from "@/components/shared/SocialLinks";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -63,14 +64,14 @@ export default function Navbar() {
         aria-label="Navegação principal"
       >
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0 mt-10" aria-label="CoberSteel — Página inicial">
+        <Link href="/" className="flex-shrink-0" aria-label="CoberSteel — Página inicial">
           <Image
             src="/logo-branca.svg"
             alt="CoberSteel"
             width={370}
             height={94}
             priority
-            className="h-24 w-auto"
+            className="h-11 w-auto"
           />
         </Link>
 
@@ -177,6 +178,10 @@ export default function Navbar() {
               </Link>
             )
           )}
+
+          {/* Separador + redes sociais */}
+          <div className="w-px h-5 bg-white/20" aria-hidden="true" />
+          <SocialLinks className="flex items-center gap-3" />
         </div>
 
         {/* CTA */}
@@ -281,6 +286,11 @@ export default function Navbar() {
               >
                 Solicitar Orçamento
               </Link>
+            </div>
+
+            {/* Redes sociais */}
+            <div className="border-t border-dark-border mt-6 pt-6">
+              <SocialLinks className="flex items-center justify-center gap-6" iconClassName="w-5 h-5" />
             </div>
           </nav>
         </div>
