@@ -10,8 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/orcamento",
     "/servicos",
     "/institucional/quem-somos",
-    "/institucional/missao-visao-valores",
-    "/institucional/cobersteel-no-brasil",
     "/institucional/normas-abnt",
     "/institucional/portfolio",
     "/institucional/trabalhe-conosco",

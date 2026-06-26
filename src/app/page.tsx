@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import ProductsOverview from "@/components/home/ProductsOverview";
-import SectionDivider from "@/components/shared/SectionDivider";
 import NumbersSection from "@/components/home/NumbersSection";
 import SegmentsGrid from "@/components/home/SegmentsGrid";
 import ClientLogos from "@/components/home/ClientLogos";
@@ -20,13 +19,10 @@ export default function HomePage() {
       <Hero />
       <ProductsOverview />
 
-      <SectionDivider fromColor="#0F0F0F" toColor="#1A1A1A" />
       <NumbersSection />
-      <SectionDivider fromColor="#1A1A1A" toColor="#F4F4F4" />
 
       <SegmentsGrid />
 
-      <SectionDivider fromColor="#F4F4F4" toColor="#0F0F0F" />
       <ClientLogos />
       <AboutSummary />
 

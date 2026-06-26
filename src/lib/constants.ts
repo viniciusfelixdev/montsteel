@@ -66,10 +66,8 @@ export const SEGMENTS = [
 
 export const NAV_INSTITUCIONAL = [
   { href: "/institucional/quem-somos", label: "Quem Somos" },
-  { href: "/institucional/missao-visao-valores", label: "Missão, Visão e Valores" },
-  { href: "/institucional/cobersteel-no-brasil", label: "CoberSteel no Brasil" },
-  { href: "/institucional/normas-abnt", label: "Normas ABNT" },
   { href: "/institucional/portfolio", label: "Portfólio" },
+  { href: "/institucional/normas-abnt", label: "Normas ABNT" },
   { href: "/institucional/trabalhe-conosco", label: "Trabalhe Conosco" },
   { href: "/institucional/fornecedores", label: "Seja um Fornecedor" },
 ];

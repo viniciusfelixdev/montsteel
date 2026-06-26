@@ -65,23 +65,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/institucional/missao-visao-valores" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
-                  Missão, Visão e Valores
-                </Link>
-              </li>
-              <li>
-                <Link href="/institucional/cobersteel-no-brasil" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
-                  CoberSteel no Brasil
+                <Link href="/institucional/portfolio" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
+                  Portfólio
                 </Link>
               </li>
               <li>
                 <Link href="/institucional/normas-abnt" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
                   Normas ABNT
-                </Link>
-              </li>
-              <li>
-                <Link href="/institucional/portfolio" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
-                  Portfólio
                 </Link>
               </li>
               <li>
