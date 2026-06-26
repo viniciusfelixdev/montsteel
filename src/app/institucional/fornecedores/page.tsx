@@ -7,7 +7,6 @@ import {
   CheckCircle2, ChevronRight, Send, AlertCircle,
 } from "lucide-react";
 import CustomSelect from "@/components/shared/CustomSelect";
-import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { CONTACT_INFO } from "@/lib/constants";
 
 const CATEGORIA_OPTIONS = [
@@ -122,12 +121,6 @@ export default function FornecedoresPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            items={[
-              { label: "Início", href: "/" },
-              { label: "Seja um Fornecedor" },
-            ]}
-          />
           <Link
             href="/institucional/quem-somos"
             className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 hover:border-white px-4 py-2 rounded-lg transition-all mb-8 group"

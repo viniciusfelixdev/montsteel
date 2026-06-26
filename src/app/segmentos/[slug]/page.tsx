@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 import { getSegment, SEGMENTS_DATA } from "@/lib/segments";
 import { PRODUCTS } from "@/lib/constants";
-import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 const ICON_MAP: Record<string, LucideIcon> = {
   Wheat, UtensilsCrossed, Car, Building2, Factory, Mountain,
@@ -97,13 +96,6 @@ export default async function SegmentoPage({
           </>
         )}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            items={[
-              { label: "Início", href: "/" },
-              { label: "Segmentos" },
-              { label: segment.name },
-            ]}
-          />
           <Link
             href="/#segmentos"
             className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 hover:border-white px-4 py-2 rounded-lg transition-all mb-6 group"

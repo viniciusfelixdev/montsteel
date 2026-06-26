@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Shield, Zap, Leaf, Award, Target, Eye, Heart } from "lucide-react";
-import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Quem Somos | CoberSteel — Galpões e Coberturas Industriais",
@@ -43,12 +42,6 @@ export default function QuemSomosPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            items={[
-              { label: "Início", href: "/" },
-              { label: "Quem Somos" },
-            ]}
-          />
           <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
             Institucional
           </p>
@@ -131,10 +124,10 @@ export default function QuemSomosPage() {
               {timeline.map((item, i) => (
                 <div
                   key={item.year}
-                  className={`relative flex items-start gap-6 lg:gap-0 ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
+                  className={`relative flex items-center gap-6 lg:gap-0 ${i % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"}`}
                 >
                   {/* Dot */}
-                  <div className="absolute left-4 lg:left-1/2 w-3 h-3 bg-cobersteel-gold rounded-full -translate-x-1/2 mt-1.5" aria-hidden="true" />
+                  <div className="absolute left-4 lg:left-1/2 top-1/2 w-3 h-3 bg-cobersteel-gold rounded-full -translate-x-1/2 -translate-y-1/2" aria-hidden="true" />
 
                   {/* Content */}
                   <div className={`ml-10 lg:ml-0 lg:w-1/2 ${i % 2 === 0 ? "lg:pr-14" : "lg:pl-14"}`}>

@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Ruler, Truck, Users, Wrench, Building2 } from "lucide-react";
 import { COMPANY_NUMBERS } from "@/lib/constants";
-import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Portfólio de Obras | CoberSteel — Galpões e Coberturas Industriais",
@@ -86,12 +85,6 @@ export default function PortfolioPage() {
           aria-hidden="true"
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumbs
-            items={[
-              { label: "Início", href: "/" },
-              { label: "Portfólio" },
-            ]}
-          />
           <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
             Institucional
           </p>

@@ -5,7 +5,8 @@ import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const clients = [
+// dark: true → card com fundo escuro (para logos brancas)
+const clients: { name: string; file: string; dark?: boolean }[] = [
   { name: "ArcelorMittal", file: "arcelor.png" },
   { name: "Heineken", file: "heineken.svg" },
   { name: "Usina Furlan", file: "usina-furlan.png" },
@@ -18,6 +19,8 @@ const clients = [
   { name: "MR Lit", file: "mrlit.svg" },
   { name: "Katrium Indústrias Químicas", file: "katrium.png" },
   { name: "Luft Logistics", file: "luft.png" },
+  { name: "CSN", file: "csn.png" },
+  { name: "Barbosa Mello", file: "barbosamelo.webp", dark: true },
 ];
 
 export default function ClientLogos() {
@@ -116,7 +119,9 @@ export default function ClientLogos() {
           {loop.map((client, i) => (
             <div
               key={`${client.file}-${i}`}
-              className="shrink-0 bg-white rounded-xl px-8 py-5 flex items-center justify-center"
+              className={`shrink-0 rounded-xl px-8 py-5 flex items-center justify-center ${
+                client.dark ? "bg-dark-steel" : "bg-white"
+              }`}
               aria-hidden={i >= clients.length}
             >
               <Image
