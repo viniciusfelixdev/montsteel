@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-cobersteel-blue:   #5C88B5;
+  --color-cobersteel-gold:   #D7A03B;
+  --color-cobersteel-silver: #B0B8BD;
+  --color-dark-steel:        #0F0F0F;
+  --color-dark-mid:          #1A1A1A;
+  --color-dark-border:       #2A2A2A;
+  --color-light-bg:          #F4F4F4;
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F0F0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5C88B5;
+}
+
+body {
+  background-color: #0F0F0F;
+  color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
