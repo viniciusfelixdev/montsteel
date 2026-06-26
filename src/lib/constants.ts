@@ -1,3 +1,7 @@
+/** Blog hospedado em WordPress num subdomínio separado. Configurável via env. */
+export const BLOG_URL =
+  process.env.NEXT_PUBLIC_BLOG_URL || "https://blog.cobersteel.com.br";
+
 export const CONTACT_INFO = {
   address: "Rua Júlio Gonzaga, 317 - Distrito Industrial Antonio Guaraty - Ibaté/SP",
   hours: "Segunda a Sexta, das 8h às 18h",
@@ -58,6 +62,16 @@ export const SEGMENTS = [
   { slug: "siderurgico", name: "Siderúrgico", icon: "Layers" },
   { slug: "sucroalcooleiro", name: "Sucroalcooleiro", icon: "Leaf" },
   { slug: "varejo-atacado", name: "Varejo e Atacado", icon: "ShoppingCart" },
+];
+
+export const NAV_INSTITUCIONAL = [
+  { href: "/institucional/quem-somos", label: "Quem Somos" },
+  { href: "/institucional/missao-visao-valores", label: "Missão, Visão e Valores" },
+  { href: "/institucional/cobersteel-no-brasil", label: "CoberSteel no Brasil" },
+  { href: "/institucional/normas-abnt", label: "Normas ABNT" },
+  { href: "/institucional/portfolio", label: "Portfólio" },
+  { href: "/institucional/trabalhe-conosco", label: "Trabalhe Conosco" },
+  { href: "/institucional/fornecedores", label: "Seja um Fornecedor" },
 ];
 
 export const NAV_PRODUCTS = [

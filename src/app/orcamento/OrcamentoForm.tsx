@@ -44,9 +44,14 @@ export default function OrcamentoForm() {
   });
 
   async function onSubmit(data: FormData) {
+    setSubmitError(false);
     try {
-      await new Promise((r) => setTimeout(r, 1200));
-      console.log("Form data:", data);
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "orcamento", ...data }),
+      });
+      if (!res.ok) throw new Error("Falha no envio");
       setSubmitted(true);
       reset();
     } catch {

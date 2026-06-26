@@ -4,15 +4,17 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { NAV_PRODUCTS, SEGMENTS } from "@/lib/constants";
+import { NAV_PRODUCTS, NAV_INSTITUCIONAL, SEGMENTS, BLOG_URL } from "@/lib/constants";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [segmentsOpen, setSegmentsOpen] = useState(false);
+  const [instOpen, setInstOpen] = useState(false);
   const productsRef = useRef<HTMLDivElement>(null);
   const segmentsRef = useRef<HTMLDivElement>(null);
+  const instRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -27,6 +29,9 @@ export default function Navbar() {
       }
       if (segmentsRef.current && !segmentsRef.current.contains(e.target as Node)) {
         setSegmentsOpen(false);
+      }
+      if (instRef.current && !instRef.current.contains(e.target as Node)) {
+        setInstOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -43,10 +48,8 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const navLinks = [
-    { href: "/institucional/quem-somos", label: "Quem Somos" },
-    { href: "/institucional/normas-abnt", label: "Normas ABNT" },
-    { href: "/servicos", label: "Serviços" },
-    { href: "/blog", label: "Blog" },
+    { href: "/servicos", label: "Serviços", external: false },
+    { href: BLOG_URL, label: "Blog", external: true },
   ];
 
   return (
@@ -127,15 +130,53 @@ export default function Navbar() {
             )}
           </div>
 
-          {navLinks.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className="text-sm font-medium text-white/90 hover:text-cobersteel-gold transition-colors"
+          {/* Institucional dropdown */}
+          <div ref={instRef} className="relative">
+            <button
+              onClick={() => { setInstOpen(!instOpen); setProductsOpen(false); setSegmentsOpen(false); }}
+              className="flex items-center gap-1 text-sm font-medium text-white/90 hover:text-cobersteel-gold transition-colors"
+              aria-expanded={instOpen}
+              aria-haspopup="true"
             >
-              {l.label}
-            </Link>
-          ))}
+              Institucional <ChevronDown className={`w-4 h-4 transition-transform ${instOpen ? "rotate-180" : ""}`} />
+            </button>
+            {instOpen && (
+              <div className="absolute top-full left-0 mt-2 w-64 bg-dark-mid border border-dark-border rounded-lg shadow-xl py-2">
+                {NAV_INSTITUCIONAL.map((i) => (
+                  <Link
+                    key={i.href}
+                    href={i.href}
+                    onClick={() => setInstOpen(false)}
+                    className="block px-4 py-2.5 text-sm text-white/80 hover:text-cobersteel-gold hover:bg-dark-steel transition-colors"
+                  >
+                    {i.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {navLinks.map((l) =>
+            l.external ? (
+              <a
+                key={l.href}
+                href={l.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-white/90 hover:text-cobersteel-gold transition-colors"
+              >
+                {l.label}
+              </a>
+            ) : (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="text-sm font-medium text-white/90 hover:text-cobersteel-gold transition-colors"
+              >
+                {l.label}
+              </Link>
+            )
+          )}
         </div>
 
         {/* CTA */}
@@ -197,16 +238,41 @@ export default function Navbar() {
               ))}
             </div>
             <div className="border-t border-dark-border my-4" />
-            {navLinks.map((l) => (
+            <p className="text-xs uppercase tracking-widest text-cobersteel-silver mb-2 px-3">Institucional</p>
+            {NAV_INSTITUCIONAL.map((i) => (
               <Link
-                key={l.href}
-                href={l.href}
+                key={i.href}
+                href={i.href}
                 onClick={() => setMobileOpen(false)}
                 className="block px-3 py-3 text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-dark-mid transition-colors"
               >
-                {l.label}
+                {i.label}
               </Link>
             ))}
+            <div className="border-t border-dark-border my-4" />
+            {navLinks.map((l) =>
+              l.external ? (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-3 py-3 text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-dark-mid transition-colors"
+                >
+                  {l.label}
+                </a>
+              ) : (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-3 py-3 text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-dark-mid transition-colors"
+                >
+                  {l.label}
+                </Link>
+              )
+            )}
             <div className="pt-4">
               <Link
                 href="/orcamento"

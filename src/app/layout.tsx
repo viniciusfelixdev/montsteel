@@ -3,17 +3,31 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
+import Analytics from "@/components/shared/Analytics";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "CoberSteel | Galpões de Lona, Metálicos e Coberturas Industriais — Ibaté/SP",
   description:
     "Galpões e coberturas industriais para locação e venda. Projetos conforme normas ABNT, com mais de 25 anos de experiência. Atendemos todo o Brasil.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "CoberSteel | Galpões e Coberturas Industriais",
     description:
       "Infraestrutura industrial flexível: galpões de lona, metálicos e híbridos para locação e venda.",
     type: "website",
     locale: "pt_BR",
+    siteName: "CoberSteel",
+    url: SITE_URL,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CoberSteel | Galpões e Coberturas Industriais",
+    description:
+      "Infraestrutura industrial flexível: galpões de lona, metálicos e híbridos para locação e venda.",
   },
 };
 
@@ -37,6 +51,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <WhatsAppButton />
+        <Analytics />
       </body>
     </html>
   );

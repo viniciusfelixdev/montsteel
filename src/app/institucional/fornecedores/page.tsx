@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import {
   Package, Truck, Wrench, HardHat, Layers, ArrowLeft,
-  CheckCircle2, ChevronRight, Send,
+  CheckCircle2, ChevronRight, Send, AlertCircle,
 } from "lucide-react";
 import SelectField from "@/components/shared/SelectField";
 import { CONTACT_INFO } from "@/lib/constants";
@@ -54,6 +54,8 @@ const etapas = [
 
 export default function FornecedoresPage() {
   const [enviado, setEnviado] = useState(false);
+  const [enviando, setEnviando] = useState(false);
+  const [erro, setErro] = useState(false);
   const [form, setForm] = useState({
     razaoSocial: "",
     cnpj: "",
@@ -69,23 +71,39 @@ export default function FornecedoresPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setEnviado(true);
+    setErro(false);
+    setEnviando(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ type: "fornecedor", ...form }),
+      });
+      if (!res.ok) throw new Error("Falha no envio");
+      setEnviado(true);
+    } catch {
+      setErro(true);
+    } finally {
+      setEnviando(false);
+    }
   }
 
   return (
     <>
       {/* Header */}
-      <section className="relative bg-dark-mid pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-32 pb-20 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0"
           style={{
-            backgroundImage: "repeating-linear-gradient(45deg, #5C88B5 0, #5C88B5 1px, transparent 0, transparent 50%)",
-            backgroundSize: "20px 20px",
+            backgroundImage: "url('/images/fornecedores-banner.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
           aria-hidden="true"
         />
+        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/institucional/quem-somos"
@@ -360,12 +378,20 @@ export default function FornecedoresPage() {
                 />
               </div>
 
+              {erro && (
+                <div className="flex items-center gap-2 bg-red-900/30 border border-red-700/50 rounded-lg px-4 py-3 text-sm text-red-300">
+                  <AlertCircle className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
+                  Erro ao enviar. Tente novamente ou fale conosco pelo WhatsApp.
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 w-full py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+                disabled={enviando}
+                className="inline-flex items-center justify-center gap-2 w-full py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <Send className="w-4 h-4" aria-hidden="true" />
-                Enviar Cadastro
+                {enviando ? "Enviando..." : "Enviar Cadastro"}
               </button>
 
               <p className="text-xs text-[#94A3B8] text-center">

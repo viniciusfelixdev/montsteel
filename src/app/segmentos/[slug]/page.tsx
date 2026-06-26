@@ -5,11 +5,12 @@ import {
   Wheat, UtensilsCrossed, Car, Building2, Factory, Mountain,
   FileText, Flame, Anchor, Layers, Leaf, ShoppingCart,
   ArrowLeft, CheckCircle2, ChevronRight,
+  type LucideIcon,
 } from "lucide-react";
 import { getSegment, SEGMENTS_DATA } from "@/lib/segments";
 import { PRODUCTS } from "@/lib/constants";
 
-const ICON_MAP: Record<string, React.ComponentType<{ className?: string; "aria-hidden"?: string }>> = {
+const ICON_MAP: Record<string, LucideIcon> = {
   Wheat, UtensilsCrossed, Car, Building2, Factory, Mountain,
   FileText, Flame, Anchor, Layers, Leaf, ShoppingCart,
 };

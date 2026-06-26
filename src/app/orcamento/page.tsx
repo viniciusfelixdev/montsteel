@@ -138,6 +138,19 @@ export default function OrcamentoPage() {
                     Falar no WhatsApp agora
                   </a>
                 </div>
+
+                <div className="mt-6 rounded-lg overflow-hidden border border-dark-border">
+                  <iframe
+                    title="Localização da CoberSteel no mapa"
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(CONTACT_INFO.address)}&output=embed`}
+                    width="100%"
+                    height="220"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    style={{ border: 0, filter: "grayscale(0.2) contrast(1.05)" }}
+                    allowFullScreen
+                  />
+                </div>
               </div>
             </aside>
           </div>

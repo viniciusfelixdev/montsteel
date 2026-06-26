@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Clock, Phone, Mail } from "lucide-react";
-import { CONTACT_INFO, PRODUCTS, SEGMENTS } from "@/lib/constants";
+import { CONTACT_INFO, PRODUCTS, SEGMENTS, BLOG_URL } from "@/lib/constants";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -65,8 +65,23 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/institucional/missao-visao-valores" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
+                  Missão, Visão e Valores
+                </Link>
+              </li>
+              <li>
+                <Link href="/institucional/cobersteel-no-brasil" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
+                  CoberSteel no Brasil
+                </Link>
+              </li>
+              <li>
                 <Link href="/institucional/normas-abnt" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
                   Normas ABNT
+                </Link>
+              </li>
+              <li>
+                <Link href="/institucional/portfolio" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
+                  Portfólio
                 </Link>
               </li>
               <li>
@@ -80,9 +95,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
+                <a
+                  href={BLOG_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[#94A3B8] hover:text-white transition-colors"
+                >
                   Blog
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/institucional/privacidade" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
