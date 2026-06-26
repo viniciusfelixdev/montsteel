@@ -1,11 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/shared/WhatsAppButton";
 import Analytics from "@/components/shared/Analytics";
 import CookieConsent from "@/components/shared/CookieConsent";
+import StructuredData from "@/components/shared/StructuredData";
 import { SITE_URL } from "@/lib/site";
+
+export const viewport: Viewport = {
+  themeColor: "#0F1923",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -54,6 +59,7 @@ export default function RootLayout({
         <WhatsAppButton />
         <CookieConsent />
         <Analytics />
+        <StructuredData />
       </body>
     </html>
   );
