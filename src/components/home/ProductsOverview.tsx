@@ -48,89 +48,86 @@ export default function ProductsOverview() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PRODUCTS.map((product, i) => (
+            <Link key={product.slug} href={`/produtos/${product.slug}`} className="group flex flex-col bg-dark-mid rounded-xl overflow-hidden cursor-pointer">
+              <motion.article
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="flex flex-col flex-1"
+              >
+                {/* Imagem */}
+                <div className="relative h-48 overflow-hidden">
+                  {productImages[product.slug] ? (
+                    <Image
+                      src={productImages[product.slug]}
+                      alt={product.name}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-dark-steel flex items-center justify-center">
+                      <div className="w-8 h-1 bg-cobersteel-blue/40 rounded" />
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-mid/60 to-transparent" />
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col flex-1 p-6">
+                  <h3
+                    className="text-xl font-bold uppercase text-white mb-2 group-hover:text-cobersteel-gold transition-colors"
+                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  >
+                    {product.name}
+                  </h3>
+                  <p className="text-sm text-[#94A3B8] mb-6 leading-relaxed flex-1">
+                    {product.shortDesc}
+                  </p>
+                  <span className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white group-hover:bg-cobersteel-blue group-hover:text-white transition-all self-start">
+                    Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                  </span>
+                </div>
+              </motion.article>
+            </Link>
+          ))}
+
+          {/* Niveladoras de Doca */}
+          <Link href="/produtos/niveladoras-de-doca" className="group flex flex-col bg-dark-mid rounded-xl overflow-hidden cursor-pointer">
             <motion.article
-              key={product.slug}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="group flex flex-col bg-dark-mid border border-dark-border rounded-xl overflow-hidden hover:border-cobersteel-blue/50 transition-colors"
+              transition={{ duration: 0.5, delay: PRODUCTS.length * 0.08 }}
+              className="flex flex-col flex-1"
             >
-              {/* Imagem */}
               <div className="relative h-48 overflow-hidden">
-                {productImages[product.slug] ? (
-                  <Image
-                    src={productImages[product.slug]}
-                    alt={product.name}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  />
-                ) : (
-                  <div className="w-full h-full bg-dark-steel flex items-center justify-center">
-                    <div className="w-8 h-1 bg-cobersteel-blue/40 rounded" />
-                  </div>
-                )}
+                <Image
+                  src="/images/produtos/niveladoras-de-doca.png"
+                  alt="Niveladora de Doca"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-mid/60 to-transparent" />
               </div>
-
-              {/* Content */}
               <div className="flex flex-col flex-1 p-6">
                 <h3
                   className="text-xl font-bold uppercase text-white mb-2 group-hover:text-cobersteel-gold transition-colors"
                   style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                 >
-                  {product.name}
+                  Niveladoras de Doca
                 </h3>
                 <p className="text-sm text-[#94A3B8] mb-6 leading-relaxed flex-1">
-                  {product.shortDesc}
+                  Equipamentos logísticos para otimizar o carregamento e descarregamento de veículos
                 </p>
-                <Link
-                  href={`/produtos/${product.slug}`}
-                  className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white transition-all self-start"
-                >
+                <span className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white group-hover:bg-cobersteel-blue group-hover:text-white transition-all self-start">
                   Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                </Link>
+                </span>
               </div>
             </motion.article>
-          ))}
-
-          {/* Niveladoras de Doca */}
-          <motion.article
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: PRODUCTS.length * 0.08 }}
-            className="group flex flex-col bg-dark-mid border border-dark-border rounded-xl overflow-hidden hover:border-cobersteel-blue/50 transition-colors"
-          >
-            <div className="relative h-48 overflow-hidden">
-              <Image
-                src="/images/produtos/niveladoras-de-doca.png"
-                alt="Niveladora de Doca"
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark-mid/60 to-transparent" />
-            </div>
-            <div className="flex flex-col flex-1 p-6">
-              <h3
-                className="text-xl font-bold uppercase text-white mb-2 group-hover:text-cobersteel-gold transition-colors"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-              >
-                Niveladoras de Doca
-              </h3>
-              <p className="text-sm text-[#94A3B8] mb-6 leading-relaxed flex-1">
-                Equipamentos logísticos para otimizar o carregamento e descarregamento de veículos
-              </p>
-              <Link
-                href="/produtos/niveladoras-de-doca"
-                className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white transition-all self-start"
-              >
-                Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </motion.article>
+          </Link>
         </div>
       </div>
     </section>

@@ -71,7 +71,7 @@ export default function NumbersSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="text-center p-6 bg-black/50 border border-white/10 rounded-xl backdrop-blur-sm"
+                  className="text-center p-6 bg-black/50 rounded-xl backdrop-blur-sm"
                 >
                   <div className="flex justify-center mb-4">
                     <Icon className="w-8 h-8 text-cobersteel-blue" aria-hidden="true" />

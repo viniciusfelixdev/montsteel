@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Package, Truck, Wrench, HardHat, Layers, ArrowLeft,
-  CheckCircle2, ChevronRight, Send, AlertCircle,
+  CheckCircle2, ChevronDown, Send, AlertCircle,
+  ChevronLeft, ChevronRight,
 } from "lucide-react";
 import CustomSelect from "@/components/shared/CustomSelect";
 import { CONTACT_INFO } from "@/lib/constants";
@@ -29,28 +31,124 @@ const categorias = [
   {
     icon: Layers,
     titulo: "Aço e Perfis Metálicos",
-    itens: ["Perfis formados a frio (Z, U, Ômega)", "Chapas e bobinas galvanizadas", "Perfis laminados", "Tubos estruturais"],
+    itens: [
+      {
+        nome: "Tubos Quadrados e Retangulares",
+        descricao: "Tubos estruturais de seção quadrada e retangular para colunas, vigas e contraventamentos. Trabalhamos com diversas bitolas e espessuras de parede, conforme o dimensionamento de cada projeto.",
+      },
+      {
+        nome: "Perfis Laminados (I, W, H, U)",
+        descricao: "Perfis laminados a quente para estruturas de grande porte e altas cargas. Usados em pilares e vigas principais de galpões metálicos e mezaninos.",
+      },
+      {
+        nome: "Perfis Formados a Frio (Z, U, Ômega)",
+        descricao: "Perfis conformados a frio para terças, longarinas e estruturas secundárias. Solução leve e econômica para vencer vãos com eficiência estrutural.",
+      },
+      {
+        nome: "Chapas e Bobinas Galvanizadas",
+        descricao: "Chapas e bobinas de aço com revestimento galvanizado para maior resistência à corrosão, empregadas em peças, conexões e fechamentos.",
+      },
+    ],
   },
   {
     icon: Package,
     titulo: "Coberturas e Vedações",
-    itens: ["Lonas PVC e lonas técnicas", "Telhas metálicas e termoacústicas", "Telhas translúcidas", "Calhas e rufos"],
+    itens: [
+      {
+        nome: "Lonas PVC e Lonas Técnicas",
+        descricao: "Lonas de PVC de alta densidade com proteção UV e antichama, usadas na cobertura dos galpões de lona e híbridos. Alta durabilidade frente a chuva, vento e radiação solar.",
+      },
+      {
+        nome: "Telhas Metálicas e Termoacústicas",
+        descricao: "Telhas de aço simples e com isolamento termoacústico (sanduíche), para conforto térmico e redução de ruído em ambientes industriais.",
+      },
+      {
+        nome: "Telhas Translúcidas",
+        descricao: "Telhas translúcidas em policarbonato ou poliéster para aproveitamento de luz natural, reduzindo o consumo de energia com iluminação artificial.",
+      },
+      {
+        nome: "Calhas e Rufos",
+        descricao: "Sistema de captação e condução de águas pluviais, fabricado sob medida para a geometria de cada cobertura.",
+      },
+    ],
   },
   {
     icon: Wrench,
     titulo: "Fixação e Acabamentos",
-    itens: ["Parafusos e conectores estruturais", "Ancoragens e chumbadores", "Tintas e tratamentos anticorrosivos", "Vedantes e silicones industriais"],
+    itens: [
+      {
+        nome: "Parafusos e Conectores Estruturais",
+        descricao: "Parafusos de alta resistência e conectores estruturais para ligações seguras entre os elementos metálicos, conforme as normas aplicáveis.",
+      },
+      {
+        nome: "Ancoragens e Chumbadores",
+        descricao: "Chumbadores e ancoragens para fixação da estrutura à fundação, dimensionados para as cargas de cada projeto.",
+      },
+      {
+        nome: "Tintas e Tratamentos Anticorrosivos",
+        descricao: "Sistemas de pintura e tratamento de superfície que prolongam a vida útil da estrutura, inclusive em ambientes agressivos e corrosivos.",
+      },
+      {
+        nome: "Vedantes e Silicones Industriais",
+        descricao: "Selantes e vedantes industriais para estanqueidade de juntas, sobreposições de telhas e pontos de fixação.",
+      },
+    ],
   },
   {
     icon: Truck,
     titulo: "Logística e Transporte",
-    itens: ["Transporte de carga pesada e especial", "Locação de caminhões munck e guindastes", "Logística de longa distância", "Armazenagem e distribuição"],
+    itens: [
+      {
+        nome: "Transporte de Carga Pesada e Especial",
+        descricao: "Transporte de estruturas e peças de grande porte, incluindo cargas com dimensões especiais, para obras em todo o país.",
+      },
+      {
+        nome: "Caminhões Munck e Guindastes",
+        descricao: "Locação de caminhões munck e guindastes para o içamento e a movimentação das estruturas no canteiro de obra.",
+      },
+      {
+        nome: "Logística de Longa Distância",
+        descricao: "Operação logística para atendimento nacional, com planejamento de rotas e prazos de entrega para qualquer região.",
+      },
+      {
+        nome: "Armazenagem e Distribuição",
+        descricao: "Estrutura de armazenagem e distribuição de materiais para apoiar o cronograma de fornecimento das obras.",
+      },
+    ],
   },
   {
     icon: HardHat,
     titulo: "Serviços e Mão de Obra",
-    itens: ["Soldagem e caldeiraria", "Içamento e movimentação de cargas", "Fundações e serviços civis", "Locação de equipamentos de obra"],
+    itens: [
+      {
+        nome: "Soldagem e Caldeiraria",
+        descricao: "Serviços de soldagem e caldeiraria com profissionais qualificados para fabricação e ajustes estruturais em campo e em fábrica.",
+      },
+      {
+        nome: "Içamento e Movimentação de Cargas",
+        descricao: "Equipes e equipamentos especializados em içamento e movimentação segura de cargas durante a montagem.",
+      },
+      {
+        nome: "Fundações e Serviços Civis",
+        descricao: "Execução de fundações e serviços civis complementares necessários à implantação da estrutura metálica.",
+      },
+      {
+        nome: "Locação de Equipamentos de Obra",
+        descricao: "Locação de equipamentos e plataformas de trabalho em altura para apoio à montagem e manutenção.",
+      },
+    ],
   },
+];
+
+const suppliers: { name: string; file: string; dark?: boolean }[] = [
+  { name: "Gerdau", file: "gerdau.png" },
+  { name: "Usiminas", file: "usiminas.png" },
+  { name: "ArcelorMittal", file: "arcelor.png" },
+  { name: "CSN", file: "csn.png" },
+  { name: "Vallourec", file: "vallourec.png" },
+  { name: "Ternium", file: "ternium.png" },
+  { name: "Aço Cearense", file: "aco-cearense.png" },
+  { name: "Ruukki", file: "ruukki.png", dark: true },
 ];
 
 const requisitos = [
@@ -82,6 +180,39 @@ export default function FornecedoresPage() {
     atuacao: "",
     mensagem: "",
   });
+  const [categoriaAberta, setCategoriaAberta] = useState<string | null>(categorias[0].titulo);
+  const [itemAberto, setItemAberto] = useState<string | null>(null);
+
+  const supplierTrackRef = useRef<HTMLDivElement>(null);
+  const supplierPausedRef = useRef(false);
+  const suppliersLoop = [...suppliers, ...suppliers];
+
+  useEffect(() => {
+    const el = supplierTrackRef.current;
+    if (!el) return;
+    let raf: number;
+    const speed = 0.5;
+    const step = () => {
+      if (el && !supplierPausedRef.current) {
+        el.scrollLeft += speed;
+        const half = el.scrollWidth / 2;
+        if (el.scrollLeft >= half) el.scrollLeft -= half;
+      }
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  const nudgeSuppliers = (dir: number) => {
+    const el = supplierTrackRef.current;
+    if (!el) return;
+    const half = el.scrollWidth / 2;
+    const amount = 260;
+    if (el.scrollLeft >= half) el.scrollLeft -= half;
+    if (dir < 0 && el.scrollLeft < amount) el.scrollLeft += half;
+    el.scrollBy({ left: dir * amount, behavior: "smooth" });
+  };
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -123,14 +254,15 @@ export default function FornecedoresPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/institucional/quem-somos"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 hover:border-white px-4 py-2 rounded-lg transition-all mb-8 group"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-8 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Institucional
           </Link>
-          <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-            Seja um Parceiro
-          </p>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-8 h-px bg-cobersteel-gold" aria-hidden="true" />
+            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest">Institucional</p>
+          </div>
           <h1
             className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -143,8 +275,73 @@ export default function FornecedoresPage() {
         </div>
       </section>
 
+      {/* Carrossel de fornecedores */}
+      <section className="bg-dark-steel py-16 overflow-hidden" aria-labelledby="fornecedores-carousel-titulo">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
+          <h2
+            id="fornecedores-carousel-titulo"
+            className="text-3xl font-black uppercase text-white"
+            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+          >
+            NOSSOS PRINCIPAIS FORNECEDORES
+          </h2>
+          <p className="mt-3 text-sm text-[#94A3B8]">
+            Parceiros homologados que garantem a qualidade e a rastreabilidade de cada projeto
+          </p>
+        </div>
+
+        <div
+          className="relative"
+          onMouseEnter={() => { supplierPausedRef.current = true; }}
+          onMouseLeave={() => { supplierPausedRef.current = false; }}
+        >
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 z-10 bg-gradient-to-r from-dark-steel to-transparent" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 z-10 bg-gradient-to-l from-dark-steel to-transparent" aria-hidden="true" />
+
+          <button
+            type="button"
+            onClick={() => nudgeSuppliers(-1)}
+            aria-label="Fornecedores anteriores"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-dark-steel/90 border border-dark-border text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5" aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={() => nudgeSuppliers(1)}
+            aria-label="Próximos fornecedores"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-dark-steel/90 border border-dark-border text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+          >
+            <ChevronRight className="w-5 h-5" aria-hidden="true" />
+          </button>
+
+          <div
+            ref={supplierTrackRef}
+            className="no-scrollbar flex items-center gap-6 overflow-x-auto px-14"
+          >
+            {suppliersLoop.map((s, i) => (
+              <div
+                key={`${s.file}-${i}`}
+                className={`shrink-0 rounded-xl px-8 py-5 flex items-center justify-center ${
+                  s.dark ? "bg-dark-steel" : "bg-white"
+                }`}
+                aria-hidden={i >= suppliers.length}
+              >
+                <Image
+                  src={`/images/suppliers/${s.file}`}
+                  alt={s.name}
+                  width={160}
+                  height={80}
+                  className="h-16 w-auto object-contain"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Categorias */}
-      <section className="bg-dark-steel py-20">
+      <section className="bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">O que buscamos</p>
@@ -156,28 +353,74 @@ export default function FornecedoresPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {categorias.map((cat) => (
-              <div key={cat.titulo} className="bg-dark-mid border border-dark-border rounded-xl p-6">
-                <div className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 border border-cobersteel-blue/30 flex items-center justify-center mb-4">
-                  <cat.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
+          <div className="max-w-3xl mx-auto rounded-xl overflow-hidden divide-y divide-dark-border border border-dark-border">
+            {categorias.map((cat) => {
+              const aberta = categoriaAberta === cat.titulo;
+              return (
+                <div key={cat.titulo} className="bg-dark-steel">
+                  <h3>
+                    <button
+                      type="button"
+                      onClick={() => setCategoriaAberta(aberta ? null : cat.titulo)}
+                      aria-expanded={aberta}
+                      className="w-full flex items-center gap-4 px-5 sm:px-6 py-5 text-left hover:bg-cobersteel-blue/5 transition-colors"
+                    >
+                      <span className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 flex items-center justify-center flex-shrink-0">
+                        <cat.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
+                      </span>
+                      <span
+                        className="flex-1 font-black uppercase text-white text-base sm:text-lg"
+                        style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                      >
+                        {cat.titulo}
+                      </span>
+                      <ChevronDown
+                        className={`w-5 h-5 text-cobersteel-blue flex-shrink-0 transition-transform duration-300 ${aberta ? "rotate-180" : ""}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </h3>
+                  <div
+                    className={`grid transition-all duration-300 ease-out ${aberta ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+                  >
+                    <div className="overflow-hidden">
+                      <ul className="px-3 sm:px-4 pb-4 pl-14 sm:pl-[4rem] space-y-1.5">
+                        {cat.itens.map((item) => {
+                          const chave = `${cat.titulo}__${item.nome}`;
+                          const itemOpen = itemAberto === chave;
+                          return (
+                            <li key={item.nome} className="rounded-lg bg-dark-mid/60 overflow-hidden">
+                              <button
+                                type="button"
+                                onClick={() => setItemAberto(itemOpen ? null : chave)}
+                                aria-expanded={itemOpen}
+                                className="w-full flex items-center gap-2.5 px-4 py-3 text-left hover:bg-cobersteel-blue/5 transition-colors"
+                              >
+                                <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-blue flex-shrink-0" aria-hidden="true" />
+                                <span className="flex-1 text-sm font-semibold text-white">{item.nome}</span>
+                                <ChevronDown
+                                  className={`w-4 h-4 text-cobersteel-blue flex-shrink-0 transition-transform duration-300 ${itemOpen ? "rotate-180" : ""}`}
+                                  aria-hidden="true"
+                                />
+                              </button>
+                              <div
+                                className={`grid transition-all duration-300 ease-out ${itemOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+                              >
+                                <div className="overflow-hidden">
+                                  <p className="px-4 pb-4 pl-8 text-sm text-[#94A3B8] leading-relaxed">
+                                    {item.descricao}
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <h3
-                  className="font-black uppercase text-white text-sm mb-4"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  {cat.titulo}
-                </h3>
-                <ul className="space-y-2">
-                  {cat.itens.map((item) => (
-                    <li key={item} className="flex items-center gap-2 text-xs text-[#94A3B8]">
-                      <ChevronRight className="w-3 h-3 text-cobersteel-blue flex-shrink-0" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -185,7 +428,7 @@ export default function FornecedoresPage() {
       {/* Requisitos + Processo */}
       <section className="bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-14">
+          <div className="grid md:grid-cols-2 gap-14">
 
             {/* Requisitos */}
             <div>
@@ -248,12 +491,12 @@ export default function FornecedoresPage() {
               className="text-4xl font-black uppercase text-white"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              CADASTRE SUA <span className="text-cobersteel-blue">EMPRESA</span>
+              CADASTRE SUA EMPRESA
             </h2>
           </div>
 
           {enviado ? (
-            <div className="bg-dark-mid border border-cobersteel-gold/30 rounded-xl p-10 text-center">
+            <div className="bg-dark-mid rounded-xl p-10 text-center">
               <CheckCircle2 className="w-12 h-12 text-cobersteel-gold mx-auto mb-4" aria-hidden="true" />
               <h3
                 className="text-2xl font-black uppercase text-white mb-2"
@@ -268,7 +511,7 @@ export default function FornecedoresPage() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="bg-dark-mid border border-dark-border rounded-xl p-8 space-y-5"
+              className="bg-dark-mid rounded-xl p-8 space-y-5"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>

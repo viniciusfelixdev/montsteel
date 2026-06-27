@@ -91,7 +91,7 @@ export default function PrivacidadePage() {
       {/* Conteúdo */}
       <section className="bg-dark-steel py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-dark-mid border border-dark-border rounded-xl p-8 sm:p-12 space-y-10">
+          <div className="bg-dark-mid rounded-xl p-8 sm:p-12 space-y-10">
             <p className="text-[#94A3B8] leading-relaxed">
               A CoberSteel valoriza a privacidade e a proteção dos dados pessoais de seus clientes, parceiros e visitantes. Esta Política descreve como coletamos, usamos, armazenamos e protegemos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD).
             </p>
@@ -118,7 +118,7 @@ export default function PrivacidadePage() {
           <div className="mt-8 text-center">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 hover:border-white px-4 py-2 rounded-lg transition-all group"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all group"
             >
               <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
               Voltar para o início

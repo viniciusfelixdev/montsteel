@@ -76,9 +76,10 @@ export default function TrabalheCOnoscoPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-            Institucional
-          </p>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-8 h-px bg-cobersteel-gold" aria-hidden="true" />
+            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest">Institucional</p>
+          </div>
           <h1
             className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -105,9 +106,9 @@ export default function TrabalheCOnoscoPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {beneficios.map((b) => (
-              <div key={b.titulo} className="p-6 bg-dark-mid border border-dark-border rounded-xl">
-                <div className="w-10 h-10 rounded-lg bg-cobersteel-gold/20 border border-cobersteel-gold/30 flex items-center justify-center mb-4">
-                  <b.icon className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
+              <div key={b.titulo} className="p-6 bg-dark-mid rounded-xl">
+                <div className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 flex items-center justify-center mb-4">
+                  <b.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                 </div>
                 <h3
                   className="font-bold uppercase text-white text-sm mb-2"
@@ -136,7 +137,7 @@ export default function TrabalheCOnoscoPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {areas.map((a) => (
-              <div key={a.area} className="p-6 bg-dark-steel border border-dark-border rounded-xl">
+              <div key={a.area} className="p-6 bg-dark-steel rounded-xl">
                 <h3
                   className="text-lg font-black uppercase text-white mb-2"
                   style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -167,7 +168,7 @@ export default function TrabalheCOnoscoPage() {
             {vagas.map((v) => (
               <div
                 key={v.titulo}
-                className="flex flex-col sm:flex-row sm:items-center gap-5 justify-between p-6 bg-dark-mid border border-dark-border rounded-xl hover:border-cobersteel-blue/50 transition-colors"
+                className="flex flex-col sm:flex-row sm:items-center gap-5 justify-between p-6 bg-dark-mid rounded-xl"
               >
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -211,7 +212,7 @@ export default function TrabalheCOnoscoPage() {
       {/* Formulário / Envio de currículo */}
       <section className="bg-dark-mid py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-dark-mid border border-dark-border rounded-xl p-8">
+          <div className="bg-dark-mid rounded-xl p-8">
             <h2
               className="text-3xl font-black uppercase text-white mb-2"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}

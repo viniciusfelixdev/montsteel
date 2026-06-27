@@ -138,7 +138,7 @@ export default async function NormaPage({
       {/* Aplicação CoberSteel */}
       <section className="bg-dark-mid py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl border border-cobersteel-blue/25 bg-cobersteel-blue/5 p-8">
+          <div className="rounded-2xl bg-cobersteel-blue/5 p-8">
             <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
               Como a CoberSteel aplica esta norma
             </p>
@@ -150,7 +150,7 @@ export default async function NormaPage({
       {/* Pontos críticos */}
       <section className="bg-dark-steel py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-dark-mid border border-cobersteel-gold/30 rounded-xl p-8">
+          <div className="bg-dark-mid rounded-xl p-8">
             <div className="flex items-center gap-3 mb-6">
               <AlertCircle className="w-5 h-5 text-cobersteel-gold flex-shrink-0" aria-hidden="true" />
               <h2

@@ -85,7 +85,7 @@ export default function OrcamentoPage() {
 
             {/* Contact sidebar */}
             <aside>
-              <div className="bg-dark-mid border border-dark-border rounded-xl p-6 sticky top-24">
+              <div className="bg-dark-mid rounded-xl p-6 sticky top-24">
                 <h2
                   className="text-xl font-bold uppercase text-white mb-6"
                   style={{ fontFamily: "'Barlow Condensed', sans-serif" }}

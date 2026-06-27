@@ -2,14 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ShieldCheck, Clock, Award, Users } from "lucide-react";
-
-const diferenciais = [
-  { icon: Clock, text: "Mais de 25 anos de experiência no mercado" },
-  { icon: ShieldCheck, text: "Projetos calculados conforme normas ABNT" },
-  { icon: Award, text: "Cada projeto desenvolvido sob medida para você" },
-  { icon: Users, text: "Equipe especializada em todo o Brasil" },
-];
+import Image from "next/image";
 
 export default function AboutSummary() {
   return (
@@ -51,27 +44,21 @@ export default function AboutSummary() {
             </Link>
           </motion.div>
 
-          {/* Diferenciais */}
+          {/* Foto */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
+            className="relative aspect-[4/3] rounded-2xl overflow-hidden"
           >
-            {diferenciais.map((item, i) => (
-              <motion.div
-                key={item.text}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="flex gap-4 items-start p-5 bg-dark-steel border border-dark-border rounded-xl"
-              >
-                <item.icon className="w-6 h-6 text-cobersteel-blue flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <p className="text-sm text-white leading-relaxed">{item.text}</p>
-              </motion.div>
-            ))}
+            <Image
+              src="/images/geral/cobersteel.png"
+              alt="Equipe CoberSteel"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
           </motion.div>
 
         </div>

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Ruler, Truck, Users, Wrench, Building2 } from "lucide-react";
+import { MapPin, Ruler, Building2, ArrowRight, Tag, Calendar } from "lucide-react";
 import { COMPANY_NUMBERS } from "@/lib/constants";
+import { PORTFOLIO_DATA } from "@/lib/portfolio";
+import ClientLogos from "@/components/home/ClientLogos";
 
 export const metadata: Metadata = {
   title: "Portfólio de Obras | CoberSteel — Galpões e Coberturas Industriais",
@@ -19,95 +21,69 @@ const regioes = [
   { nome: "Norte", desc: "Estruturas para mineração, logística e armazenagem em ambientes desafiadores." },
 ];
 
-const diferenciais = [
-  { icon: Truck, title: "Logística Nacional", desc: "Capacidade de transporte e montagem em qualquer estado brasileiro." },
-  { icon: Users, title: "Equipes de Campo", desc: "Times de montagem especializados que se deslocam até a sua obra." },
-  { icon: Wrench, title: "Manutenção em Todo o País", desc: "Atendimento de manutenção preventiva e corretiva onde a estrutura estiver." },
-  { icon: Building2, title: "Projetos Sob Medida", desc: "Soluções adaptadas ao clima e às exigências de cada região." },
-];
-
-const obras = [
-  {
-    titulo: "Galpão de Lona — Armazenagem de Grãos",
-    setor: "Agronegócio",
-    local: "Interior de SP",
-    area: "2.400 m²",
-    img: "/images/produtos/galpao-de-lona.png",
-  },
-  {
-    titulo: "Galpão Metálico Industrial",
-    setor: "Indústria",
-    local: "Região Sul",
-    area: "5.000 m²",
-    img: "/images/produtos/galpao-metalico.png",
-  },
-  {
-    titulo: "Galpão CoberECOsteel Híbrido",
-    setor: "Logística",
-    local: "Centro-Oeste",
-    area: "3.200 m²",
-    img: "/images/produtos/galpao-coberecosteeel-hibrido.png",
-  },
-  {
-    titulo: "Mezanino Metálico — Expansão Vertical",
-    setor: "Varejo e Atacado",
-    local: "Grande SP",
-    area: "1.100 m²",
-    img: "/images/produtos/mezaninos-metalicos.png",
-  },
-  {
-    titulo: "Projeto Especial sob Medida",
-    setor: "Petroquímico",
-    local: "Nordeste",
-    area: "Sob projeto",
-    img: "/images/produtos/projetos-especiais.png",
-  },
-  {
-    titulo: "Niveladoras de Doca",
-    setor: "Logística e Distribuição",
-    local: "Sudeste",
-    area: "8 docas",
-    img: "/images/produtos/niveladoras-de-doca.png",
-  },
-];
 
 export default function PortfolioPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative pt-32 pb-20 overflow-hidden bg-dark-mid">
+      <section className="relative pt-32 pb-20 overflow-hidden">
         <div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0"
           style={{
-            backgroundImage: "repeating-linear-gradient(45deg, #5C88B5 0, #5C88B5 1px, transparent 0, transparent 50%)",
-            backgroundSize: "22px 22px",
+            backgroundImage: "url('/images/geral/cobersteel.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
           aria-hidden="true"
         />
+        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-            Institucional
-          </p>
-          <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-          >
-            NOSSO <span className="text-cobersteel-blue">PORTFÓLIO</span>
-          </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl leading-relaxed">
-            Uma seleção de obras e projetos entregues pela CoberSteel para os mais diversos setores da indústria nacional.
-          </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-8 h-px bg-cobersteel-gold" aria-hidden="true" />
+                <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest">Institucional</p>
+              </div>
+              <h1
+                className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
+                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              >
+                NOSSO <span className="text-cobersteel-blue">PORTFÓLIO</span>
+              </h1>
+              <p className="text-lg text-[#94A3B8] max-w-2xl leading-relaxed">
+                Uma seleção de obras e projetos entregues pela CoberSteel para os mais diversos setores da indústria nacional.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 divide-x divide-y divide-white/10 border border-white/10 rounded-xl overflow-hidden">
+              {COMPANY_NUMBERS.map((n) => (
+                <div key={n.label} className="flex flex-col items-center text-center px-6 py-8">
+                  <p
+                    className="text-4xl sm:text-5xl font-black text-white mb-1.5"
+                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  >
+                    +{Number(n.value).toLocaleString("pt-BR")}
+                    <span className="text-2xl align-top ml-0.5">{n.unit}</span>
+                  </p>
+                  <p className="text-sm text-[#94A3B8]">{n.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
+
+      <ClientLogos />
 
       {/* Grid de obras */}
       <section className="bg-dark-steel py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {obras.map((o) => (
+            {PORTFOLIO_DATA.map((o) => (
               <article
-                key={o.titulo}
-                className="group bg-dark-mid border border-dark-border rounded-xl overflow-hidden hover:border-cobersteel-blue/50 transition-colors"
+                key={o.slug}
+                className="group bg-dark-mid rounded-xl overflow-hidden flex flex-col"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -117,18 +93,19 @@ export default function PortfolioPage() {
                     sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-3 left-3 bg-cobersteel-gold text-dark-steel text-xs font-bold uppercase px-2.5 py-1 rounded">
-                    {o.setor}
-                  </span>
                 </div>
-                <div className="p-6">
+                <div className="flex flex-col flex-1 p-6">
                   <h2
                     className="font-black uppercase text-white text-lg mb-3 leading-tight"
                     style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                   >
                     {o.titulo}
                   </h2>
-                  <div className="flex items-center gap-4 text-xs text-[#94A3B8]">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#94A3B8] mb-5 flex-1">
+                    <span className="flex items-center gap-1.5">
+                      <Tag className="w-3.5 h-3.5 text-cobersteel-gold" aria-hidden="true" />
+                      {o.setor}
+                    </span>
                     <span className="flex items-center gap-1.5">
                       <MapPin className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
                       {o.local}
@@ -136,6 +113,18 @@ export default function PortfolioPage() {
                     <span className="flex items-center gap-1.5">
                       <Ruler className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
                       {o.area}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <Link
+                      href={`/institucional/portfolio/${o.slug}`}
+                      className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white transition-all"
+                    >
+                      Ver estudo de caso <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                    </Link>
+                    <span className="inline-flex items-center gap-1.5 text-xs text-[#94A3B8]">
+                      <Calendar className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
+                      {o.ano}
                     </span>
                   </div>
                 </div>
@@ -153,38 +142,21 @@ export default function PortfolioPage() {
       <section className="bg-dark-mid py-16 border-y border-dark-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">CoberSteel no Brasil</p>
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-white"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              ATUAÇÃO <span className="text-cobersteel-blue">NACIONAL</span>
+              ATUAÇÃO NACIONAL
             </h2>
             <p className="text-[#94A3B8] max-w-2xl mx-auto mt-4">
               De Norte a Sul, levamos infraestrutura industrial flexível para onde a sua operação precisa crescer.
             </p>
           </div>
 
-          {/* Números */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {COMPANY_NUMBERS.map((n) => (
-              <div key={n.label} className="text-center">
-                <p
-                  className="text-4xl sm:text-5xl font-black text-cobersteel-gold"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  +{Number(n.value).toLocaleString("pt-BR")}
-                  <span className="text-2xl align-top ml-1">{n.unit}</span>
-                </p>
-                <p className="text-sm text-[#94A3B8] mt-2">{n.label}</p>
-              </div>
-            ))}
-          </div>
-
           {/* Regiões */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {regioes.map((r) => (
-              <div key={r.nome} className="bg-dark-steel border border-dark-border rounded-xl p-6">
+              <div key={r.nome} className="bg-dark-steel rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <MapPin className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
                   <h3
@@ -199,23 +171,6 @@ export default function PortfolioPage() {
             ))}
           </div>
 
-          {/* Diferenciais */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {diferenciais.map((d) => (
-              <div key={d.title} className="bg-dark-steel border border-dark-border rounded-xl p-6">
-                <div className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 border border-cobersteel-blue/30 flex items-center justify-center mb-4">
-                  <d.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
-                </div>
-                <h3
-                  className="font-black uppercase text-white text-sm mb-2"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  {d.title}
-                </h3>
-                <p className="text-xs text-[#94A3B8] leading-relaxed">{d.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

@@ -49,9 +49,10 @@ export default function NormasAbntPage() {
           aria-hidden="true"
         />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-[#0047BB] text-xs font-semibold uppercase tracking-widest mb-3">
-            Institucional
-          </p>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-8 h-px bg-cobersteel-gold" aria-hidden="true" />
+            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest">Institucional</p>
+          </div>
           <h1
             className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-dark-steel mb-4"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -76,7 +77,7 @@ export default function NormasAbntPage() {
                 className="text-4xl sm:text-5xl font-black uppercase text-white mb-6"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
-                NORMAS ABNT NÃO SÃO <span className="text-cobersteel-blue">BUROCRACIA</span>
+                NORMAS ABNT NÃO SÃO BUROCRACIA
               </h2>
               <p className="text-[#94A3B8] leading-relaxed mb-4">
                 No setor de galpões industriais, é comum encontrar estruturas projetadas sem cálculo de engenharia formal, sem ART e sem conformidade com as normas técnicas brasileiras. O resultado é infraestrutura que aparenta funcionar — até que um evento climático extremo, uma sobrecarga de equipamento ou simplesmente o tempo a coloca à prova.
@@ -93,10 +94,10 @@ export default function NormasAbntPage() {
               {pilares.map((p) => (
                 <div
                   key={p.titulo}
-                  className="p-6 bg-dark-mid border border-dark-border rounded-xl"
+                  className="p-6 bg-dark-mid rounded-xl"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-cobersteel-gold/20 border border-cobersteel-gold/30 flex items-center justify-center mb-4">
-                    <p.icon className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
+                  <div className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 flex items-center justify-center mb-4">
+                    <p.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                   </div>
                   <h3
                     className="font-black uppercase text-white text-sm mb-2"

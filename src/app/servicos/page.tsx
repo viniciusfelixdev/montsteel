@@ -113,7 +113,7 @@ export default function ServicosPage() {
             className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
-            SERVIÇOS E <span className="text-cobersteel-blue">MANUTENÇÕES</span>
+            SERVIÇOS E MANUTENÇÕES
           </h1>
           <p className="text-lg text-[#94A3B8] max-w-xl leading-relaxed">
             Do projeto à manutenção, cada atendimento é planejado para você — soluções sob medida para garantir segurança e eficiência ao longo de toda a vida útil da sua estrutura.
@@ -129,7 +129,7 @@ export default function ServicosPage() {
               className="text-4xl sm:text-5xl font-black uppercase text-white leading-none"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              O QUE FAZEMOS <span className="text-cobersteel-blue">POR VOCÊ</span>
+              O QUE FAZEMOS POR VOCÊ
             </h2>
             <p className="text-[#94A3B8] leading-relaxed mt-4">
               Soluções completas para cada etapa da vida da sua estrutura — da montagem inicial à manutenção contínua, sempre com responsabilidade técnica.
@@ -140,16 +140,16 @@ export default function ServicosPage() {
             {servicos.map((s) => (
               <div
                 key={s.titulo}
-                className="group bg-dark-mid border border-dark-border rounded-2xl p-8 flex flex-col gap-6 transition-all duration-200 hover:border-cobersteel-gold/40 hover:-translate-y-1"
+                className="group bg-dark-mid rounded-2xl p-10 flex flex-col gap-8 transition-all duration-200 hover:-translate-y-1"
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-cobersteel-gold/15 border border-cobersteel-gold/30 flex items-center justify-center flex-shrink-0 group-hover:bg-cobersteel-gold/25 transition-colors">
-                    <s.icon className="w-6 h-6 text-cobersteel-gold" aria-hidden="true" />
+                <div className="flex items-start gap-5 min-h-[180px]">
+                  <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/15 flex items-center justify-center flex-shrink-0 group-hover:bg-cobersteel-blue/25 transition-colors">
+                    <s.icon className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
                   </div>
                   <div>
-                    <div className="flex items-center flex-wrap gap-x-3 gap-y-1.5 mb-2">
+                    <div className="flex items-center flex-wrap gap-x-3 gap-y-1.5 mb-3">
                       <h3
-                        className="text-xl font-black uppercase text-white leading-tight"
+                        className="text-2xl font-black uppercase text-white leading-tight"
                         style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                       >
                         {s.titulo}
@@ -161,13 +161,13 @@ export default function ServicosPage() {
                         </span>
                       )}
                     </div>
-                    <p className="text-sm text-[#94A3B8] leading-relaxed">{s.desc}</p>
+                    <p className="text-base text-[#94A3B8] leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-5 gap-y-2.5 pt-6 mt-auto border-t border-dark-border">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 pt-8 border-t border-dark-border">
                   {s.itens.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-xs text-[#94A3B8] leading-snug">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-cobersteel-gold/80 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <li key={item} className="flex items-start gap-2 text-sm text-[#94A3B8] leading-snug">
+                      <CheckCircle2 className="w-4 h-4 text-cobersteel-gold/80 flex-shrink-0 mt-0.5" aria-hidden="true" />
                       {item}
                     </li>
                   ))}

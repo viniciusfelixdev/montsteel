@@ -40,7 +40,7 @@ export default function AdvantagesBanner() {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="flex gap-4 items-start"
             >
-              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cobersteel-blue/20 border border-cobersteel-blue/30 flex items-center justify-center">
+              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-cobersteel-blue/20 flex items-center justify-center">
                 <item.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
               </div>
               <div>

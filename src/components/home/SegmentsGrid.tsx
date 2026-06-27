@@ -55,9 +55,9 @@ export default function SegmentsGrid() {
               >
                 <Link
                   href={`/segmentos/${seg.slug}`}
-                  className="group flex flex-col items-center gap-3 p-5 bg-white border border-gray-200 rounded-xl hover:border-cobersteel-blue hover:shadow-md transition-all text-center"
+                  className="group flex flex-col items-center gap-3 p-5 bg-white rounded-xl hover:shadow-md transition-all text-center"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-cobersteel-blue/10 border border-cobersteel-blue/20 flex items-center justify-center group-hover:bg-cobersteel-blue group-hover:border-cobersteel-blue transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-cobersteel-blue/10 flex items-center justify-center group-hover:bg-cobersteel-blue transition-colors">
                     <Icon
                       className="w-6 h-6 text-cobersteel-blue group-hover:text-white transition-colors"
                       aria-hidden="true"

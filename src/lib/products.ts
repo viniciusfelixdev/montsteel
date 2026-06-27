@@ -12,6 +12,8 @@ export interface Product {
   slug: string;
   name: string;
   tagline: string;
+  img: string;
+  gallery: string[];
   descricao: string[];
   vantagens: ProductVantagem[];
   aplicacoes: string[];
@@ -24,6 +26,8 @@ export const PRODUCTS_DATA: Product[] = [
     slug: "galpao-de-lona",
     name: "Galpão de Lona",
     tagline: "Estrutura flexível e ágil para armazenagem rápida",
+    img: "/images/produtos/galpao-de-lona.png",
+    gallery: ["/images/produtos/galpao-de-lona.png"],
     descricao: [
       "O Galpão de Lona da CoberSteel é uma estrutura flexível e de alta resistência, ideal para armazenagem temporária ou para rápida expansão de capacidade operacional. Com instalação ágil e sem necessidade de obras de alvenaria, é a solução perfeita para quem precisa de espaço com rapidez e custo controlado.",
       "Disponível para locação e venda, o galpão de lona se adapta a diferentes dimensões e configurações, atendendo desde pequenas operações até grandes complexos industriais e agrícolas.",
@@ -58,6 +62,8 @@ export const PRODUCTS_DATA: Product[] = [
     slug: "galpao-metalico",
     name: "Galpão Metálico",
     tagline: "Alta resistência para operações industriais exigentes",
+    img: "/images/produtos/galpao-metalico.png",
+    gallery: ["/images/produtos/galpao-metalico.png"],
     descricao: [
       "O Galpão Metálico CoberSteel é uma estrutura permanente de alta resistência, projetada para atender operações industriais que exigem durabilidade, capacidade de carga elevada e eficiência no uso do espaço. Ideal para abrigar maquinários pesados, linhas de produção e grandes estoques.",
       "Todos os projetos são desenvolvidos e calculados conforme normas ABNT, garantindo segurança estrutural e conformidade técnica. A estrutura é ampliável e pode ser relocada conforme a expansão do negócio.",
@@ -92,6 +98,8 @@ export const PRODUCTS_DATA: Product[] = [
     slug: "galpao-coberecosteeel-hibrido",
     name: "Galpão CoberECOsteel Híbrido",
     tagline: "Eficiência, sustentabilidade e melhor custo-benefício",
+    img: "/images/produtos/galpao-coberecosteeel-hibrido.png",
+    gallery: ["/images/produtos/galpao-coberecosteeel-hibrido.png"],
     descricao: [
       "O Galpão CoberECOsteel Híbrido é a solução inovadora da CoberSteel que combina estrutura metálica com cobertura de lona de alta performance. O resultado é uma estrutura que reúne o melhor dos dois mundos: a robustez do metal com a flexibilidade e o custo reduzido da lona.",
       "Com menor pegada ambiental e maior eficiência no uso de materiais, o modelo híbrido é a escolha ideal para empresas que buscam aliar desempenho operacional com responsabilidade ESG e economia circular.",
@@ -126,6 +134,8 @@ export const PRODUCTS_DATA: Product[] = [
     slug: "mezaninos-metalicos",
     name: "Mezaninos Metálicos",
     tagline: "Expanda verticalmente sem obras de alvenaria",
+    img: "/images/produtos/mezaninos-metalicos.png",
+    gallery: ["/images/produtos/mezaninos-metalicos.png"],
     descricao: [
       "Os Mezaninos Metálicos da CoberSteel são a solução inteligente para empresas que precisam ampliar sua área útil sem expandir a planta física. Aproveitando o pé-direito alto de galpões existentes, o mezanino cria um novo pavimento interno com alta capacidade de carga e instalação rápida.",
       "Ideal para escritórios industriais, mezzanines de produção e armazenagem em altura, o projeto é calculado estruturalmente e executado com aço de alta qualidade, garantindo segurança e durabilidade.",
@@ -160,6 +170,8 @@ export const PRODUCTS_DATA: Product[] = [
     slug: "projetos-especiais",
     name: "Projetos Especiais",
     tagline: "Engenharia exclusiva sob medida para demandas únicas",
+    img: "/images/produtos/projetos-especiais.png",
+    gallery: ["/images/produtos/projetos-especiais.png"],
     descricao: [
       "Quando os produtos padrão não atendem, a CoberSteel desenvolve Projetos Especiais sob medida. Nossa equipe de engenharia projeta e executa estruturas para demandas que fogem ao convencional: geometrias irregulares, cargas extremas, ambientes corrosivos ou alturas incomuns.",
       "Do levantamento de requisitos à instalação final, cada projeto especial é tratado com rigor técnico, cálculo estrutural conforme normas ABNT e acompanhamento próximo da nossa equipe.",
@@ -194,6 +206,8 @@ export const PRODUCTS_DATA: Product[] = [
     slug: "niveladoras-de-doca",
     name: "Niveladoras de Doca",
     tagline: "Equipamento logístico para otimizar o carregamento e descarregamento de veículos",
+    img: "/images/produtos/niveladoras-de-doca.png",
+    gallery: ["/images/produtos/niveladoras-de-doca.png"],
     descricao: [
       "As Niveladoras de Doca da CoberSteel são equipamentos logísticos que eliminam a diferença de nível entre a plataforma de carga e a carroceria do veículo, permitindo a movimentação segura e eficiente de mercadorias com empilhadeiras e transpaletes.",
       "Disponíveis nos modelos mecânico, hidráulico e elétrico, as niveladoras se adaptam a diferentes volumes de operação e tipos de veículo — de caminhões leves a carretas de grande porte. A instalação é feita pela equipe CoberSteel com mínima interrupção das operações.",

@@ -1,18 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import ProductGallery from "@/components/products/ProductGallery";
 import { PRODUCTS_DATA, getProduct } from "@/lib/products";
-import { CONTACT_INFO } from "@/lib/constants";
-
-const PRODUCT_IMAGES: Record<string, string> = {
-  "mezaninos-metalicos": "/images/produtos/mezaninos-metalicos.png",
-  "galpao-metalico": "/images/produtos/galpao-metalico.png",
-  "galpao-de-lona": "/images/produtos/galpao-de-lona.png",
-  "projetos-especiais": "/images/produtos/projetos-especiais.png",
-  "galpao-coberecosteeel-hibrido": "/images/produtos/galpao-coberecosteeel-hibrido.png",
-  "niveladoras-de-doca": "/images/produtos/niveladoras-de-doca.png",
-};
 
 export async function generateStaticParams() {
   return PRODUCTS_DATA.map((p) => ({ slug: p.slug }));
@@ -46,36 +37,20 @@ export default async function ProdutoPage({
     <>
       {/* Hero da página */}
       <section className="relative pt-32 pb-20 overflow-hidden">
-        {PRODUCT_IMAGES[product.slug] ? (
-          <>
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `url('${PRODUCT_IMAGES[product.slug]}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              aria-hidden="true"
-            />
-            <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
-          </>
-        ) : (
-          <>
-            <div className="absolute inset-0 bg-dark-mid" aria-hidden="true" />
-            <div
-              className="absolute inset-0 opacity-10"
-              style={{
-                backgroundImage: "repeating-linear-gradient(45deg, #5C88B5 0, #5C88B5 1px, transparent 0, transparent 50%)",
-                backgroundSize: "20px 20px",
-              }}
-              aria-hidden="true"
-            />
-          </>
-        )}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url('${product.img}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/#produtos"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 hover:border-white px-4 py-2 rounded-lg transition-all mb-6 group"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-6 group"
           >
             <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Voltar para Produtos
@@ -95,7 +70,7 @@ export default async function ProdutoPage({
       </section>
 
       {/* Descrição */}
-      <section className="bg-dark-steel py-16">
+      <section className="bg-dark-steel pt-16 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-4">
@@ -110,114 +85,82 @@ export default async function ProdutoPage({
               ))}
             </div>
 
-            {/* CTA lateral */}
-            <aside className="lg:col-span-1">
-              <div className="bg-dark-mid border border-dark-border rounded-xl p-6 sticky top-24">
-                <h3
-                  className="text-lg font-black uppercase text-white mb-4"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  Solicite um Orçamento
-                </h3>
-                <p className="text-sm text-[#94A3B8] mb-6">
-                  Cada proposta é elaborada sob medida para você — nossa equipe analisa a sua operação e responde em até 24 horas úteis.
-                </p>
-                <Link
-                  href="/orcamento"
-                  className="block w-full text-center py-3 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors mb-3"
-                >
-                  {product.ctaLabel}
-                </Link>
-                <a
-                  href={CONTACT_INFO.whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 w-full py-3 bg-[#25D366] text-white font-semibold text-sm rounded-lg hover:bg-[#1ebe57] transition-colors"
-                >
-                  Falar no WhatsApp
-                </a>
-              </div>
+            {/* Card de foto */}
+            <aside className="lg:col-span-1 sticky top-24 self-start">
+              <ProductGallery images={product.gallery} alt={product.name} />
             </aside>
           </div>
         </div>
       </section>
 
-      {/* Vantagens */}
-      <section className="bg-dark-mid py-16">
+      {/* Aplicações + Vantagens + Specs */}
+      <section className="bg-dark-steel pt-8 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-3xl font-black uppercase text-white mb-10"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-          >
-            VANTAGENS
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {product.vantagens.map((v) => (
-              <div
-                key={v.titulo}
-                className="flex gap-4 items-start p-5 bg-dark-steel border border-dark-border rounded-xl"
-              >
-                <CheckCircle2 className="w-5 h-5 text-cobersteel-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
-                <div>
-                  <h3
-                    className="font-bold uppercase text-white text-sm mb-1"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                  >
-                    {v.titulo}
-                  </h3>
-                  <p className="text-xs text-[#94A3B8] leading-relaxed">{v.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Aplicações + Specs */}
-      <section className="bg-dark-steel py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-dark-border rounded-2xl overflow-hidden">
 
             {/* Aplicações */}
-            <div>
-              <h2
-                className="text-3xl font-black uppercase text-white mb-8"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-              >
-                APLICAÇÕES
-              </h2>
+            <div className="bg-dark-mid p-8 lg:p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-1 h-6 rounded-full bg-cobersteel-blue flex-shrink-0" aria-hidden="true" />
+                <h2
+                  className="text-xl font-black uppercase text-white tracking-wide"
+                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                >
+                  APLICAÇÕES
+                </h2>
+              </div>
               <ul className="space-y-3">
                 {product.aplicacoes.map((a) => (
-                  <li key={a} className="flex items-center gap-3 text-[#94A3B8] text-sm">
-                    <ArrowRight className="w-4 h-4 text-cobersteel-blue flex-shrink-0" aria-hidden="true" />
+                  <li key={a} className="flex items-start gap-3 text-sm text-[#94A3B8]">
+                    <ArrowRight className="w-3.5 h-3.5 text-cobersteel-blue flex-shrink-0 mt-0.5" aria-hidden="true" />
                     {a}
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Especificações técnicas */}
-            <div>
-              <h2
-                className="text-3xl font-black uppercase text-white mb-8"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-              >
-                ESPECIFICAÇÕES TÉCNICAS
-              </h2>
-              <div className="border border-dark-border rounded-xl overflow-hidden">
-                {product.specs.map((s, i) => (
-                  <div
-                    key={s.label}
-                    className={`flex items-center justify-between px-5 py-4 text-sm ${
-                      i % 2 === 0 ? "bg-dark-mid" : "bg-dark-steel"
-                    }`}
-                  >
-                    <span className="text-[#94A3B8] font-medium">{s.label}</span>
-                    <span className="text-white font-semibold text-right">{s.value}</span>
+            {/* Vantagens */}
+            <div className="bg-dark-mid p-8 lg:p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-1 h-6 rounded-full bg-cobersteel-gold flex-shrink-0" aria-hidden="true" />
+                <h2
+                  className="text-xl font-black uppercase text-white tracking-wide"
+                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                >
+                  VANTAGENS
+                </h2>
+              </div>
+              <ul className="space-y-3">
+                {product.vantagens.map((v) => (
+                  <li key={v.titulo} className="flex items-start gap-3 text-sm text-[#94A3B8]">
+                    <ArrowRight className="w-3.5 h-3.5 text-cobersteel-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    {v.titulo}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Especificações Técnicas */}
+            <div className="bg-dark-mid p-8 lg:p-10">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-1 h-6 rounded-full bg-cobersteel-silver flex-shrink-0" aria-hidden="true" />
+                <h2
+                  className="text-xl font-black uppercase text-white tracking-wide"
+                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                >
+                  ESPECIFICAÇÕES
+                </h2>
+              </div>
+              <dl className="space-y-0 divide-y divide-dark-border">
+                {product.specs.map((s) => (
+                  <div key={s.label} className="flex items-baseline justify-between gap-4 py-3">
+                    <dt className="text-xs text-[#64748B] font-medium flex-shrink-0">{s.label}</dt>
+                    <dd className="text-sm text-white font-semibold text-right">{s.value}</dd>
                   </div>
                 ))}
-              </div>
+              </dl>
             </div>
+
           </div>
         </div>
       </section>

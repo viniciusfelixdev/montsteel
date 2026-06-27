@@ -98,14 +98,14 @@ export default async function SegmentoPage({
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/#segmentos"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white border border-white/30 hover:border-white px-4 py-2 rounded-lg transition-all mb-6 group"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-6 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Todos os segmentos
           </Link>
 
           <div className="flex items-center gap-4 mb-4">
-            <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/20 border border-cobersteel-blue/30 flex items-center justify-center flex-shrink-0">
+            <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/20 flex items-center justify-center flex-shrink-0">
               <Icon className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
             </div>
             <h1
@@ -121,10 +121,12 @@ export default async function SegmentoPage({
         </div>
       </section>
 
-      {/* Desafios do setor */}
+      {/* Desafios + Soluções */}
       <section className="bg-dark-steel py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
+
+            {/* Desafios do setor */}
             <div>
               <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
                 Contexto
@@ -144,85 +146,83 @@ export default async function SegmentoPage({
               </div>
             </div>
 
-            {/* Benefícios */}
-            <div className="bg-dark-mid border border-dark-border rounded-xl p-8">
-              <h3
-                className="text-xl font-black uppercase text-white mb-6"
+            {/* Soluções recomendadas */}
+            <div>
+              <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
+                Portfólio
+              </p>
+              <h2
+                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
-                POR QUE A COBERSTEEL PARA {segment.name.toUpperCase()}
-              </h3>
-              <ul className="space-y-4">
-                {segment.beneficios.map((b, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2
-                      className="w-5 h-5 text-cobersteel-gold flex-shrink-0 mt-0.5"
-                      aria-hidden="true"
-                    />
-                    <span className="text-sm text-[#94A3B8]">{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+                SOLUÇÕES <span className="text-cobersteel-blue">RECOMENDADAS</span>
+              </h2>
 
-      {/* Soluções recomendadas */}
-      <section className="bg-dark-mid py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-              Portfólio
-            </p>
-            <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white"
+              <div className="space-y-3 mb-6">
+                {relatedProducts.map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={`/produtos/${p.slug}`}
+                    className="group flex items-center justify-between p-4 bg-dark-mid rounded-xl hover:bg-dark-mid/70 transition-colors"
+                  >
+                    <div>
+                      <p
+                        className="font-black uppercase text-white text-sm group-hover:text-cobersteel-gold transition-colors"
+                        style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                      >
+                        {p.name}
+                      </p>
+                      <p className="text-xs text-[#94A3B8] mt-0.5">{p.shortDesc}</p>
+                    </div>
+                    <ChevronRight className="w-4 h-4 text-cobersteel-gold flex-shrink-0 ml-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+
+              {/* Outras soluções */}
+              <div className="bg-dark-mid rounded-xl p-5">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                  <div className="flex-1">
+                    <p className="text-white font-semibold text-sm mb-1">Não encontrou o que precisa?</p>
+                    <p className="text-[#94A3B8] text-xs">
+                      Desenvolvemos projetos especiais sob medida para o setor de {segment.name}.
+                    </p>
+                  </div>
+                  <Link
+                    href="/produtos/projetos-especiais"
+                    className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2 bg-cobersteel-gold text-dark-steel text-sm font-bold rounded-lg hover:bg-amber-400 transition-colors"
+                  >
+                    Ver Projetos Especiais
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Por que nos escolher */}
+          <div className="mt-14 pt-14">
+            <div className="h-px w-full mb-14" style={{ background: "linear-gradient(to right, transparent, #2A2A2A 20%, #2A2A2A 80%, transparent)" }} aria-hidden="true" />
+            <h3
+              className="text-2xl font-black uppercase text-white mb-8 text-center"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              SOLUÇÕES <span className="text-cobersteel-blue">RECOMENDADAS</span>
-            </h2>
+              POR QUE A COBERSTEEL PARA{" "}
+              <span className="text-cobersteel-blue">{segment.name.toUpperCase()}</span>
+            </h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {segment.beneficios.map((b, i) => (
+                <li key={i} className="flex items-start gap-3 bg-dark-mid rounded-xl p-4">
+                  <CheckCircle2
+                    className="w-5 h-5 text-cobersteel-gold flex-shrink-0 mt-0.5"
+                    aria-hidden="true"
+                  />
+                  <span className="text-sm text-[#94A3B8] leading-relaxed">{b}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-            {relatedProducts.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/produtos/${p.slug}`}
-                className="group p-6 bg-dark-steel border border-dark-border rounded-xl hover:border-cobersteel-blue transition-colors flex flex-col gap-3"
-              >
-                <h3
-                  className="text-lg font-black uppercase text-white group-hover:text-cobersteel-blue transition-colors"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  {p.name}
-                </h3>
-                <p className="text-sm text-[#94A3B8] flex-1">{p.shortDesc}</p>
-                <span className="inline-flex items-center gap-1 text-xs text-cobersteel-blue font-semibold uppercase tracking-wider">
-                  Saiba mais <ChevronRight className="w-3 h-3" aria-hidden="true" />
-                </span>
-              </Link>
-            ))}
-          </div>
-
-          {/* Outras soluções não listadas */}
-          <div className="bg-dark-steel border border-dark-border rounded-xl p-6">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-              <div className="flex-1">
-                <p className="text-white font-semibold text-sm mb-1">
-                  Não encontrou o que precisa?
-                </p>
-                <p className="text-[#94A3B8] text-xs">
-                  Desenvolvemos projetos especiais sob medida para demandas únicas do setor de {segment.name}.
-                </p>
-              </div>
-              <Link
-                href="/produtos/projetos-especiais"
-                className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold rounded-lg hover:bg-cobersteel-blue hover:text-white transition-colors"
-              >
-                Ver Projetos Especiais
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 
