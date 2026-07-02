@@ -16,7 +16,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; "aria-hi
 export default function SegmentsGrid() {
   return (
     <section
-      className="bg-light-bg py-20"
+      id="segmentos"
+      className="bg-light-bg py-20 scroll-mt-16"
       aria-labelledby="segmentos-titulo"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -26,11 +27,6 @@ export default function SegmentsGrid() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <p
-            className="text-cobersteel-blue text-xs font-semibold uppercase tracking-widest mb-3"
-          >
-            Presença Nacional
-          </p>
           <h2
             id="segmentos-titulo"
             className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-dark-steel"

@@ -47,9 +47,6 @@ export default function NumbersSection() {
             viewport={{ once: true }}
             className="text-center mb-14"
           >
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-              Nossa Trajetória
-            </p>
             <h2
               id="numeros-titulo"
               className="text-4xl sm:text-5xl font-black uppercase text-white"

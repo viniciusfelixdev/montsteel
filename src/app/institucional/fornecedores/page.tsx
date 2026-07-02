@@ -4,12 +4,13 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Package, Truck, Wrench, HardHat, Layers, ArrowLeft,
+  Package, Truck, Wrench, HardHat, Layers,
   CheckCircle2, ChevronDown, Send, AlertCircle,
-  ChevronLeft, ChevronRight,
+  ChevronLeft, ChevronRight, ArrowLeft,
 } from "lucide-react";
 import CustomSelect from "@/components/shared/CustomSelect";
 import { CONTACT_INFO } from "@/lib/constants";
+import { trackFormSubmit } from "@/components/shared/Analytics";
 
 const CATEGORIA_OPTIONS = [
   { value: "aco", label: "Aço e Perfis Metálicos" },
@@ -229,6 +230,7 @@ export default function FornecedoresPage() {
         body: JSON.stringify({ type: "fornecedor", ...form }),
       });
       if (!res.ok) throw new Error("Falha no envio");
+      trackFormSubmit("fornecedores");
       setEnviado(true);
     } catch {
       setErro(true);
@@ -240,7 +242,7 @@ export default function FornecedoresPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative institucional-banner-padding-bottom overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -251,27 +253,20 @@ export default function FornecedoresPage() {
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
-            href="/institucional/quem-somos"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-8 group"
+            href="/"
+            className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-8 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
-            Institucional
+            Início
           </Link>
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-8 h-px bg-cobersteel-gold" aria-hidden="true" />
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest">Institucional</p>
-          </div>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
-            CADASTRO DE <span className="text-cobersteel-blue">FORNECEDORES</span>
+            SEJA UM <span className="text-cobersteel-blue">FORNECEDOR</span>
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-2xl leading-relaxed">
-            A CoberSteel busca parceiros comprometidos com qualidade, prazo e responsabilidade. Se a sua empresa fornece materiais, equipamentos ou serviços para o setor industrial, cadastre-se e faça parte da nossa cadeia de suprimentos.
-          </p>
         </div>
       </section>
 
@@ -644,7 +639,7 @@ export default function FornecedoresPage() {
               <p className="text-xs text-[#94A3B8] text-center">
                 Seus dados são tratados com confidencialidade conforme nossa{" "}
                 <Link href="/institucional/privacidade" className="text-cobersteel-blue hover:text-white transition-colors">
-                  Política de Privacidade
+                  Privacidade
                 </Link>.
               </p>
             </form>

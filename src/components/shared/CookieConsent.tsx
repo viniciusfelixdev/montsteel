@@ -44,7 +44,7 @@ export default function CookieConsent() {
           <p className="text-xs text-[#94A3B8] leading-relaxed">
             Usamos cookies para analisar o tráfego e melhorar sua experiência. Você pode aceitar ou recusar os cookies de análise. Saiba mais na nossa{" "}
             <Link href="/institucional/privacidade" className="text-cobersteel-blue hover:underline">
-              Política de Privacidade
+              Privacidade
             </Link>
             .
           </p>

@@ -7,6 +7,7 @@ import { useState } from "react";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { SEGMENTS } from "@/lib/constants";
 import CustomSelect from "@/components/shared/CustomSelect";
+import { trackFormSubmit } from "@/components/shared/Analytics";
 
 const SEGMENTO_OPTIONS = [
   ...SEGMENTS.map((s) => ({ value: s.slug, label: s.name })),
@@ -38,7 +39,7 @@ const schema = z.object({
   segmento: z.string().min(1, "Selecione um segmento"),
   tipoInteresse: z.string().min(1, "Selecione o tipo de interesse"),
   produto: z.string().min(1, "Selecione o produto de interesse"),
-  areaNecessaria: z.string().optional(),
+  dimensoes: z.string().optional(),
   mensagem: z.string().optional(),
   lgpd: z.literal(true, "Você deve aceitar a política de privacidade"),
 });
@@ -75,6 +76,7 @@ export default function OrcamentoForm() {
         body: JSON.stringify({ type: "orcamento", ...data }),
       });
       if (!res.ok) throw new Error("Falha no envio");
+      trackFormSubmit("orcamento");
       setSubmitted(true);
       reset();
     } catch {
@@ -268,15 +270,15 @@ export default function OrcamentoForm() {
           )}
         />
         <div>
-          <label htmlFor="areaNecessaria" className={labelClass}>
-            Área Aproximada (m²)
+          <label htmlFor="dimensoes" className={labelClass}>
+            Dimensões do Galpão
           </label>
           <input
-            id="areaNecessaria"
+            id="dimensoes"
             type="text"
-            placeholder="Ex: 500 m²"
+            placeholder="Ex: 20 x 60 m"
             className={fieldClass}
-            {...register("areaNecessaria")}
+            {...register("dimensoes")}
           />
         </div>
       </div>
@@ -312,7 +314,7 @@ export default function OrcamentoForm() {
               className="text-cobersteel-blue hover:underline"
               target="_blank"
             >
-              Política de Privacidade
+              Privacidade
             </a>{" "}
             da CoberSteel e autorizo o uso dos meus dados para contato.{" "}
             <span className="text-cobersteel-gold">*</span>

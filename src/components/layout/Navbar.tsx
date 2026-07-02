@@ -4,8 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
-import { NAV_PRODUCTS, NAV_INSTITUCIONAL, SEGMENTS, BLOG_URL } from "@/lib/constants";
+import { NAV_PRODUCTS, NAV_INSTITUCIONAL, SEGMENTS } from "@/lib/constants";
 import SocialLinks from "@/components/shared/SocialLinks";
+import { trackButtonClick } from "@/components/shared/Analytics";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,7 +51,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: "/servicos", label: "Serviços", external: false },
-    { href: BLOG_URL, label: "Blog", external: true },
+    { href: "/blog", label: "Blog", external: false },
   ];
 
   return (
@@ -188,6 +189,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <Link
             href="/orcamento"
+            onClick={() => trackButtonClick("solicitar_orcamento", "navbar_desktop")}
             className="bg-cobersteel-gold text-dark-steel font-semibold text-sm px-5 py-2.5 rounded hover:bg-amber-400 transition-colors uppercase tracking-wide"
           >
             Solicitar Orçamento
@@ -281,7 +283,10 @@ export default function Navbar() {
             <div className="pt-4">
               <Link
                 href="/orcamento"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => {
+                  trackButtonClick("solicitar_orcamento", "navbar_mobile");
+                  setMobileOpen(false);
+                }}
                 className="block w-full text-center bg-cobersteel-gold text-dark-steel font-semibold py-3 rounded uppercase tracking-wide hover:bg-amber-400 transition-colors"
               >
                 Solicitar Orçamento

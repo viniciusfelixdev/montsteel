@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, Mail, Clock, Users, TrendingUp, Shield, Heart, Briefcase, ArrowRight } from "lucide-react";
+import { MapPin, Mail, Clock, Users, TrendingUp, Shield, Heart, Briefcase, ArrowLeft, ArrowRight } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
 
 const vagas = [
@@ -64,7 +64,7 @@ export default function TrabalheCOnoscoPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative institucional-banner-padding-bottom overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -75,20 +75,20 @@ export default function TrabalheCOnoscoPage() {
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-8 h-px bg-cobersteel-gold" aria-hidden="true" />
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest">Institucional</p>
-          </div>
+        <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/"
+            className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-8 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+            Início
+          </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             TRABALHE CONOSCO
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-xl leading-relaxed">
-            Faça parte de uma empresa com mais de 25 anos construindo infraestrutura que move a indústria brasileira.
-          </p>
         </div>
       </section>
 

@@ -1,19 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TrackedLink from "@/components/shared/TrackedLink";
 import { notFound } from "next/navigation";
-import {
-  Wheat, UtensilsCrossed, Car, Building2, Factory, Mountain,
-  FileText, Flame, Anchor, Layers, Leaf, ShoppingCart,
-  ArrowLeft, CheckCircle2, ChevronRight,
-  type LucideIcon,
-} from "lucide-react";
+import { ArrowLeft, CheckCircle2, ChevronRight } from "lucide-react";
 import { getSegment, SEGMENTS_DATA } from "@/lib/segments";
 import { PRODUCTS } from "@/lib/constants";
-
-const ICON_MAP: Record<string, LucideIcon> = {
-  Wheat, UtensilsCrossed, Car, Building2, Factory, Mountain,
-  FileText, Flame, Anchor, Layers, Leaf, ShoppingCart,
-};
 
 const SEGMENT_IMAGES: Record<string, string> = {
   "agronegocio": "/images/segmentos/agronegocio.png",
@@ -58,8 +49,6 @@ export default async function SegmentoPage({
   const segment = getSegment(slug);
   if (!segment) notFound();
 
-  const Icon = ICON_MAP[segment.icon] ?? Factory;
-
   const relatedProducts = PRODUCTS.filter((p) =>
     segment.produtos.includes(p.slug)
   );
@@ -67,7 +56,7 @@ export default async function SegmentoPage({
   return (
     <>
       {/* Header */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative segments-banner-padding overflow-hidden">
         {SEGMENT_IMAGES[segment.slug] ? (
           <>
             <div
@@ -104,19 +93,15 @@ export default async function SegmentoPage({
             Todos os segmentos
           </Link>
 
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/20 flex items-center justify-center flex-shrink-0">
-              <Icon className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
-            </div>
-            <h1
-              className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-            >
-              {segment.name}
-            </h1>
-          </div>
-          <p className="text-lg text-[#94A3B8] max-w-xl">
-            Soluções desenvolvidas sob medida para você — porque nenhuma operação é igual à outra.
+          <h1
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
+            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+          >
+            {segment.name}
+          </h1>
+          <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-cobersteel-gold uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold" aria-hidden="true" />
+            Desenvolvida sob medida para você
           </p>
         </div>
       </section>
@@ -162,7 +147,7 @@ export default async function SegmentoPage({
                 {relatedProducts.map((p) => (
                   <Link
                     key={p.slug}
-                    href={`/produtos/${p.slug}`}
+                    href={`/produtos/${p.slug}?from=segmentos/${segment.slug}`}
                     className="group flex items-center justify-between p-4 bg-dark-mid rounded-xl hover:bg-dark-mid/70 transition-colors"
                   >
                     <div>
@@ -189,7 +174,7 @@ export default async function SegmentoPage({
                     </p>
                   </div>
                   <Link
-                    href="/produtos/projetos-especiais"
+                    href={`/produtos/projetos-especiais?from=segmentos/${segment.slug}`}
                     className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2 bg-cobersteel-gold text-dark-steel text-sm font-bold rounded-lg hover:bg-amber-400 transition-colors"
                   >
                     Ver Projetos Especiais
@@ -239,12 +224,14 @@ export default async function SegmentoPage({
             Cada projeto é desenvolvido sob medida para você. Fale com um especialista e receba uma proposta personalizada, sem compromisso.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <TrackedLink
               href="/orcamento"
+              trackName="solicitar_orcamento_gratuito"
+              trackLocation="segmento_cta_final"
               className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento Gratuito
-            </Link>
+            </TrackedLink>
             <a
               href="https://wa.me/5516997977613"
               target="_blank"

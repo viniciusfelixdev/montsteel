@@ -30,9 +30,6 @@ export default function ProductsOverview() {
           transition={{ duration: 0.5 }}
           className="text-center mb-14"
         >
-          <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-            Portfólio Completo
-          </p>
           <h2
             id="produtos-titulo"
             className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white"

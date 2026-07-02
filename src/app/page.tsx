@@ -5,7 +5,7 @@ import NumbersSection from "@/components/home/NumbersSection";
 import SegmentsGrid from "@/components/home/SegmentsGrid";
 import ClientLogos from "@/components/home/ClientLogos";
 import AboutSummary from "@/components/home/AboutSummary";
-import Link from "next/link";
+import TrackedLink from "@/components/shared/TrackedLink";
 
 export const metadata: Metadata = {
   title: "CoberSteel | Galpões de Lona, Metálicos e Coberturas Industriais — Ibaté/SP",
@@ -42,12 +42,14 @@ export default function HomePage() {
           <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
             Fale com nossos especialistas e receba um projeto desenvolvido sob medida para você.
           </p>
-          <Link
+          <TrackedLink
             href="/orcamento"
+            trackName="solicitar_orcamento_gratuito"
+            trackLocation="home_cta_final"
             className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-400 transition-colors"
           >
             Solicitar Orçamento Gratuito
-          </Link>
+          </TrackedLink>
         </div>
       </section>
 

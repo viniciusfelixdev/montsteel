@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Clock, Phone, Mail } from "lucide-react";
-import { CONTACT_INFO, PRODUCTS, SEGMENTS, BLOG_URL } from "@/lib/constants";
+import { CONTACT_INFO, PRODUCTS, SEGMENTS } from "@/lib/constants";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -48,6 +48,40 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
+            <div className="mt-3 flex gap-3">
+              <a
+                href="https://abnt.org.br"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Projetos desenvolvidos conforme normas ABNT — visitar site da ABNT"
+                title="Projetos conforme normas ABNT"
+                className="inline-flex w-9 h-9 rounded-lg bg-white/90 items-center justify-center hover:bg-white transition-colors"
+              >
+                <Image
+                  src="/images/normas/abnt-logo-blue.png"
+                  alt="ABNT"
+                  width={24}
+                  height={24}
+                  className="w-5 h-5 object-contain"
+                />
+              </a>
+              <a
+                href="https://www.corpodebombeiros.sp.gov.br/#/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Corpo de Bombeiros de São Paulo"
+                title="Corpo de Bombeiros de São Paulo"
+                className="inline-flex w-9 h-9 rounded-lg bg-white/90 items-center justify-center overflow-hidden hover:bg-white transition-colors"
+              >
+                <Image
+                  src="/images/Brasao-CB.svg"
+                  alt="Corpo de Bombeiros de São Paulo"
+                  width={24}
+                  height={24}
+                  className="w-7 h-7 object-contain scale-125"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Coluna 2 — Empresa */}
@@ -85,18 +119,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href={BLOG_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-[#94A3B8] hover:text-white transition-colors"
-                >
+                <Link href="/blog" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/institucional/privacidade" className="text-sm text-[#94A3B8] hover:text-white transition-colors">
-                  Política de Privacidade
+                  Privacidade
                 </Link>
               </li>
             </ul>
@@ -196,9 +225,6 @@ export default function Footer() {
           <p className="text-xs text-[#94A3B8]">
             © {year} CoberSteel. Todos os direitos reservados.
           </p>
-          <Link href="/institucional/privacidade" className="text-xs text-[#94A3B8] hover:text-white transition-colors">
-            Política de Privacidade
-          </Link>
         </div>
       </div>
     </footer>

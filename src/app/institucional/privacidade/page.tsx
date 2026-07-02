@@ -4,13 +4,21 @@ import { ArrowLeft } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade | CoberSteel",
+  title: "Privacidade | CoberSteel",
   description:
     "Saiba como a CoberSteel coleta, usa e protege seus dados pessoais conforme a Lei Geral de Proteção de Dados (LGPD).",
   alternates: { canonical: "/institucional/privacidade" },
 };
 
-const sections = [
+type Secao = {
+  titulo: string;
+  conteudo: string;
+  itens?: { label: string; texto: string }[];
+  rodape?: string;
+  linkParceiros?: boolean;
+};
+
+const sections: Secao[] = [
   {
     titulo: "1. Quem somos",
     conteudo: `A CoberSteel é uma empresa especializada em infraestrutura industrial flexível, com sede na Rua Júlio Gonzaga, 317 - Distrito Industrial Antonio Guaraty - Ibaté/SP. Para fins desta Política, somos o Controlador dos seus dados pessoais, conforme definido pela Lei nº 13.709/2018 (LGPD).`,
@@ -30,6 +38,7 @@ const sections = [
   {
     titulo: "5. Compartilhamento de dados",
     conteudo: `Não vendemos, alugamos ou compartilhamos seus dados com terceiros para fins comerciais. Podemos compartilhar informações com prestadores de serviços que nos auxiliam nas operações (como serviços de e-mail e hospedagem), sempre sob obrigação contratual de confidencialidade e segurança.`,
+    linkParceiros: true,
   },
   {
     titulo: "6. Retenção de dados",
@@ -48,11 +57,34 @@ const sections = [
     conteudo: `Nosso site pode utilizar cookies e tecnologias semelhantes para melhorar a experiência de navegação, analisar o tráfego e personalizar conteúdo. Você pode configurar seu navegador para recusar cookies, mas isso pode afetar a funcionalidade do site.`,
   },
   {
-    titulo: "10. Alterações nesta Política",
+    titulo: "10. Google Analytics 4 (GA4) e dados de navegação",
+    conteudo: `Nós utilizamos o Google Analytics 4 (GA4) para entender como os visitantes interagem com o nosso site, permitindo a melhoria contínua dos nossos serviços e conteúdos. Através dele, coletamos de forma automatizada:`,
+    itens: [
+      {
+        label: "Dados de Comportamento",
+        texto: "Rolagem de páginas, cliques em botões, downloads de catálogos, reprodução de vídeos incorporados e envio de formulários de contato.",
+      },
+      {
+        label: "Dados de Aquisição",
+        texto: "A origem do seu acesso (se por meio de motores de busca, redes sociais, anúncios ou links diretos).",
+      },
+      {
+        label: "Dados Demográficos e de Perfil",
+        texto: "Informações anônimas fornecidas pelo recurso Google Signals, como faixa etária aproximada, gênero, cidade/estado de origem e categorias de interesse de consumo.",
+      },
+      {
+        label: "Dados de Tecnologia",
+        texto: "Tipo de dispositivo utilizado (computador ou celular), modelo do aparelho, sistema operacional e navegador de internet.",
+      },
+    ],
+    rodape: `Esses dados são coletados de forma estritamente anônima e não permitem a identificação direta do usuário (como e-mail, nome ou CPF). A coleta está condicionada ao seu consentimento prévio através do nosso banner de gerenciamento de cookies. Você pode revogar ou alterar suas preferências de rastreamento a qualquer momento limpando os cookies do seu navegador. O Google Analytics é fornecido pela Google LLC, empresa sediada nos Estados Unidos, podendo os dados ser processados em servidores localizados fora do Brasil, sempre sob os padrões de proteção e as cláusulas contratuais adotadas pelo Google.`,
+  },
+  {
+    titulo: "11. Alterações nesta Política",
     conteudo: `Esta Política pode ser atualizada periodicamente. Recomendamos que você a revise regularmente. A data da última atualização está indicada ao final do documento.`,
   },
   {
-    titulo: "11. Contato",
+    titulo: "12. Contato",
     conteudo: `Para dúvidas, solicitações ou exercício dos seus direitos relacionados a esta Política, entre em contato com nosso encarregado de dados (DPO) pelo e-mail contato@cobersteel.com.br ou pelo telefone (16) 2120-0477.`,
   },
 ];
@@ -61,7 +93,7 @@ export default function PrivacidadePage() {
   return (
     <>
       {/* Header */}
-      <section className="relative pt-32 pb-16 overflow-hidden">
+      <section className="relative pt-40 pb-28 overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -72,6 +104,7 @@ export default function PrivacidadePage() {
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
             Legal
@@ -80,10 +113,10 @@ export default function PrivacidadePage() {
             className="text-5xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
-            POLÍTICA DE PRIVACIDADE
+            PRIVACIDADE
           </h1>
           <p className="text-sm text-[#94A3B8]">
-            Última atualização: junho de 2025
+            Última atualização: julho de 2026
           </p>
         </div>
       </section>
@@ -105,6 +138,27 @@ export default function PrivacidadePage() {
                   {s.titulo}
                 </h2>
                 <p className="text-[#94A3B8] leading-relaxed text-sm">{s.conteudo}</p>
+                {s.itens && (
+                  <ul className="mt-3 space-y-2 pl-1">
+                    {s.itens.map((item) => (
+                      <li key={item.label} className="text-[#94A3B8] leading-relaxed text-sm">
+                        <span className="text-white font-semibold">{item.label}:</span> {item.texto}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {s.rodape && (
+                  <p className="text-[#94A3B8] leading-relaxed text-sm mt-3">{s.rodape}</p>
+                )}
+                {s.linkParceiros && (
+                  <p className="text-[#94A3B8] leading-relaxed text-sm mt-3">
+                    Saiba mais sobre nossos{" "}
+                    <Link href="/institucional/parceiros" className="text-[#A7B2BF] hover:text-white transition-colors">
+                      Parceiros Comerciais
+                    </Link>
+                    .
+                  </p>
+                )}
               </div>
             ))}
 

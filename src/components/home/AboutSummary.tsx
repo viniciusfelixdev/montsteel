@@ -30,7 +30,7 @@ export default function AboutSummary() {
               <span className="text-cobersteel-blue">COM QUEM ENTENDE DO NEGÓCIO</span>
             </h2>
             <p className="text-[#94A3B8] leading-relaxed mb-4">
-              A CoberSteel é especializada em infraestrutura industrial flexível, oferecendo galpões de lona, metálicos e híbridos para locação e venda em todo o Brasil. Fundada há mais de 25 anos, construímos nossa reputação sobre três pilares: segurança estrutural, agilidade na entrega e compromisso com o cliente.
+              A CoberSteel é especializada em infraestrutura industrial flexível, oferecendo galpões de lona, metálicos e híbridos para locação e venda em todo o Brasil. Construímos nossa reputação sobre três pilares: segurança estrutural, agilidade na entrega e compromisso com o cliente.
             </p>
             <p className="text-[#94A3B8] leading-relaxed mb-8">
               Atendemos os maiores setores da indústria nacional — do agronegócio ao petroquímico — com soluções <span className="text-white font-medium">desenvolvidas sob medida para você</span>, conforme normas ABNT e a realidade específica da sua operação.

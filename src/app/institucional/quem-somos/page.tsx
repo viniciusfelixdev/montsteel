@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import type { ReactNode } from "react";
 import Link from "next/link";
+import TrackedLink from "@/components/shared/TrackedLink";
 import {
-  Target, Eye, Gem, ArrowRight, Users, MapPin, Phone, Clock, Truck,
+  Target, Eye, Gem, ArrowLeft, ArrowRight, Users, MapPin, Phone, Clock, Truck,
   ShieldCheck, Stamp, HardHat, BadgeCheck,
 } from "lucide-react";
 import Reveal from "./Reveal";
@@ -76,20 +76,11 @@ const valores = [
   },
 ];
 
-function Eyebrow({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex items-center gap-3 mb-4">
-      <span className="w-8 h-px bg-cobersteel-gold" aria-hidden="true" />
-      <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest">{children}</p>
-    </div>
-  );
-}
-
 export default function QuemSomosPage() {
   return (
     <>
       {/* Page Header */}
-      <section className="relative pt-40 pb-28 overflow-hidden">
+      <section className="relative institucional-banner-padding-bottom overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -100,18 +91,20 @@ export default function QuemSomosPage() {
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
-        <Reveal className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Eyebrow>Institucional</Eyebrow>
+        <Reveal className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/"
+            className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-8 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+            Início
+          </Link>
           <h1
             className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             QUEM SOMOS
           </h1>
-          <p className="text-lg sm:text-xl text-[#94A3B8] max-w-2xl leading-relaxed">
-            Mais de 25 anos construindo infraestrutura que sustenta as maiores operações industriais do Brasil.
-          </p>
         </Reveal>
       </section>
 
@@ -209,29 +202,30 @@ export default function QuemSomosPage() {
               className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] text-balance"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
             >
-              MISSÃO, VISÃO <span className="text-cobersteel-blue">E VALORES</span>
+              MISSÃO, VISÃO E VALORES
             </h2>
           </Reveal>
 
-          <div className="divide-y divide-dark-border border-y border-dark-border">
+          <div>
+            <div className="h-px bg-gradient-to-r from-transparent via-dark-border to-transparent" />
             {valores.map(({ Icon, titulo, texto }) => (
-              <Reveal
-                key={titulo}
-                className="grid gap-x-12 gap-y-5 py-10 sm:py-14 lg:grid-cols-[200px_1fr]"
-              >
-                <div className="flex items-center gap-3">
-                  <Icon className="w-7 h-7 text-white flex-shrink-0" strokeWidth={2} aria-hidden="true" />
-                  <h3
-                    className="text-2xl font-black uppercase tracking-wide text-white leading-none"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                  >
-                    {titulo}
-                  </h3>
-                </div>
-                <p className="text-lg text-white/80 leading-[1.7] max-w-[68ch] text-pretty">
-                  {texto}
-                </p>
-              </Reveal>
+              <div key={titulo}>
+                <Reveal className="grid gap-x-12 gap-y-5 py-10 sm:py-14 lg:grid-cols-[200px_1fr]">
+                  <div className="flex items-center gap-3">
+                    <Icon className="w-7 h-7 text-white flex-shrink-0" strokeWidth={2} aria-hidden="true" />
+                    <h3
+                      className="text-2xl font-black uppercase tracking-wide text-white leading-none"
+                      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    >
+                      {titulo}
+                    </h3>
+                  </div>
+                  <p className="text-lg text-white/80 leading-[1.7] max-w-[68ch] text-pretty">
+                    {texto}
+                  </p>
+                </Reveal>
+                <div className="h-px bg-gradient-to-r from-transparent via-dark-border to-transparent" />
+              </div>
             ))}
           </div>
         </div>
@@ -433,14 +427,16 @@ export default function QuemSomosPage() {
           <p className="text-white/85 text-lg max-w-2xl mx-auto mb-9 leading-relaxed">
             Fale com nossos especialistas e receba um projeto personalizado para a sua operação.
           </p>
-          <Link
+          <TrackedLink
             href="/orcamento"
+            trackName="solicitar_orcamento"
+            trackLocation="quem_somos_cta_final"
             className="inline-flex items-center gap-2 bg-cobersteel-gold text-dark-steel font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:brightness-110 transition"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             Solicitar Orçamento
             <ArrowRight className="w-5 h-5" aria-hidden="true" />
-          </Link>
+          </TrackedLink>
         </Reveal>
       </section>
     </>

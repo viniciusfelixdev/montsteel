@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TrackedLink from "@/components/shared/TrackedLink";
 import { Home, ArrowRight } from "lucide-react";
 
 export const metadata = {
@@ -39,13 +40,15 @@ export default function NotFound() {
             <Home className="w-4 h-4" aria-hidden="true" />
             Voltar para a Home
           </Link>
-          <Link
+          <TrackedLink
             href="/orcamento"
+            trackName="solicitar_orcamento"
+            trackLocation="404"
             className="group inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/25 text-white font-bold text-sm uppercase rounded-lg hover:border-white transition-colors"
           >
             Solicitar Orçamento
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     </section>

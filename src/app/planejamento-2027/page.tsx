@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { trackButtonClick } from "@/components/shared/Analytics";
 import {
   Target, TrendingUp, Globe, Leaf, Zap, Building2,
   ArrowRight, Star, Shield, Users, BarChart3, Rocket,
@@ -407,6 +408,7 @@ export default function Planejamento2027Page() {
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/orcamento"
+                onClick={() => trackButtonClick("fazer_parte_desta_historia", "planejamento_2027_cta")}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
               >
                 Fazer parte desta história

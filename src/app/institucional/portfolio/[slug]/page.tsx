@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import TrackedLink from "@/components/shared/TrackedLink";
 import { ArrowLeft, ArrowRight, MapPin, Ruler, Calendar, Building2, Target, CheckCircle2, Quote, Tag } from "lucide-react";
 import { PORTFOLIO_DATA, getPortfolioCase } from "@/lib/portfolio";
 import { getProduct } from "@/lib/products";
@@ -46,7 +47,7 @@ export default async function PortfolioCasePage({
   return (
     <>
       {/* Hero */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative pt-40 pb-28 overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -239,12 +240,14 @@ export default async function PortfolioCasePage({
           <p className="text-white/80 mb-8">
             Fale com nossos especialistas e receba uma solução desenvolvida sob medida para a sua operação.
           </p>
-          <Link
+          <TrackedLink
             href="/orcamento"
+            trackName="solicitar_orcamento"
+            trackLocation="portfolio_detalhe_cta_final"
             className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
           >
             Solicitar Orçamento
-          </Link>
+          </TrackedLink>
         </div>
       </section>
     </>

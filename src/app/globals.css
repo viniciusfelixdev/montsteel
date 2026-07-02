@@ -17,6 +17,47 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  /* ===== Banner de SEGMENTOS (/segmentos/[slug]) — não usar fora daqui ===== */
+  --segments-banner-padding-top: 8rem;
+  --segments-banner-padding-bottom: 5rem;
+
+  /* ===== Hero das páginas INSTITUCIONAIS — não usar fora daqui ===== */
+  /* Igual a --segments-banner-padding-top, para o botão "Início" ficar na mesma altura
+     do botão "Todos os segmentos". */
+  --institucional-title-offset: 8rem;
+  --institucional-banner-padding-bottom: 5rem;
+
+  /* Altura mínima do bloco título+texto — trava a variação de altura entre as páginas.
+     Calculada com margem para o pior caso (título em 3 linhas + parágrafo em 2 linhas). */
+  --institucional-content-min-height: 20rem;
+}
+
+/* Segmentos: padding fixo do banner. Mudar aqui ajusta todas as páginas de segmento de uma vez. */
+.segments-banner-padding {
+  padding-top: var(--segments-banner-padding-top);
+  padding-bottom: var(--segments-banner-padding-bottom);
+}
+
+/* Institucional: distância fixa do topo até o título. */
+.institucional-content-offset {
+  padding-top: var(--institucional-title-offset);
+}
+
+/* Institucional: altura mínima do bloco de conteúdo. Alinhado ao topo (não centralizado)
+   para o botão "Início" ficar sempre na mesma posição fixa, igual ao de Segmentos. */
+.institucional-content-min-height {
+  min-height: var(--institucional-content-min-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Institucional: padding inferior do banner. */
+.institucional-banner-padding-bottom {
+  padding-bottom: var(--institucional-banner-padding-bottom);
+}
+
 /* Foco visível consistente para navegação por teclado (acessibilidade) */
 a:focus-visible,
 button:focus-visible,
@@ -30,7 +71,8 @@ textarea:focus-visible,
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
@@ -38,12 +80,8 @@ textarea:focus-visible,
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2A2A2A;
-  border-radius: 9999px;
-}
-
-::-webkit-scrollbar-thumb:hover {
   background: #5C88B5;
+  border-radius: 9999px;
 }
 
 body {
@@ -58,6 +96,125 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Estiliza o HTML bruto vindo do content.rendered da API do WordPress (/blog/[slug]). */
+.prose-custom {
+  color: #94A3B8;
+  line-height: 1.75;
+}
+.prose-custom p {
+  margin-bottom: 1.25rem;
+}
+.prose-custom h1,
+.prose-custom h2,
+.prose-custom h3,
+.prose-custom h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.prose-custom h1 { font-size: 1.875rem; }
+.prose-custom h2 { font-size: 1.5rem; }
+.prose-custom h3 { font-size: 1.25rem; }
+.prose-custom ul,
+.prose-custom ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+}
+.prose-custom ul { list-style: disc; }
+.prose-custom ol { list-style: decimal; }
+.prose-custom li {
+  margin-bottom: 0.5rem;
+}
+.prose-custom a {
+  color: #5C88B5;
+  text-decoration: underline;
+}
+.prose-custom a:hover {
+  color: #D7A03B;
+}
+.prose-custom img {
+  border-radius: 0.75rem;
+  margin: 1.5rem 0;
+  max-width: 100%;
+  height: auto;
+}
+.prose-custom blockquote {
+  border-left: 2px solid #D7A03B;
+  padding-left: 1rem;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+.prose-custom strong {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/*
+ * Card de CTA gerado no editor do WordPress: um bloco "Colunas" (wp-block-columns)
+ * ou um bloco "Grupo" com cor de fundo (wp-block-group.has-background). Vira um
+ * card grafite escuro com cantos arredondados — texto à esquerda, botão dourado
+ * centralizado verticalmente à direita em telas grandes, empilhado no mobile.
+ */
+.prose-custom .wp-block-columns,
+.prose-custom .wp-block-group.has-background {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: #16181C !important;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2.5rem 0;
+}
+@media (min-width: 1024px) {
+  .prose-custom .wp-block-columns {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+.prose-custom .wp-block-columns > .wp-block-column {
+  flex: 1;
+}
+.prose-custom .wp-block-columns > .wp-block-column:last-child,
+.prose-custom .wp-block-group.has-background .wp-block-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 1024px) {
+  .prose-custom .wp-block-columns > .wp-block-column:last-child {
+    justify-content: flex-end;
+  }
+}
+.prose-custom .wp-block-columns p,
+.prose-custom .wp-block-columns h2,
+.prose-custom .wp-block-columns h3,
+.prose-custom .wp-block-columns h4,
+.prose-custom .wp-block-group.has-background p,
+.prose-custom .wp-block-group.has-background h2,
+.prose-custom .wp-block-group.has-background h3,
+.prose-custom .wp-block-group.has-background h4 {
+  margin-top: 0;
+}
+.prose-custom .wp-block-columns .wp-block-button__link,
+.prose-custom .wp-block-group.has-background .wp-block-button__link {
+  display: inline-block;
+  background-color: #D7A03B !important;
+  color: #0F0F0F !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.875rem 2rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+.prose-custom .wp-block-columns .wp-block-button__link:hover,
+.prose-custom .wp-block-group.has-background .wp-block-button__link:hover {
+  background-color: #E8B657 !important;
 }
 
 /* Carrossel de logos: esconde a barra de rolagem do trilho */

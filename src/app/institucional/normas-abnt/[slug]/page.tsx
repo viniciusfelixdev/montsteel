@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TrackedLink from "@/components/shared/TrackedLink";
 import { notFound } from "next/navigation";
 import { ArrowLeft, AlertCircle } from "lucide-react";
 import { getNorma, NORMAS } from "@/lib/normas";
 
-// Logo ABNT (azul forte) usada alinhada à direita em qualquer norma sem imagem específica.
-const DEFAULT_NORMA_IMAGE = "/images/normas/abnt-logo-blue.png";
-
-// Banners por norma. Por padrão, todas usam a logo ABNT à direita.
+// Banners por norma. Por padrão, nenhuma imagem é exibida.
 // Para dar uma foto específica a uma norma, adicione o slug aqui
 // (ex.: "nbr-6118": "/images/normas/nbr-6118.png").
 const NORMA_IMAGES: Record<string, string> = {};
@@ -41,19 +39,12 @@ export default async function NormaPage({
   if (!norma) notFound();
 
   const specificImg = NORMA_IMAGES[norma.slug];
-  const onLight = !specificImg; // sem foto = header claro com a logo ABNT azul
 
   return (
     <>
       {/* Header */}
-      <section
-        className={`relative pt-32 pb-16 overflow-hidden ${
-          onLight
-            ? "bg-gradient-to-br from-[#F4F7FA] to-[#E2E8F0]"
-            : "bg-gradient-to-br from-dark-steel to-dark-mid"
-        }`}
-      >
-        {specificImg ? (
+      <section className="relative pt-40 pb-28 overflow-hidden bg-gradient-to-br from-dark-steel to-dark-mid">
+        {specificImg && (
           <>
             <div
               className="absolute inset-0"
@@ -65,52 +56,34 @@ export default async function NormaPage({
               aria-hidden="true"
             />
             <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
           </>
-        ) : (
-          <div
-            className="absolute inset-x-0 top-20 bottom-0"
-            style={{
-              backgroundImage: `url('${DEFAULT_NORMA_IMAGE}')`,
-              backgroundRepeat: "no-repeat",
-              backgroundPosition: "right 2rem center",
-              backgroundSize: "auto 60%",
-            }}
-            aria-hidden="true"
-          />
         )}
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/institucional/normas-abnt"
-            className={`inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-lg transition-all mb-8 group border ${
-              onLight
-                ? "text-dark-steel border-dark-steel/25 hover:border-dark-steel"
-                : "text-white border-white/30 hover:border-white"
-            }`}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-6 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Todas as normas
           </Link>
 
           <div className="flex items-center gap-3 mb-4">
-            <span className={`text-xs font-bold font-mono px-3 py-1 rounded border ${
-              onLight
-                ? "text-[#0047BB] border-[#0047BB]/40 bg-[#0047BB]/10"
-                : "text-cobersteel-gold border-cobersteel-gold/40 bg-cobersteel-gold/10"
-            }`}>
+            <span className="text-xs font-bold font-mono px-3 py-1 rounded border text-cobersteel-blue border-cobersteel-blue/40 bg-cobersteel-blue/10">
               {norma.codigo}
             </span>
-            <span className={`text-xs uppercase tracking-widest font-semibold ${onLight ? "text-[#475569]" : "text-[#94A3B8]"}`}>
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#94A3B8]">
               {norma.categoria}
             </span>
           </div>
 
           <h1
-            className={`text-4xl sm:text-6xl font-black uppercase tracking-tight mb-4 leading-tight ${onLight ? "text-dark-steel" : "text-white"}`}
+            className="text-4xl sm:text-6xl font-black uppercase tracking-tight mb-4 leading-tight text-white"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             {norma.titulo}
           </h1>
-          <p className={`text-lg leading-relaxed ${onLight ? "text-[#475569]" : "text-[#94A3B8]"}`}>
+          <p className="text-lg leading-relaxed text-[#94A3B8]">
             {norma.resumo}
           </p>
         </div>
@@ -188,12 +161,14 @@ export default async function NormaPage({
             Cada projeto CoberSteel é desenvolvido sob medida para você, com documentação técnica completa e ART de engenharia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <TrackedLink
               href="/orcamento"
+              trackName="solicitar_orcamento"
+              trackLocation="normas_abnt_detalhe_cta_final"
               className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
-            </Link>
+            </TrackedLink>
             <a
               href="https://wa.me/5516997977613"
               target="_blank"

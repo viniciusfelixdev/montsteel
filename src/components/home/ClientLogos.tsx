@@ -79,7 +79,7 @@ export default function ClientLogos() {
             EMPRESAS QUE CONFIAM NA COBERSTEEL
           </h2>
           <p className="mt-3 text-sm text-[#94A3B8]">
-            Mais de 25 anos entregando soluções para os maiores players da indústria nacional
+            Soluções para os maiores players da indústria nacional
           </p>
         </motion.div>
       </div>

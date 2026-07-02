@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import TrackedLink from "@/components/shared/TrackedLink";
 import {
   Wrench, ShieldCheck, Zap, Expand, Truck, ClipboardList, CheckCircle2,
-  type LucideIcon,
+  ArrowLeft, type LucideIcon,
 } from "lucide-react";
 
 type Servico = {
@@ -94,7 +95,7 @@ export default function ServicosPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
+      <section className="relative institucional-banner-padding-bottom overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
@@ -105,19 +106,20 @@ export default function ServicosPage() {
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-            Serviços
-          </p>
+        <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/"
+            className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-8 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+            Início
+          </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             SERVIÇOS E MANUTENÇÕES
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-xl leading-relaxed">
-            Do projeto à manutenção, cada atendimento é planejado para você — soluções sob medida para garantir segurança e eficiência ao longo de toda a vida útil da sua estrutura.
-          </p>
         </div>
       </section>
 
@@ -140,10 +142,10 @@ export default function ServicosPage() {
             {servicos.map((s) => (
               <div
                 key={s.titulo}
-                className="group bg-dark-mid rounded-2xl p-10 flex flex-col gap-8 transition-all duration-200 hover:-translate-y-1"
+                className="bg-dark-mid rounded-2xl p-10 flex flex-col gap-8"
               >
                 <div className="flex items-start gap-5 min-h-[180px]">
-                  <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/15 flex items-center justify-center flex-shrink-0 group-hover:bg-cobersteel-blue/25 transition-colors">
+                  <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/15 flex items-center justify-center flex-shrink-0">
                     <s.icon className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
                   </div>
                   <div>
@@ -191,12 +193,14 @@ export default function ServicosPage() {
             Fale com nossa equipe técnica e receba um orçamento elaborado sob medida para você.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <TrackedLink
               href="/orcamento"
+              trackName="solicitar_orcamento"
+              trackLocation="servicos_cta_final"
               className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
-            </Link>
+            </TrackedLink>
             <a
               href="https://wa.me/5516997977613"
               target="_blank"

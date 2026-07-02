@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import TrackedLink from "@/components/shared/TrackedLink";
 import { ArrowRight } from "lucide-react";
 import ProductGallery from "@/components/products/ProductGallery";
 import { PRODUCTS_DATA, getProduct } from "@/lib/products";
+import { getSegment } from "@/lib/segments";
 
 export async function generateStaticParams() {
   return PRODUCTS_DATA.map((p) => ({ slug: p.slug }));
@@ -26,12 +28,18 @@ export async function generateMetadata({
 
 export default async function ProdutoPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ from?: string }>;
 }) {
   const { slug } = await params;
+  const { from } = await searchParams;
   const product = getProduct(slug);
   if (!product) notFound();
+
+  const segmentSlug = from?.startsWith("segmentos/") ? from.replace("segmentos/", "") : null;
+  const originSegment = segmentSlug ? getSegment(segmentSlug) : undefined;
 
   return (
     <>
@@ -48,20 +56,39 @@ export default async function ProdutoPage({
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link
-            href="/#produtos"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-6 group"
-          >
-            <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
-            Voltar para Produtos
-          </Link>
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            {originSegment && (
+              <Link
+                href={`/segmentos/${originSegment.slug}`}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all group"
+              >
+                <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+                Voltar para {originSegment.name}
+              </Link>
+            )}
+            <Link
+              href="/#produtos"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all group"
+            >
+              {originSegment ? (
+                <>
+                  Ir para Produtos
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                </>
+              ) : (
+                <>
+                  <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+                  Voltar para Produtos
+                </>
+              )}
+            </Link>
+          </div>
           <h1
             className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
             {product.name}
           </h1>
-          <p className="text-lg text-[#94A3B8] max-w-xl">{product.tagline}</p>
           <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-cobersteel-gold uppercase tracking-widest">
             <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold" aria-hidden="true" />
             Desenvolvida sob medida para você
@@ -177,12 +204,14 @@ export default async function ProdutoPage({
           <p className="text-white/80 mb-8">
             Fale com nossos especialistas e receba um projeto desenvolvido sob medida para você.
           </p>
-          <Link
+          <TrackedLink
             href="/orcamento"
+            trackName={product.ctaLabel}
+            trackLocation="produto_cta_final"
             className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded hover:bg-amber-400 transition-colors"
           >
             {product.ctaLabel}
-          </Link>
+          </TrackedLink>
         </div>
       </section>
     </>

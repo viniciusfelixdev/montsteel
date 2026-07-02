@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ShieldCheck, CheckCircle2, FileText, AlertTriangle, ChevronRight } from "lucide-react";
+import TrackedLink from "@/components/shared/TrackedLink";
+import { ShieldCheck, CheckCircle2, FileText, AlertTriangle, ChevronRight, ArrowLeft } from "lucide-react";
 import { NORMAS } from "@/lib/normas";
 
 export const metadata: Metadata = {
@@ -37,31 +38,31 @@ export default function NormasAbntPage() {
   return (
     <>
       {/* Header */}
-      <section className="relative bg-gradient-to-br from-[#F4F7FA] to-[#E2E8F0] pt-32 pb-20 overflow-hidden">
+      <section className="relative institucional-banner-padding-bottom overflow-hidden">
         <div
-          className="absolute inset-x-0 top-20 bottom-0"
+          className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/normas/abnt-logo-blue.png')",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "right 2rem center",
-            backgroundSize: "auto 60%",
+            backgroundImage: "url('/images/normas-abnt-banner.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
           aria-hidden="true"
         />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3 mb-4">
-            <span className="w-8 h-px bg-cobersteel-gold" aria-hidden="true" />
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest">Institucional</p>
-          </div>
+        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link
+            href="/"
+            className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-8 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+            Início
+          </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-dark-steel mb-4"
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
           >
-            CONFORMIDADE COM <span className="text-[#0047BB]">NORMAS ABNT</span>
+            CONFORMIDADE COM <span className="text-cobersteel-blue">NORMAS ABNT</span>
           </h1>
-          <p className="text-lg text-[#475569] max-w-2xl leading-relaxed">
-            Cada projeto CoberSteel é desenvolvido sob medida para você e calculado em conformidade com as normas brasileiras e internacionais — porque segurança estrutural não é opcional.
-          </p>
         </div>
       </section>
 
@@ -177,12 +178,14 @@ export default function NormasAbntPage() {
             Fale com nossos especialistas e receba um projeto desenvolvido sob medida para você — com ART, documentação completa e total conformidade com as normas ABNT.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
+            <TrackedLink
               href="/orcamento"
+              trackName="solicitar_orcamento"
+              trackLocation="normas_abnt_cta_final"
               className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
-            </Link>
+            </TrackedLink>
             <a
               href="https://wa.me/5516997977613"
               target="_blank"

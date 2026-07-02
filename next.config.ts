@@ -5,6 +5,13 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: __dirname,
   },
+  images: {
+    remotePatterns: [
+      // Imagens destacadas dos posts do WordPress Headless (blog).
+      { protocol: "https", hostname: "*.wordpress.com" },
+      { protocol: "https", hostname: "*.wp.com" },
+    ],
+  },
 };
 
 export default nextConfig;

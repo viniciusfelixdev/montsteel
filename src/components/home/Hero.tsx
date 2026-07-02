@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+import { trackButtonClick } from "@/components/shared/Analytics";
 
 export default function Hero() {
   return (
@@ -32,16 +33,6 @@ export default function Hero() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 border border-cobersteel-gold/40 bg-cobersteel-gold/10 text-cobersteel-gold text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-8"
-          >
-            <span className="w-1.5 h-1.5 bg-cobersteel-gold rounded-full animate-pulse" />
-            Mais de 25 anos no mercado
-          </motion.div>
-
           {/* Headline */}
           <h1
             className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-none mb-6 whitespace-nowrap"
@@ -53,14 +44,14 @@ export default function Hero() {
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-[#94A3B8] max-w-2xl mx-auto mb-10 leading-relaxed">
             Galpões e coberturas industriais para locação e venda — cada projeto
-            desenvolvido sob medida para você, conforme normas ABNT,
-            com mais de 25 anos de experiência no mercado.
+            desenvolvido sob medida para você, conforme normas ABNT.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/orcamento"
+              onClick={() => trackButtonClick("solicitar_orcamento", "hero")}
               className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento

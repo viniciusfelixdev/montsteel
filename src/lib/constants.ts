@@ -1,7 +1,3 @@
-/** Blog hospedado em WordPress num subdomínio separado. Configurável via env. */
-export const BLOG_URL =
-  process.env.NEXT_PUBLIC_BLOG_URL || "https://blog.cobersteel.com.br";
-
 export const CONTACT_INFO = {
   address: "Rua Júlio Gonzaga, 317 - Distrito Industrial Antonio Guaraty - Ibaté/SP",
   hours: "Segunda a Sexta, das 8h às 18h",
