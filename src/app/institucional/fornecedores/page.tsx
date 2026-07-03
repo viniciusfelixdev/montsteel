@@ -467,7 +467,7 @@ export default function FornecedoresPage() {
                       <p className="font-black uppercase text-white text-sm mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
                         {e.titulo}
                       </p>
-                      <p className="text-xs text-[#94A3B8] leading-relaxed">{e.desc}</p>
+                      <p className="text-[16px] text-[#94A3B8] leading-relaxed">{e.desc}</p>
                     </div>
                   </div>
                 ))}

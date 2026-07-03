@@ -118,7 +118,7 @@ export default async function BlogPostPage({
             </article>
 
             {/* Sidebar */}
-            <aside className="lg:col-span-1 space-y-8">
+            <aside className="lg:col-span-1 space-y-8 lg:sticky lg:top-20 lg:self-start">
 
               {/* Artigos relacionados */}
               {relacionados.length > 0 && (

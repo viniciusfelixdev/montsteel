@@ -38,7 +38,7 @@ export default function ProductsOverview() {
             NOSSOS PRODUTOS
           </h2>
           <p className="mt-4 text-[#94A3B8] max-w-xl mx-auto">
-            Cada solução é desenvolvida sob medida para você — disponíveis para locação e venda em todo o Brasil.
+            Cada solução é desenvolvida sob medida para você e está disponível para locação e venda em todo o Brasil.
           </p>
         </motion.div>
 
@@ -79,7 +79,7 @@ export default function ProductsOverview() {
                   >
                     {product.name}
                   </h3>
-                  <p className="text-sm text-[#94A3B8] mb-6 leading-relaxed flex-1">
+                  <p className="text-[16px] text-[#94A3B8] mb-6 leading-relaxed flex-1">
                     {product.shortDesc}
                   </p>
                   <span className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white group-hover:bg-cobersteel-blue group-hover:text-white transition-all self-start">
@@ -116,7 +116,7 @@ export default function ProductsOverview() {
                 >
                   Niveladoras de Doca
                 </h3>
-                <p className="text-sm text-[#94A3B8] mb-6 leading-relaxed flex-1">
+                <p className="text-[16px] text-[#94A3B8] mb-6 leading-relaxed flex-1">
                   Equipamentos logísticos para otimizar o carregamento e descarregamento de veículos
                 </p>
                 <span className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white group-hover:bg-cobersteel-blue group-hover:text-white transition-all self-start">

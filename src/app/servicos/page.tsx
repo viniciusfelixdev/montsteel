@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const servicos: Servico[] = [
   {
     icon: Wrench,
-    titulo: "Instalação e Montagem",
+    titulo: "Montagem",
     desc: "Mão de obra especializada para montagem segura e dentro do prazo. Nossas equipes de campo atuam em todo o Brasil, garantindo a instalação correta de cada componente estrutural conforme o projeto técnico aprovado.",
     itens: [
       "Equipes treinadas e certificadas",
@@ -109,7 +109,7 @@ export default function ServicosPage() {
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/"
-            className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-8 group"
+            className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm hover:bg-black/70 px-4 py-2 rounded-lg transition-all mb-8 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Início
@@ -133,8 +133,8 @@ export default function ServicosPage() {
             >
               O QUE FAZEMOS POR VOCÊ
             </h2>
-            <p className="text-[#94A3B8] leading-relaxed mt-4">
-              Soluções completas para cada etapa da vida da sua estrutura — da montagem inicial à manutenção contínua, sempre com responsabilidade técnica.
+            <p className="text-lg text-[#94A3B8] leading-relaxed mt-4">
+              Oferecemos soluções completas para cada etapa da vida da sua estrutura, da montagem inicial à manutenção contínua, sempre com responsabilidade técnica.
             </p>
           </div>
 
@@ -142,46 +142,54 @@ export default function ServicosPage() {
             {servicos.map((s) => (
               <div
                 key={s.titulo}
-                className="bg-dark-mid rounded-2xl p-10 flex flex-col gap-8"
+                className="bg-dark-mid rounded-2xl p-10 flex items-start gap-5 min-h-[180px]"
               >
-                <div className="flex items-start gap-5 min-h-[180px]">
-                  <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/15 flex items-center justify-center flex-shrink-0">
-                    <s.icon className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <div className="flex items-center flex-wrap gap-x-3 gap-y-1.5 mb-3">
-                      <h3
-                        className="text-2xl font-black uppercase text-white leading-tight"
-                        style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                      >
-                        {s.titulo}
-                      </h3>
-                      {s.badge && (
-                        <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wide text-cobersteel-gold bg-cobersteel-gold/10 border border-cobersteel-gold/30 px-2.5 py-1 rounded-full">
-                          <Zap className="w-3 h-3" aria-hidden="true" />
-                          {s.badge}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-base text-[#94A3B8] leading-relaxed">{s.desc}</p>
-                  </div>
+                <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/15 flex items-center justify-center flex-shrink-0">
+                  <s.icon className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
                 </div>
-                <div
-                  className="h-px w-full mt-2"
-                  style={{ background: "linear-gradient(to right, transparent, #2A2A2A 20%, #2A2A2A 80%, transparent)" }}
-                  aria-hidden="true"
-                />
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 pt-8">
-                  {s.itens.map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-sm text-[#94A3B8] leading-snug">
-                      <CheckCircle2 className="w-4 h-4 text-cobersteel-gold/80 flex-shrink-0 mt-0.5" aria-hidden="true" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  <div className="flex items-center flex-wrap gap-x-3 gap-y-1.5 mb-3">
+                    <h3
+                      className="text-2xl font-black uppercase text-white leading-tight"
+                      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    >
+                      {s.titulo}
+                    </h3>
+                    {s.badge && (
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-cobersteel-gold bg-cobersteel-gold/10 px-2.5 py-1 rounded-full">
+                        <Zap className="w-3 h-3" aria-hidden="true" />
+                        {s.badge}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-[16px] text-[#94A3B8] leading-relaxed">{s.desc}</p>
+                </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Garantias gerais */}
+      <section className="bg-dark-mid py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl mb-14">
+            <h2
+              className="text-4xl sm:text-5xl font-black uppercase text-white leading-none"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              CONTE SEMPRE COM
+            </h2>
+          </div>
+
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">
+            {servicos.flatMap((s) => s.itens).map((item) => (
+              <li key={item} className="flex items-start gap-2 text-[16px] text-[#94A3B8] leading-snug">
+                <CheckCircle2 className="w-4 h-4 text-cobersteel-gold/80 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
@@ -210,7 +218,7 @@ export default function ServicosPage() {
               href="/orcamento"
               trackName="solicitar_orcamento"
               trackLocation="servicos_cta_final"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
             >
               Solicitar Orçamento
             </TrackedLink>

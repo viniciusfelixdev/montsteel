@@ -108,7 +108,7 @@ export default async function ProdutoPage({
                 O QUE É O <span className="text-cobersteel-blue">{product.name.toUpperCase()}</span>
               </h2>
               {product.descricao.map((p, i) => (
-                <p key={i} className="text-[#94A3B8] leading-relaxed">{p}</p>
+                <p key={i} className="text-[16px] text-[#94A3B8] leading-relaxed">{p}</p>
               ))}
             </div>
 
@@ -138,7 +138,7 @@ export default async function ProdutoPage({
               </div>
               <ul className="space-y-3">
                 {product.aplicacoes.map((a) => (
-                  <li key={a} className="flex items-start gap-3 text-sm text-[#94A3B8]">
+                  <li key={a} className="flex items-start gap-3 text-[16px] text-[#94A3B8]">
                     <ArrowRight className="w-3.5 h-3.5 text-cobersteel-blue flex-shrink-0 mt-0.5" aria-hidden="true" />
                     {a}
                   </li>
@@ -159,7 +159,7 @@ export default async function ProdutoPage({
               </div>
               <ul className="space-y-3">
                 {product.vantagens.map((v) => (
-                  <li key={v.titulo} className="flex items-start gap-3 text-sm text-[#94A3B8]">
+                  <li key={v.titulo} className="flex items-start gap-3 text-[16px] text-[#94A3B8]">
                     <ArrowRight className="w-3.5 h-3.5 text-cobersteel-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
                     {v.titulo}
                   </li>
@@ -181,8 +181,8 @@ export default async function ProdutoPage({
               <dl className="space-y-0 divide-y divide-dark-border">
                 {product.specs.map((s) => (
                   <div key={s.label} className="flex items-baseline justify-between gap-4 py-3">
-                    <dt className="text-xs text-[#64748B] font-medium flex-shrink-0">{s.label}</dt>
-                    <dd className="text-sm text-white font-semibold text-right">{s.value}</dd>
+                    <dt className="text-[16px] text-[#64748B] font-medium flex-shrink-0">{s.label}</dt>
+                    <dd className="text-[16px] text-white font-semibold text-right">{s.value}</dd>
                   </div>
                 ))}
               </dl>

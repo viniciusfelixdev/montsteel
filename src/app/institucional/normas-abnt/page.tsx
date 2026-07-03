@@ -112,7 +112,7 @@ export default function NormasAbntPage() {
                     >
                       {p.titulo}
                     </h3>
-                    <p className="text-sm text-[#94A3B8] leading-relaxed">{p.desc}</p>
+                    <p className="text-[14px] text-[#94A3B8] leading-relaxed">{p.desc}</p>
                   </div>
                 ))}
               </div>
@@ -158,7 +158,7 @@ export default function NormasAbntPage() {
                     <p className="text-base font-semibold text-white mb-1 group-hover:text-cobersteel-blue transition-colors">
                       {n.titulo}
                     </p>
-                    <p className="text-sm text-[#94A3B8] leading-relaxed">{n.resumo}</p>
+                    <p className="text-[16px] text-[#94A3B8] leading-relaxed">{n.resumo}</p>
                   </div>
                   <ChevronRight
                     className="w-4 h-4 text-[#94A3B8] group-hover:text-cobersteel-blue group-hover:translate-x-1 flex-shrink-0 mt-0.5 transition-all"

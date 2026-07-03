@@ -182,7 +182,7 @@ export default function QuemSomosPage() {
                         >
                           {item.title}
                         </h3>
-                        <p className="text-sm text-[#94A3B8] leading-relaxed">{item.desc}</p>
+                        <p className="text-[16px] text-[#94A3B8] leading-relaxed">{item.desc}</p>
                       </div>
                     </Reveal>
                   </div>
@@ -342,7 +342,7 @@ export default function QuemSomosPage() {
                 >
                   {selo.sigla}
                 </p>
-                <p className="text-sm text-[#94A3B8] leading-relaxed max-w-[26ch]">{selo.desc}</p>
+                <p className="text-[16px] text-[#94A3B8] leading-relaxed max-w-[26ch]">{selo.desc}</p>
               </Reveal>
             ))}
           </div>

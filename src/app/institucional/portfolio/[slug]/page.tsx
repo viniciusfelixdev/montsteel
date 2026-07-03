@@ -215,7 +215,7 @@ export default async function PortfolioCasePage({
                 >
                   {produto.name}
                 </h3>
-                <p className="text-sm text-[#94A3B8] mt-1 max-w-md">{produto.tagline}</p>
+                <p className="text-[16px] text-[#94A3B8] mt-1 max-w-md">{produto.tagline}</p>
               </div>
               <Link
                 href={`/produtos/${produto.slug}`}

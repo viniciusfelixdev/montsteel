@@ -7,7 +7,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark-steel border-t border-dark-border">
+    <footer className="bg-dark-steel">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Coluna 1 — Marca */}
@@ -220,7 +220,7 @@ export default function Footer() {
       </div>
 
       {/* Rodapé inferior */}
-      <div className="border-t border-dark-border">
+      <div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-[#94A3B8]">
             © {year} CoberSteel. Todos os direitos reservados.

@@ -116,7 +116,7 @@ export default function TrabalheCOnoscoPage() {
                 >
                   {b.titulo}
                 </h3>
-                <p className="text-sm text-[#94A3B8] leading-relaxed">{b.desc}</p>
+                <p className="text-[16px] text-[#94A3B8] leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -143,7 +143,7 @@ export default function TrabalheCOnoscoPage() {
                 >
                   {a.area}
                 </h3>
-                <p className="text-sm text-[#94A3B8] leading-relaxed">{a.desc}</p>
+                <p className="text-[16px] text-[#94A3B8] leading-relaxed">{a.desc}</p>
               </div>
             ))}
           </div>
@@ -191,7 +191,7 @@ export default function TrabalheCOnoscoPage() {
                   >
                     {v.titulo}
                   </h3>
-                  <p className="text-sm text-[#94A3B8] leading-relaxed">{v.desc}</p>
+                  <p className="text-[16px] text-[#94A3B8] leading-relaxed">{v.desc}</p>
                 </div>
 
                 <a

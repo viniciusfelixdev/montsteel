@@ -96,7 +96,7 @@ export default async function BlogPage() {
                     style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                     dangerouslySetInnerHTML={{ __html: destaque.title.rendered }}
                   />
-                  <p className="text-sm text-[#94A3B8] leading-relaxed mb-6 flex-1 line-clamp-3">
+                  <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-6 flex-1 line-clamp-3">
                     {stripHtml(destaque.excerpt.rendered)}
                   </p>
                   <div className="flex items-center justify-between">
@@ -157,7 +157,7 @@ export default async function BlogPage() {
                               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                               dangerouslySetInnerHTML={{ __html: post.title.rendered }}
                             />
-                            <p className="text-xs text-[#94A3B8] leading-relaxed mb-4 line-clamp-2">
+                            <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-4 line-clamp-2">
                               {stripHtml(post.excerpt.rendered)}
                             </p>
                             <div className="flex items-center gap-3 text-xs text-[#64748B]">
@@ -175,7 +175,7 @@ export default async function BlogPage() {
                 </div>
 
                 {/* Sidebar */}
-                <aside className="lg:col-span-1 space-y-8">
+                <aside className="lg:col-span-1 space-y-8 lg:sticky lg:top-20 lg:self-start">
 
                   {/* Categorias */}
                   {categorias.length > 0 && (

@@ -50,7 +50,7 @@ export default function AdvantagesBanner() {
                 >
                   {item.title}
                 </h3>
-                <p className="text-xs text-[#94A3B8] leading-relaxed">{item.desc}</p>
+                <p className="text-[16px] text-[#94A3B8] leading-relaxed">{item.desc}</p>
               </div>
             </motion.div>
           ))}

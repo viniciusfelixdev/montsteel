@@ -142,7 +142,7 @@ export default function PortfolioPage() {
                     {r.nome}
                   </h3>
                 </div>
-                <p className="text-sm text-[#94A3B8] leading-relaxed">{r.desc}</p>
+                <p className="text-[16px] text-[#94A3B8] leading-relaxed">{r.desc}</p>
               </div>
             ))}
           </div>

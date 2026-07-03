@@ -113,11 +113,8 @@ export default async function SegmentoPage({
 
             {/* Desafios do setor */}
             <div>
-              <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-                Contexto
-              </p>
               <h2
-                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8"
+                className="text-3xl font-black uppercase text-white mb-8"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
                 DESAFIOS DO <span className="text-cobersteel-blue">SETOR</span>
@@ -133,11 +130,8 @@ export default async function SegmentoPage({
 
             {/* Soluções recomendadas */}
             <div>
-              <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-                Portfólio
-              </p>
               <h2
-                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8"
+                className="text-3xl font-black uppercase text-white mb-8"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
                 SOLUÇÕES <span className="text-cobersteel-blue">RECOMENDADAS</span>
@@ -157,7 +151,7 @@ export default async function SegmentoPage({
                       >
                         {p.name}
                       </p>
-                      <p className="text-sm text-[#94A3B8] mt-0.5">{p.shortDesc}</p>
+                      <p className="text-[14px] text-[#94A3B8] mt-0.5">{p.shortDesc}</p>
                     </div>
                     <ChevronRight className="w-4 h-4 text-cobersteel-gold flex-shrink-0 ml-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </Link>

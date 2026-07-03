@@ -25,7 +25,6 @@ export default function HomePage() {
       <SegmentsGrid />
 
       <ClientLogos />
-      <AboutSummary />
 
       {/* CTA Final */}
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20" aria-labelledby="cta-titulo">
@@ -62,6 +61,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <AboutSummary />
 
     </>
   );
