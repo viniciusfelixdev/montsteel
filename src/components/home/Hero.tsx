@@ -49,13 +49,15 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/orcamento"
-              onClick={() => trackButtonClick("solicitar_orcamento", "hero")}
+            <a
+              href="https://wa.me/5516997977613"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackButtonClick("falar_whatsapp", "hero")}
               className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-400 transition-colors"
             >
-              Solicitar Orçamento
-            </Link>
+              Falar no WhatsApp
+            </a>
             <Link
               href="#produtos"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white font-semibold text-sm uppercase tracking-wide rounded hover:bg-white/10 transition-colors"

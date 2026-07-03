@@ -162,14 +162,24 @@ export default function PortfolioPage() {
           <p className="text-white/80 mb-8 max-w-2xl mx-auto">
             Conte para a gente o que você precisa e receba uma proposta personalizada para a sua operação.
           </p>
-          <TrackedLink
-            href="/orcamento"
-            trackName="solicitar_orcamento"
-            trackLocation="portfolio_cta_final"
-            className="inline-block bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-amber-400 transition-colors"
-          >
-            Solicitar Orçamento
-          </TrackedLink>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wa.me/5516997977613"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-amber-400 transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
+            <TrackedLink
+              href="/orcamento"
+              trackName="solicitar_orcamento"
+              trackLocation="portfolio_cta_final"
+              className="inline-block border-2 border-white text-white font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+            >
+              Solicitar Orçamento
+            </TrackedLink>
+          </div>
         </div>
       </section>
     </>

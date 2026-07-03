@@ -59,9 +59,6 @@ export default function OrcamentoPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-            Fale com um especialista
-          </p>
           <h1
             className="text-5xl sm:text-6xl font-black uppercase tracking-tight text-white"
             style={{ fontFamily: "'Barlow Condensed', sans-serif" }}

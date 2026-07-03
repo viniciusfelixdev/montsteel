@@ -204,14 +204,24 @@ export default async function ProdutoPage({
           <p className="text-white/80 mb-8">
             Fale com nossos especialistas e receba um projeto desenvolvido sob medida para você.
           </p>
-          <TrackedLink
-            href="/orcamento"
-            trackName={product.ctaLabel}
-            trackLocation="produto_cta_final"
-            className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded hover:bg-amber-400 transition-colors"
-          >
-            {product.ctaLabel}
-          </TrackedLink>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wa.me/5516997977613"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded hover:bg-amber-400 transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
+            <TrackedLink
+              href="/orcamento"
+              trackName={product.ctaLabel}
+              trackLocation="produto_cta_final"
+              className="inline-flex items-center justify-center px-10 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded hover:bg-white hover:text-cobersteel-blue transition-colors"
+            >
+              {product.ctaLabel}
+            </TrackedLink>
+          </div>
         </div>
       </section>
     </>

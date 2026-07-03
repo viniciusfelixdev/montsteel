@@ -428,16 +428,27 @@ export default function QuemSomosPage() {
           <p className="text-white/85 text-lg max-w-2xl mx-auto mb-9 leading-relaxed">
             Fale com nossos especialistas e receba um projeto personalizado para a sua operação.
           </p>
-          <TrackedLink
-            href="/orcamento"
-            trackName="solicitar_orcamento"
-            trackLocation="quem_somos_cta_final"
-            className="inline-flex items-center gap-2 bg-cobersteel-gold text-dark-steel font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:brightness-110 transition"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-          >
-            Solicitar Orçamento
-            <ArrowRight className="w-5 h-5" aria-hidden="true" />
-          </TrackedLink>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wa.me/5516997977613"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-cobersteel-gold text-dark-steel font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:brightness-110 transition"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              Falar no WhatsApp
+              <ArrowRight className="w-5 h-5" aria-hidden="true" />
+            </a>
+            <TrackedLink
+              href="/orcamento"
+              trackName="solicitar_orcamento"
+              trackLocation="quem_somos_cta_final"
+              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-white hover:text-cobersteel-blue transition"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              Solicitar Orçamento
+            </TrackedLink>
+          </div>
         </Reveal>
       </section>
     </>

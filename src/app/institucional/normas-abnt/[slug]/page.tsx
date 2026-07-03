@@ -161,22 +161,22 @@ export default async function NormaPage({
             Cada projeto CoberSteel é desenvolvido sob medida para você, com documentação técnica completa e ART de engenharia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <TrackedLink
-              href="/orcamento"
-              trackName="solicitar_orcamento"
-              trackLocation="normas_abnt_detalhe_cta_final"
-              className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
-            >
-              Solicitar Orçamento
-            </TrackedLink>
             <a
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Falar no WhatsApp
             </a>
+            <TrackedLink
+              href="/orcamento"
+              trackName="solicitar_orcamento"
+              trackLocation="normas_abnt_detalhe_cta_final"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+            >
+              Solicitar Orçamento
+            </TrackedLink>
           </div>
         </div>
       </section>
