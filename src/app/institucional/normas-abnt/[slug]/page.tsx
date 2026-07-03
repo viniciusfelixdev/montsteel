@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
 import { notFound } from "next/navigation";
-import { ArrowLeft, AlertCircle } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { getNorma, NORMAS } from "@/lib/normas";
 
 // Banners por norma. Por padrão, nenhuma imagem é exibida.
@@ -104,46 +104,36 @@ export default async function NormaPage({
                 <p className="text-[#94A3B8] leading-relaxed">{bloco.texto}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Aplicação CoberSteel */}
-      <section className="bg-dark-mid py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl bg-cobersteel-blue/5 p-8">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-              Como a CoberSteel aplica esta norma
-            </p>
-            <p className="text-white leading-relaxed">{norma.aplicacaoCoberSteel}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Pontos críticos */}
-      <section className="bg-dark-steel py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-dark-mid rounded-xl p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <AlertCircle className="w-5 h-5 text-cobersteel-gold flex-shrink-0" aria-hidden="true" />
+            <div>
               <h2
-                className="text-xl font-black uppercase text-white"
+                className="text-2xl font-black uppercase text-white mb-4"
+                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              >
+                Como a CoberSteel aplica esta norma
+              </h2>
+              <p className="text-[#94A3B8] leading-relaxed">{norma.aplicacaoCoberSteel}</p>
+            </div>
+
+            <div>
+              <h2
+                className="text-2xl font-black uppercase text-white mb-4"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
                 Pontos Críticos que Você Precisa Conhecer
               </h2>
+              <ul className="space-y-4">
+                {norma.pontosCriticos.map((ponto) => (
+                  <li key={ponto} className="flex items-start gap-3">
+                    <span
+                      className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold flex-shrink-0 mt-2"
+                      aria-hidden="true"
+                    />
+                    <span className="text-[#94A3B8] leading-relaxed">{ponto}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-4">
-              {norma.pontosCriticos.map((ponto) => (
-                <li key={ponto} className="flex items-start gap-3">
-                  <span
-                    className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold flex-shrink-0 mt-2"
-                    aria-hidden="true"
-                  />
-                  <span className="text-sm text-[#94A3B8] leading-relaxed">{ponto}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </section>
@@ -161,22 +151,22 @@ export default async function NormaPage({
             Cada projeto CoberSteel é desenvolvido sob medida para você, com documentação técnica completa e ART de engenharia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/5516997977613"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
-            >
-              Falar no WhatsApp
-            </a>
             <TrackedLink
               href="/orcamento"
               trackName="solicitar_orcamento"
               trackLocation="normas_abnt_detalhe_cta_final"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
             </TrackedLink>
+            <a
+              href="https://wa.me/5516997977613"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>

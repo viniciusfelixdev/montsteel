@@ -43,21 +43,19 @@ export default function Hero() {
 
           {/* Subtitle */}
           <p className="text-lg sm:text-xl text-[#94A3B8] max-w-2xl mx-auto mb-10 leading-relaxed">
-            Galpões e coberturas industriais para locação e venda — cada projeto
+            Galpões e coberturas industriais para locação e venda, com cada projeto
             desenvolvido sob medida para você, conforme normas ABNT.
           </p>
 
           {/* CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/5516997977613"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackButtonClick("falar_whatsapp", "hero")}
+            <Link
+              href="/orcamento"
+              onClick={() => trackButtonClick("solicitar_orcamento", "hero")}
               className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-400 transition-colors"
             >
-              Falar no WhatsApp
-            </a>
+              Solicitar Orçamento
+            </Link>
             <Link
               href="#produtos"
               className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white font-semibold text-sm uppercase tracking-wide rounded hover:bg-white/10 transition-colors"
@@ -69,12 +67,13 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40"
+      <motion.a
+        href="#produtos"
+        aria-label="Rolar para conhecer os produtos"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        aria-hidden="true"
       >
         <span className="text-xs uppercase tracking-widest">Explorar</span>
         <motion.div
@@ -83,7 +82,7 @@ export default function Hero() {
         >
           <ChevronDown className="w-5 h-5" />
         </motion.div>
-      </motion.div>
+      </motion.a>
     </section>
   );
 }

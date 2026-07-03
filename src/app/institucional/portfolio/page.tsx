@@ -115,7 +115,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CoberSteel no Brasil — atuação nacional */}
-      <section className="bg-dark-mid py-16 border-y border-dark-border">
+      <section className="bg-dark-mid py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2
@@ -163,22 +163,22 @@ export default function PortfolioPage() {
             Conte para a gente o que você precisa e receba uma proposta personalizada para a sua operação.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/5516997977613"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-amber-400 transition-colors"
-            >
-              Falar no WhatsApp
-            </a>
             <TrackedLink
               href="/orcamento"
               trackName="solicitar_orcamento"
               trackLocation="portfolio_cta_final"
-              className="inline-block border-2 border-white text-white font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-block bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
             </TrackedLink>
+            <a
+              href="https://wa.me/5516997977613"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block border-2 border-white text-white font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>

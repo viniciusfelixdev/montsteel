@@ -187,15 +187,13 @@ export default function Navbar() {
 
         {/* CTA */}
         <div className="hidden lg:block">
-          <a
-            href="https://wa.me/5516997977613"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => trackButtonClick("falar_whatsapp", "navbar_desktop")}
+          <Link
+            href="/orcamento"
+            onClick={() => trackButtonClick("solicitar_orcamento", "navbar_desktop")}
             className="bg-cobersteel-gold text-dark-steel font-semibold text-sm px-5 py-2.5 rounded hover:bg-amber-400 transition-colors uppercase tracking-wide"
           >
-            Falar no WhatsApp
-          </a>
+            Solicitar Orçamento
+          </Link>
         </div>
 
         {/* Mobile hamburger */}
@@ -283,18 +281,16 @@ export default function Navbar() {
               )
             )}
             <div className="pt-4">
-              <a
-                href="https://wa.me/5516997977613"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/orcamento"
                 onClick={() => {
-                  trackButtonClick("falar_whatsapp", "navbar_mobile");
+                  trackButtonClick("solicitar_orcamento", "navbar_mobile");
                   setMobileOpen(false);
                 }}
                 className="block w-full text-center bg-cobersteel-gold text-dark-steel font-semibold py-3 rounded uppercase tracking-wide hover:bg-amber-400 transition-colors"
               >
-                Falar no WhatsApp
-              </a>
+                Solicitar Orçamento
+              </Link>
             </div>
 
             {/* Redes sociais */}

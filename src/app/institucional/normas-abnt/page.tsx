@@ -188,22 +188,22 @@ export default function NormasAbntPage() {
             Fale com a nossa equipe de especialistas e receba um projeto desenvolvido sob medida para você, com ART, documentação completa e total conformidade com as normas ABNT.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/5516997977613"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
-            >
-              Falar no WhatsApp
-            </a>
             <TrackedLink
               href="/orcamento"
               trackName="solicitar_orcamento"
               trackLocation="normas_abnt_cta_final"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
             </TrackedLink>
+            <a
+              href="https://wa.me/5516997977613"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>

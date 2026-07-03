@@ -87,25 +87,6 @@ export default async function PortfolioCasePage({
         </div>
       </section>
 
-      {/* Resultados em números */}
-      <section className="bg-dark-steel py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {caso.resultados.map((r) => (
-              <div key={r.label} className="bg-dark-mid rounded-xl p-8 text-center">
-                <p
-                  className="text-4xl sm:text-5xl font-black text-cobersteel-gold mb-2"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  {r.valor}
-                </p>
-                <p className="text-sm text-[#94A3B8] leading-relaxed">{r.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Desafio + Solução */}
       <section className="bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -153,27 +134,58 @@ export default async function PortfolioCasePage({
         </div>
       </section>
 
-      {/* Ficha técnica */}
+      {/* Ficha técnica + Solução aplicada */}
       <section className="bg-dark-steel py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            className="text-3xl font-black uppercase text-white mb-8"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-          >
-            FICHA <span className="text-cobersteel-blue">TÉCNICA</span>
-          </h2>
-          <div className="rounded-xl overflow-hidden border border-dark-border">
-            {caso.specs.map((s, i) => (
-              <div
-                key={s.label}
-                className={`flex items-center justify-between px-5 py-4 text-sm ${
-                  i % 2 === 0 ? "bg-dark-mid" : "bg-dark-steel"
-                }`}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-14">
+            <div>
+              <h2
+                className="text-3xl font-black uppercase text-white mb-8"
+                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
-                <span className="text-[#94A3B8] font-medium">{s.label}</span>
-                <span className="text-white font-semibold text-right">{s.value}</span>
+                FICHA <span className="text-cobersteel-blue">TÉCNICA</span>
+              </h2>
+              <div className="rounded-xl overflow-hidden border border-dark-border">
+                {caso.specs.map((s, i) => (
+                  <div
+                    key={s.label}
+                    className={`flex items-center justify-between px-5 py-4 text-sm ${
+                      i % 2 === 0 ? "bg-dark-mid" : "bg-dark-steel"
+                    }`}
+                  >
+                    <span className="text-[#94A3B8] font-medium">{s.label}</span>
+                    <span className="text-white font-semibold text-right">{s.value}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Solução aplicada */}
+            {produto && (
+              <div>
+                <h2
+                  className="text-3xl font-black uppercase text-white mb-8"
+                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                >
+                  SOLUÇÃO <span className="text-cobersteel-blue">APLICADA</span>
+                </h2>
+                <div className="bg-dark-mid rounded-xl p-8">
+                  <h3
+                    className="text-2xl font-black uppercase text-white mb-2"
+                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  >
+                    {produto.name}
+                  </h3>
+                  <p className="text-[16px] text-[#94A3B8] mb-6">{produto.tagline}</p>
+                  <Link
+                    href={`/produtos/${produto.slug}`}
+                    className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-5 py-3 rounded-lg hover:bg-cobersteel-blue hover:text-white transition-all"
+                  >
+                    Ver produto <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                  </Link>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -200,34 +212,6 @@ export default async function PortfolioCasePage({
         </section>
       )}
 
-      {/* Produto relacionado (opcional) */}
-      {produto && (
-        <section className="bg-dark-steel py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 justify-between bg-dark-mid rounded-xl p-8">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-cobersteel-gold mb-2">
-                  Solução aplicada
-                </p>
-                <h3
-                  className="text-2xl font-black uppercase text-white"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-                >
-                  {produto.name}
-                </h3>
-                <p className="text-[16px] text-[#94A3B8] mt-1 max-w-md">{produto.tagline}</p>
-              </div>
-              <Link
-                href={`/produtos/${produto.slug}`}
-                className="flex-shrink-0 inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-5 py-3 rounded-lg hover:bg-cobersteel-blue hover:text-white transition-all"
-              >
-                Ver produto <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* CTA final */}
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -241,22 +225,22 @@ export default async function PortfolioCasePage({
             Fale com nossos especialistas e receba uma solução desenvolvida sob medida para a sua operação.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/5516997977613"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
-            >
-              Falar no WhatsApp
-            </a>
             <TrackedLink
               href="/orcamento"
               trackName="solicitar_orcamento"
               trackLocation="portfolio_detalhe_cta_final"
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
             </TrackedLink>
+            <a
+              href="https://wa.me/5516997977613"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-10 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>

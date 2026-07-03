@@ -105,7 +105,7 @@ export default async function ProdutoPage({
                 className="text-3xl font-black uppercase text-white mb-6"
                 style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
               >
-                O QUE É O <span className="text-cobersteel-blue">{product.name.toUpperCase()}</span>
+                O QUE SÃO OS <span className="text-cobersteel-blue">{product.name.toUpperCase()}</span>
               </h2>
               {product.descricao.map((p, i) => (
                 <p key={i} className="text-[16px] text-[#94A3B8] leading-relaxed">{p}</p>
@@ -182,7 +182,7 @@ export default async function ProdutoPage({
                 {product.specs.map((s) => (
                   <div key={s.label} className="flex items-baseline justify-between gap-4 py-3">
                     <dt className="text-[16px] text-[#64748B] font-medium flex-shrink-0">{s.label}</dt>
-                    <dd className="text-[16px] text-white font-semibold text-right">{s.value}</dd>
+                    <dd className="text-[16px] text-white text-right">{s.value}</dd>
                   </div>
                 ))}
               </dl>
@@ -205,22 +205,22 @@ export default async function ProdutoPage({
             Fale com nossos especialistas e receba um projeto desenvolvido sob medida para você.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://wa.me/5516997977613"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded hover:bg-amber-400 transition-colors"
-            >
-              Falar no WhatsApp
-            </a>
             <TrackedLink
               href="/orcamento"
               trackName={product.ctaLabel}
               trackLocation="produto_cta_final"
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded hover:bg-amber-400 transition-colors"
             >
               {product.ctaLabel}
             </TrackedLink>
+            <a
+              href="https://wa.me/5516997977613"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-10 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded hover:bg-white hover:text-cobersteel-blue transition-colors"
+            >
+              Falar no WhatsApp
+            </a>
           </div>
         </div>
       </section>

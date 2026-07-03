@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Wheat, UtensilsCrossed, Car, Building2, Factory, Mountain,
   FileText, Flame, Anchor, Layers, Leaf, ShoppingCart,
@@ -11,6 +12,22 @@ import { SEGMENTS } from "@/lib/constants";
 const iconMap: Record<string, React.ComponentType<{ className?: string; "aria-hidden"?: "true" }>> = {
   Wheat, UtensilsCrossed, Car, Building2, Factory, Mountain,
   FileText, Flame, Anchor, Layers, Leaf, ShoppingCart,
+};
+
+// Imagem de fundo por segmento (mesma foto usada no banner da página do segmento).
+const SEGMENT_CARD_IMAGES: Record<string, string> = {
+  "agronegocio": "/images/segmentos/agronegocio.png",
+  "alimentos-bebidas": "/images/segmentos/alimentos-bebidas.png",
+  "automotivo": "/images/segmentos/automotivo.png",
+  "construcao-civil": "/images/segmentos/construcao-civil.png",
+  "industria": "/images/segmentos/industria.png",
+  "mineracao": "/images/segmentos/mineracao.png",
+  "papel-celulose": "/images/segmentos/papel-celulose.png",
+  "petroquimico": "/images/segmentos/petroquimico.png",
+  "portuario": "/images/segmentos/portuario.png",
+  "siderurgico": "/images/segmentos/siderurgico.png",
+  "sucroalcooleiro": "/images/segmentos/sucroalcooleiro.png",
+  "varejo-atacado": "/images/segmentos/varejo-atacado.png",
 };
 
 export default function SegmentsGrid() {
@@ -41,6 +58,7 @@ export default function SegmentsGrid() {
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {SEGMENTS.map((seg, i) => {
             const Icon = iconMap[seg.icon] || Factory;
+            const bgImage = SEGMENT_CARD_IMAGES[seg.slug];
             return (
               <motion.div
                 key={seg.slug}
@@ -51,16 +69,39 @@ export default function SegmentsGrid() {
               >
                 <Link
                   href={`/segmentos/${seg.slug}`}
-                  className="group flex flex-col items-center gap-3 p-5 bg-white rounded-xl hover:shadow-md transition-all text-center"
+                  className={`group relative flex flex-col items-center gap-3 p-5 rounded-xl hover:shadow-md transition-all text-center overflow-hidden ${
+                    bgImage ? "" : "bg-white"
+                  }`}
                 >
-                  <div className="w-12 h-12 rounded-xl bg-cobersteel-blue/10 flex items-center justify-center group-hover:bg-cobersteel-blue transition-colors">
+                  {bgImage && (
+                    <>
+                      <Image
+                        src={bgImage}
+                        alt=""
+                        fill
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        aria-hidden="true"
+                      />
+                      <div className="absolute inset-0 bg-[#0F0F0F]/60 group-hover:bg-[#0F0F0F]/50 transition-colors" aria-hidden="true" />
+                    </>
+                  )}
+                  <div
+                    className={`relative w-9 h-9 rounded-xl flex items-center justify-center transition-colors ${
+                      bgImage
+                        ? "bg-white/15 group-hover:bg-cobersteel-blue"
+                        : "bg-cobersteel-blue/10 group-hover:bg-cobersteel-blue"
+                    }`}
+                  >
                     <Icon
-                      className="w-6 h-6 text-cobersteel-blue group-hover:text-white transition-colors"
+                      className={`w-4 h-4 transition-colors ${bgImage ? "text-white" : "text-cobersteel-blue"} group-hover:text-white`}
                       aria-hidden="true"
                     />
                   </div>
                   <span
-                    className="text-sm font-bold uppercase text-dark-steel group-hover:text-cobersteel-blue transition-colors"
+                    className={`relative text-lg font-bold uppercase transition-colors ${
+                      bgImage ? "text-white" : "text-dark-steel group-hover:text-cobersteel-blue"
+                    }`}
                     style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                   >
                     {seg.name}
