@@ -28,7 +28,7 @@ export default function HomePage() {
       <AboutSummary />
 
       {/* CTA Final */}
-      <section className="bg-cobersteel-blue py-20" aria-labelledby="cta-titulo">
+      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20" aria-labelledby="cta-titulo">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             id="cta-titulo"

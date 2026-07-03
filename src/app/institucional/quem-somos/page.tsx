@@ -7,7 +7,6 @@ import {
 } from "lucide-react";
 import Reveal from "./Reveal";
 import StatsGrid from "./StatsGrid";
-import ClientLogos from "@/components/home/ClientLogos";
 import { CONTACT_INFO } from "@/lib/constants";
 
 const selos = [
@@ -42,17 +41,19 @@ const fundadores = [
 export const metadata: Metadata = {
   title: "Quem Somos | CoberSteel — Galpões e Coberturas Industriais",
   description:
-    "Conheça a CoberSteel: mais de 25 anos de experiência em infraestrutura industrial flexível. Nossa história, missão, visão e valores.",
+    "Conheça a CoberSteel: referência em galpões de lona (PVC) e metálicos, com fundadores com mais de 25 anos de experiência no setor. Nossa história, missão, visão e valores.",
   alternates: { canonical: "/institucional/quem-somos" },
 };
 
+// Placeholder — datas exatas não confirmadas. Substituir "year" pelos anos reais assim que validados com os fundadores.
 const timeline = [
-  { year: "1999", title: "Fundação", desc: "A CoberSteel nasce em Ibaté/SP com foco em coberturas industriais para o interior paulista." },
-  { year: "2005", title: "Expansão Nacional", desc: "Início das operações em outros estados, atendendo clientes no agronegócio e setor sucroalcooleiro." },
-  { year: "2010", title: "Portfólio Ampliado", desc: "Lançamento da linha de galpões metálicos e dos mezaninos metálicos para clientes industriais." },
-  { year: "2015", title: "Inovação ESG", desc: "Desenvolvimento do Galpão CoberECOsteel Híbrido, combinando estrutura metálica e cobertura de lona com menor pegada ambiental." },
-  { year: "2020", title: "25 Anos de Mercado", desc: "Marco de mais de 75.000 m² de galpões instalados em todo o Brasil, consolidando liderança no setor." },
-  { year: "Hoje", title: "Referência Nacional", desc: "Presente nos principais setores industriais do país, com equipe especializada e projetos conforme normas ABNT." },
+  { year: "01", title: "Fundação", desc: "A CoberSteel nasce unindo a experiência de mais de 25 anos dos fundadores no setor de estruturas metálicas e coberturas industriais, com foco em inovação e empreendedorismo." },
+  { year: "02", title: "Fábrica Própria", desc: "Construção da primeira fábrica própria, dedicada à produção de estruturas metálicas com controle direto sobre qualidade e prazos." },
+  { year: "03", title: "Consolidação como Referência", desc: "A empresa se consolida como referência no mercado de galpões temporários de lona (PVC) e galpões metálicos, reconhecida pela solidez técnica e agilidade." },
+  { year: "04", title: "Ampliação de Soluções", desc: "Portfólio ampliado para venda, locação, manutenção, ampliação e deslocamento de galpões, atendendo qualquer fabricante ou modelo." },
+  { year: "05", title: "Expansão da Confecção de Lona", desc: "Segunda fábrica própria entra em operação, somando mais de 4.000 m² de área fabril dedicada também à confecção de membranas técnicas em lona de PVC." },
+  { year: "06", title: "Solução Híbrida", desc: "Desenvolvimento do Galpão CoberECOsteel Híbrido, unindo estrutura metálica e cobertura de lona para equilibrar resistência, custo e sustentabilidade." },
+  { year: "07", title: "Hoje", desc: "Uma das poucas empresas do mercado capazes de oferecer uma solução completa e integrada, com controle total sobre qualidade e prazos em cada projeto." },
 ];
 
 const valores = [
@@ -120,13 +121,13 @@ export default function QuemSomosPage() {
                 NOSSA <span className="text-cobersteel-blue">JORNADA</span>
               </h2>
               <p className="text-lg text-white/80 leading-relaxed mb-5">
-                A CoberSteel nasceu em 1999 em Ibaté, interior de São Paulo, com uma missão clara: oferecer soluções de infraestrutura industrial flexível com qualidade, segurança e preço justo. O que começou como uma empresa regional cresceu para se tornar referência nacional no segmento de galpões e coberturas.
+                A CoberSteel é referência no mercado de galpões temporários de lona (PVC) e galpões metálicos, com sólida experiência e mais de 25 anos de atuação de nossos fundadores no setor. Somos especializados em infraestrutura flexível para armazenagem e coberturas, além de equipamentos logísticos para a indústria, e oferecemos soluções integradas e personalizadas para cada cliente.
               </p>
               <p className="text-lg text-white/80 leading-relaxed mb-5">
-                Ao longo de mais de duas décadas, instalamos mais de 75.000 m² de galpões, atendemos centenas de empresas dos maiores setores da economia brasileira e construímos uma equipe de especialistas apaixonados por engenharia e logística industrial.
+                Desde a nossa criação, temos como foco a inovação e o empreendedorismo, prezando pela alta qualidade, segurança e agilidade em todos os serviços prestados. Nosso diferencial vai além da eficiência técnica: o compromisso com a construção de relacionamentos duradouros e verdadeiros com nossos clientes é uma das nossas marcas registradas.
               </p>
               <p className="text-lg text-white/80 leading-relaxed">
-                Hoje, oferecemos um portfólio completo — de galpões de lona a projetos metálicos especiais — sempre com projetos calculados conforme normas ABNT e comprometidos com a excelência em cada instalação.
+                Oferecemos um portfólio completo de serviços, incluindo venda, locação, manutenção, ampliação e deslocamento de galpões. Independentemente do fabricante ou modelo, estamos prontos para atender às necessidades específicas de cada cliente.
               </p>
             </Reveal>
 
@@ -257,7 +258,7 @@ export default function QuemSomosPage() {
                 POR TRÁS DE CADA <span className="text-cobersteel-blue">ESTRUTURA</span>
               </h2>
               <p className="text-lg text-white/80 leading-relaxed mb-5">
-                A CoberSteel foi fundada por profissionais que cresceram dentro do chão de fábrica — gente que conhece estrutura metálica de perto, do cálculo ao parafuso. Mais de duas décadas depois, esse jeito hands-on continua o mesmo.
+                A CoberSteel foi fundada por profissionais que cresceram dentro do chão de fábrica — gente que conhece estrutura metálica de perto, do cálculo ao parafuso, com mais de 25 anos de experiência no setor. Esse jeito hands-on continua o mesmo até hoje.
               </p>
               <p className="text-lg text-white/80 leading-relaxed">
                 Cada projeto passa por engenheiros experientes e por equipes de campo próprias, treinadas e certificadas. A gente não terceiriza o que importa: quando você fala com a CoberSteel, fala com quem realmente levanta o galpão.
@@ -348,21 +349,21 @@ export default function QuemSomosPage() {
         </div>
       </section>
 
-      {/* Clientes / Prova social */}
-      <ClientLogos />
 
       {/* Localização / Presença */}
-      <section className="bg-dark-mid py-24 sm:py-28">
+      <section className="bg-dark-steel py-24 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Reveal className="text-center max-w-5xl mx-auto mb-16">
+            <h2
+              className="text-xl sm:text-3xl lg:text-5xl font-black uppercase text-white leading-[0.95] whitespace-nowrap"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              SEDE EM IBATÉ. ATENDIMENTO NO <span className="text-cobersteel-blue">BRASIL TODO</span>
+            </h2>
+          </Reveal>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <Reveal className="lg:col-span-5">
-              <h2
-                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8 leading-[0.95] text-balance"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-              >
-                BASE EM IBATÉ. ATENDIMENTO NO <span className="text-cobersteel-blue">BRASIL TODO</span>
-              </h2>
-
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-cobersteel-gold flex-shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
@@ -416,7 +417,7 @@ export default function QuemSomosPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="bg-cobersteel-blue py-20">
+      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
         <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-3xl sm:text-5xl font-black uppercase text-white mb-5 leading-[0.95]"

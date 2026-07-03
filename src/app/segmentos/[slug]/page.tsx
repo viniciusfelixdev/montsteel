@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
 import { notFound } from "next/navigation";
-import { ArrowLeft, CheckCircle2, ChevronRight } from "lucide-react";
+import { ArrowLeft, ChevronRight } from "lucide-react";
 import { getSegment, SEGMENTS_DATA } from "@/lib/segments";
 import { PRODUCTS } from "@/lib/constants";
 
@@ -124,7 +124,7 @@ export default async function SegmentoPage({
               </h2>
               <div className="space-y-5">
                 {segment.desafios.map((d, i) => (
-                  <p key={i} className="text-[#94A3B8] leading-relaxed text-sm">
+                  <p key={i} className="text-[#94A3B8] leading-relaxed text-base">
                     {d}
                   </p>
                 ))}
@@ -152,12 +152,12 @@ export default async function SegmentoPage({
                   >
                     <div>
                       <p
-                        className="font-black uppercase text-white text-sm group-hover:text-cobersteel-gold transition-colors"
+                        className="font-black uppercase text-white text-base group-hover:text-cobersteel-gold transition-colors"
                         style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                       >
                         {p.name}
                       </p>
-                      <p className="text-xs text-[#94A3B8] mt-0.5">{p.shortDesc}</p>
+                      <p className="text-sm text-[#94A3B8] mt-0.5">{p.shortDesc}</p>
                     </div>
                     <ChevronRight className="w-4 h-4 text-cobersteel-gold flex-shrink-0 ml-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </Link>
@@ -168,8 +168,8 @@ export default async function SegmentoPage({
               <div className="bg-dark-mid rounded-xl p-5">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                   <div className="flex-1">
-                    <p className="text-white font-semibold text-sm mb-1">Não encontrou o que precisa?</p>
-                    <p className="text-[#94A3B8] text-xs">
+                    <p className="text-white font-semibold text-base mb-1">Não encontrou o que precisa?</p>
+                    <p className="text-[#94A3B8] text-sm">
                       Desenvolvemos projetos especiais sob medida para o setor de {segment.name}.
                     </p>
                   </div>
@@ -184,35 +184,11 @@ export default async function SegmentoPage({
             </div>
 
           </div>
-
-          {/* Por que nos escolher */}
-          <div className="mt-14 pt-14">
-            <div className="h-px w-full mb-14" style={{ background: "linear-gradient(to right, transparent, #2A2A2A 20%, #2A2A2A 80%, transparent)" }} aria-hidden="true" />
-            <h3
-              className="text-2xl font-black uppercase text-white mb-8 text-center"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-            >
-              POR QUE A COBERSTEEL PARA{" "}
-              <span className="text-cobersteel-blue">{segment.name.toUpperCase()}</span>
-            </h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {segment.beneficios.map((b, i) => (
-                <li key={i} className="flex items-start gap-3 bg-dark-mid rounded-xl p-4">
-                  <CheckCircle2
-                    className="w-5 h-5 text-cobersteel-gold flex-shrink-0 mt-0.5"
-                    aria-hidden="true"
-                  />
-                  <span className="text-sm text-[#94A3B8] leading-relaxed">{b}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
         </div>
       </section>
 
       {/* CTA Final */}
-      <section className="bg-cobersteel-blue py-20">
+      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-4xl sm:text-5xl font-black uppercase text-white mb-4"

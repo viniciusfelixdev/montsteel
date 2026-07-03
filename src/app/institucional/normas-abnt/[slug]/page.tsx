@@ -149,7 +149,7 @@ export default async function NormaPage({
       </section>
 
       {/* CTA */}
-      <section className="bg-cobersteel-blue py-16">
+      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-3xl sm:text-4xl font-black uppercase text-white mb-4"

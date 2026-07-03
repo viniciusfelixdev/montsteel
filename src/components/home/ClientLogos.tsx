@@ -23,7 +23,7 @@ const clients: { name: string; file: string; dark?: boolean }[] = [
   { name: "Barbosa Mello", file: "barbosamelo.webp", dark: true },
 ];
 
-export default function ClientLogos() {
+export default function ClientLogos({ showTitle = true }: { showTitle?: boolean }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const pausedRef = useRef(false);
   // Lista duplicada para o loop infinito ser contínuo.
@@ -63,26 +63,32 @@ export default function ClientLogos() {
   };
 
   return (
-    <section className="bg-dark-steel py-16 overflow-hidden" aria-labelledby="clientes-titulo">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10"
-        >
-          <h2
-            id="clientes-titulo"
-            className="text-3xl font-black uppercase text-white"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+    <section
+      className="bg-dark-steel py-16 overflow-hidden"
+      aria-labelledby={showTitle ? "clientes-titulo" : undefined}
+      aria-label={showTitle ? undefined : "Empresas que confiam na CoberSteel"}
+    >
+      {showTitle && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-10"
           >
-            EMPRESAS QUE CONFIAM NA COBERSTEEL
-          </h2>
-          <p className="mt-3 text-sm text-[#94A3B8]">
-            Soluções para os maiores players da indústria nacional
-          </p>
-        </motion.div>
-      </div>
+            <h2
+              id="clientes-titulo"
+              className="text-3xl font-black uppercase text-white"
+              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            >
+              EMPRESAS QUE CONFIAM NA COBERSTEEL
+            </h2>
+            <p className="mt-3 text-sm text-[#94A3B8]">
+              Soluções para os maiores players da indústria nacional
+            </p>
+          </motion.div>
+        </div>
+      )}
 
       {/* Carrossel */}
       <div

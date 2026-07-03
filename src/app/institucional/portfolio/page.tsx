@@ -111,10 +111,6 @@ export default function PortfolioPage() {
               </article>
             ))}
           </div>
-
-          <p className="text-center text-sm text-[#64748B] mt-10">
-            * Imagens ilustrativas. Cases reais e fotos de obras serão adicionados em breve.
-          </p>
         </div>
       </section>
 
@@ -155,7 +151,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-cobersteel-blue py-16">
+      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-3xl sm:text-4xl font-black uppercase text-white mb-4"

@@ -166,7 +166,12 @@ export default function ServicosPage() {
                     <p className="text-base text-[#94A3B8] leading-relaxed">{s.desc}</p>
                   </div>
                 </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 pt-8 border-t border-dark-border">
+                <div
+                  className="h-px w-full mt-2"
+                  style={{ background: "linear-gradient(to right, transparent, #2A2A2A 20%, #2A2A2A 80%, transparent)" }}
+                  aria-hidden="true"
+                />
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 pt-8">
                   {s.itens.map((item) => (
                     <li key={item} className="flex items-start gap-2 text-sm text-[#94A3B8] leading-snug">
                       <CheckCircle2 className="w-4 h-4 text-cobersteel-gold/80 flex-shrink-0 mt-0.5" aria-hidden="true" />
@@ -181,7 +186,7 @@ export default function ServicosPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="bg-cobersteel-blue py-20">
+      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-4xl sm:text-5xl font-black uppercase text-white mb-4"

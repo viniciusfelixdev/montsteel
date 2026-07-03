@@ -96,7 +96,7 @@ export default function TrabalheCOnoscoPage() {
       <section className="bg-dark-steel py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Por que a CoberSteel</p>
+            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Por que nos Escolher</p>
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-white"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -106,17 +106,17 @@ export default function TrabalheCOnoscoPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {beneficios.map((b) => (
-              <div key={b.titulo} className="p-6 bg-dark-mid rounded-xl">
+              <div key={b.titulo} className="p-6 bg-dark-mid rounded-xl border border-dark-border">
                 <div className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 flex items-center justify-center mb-4">
                   <b.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                 </div>
                 <h3
-                  className="font-bold uppercase text-white text-sm mb-2"
+                  className="font-bold uppercase text-white text-base mb-2"
                   style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                 >
                   {b.titulo}
                 </h3>
-                <p className="text-xs text-[#94A3B8] leading-relaxed">{b.desc}</p>
+                <p className="text-sm text-[#94A3B8] leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -127,7 +127,6 @@ export default function TrabalheCOnoscoPage() {
       <section className="bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Oportunidades</p>
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-white"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -137,7 +136,7 @@ export default function TrabalheCOnoscoPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {areas.map((a) => (
-              <div key={a.area} className="p-6 bg-dark-steel rounded-xl">
+              <div key={a.area} className="p-6 bg-dark-steel rounded-xl border border-dark-border">
                 <h3
                   className="text-lg font-black uppercase text-white mb-2"
                   style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -155,7 +154,6 @@ export default function TrabalheCOnoscoPage() {
       <section className="bg-dark-steel py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Estamos contratando</p>
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-white"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
@@ -168,7 +166,7 @@ export default function TrabalheCOnoscoPage() {
             {vagas.map((v) => (
               <div
                 key={v.titulo}
-                className="flex flex-col sm:flex-row sm:items-center gap-5 justify-between p-6 bg-dark-mid rounded-xl"
+                className="flex flex-col sm:flex-row sm:items-center gap-5 justify-between p-6 bg-dark-mid rounded-xl border border-dark-border"
               >
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -212,7 +210,7 @@ export default function TrabalheCOnoscoPage() {
       {/* Formulário / Envio de currículo */}
       <section className="bg-dark-mid py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-dark-mid rounded-xl p-8">
+          <div className="bg-dark-steel rounded-xl p-8 border border-dark-border">
             <h2
               className="text-3xl font-black uppercase text-white mb-2"
               style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
