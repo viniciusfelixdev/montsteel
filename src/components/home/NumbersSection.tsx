@@ -49,8 +49,7 @@ export default function NumbersSection() {
           >
             <h2
               id="numeros-titulo"
-              className="text-4xl sm:text-5xl font-black uppercase text-white"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white font-display"
             >
               NÚMEROS QUE COMPROVAM
               <br />
@@ -74,8 +73,7 @@ export default function NumbersSection() {
                     <Icon className="w-8 h-8 text-cobersteel-blue" aria-hidden="true" />
                   </div>
                   <div
-                    className="text-5xl sm:text-6xl font-black text-white mb-1"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    className="text-5xl sm:text-6xl font-black text-white mb-1 font-display"
                     aria-label={`Mais de ${parseInt(item.value).toLocaleString("pt-BR")} ${item.unit}`}
                   >
                     +<Counter target={parseInt(item.value)} />

@@ -87,8 +87,7 @@ export default function Footer() {
           {/* Coluna 2 — Empresa */}
           <div>
             <h3
-              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4 font-display"
             >
               Empresa
             </h3>
@@ -134,8 +133,7 @@ export default function Footer() {
           {/* Coluna 3 — Produtos */}
           <div>
             <h3
-              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4 font-display"
             >
               Produtos
             </h3>
@@ -161,8 +159,7 @@ export default function Footer() {
           {/* Coluna 3 — Segmentos (primeiros 6) */}
           <div>
             <h3
-              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4 font-display"
             >
               Segmentos
             </h3>
@@ -183,8 +180,7 @@ export default function Footer() {
           {/* Coluna 4 — Contato */}
           <div>
             <h3
-              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4 font-display"
             >
               Contato
             </h3>

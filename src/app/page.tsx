@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
+import AdvantagesBanner from "@/components/home/AdvantagesBanner";
 import ProductsOverview from "@/components/home/ProductsOverview";
 import NumbersSection from "@/components/home/NumbersSection";
 import SegmentsGrid from "@/components/home/SegmentsGrid";
@@ -18,6 +19,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <AdvantagesBanner />
       <ProductsOverview />
 
       <NumbersSection />
@@ -31,8 +33,7 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             id="cta-titulo"
-            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white mb-4 font-display"
           >
             PRONTO PARA ESCALAR
             <br />

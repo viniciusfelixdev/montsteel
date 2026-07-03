@@ -84,8 +84,7 @@ export default function TrabalheCOnoscoPage() {
             Início
           </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display"
           >
             TRABALHE CONOSCO
           </h1>
@@ -98,8 +97,7 @@ export default function TrabalheCOnoscoPage() {
           <div className="text-center mb-14">
             <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Por que nos Escolher</p>
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white font-display"
             >
               UM LUGAR PARA <span className="text-cobersteel-blue">CRESCER</span>
             </h2>
@@ -111,8 +109,7 @@ export default function TrabalheCOnoscoPage() {
                   <b.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                 </div>
                 <h3
-                  className="font-bold uppercase text-white text-base mb-2"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="font-bold uppercase text-white text-base mb-2 font-display"
                 >
                   {b.titulo}
                 </h3>
@@ -128,8 +125,7 @@ export default function TrabalheCOnoscoPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white font-display"
             >
               ÁREAS QUE <span className="text-cobersteel-blue">CONTRATAMOS</span>
             </h2>
@@ -138,8 +134,7 @@ export default function TrabalheCOnoscoPage() {
             {areas.map((a) => (
               <div key={a.area} className="p-6 bg-dark-steel rounded-xl border border-dark-border">
                 <h3
-                  className="text-lg font-black uppercase text-white mb-2"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-lg font-black uppercase text-white mb-2 font-display"
                 >
                   {a.area}
                 </h3>
@@ -155,8 +150,7 @@ export default function TrabalheCOnoscoPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white font-display"
             >
               VAGAS <span className="text-cobersteel-blue">ABERTAS</span>
             </h2>
@@ -186,8 +180,7 @@ export default function TrabalheCOnoscoPage() {
                     </span>
                   </div>
                   <h3
-                    className="text-xl font-black uppercase text-white mb-1 leading-tight"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    className="text-xl font-black uppercase text-white mb-1 leading-tight font-display"
                   >
                     {v.titulo}
                   </h3>
@@ -212,8 +205,7 @@ export default function TrabalheCOnoscoPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-dark-steel rounded-xl p-8 border border-dark-border">
             <h2
-              className="text-3xl font-black uppercase text-white mb-2"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-3xl font-black uppercase text-white mb-2 font-display"
             >
               ENVIE SEU CURRÍCULO
             </h2>

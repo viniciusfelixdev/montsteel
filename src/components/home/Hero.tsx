@@ -35,8 +35,7 @@ export default function Hero() {
           {/* Badge */}
           {/* Headline */}
           <h1
-            className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-none mb-6 whitespace-nowrap"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-none mb-6 whitespace-nowrap font-display"
           >
             Infraestrutura Que Sustenta Sua Operação
           </h1>

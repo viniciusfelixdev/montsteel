@@ -18,14 +18,12 @@ export default function NotFound() {
 
       <div className="relative text-center max-w-xl">
         <p
-          className="text-[8rem] sm:text-[11rem] font-black leading-none text-cobersteel-blue/30"
-          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+          className="text-[8rem] sm:text-[11rem] font-black leading-none text-cobersteel-blue/30 font-display"
         >
           404
         </p>
         <h1
-          className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 -mt-4"
-          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+          className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 -mt-4 font-display"
         >
           Página não encontrada
         </h1>

@@ -23,8 +23,7 @@ export default function ParceirosPage() {
             Início
           </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display"
           >
             NOSSOS <span className="text-cobersteel-blue">PARCEIROS</span>
           </h1>
@@ -41,8 +40,7 @@ export default function ParceirosPage() {
             <Handshake className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
           </div>
           <h2
-            className="text-3xl font-black uppercase text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-3xl font-black uppercase text-white mb-4 font-display"
           >
             CASES EM CONSTRUÇÃO
           </h2>

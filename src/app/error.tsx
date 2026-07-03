@@ -19,14 +19,12 @@ export default function Error({
     <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-dark-steel to-dark-mid px-4">
       <div className="text-center max-w-xl">
         <p
-          className="text-6xl sm:text-7xl font-black text-cobersteel-gold/30 mb-2"
-          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+          className="text-6xl sm:text-7xl font-black text-cobersteel-gold/30 mb-2 font-display"
         >
           OPS
         </p>
         <h1
-          className="text-3xl sm:text-4xl font-black uppercase text-white mb-4"
-          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+          className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 font-display"
         >
           Algo deu errado
         </h1>

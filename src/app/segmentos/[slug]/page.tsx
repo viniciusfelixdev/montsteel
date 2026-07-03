@@ -94,8 +94,7 @@ export default async function SegmentoPage({
           </Link>
 
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4 font-display"
           >
             {segment.name}
           </h1>
@@ -114,8 +113,7 @@ export default async function SegmentoPage({
             {/* Desafios do setor */}
             <div>
               <h2
-                className="text-3xl font-black uppercase text-white mb-8"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-3xl font-black uppercase text-white mb-8 font-display"
               >
                 DESAFIOS DO <span className="text-cobersteel-blue">SETOR</span>
               </h2>
@@ -131,8 +129,7 @@ export default async function SegmentoPage({
             {/* Soluções recomendadas */}
             <div>
               <h2
-                className="text-3xl font-black uppercase text-white mb-8"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-3xl font-black uppercase text-white mb-8 font-display"
               >
                 SOLUÇÕES <span className="text-cobersteel-blue">RECOMENDADAS</span>
               </h2>
@@ -146,8 +143,7 @@ export default async function SegmentoPage({
                   >
                     <div>
                       <p
-                        className="font-black uppercase text-white text-base group-hover:text-cobersteel-gold transition-colors"
-                        style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                        className="font-black uppercase text-white text-base group-hover:text-cobersteel-gold transition-colors font-display"
                       >
                         {p.name}
                       </p>
@@ -185,8 +181,7 @@ export default async function SegmentoPage({
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-4xl sm:text-5xl font-black uppercase text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl sm:text-5xl font-black uppercase text-white mb-4 font-display"
           >
             FALE COM UM ESPECIALISTA EM {segment.name.toUpperCase()}
           </h2>

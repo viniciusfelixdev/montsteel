@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
-import { MapPin, Ruler, Building2, ArrowLeft, ArrowRight, Tag, Calendar } from "lucide-react";
+import { MapPin, Ruler, ArrowLeft, ArrowRight, Tag, Calendar } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/portfolio";
 import ClientLogos from "@/components/home/ClientLogos";
 
@@ -46,8 +46,7 @@ export default function PortfolioPage() {
             Início
           </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display"
           >
             NOSSO <span className="text-cobersteel-blue">PORTFÓLIO</span>
           </h1>
@@ -76,8 +75,7 @@ export default function PortfolioPage() {
                 </div>
                 <div className="flex flex-col flex-1 p-6">
                   <h2
-                    className="font-black uppercase text-white text-lg mb-3 leading-tight"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    className="font-black uppercase text-white text-lg mb-3 leading-tight font-display"
                   >
                     {o.titulo}
                   </h2>
@@ -119,8 +117,7 @@ export default function PortfolioPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white font-display"
             >
               ATUAÇÃO NACIONAL
             </h2>
@@ -136,8 +133,7 @@ export default function PortfolioPage() {
                 <div className="flex items-center gap-3 mb-3">
                   <MapPin className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
                   <h3
-                    className="font-black uppercase text-white text-lg"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    className="font-black uppercase text-white text-lg font-display"
                   >
                     {r.nome}
                   </h3>
@@ -154,8 +150,7 @@ export default function PortfolioPage() {
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl sm:text-4xl font-black uppercase text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 font-display"
           >
             SEU PROJETO PODE SER O PRÓXIMO
           </h2>

@@ -101,8 +101,7 @@ export default function QuemSomosPage() {
             Início
           </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display"
           >
             QUEM SOMOS
           </h1>
@@ -115,8 +114,7 @@ export default function QuemSomosPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center">
             <Reveal className="lg:col-span-7">
               <h2
-                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8 leading-[0.95]"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8 leading-[0.95] font-display"
               >
                 NOSSA <span className="text-cobersteel-blue">JORNADA</span>
               </h2>
@@ -144,8 +142,7 @@ export default function QuemSomosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center mb-16 max-w-2xl mx-auto">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95]"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] font-display"
             >
               MARCOS DA NOSSA <span className="text-cobersteel-blue">TRAJETÓRIA</span>
             </h2>
@@ -171,14 +168,12 @@ export default function QuemSomosPage() {
                     <Reveal>
                       <div className="bg-dark-steel rounded-xl p-7">
                         <span
-                          className="text-sm font-black tracking-widest text-cobersteel-silver"
-                          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                          className="text-sm font-black tracking-widest text-cobersteel-silver font-display"
                         >
                           {item.year}
                         </span>
                         <h3
-                          className="text-xl font-bold uppercase text-cobersteel-gold mt-1 mb-2.5 leading-tight"
-                          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                          className="text-xl font-bold uppercase text-cobersteel-gold mt-1 mb-2.5 leading-tight font-display"
                         >
                           {item.title}
                         </h3>
@@ -200,8 +195,7 @@ export default function QuemSomosPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-14 sm:mb-16">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] text-balance"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] text-balance font-display"
             >
               MISSÃO, VISÃO E VALORES
             </h2>
@@ -215,8 +209,7 @@ export default function QuemSomosPage() {
                   <div className="flex items-center gap-3">
                     <Icon className="w-7 h-7 text-white flex-shrink-0" strokeWidth={2} aria-hidden="true" />
                     <h3
-                      className="text-2xl font-black uppercase tracking-wide text-white leading-none"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                      className="text-2xl font-black uppercase tracking-wide text-white leading-none font-display"
                     >
                       {titulo}
                     </h3>
@@ -241,8 +234,7 @@ export default function QuemSomosPage() {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-dark-steel flex flex-col items-center justify-center text-center px-6">
                 <Users className="w-12 h-12 text-cobersteel-blue mb-4" strokeWidth={1.25} aria-hidden="true" />
                 <p
-                  className="text-lg font-bold uppercase tracking-wide text-white/70"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-lg font-bold uppercase tracking-wide text-white/70 font-display"
                 >
                   Foto da equipe
                 </p>
@@ -252,8 +244,7 @@ export default function QuemSomosPage() {
 
             <Reveal className="lg:col-span-6">
               <h2
-                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8 leading-[0.95]"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8 leading-[0.95] font-display"
               >
                 POR TRÁS DE CADA <span className="text-cobersteel-blue">ESTRUTURA</span>
               </h2>
@@ -273,8 +264,7 @@ export default function QuemSomosPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-14 sm:mb-16">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95]"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] font-display"
             >
               NOSSOS <span className="text-cobersteel-blue">FUNDADORES</span>
             </h2>
@@ -290,16 +280,14 @@ export default function QuemSomosPage() {
                     aria-hidden="true"
                   >
                     <span
-                      className="text-2xl sm:text-3xl font-black text-cobersteel-blue"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                      className="text-2xl sm:text-3xl font-black text-cobersteel-blue font-display"
                     >
                       {f.iniciais}
                     </span>
                   </div>
                   <div>
                     <h3
-                      className="text-2xl font-black uppercase text-white leading-none"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                      className="text-2xl font-black uppercase text-white leading-none font-display"
                     >
                       {f.nome}
                     </h3>
@@ -320,8 +308,7 @@ export default function QuemSomosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center mb-16 max-w-2xl mx-auto">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] text-balance"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] text-balance font-display"
             >
               PROJETOS COM <span className="text-cobersteel-blue">SELO DE ENGENHARIA</span>
             </h2>
@@ -337,8 +324,7 @@ export default function QuemSomosPage() {
                   <selo.Icon className="w-9 h-9 text-cobersteel-blue" strokeWidth={1.5} aria-hidden="true" />
                 </div>
                 <p
-                  className="text-xl font-black uppercase tracking-wide text-white mb-2"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-xl font-black uppercase tracking-wide text-white mb-2 font-display"
                 >
                   {selo.sigla}
                 </p>
@@ -355,8 +341,7 @@ export default function QuemSomosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-5xl mx-auto mb-16">
             <h2
-              className="text-xl sm:text-3xl lg:text-5xl font-black uppercase text-white leading-[0.95] whitespace-nowrap"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-xl sm:text-3xl lg:text-5xl font-black uppercase text-white leading-[0.95] whitespace-nowrap font-display"
             >
               SEDE EM IBATÉ. ATENDIMENTO NO <span className="text-cobersteel-blue">BRASIL TODO</span>
             </h2>
@@ -420,8 +405,7 @@ export default function QuemSomosPage() {
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
         <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl sm:text-5xl font-black uppercase text-white mb-5 leading-[0.95]"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-3xl sm:text-5xl font-black uppercase text-white mb-5 leading-[0.95] font-display"
           >
             VAMOS CONSTRUIR JUNTOS?
           </h2>
@@ -433,8 +417,7 @@ export default function QuemSomosPage() {
               href="/orcamento"
               trackName="solicitar_orcamento"
               trackLocation="quem_somos_cta_final"
-              className="inline-flex items-center justify-center gap-2 bg-cobersteel-gold text-dark-steel font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:brightness-110 transition"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="inline-flex items-center justify-center gap-2 bg-cobersteel-gold text-dark-steel font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:brightness-110 transition font-display"
             >
               Solicitar Orçamento
               <ArrowRight className="w-5 h-5" aria-hidden="true" />
@@ -443,8 +426,7 @@ export default function QuemSomosPage() {
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-white hover:text-cobersteel-blue transition"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-white hover:text-cobersteel-blue transition font-display"
             >
               Falar no WhatsApp
             </a>

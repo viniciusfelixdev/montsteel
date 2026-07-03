@@ -46,8 +46,7 @@ export default function SegmentsGrid() {
         >
           <h2
             id="segmentos-titulo"
-            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-dark-steel"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-dark-steel font-display"
           >
             ATENDEMOS OS PRINCIPAIS SETORES
             <br />
@@ -99,10 +98,9 @@ export default function SegmentsGrid() {
                     />
                   </div>
                   <span
-                    className={`relative text-lg font-bold uppercase transition-colors ${
+                    className={`relative text-lg font-bold uppercase transition-colors font-display ${
                       bgImage ? "text-white" : "text-dark-steel group-hover:text-cobersteel-blue"
                     }`}
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
                   >
                     {seg.name}
                   </span>

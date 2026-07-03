@@ -27,11 +27,7 @@ function StatValue({ value }: { value: string }) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (reduce) {
-      setCount(numeric);
-      return;
-    }
-    if (!inView) return;
+    if (reduce || !inView) return;
 
     const duration = 1400;
     const start = performance.now();
@@ -46,16 +42,17 @@ function StatValue({ value }: { value: string }) {
     return () => cancelAnimationFrame(raf);
   }, [inView, numeric, reduce]);
 
+  const displayValue = reduce ? numeric : count;
+
   return (
     <div
       ref={ref}
-      className="text-4xl sm:text-5xl font-black text-white mb-1.5"
-      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+      className="text-4xl sm:text-5xl font-black text-white mb-1.5 font-display"
       aria-label={`${prefix}${numeric.toLocaleString("pt-BR")}${suffix}`}
     >
       <span aria-hidden="true">
         {prefix}
-        {count.toLocaleString("pt-BR")}
+        {displayValue.toLocaleString("pt-BR")}
         {suffix}
       </span>
     </div>

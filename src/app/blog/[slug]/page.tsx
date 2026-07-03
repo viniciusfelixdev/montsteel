@@ -40,7 +40,7 @@ export default async function BlogPostPage({
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  const posts = await getPosts();
+  const { posts } = await getPosts({ perPage: 100 });
   const categoria = getCategoryName(post);
   const relacionados = posts
     .filter((p) => p.slug !== post.slug && getCategoryName(p) === categoria)
@@ -80,8 +80,7 @@ export default async function BlogPostPage({
             </span>
           </div>
           <h1
-            className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4 max-w-3xl leading-tight"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4 max-w-3xl leading-tight font-display"
             dangerouslySetInnerHTML={{ __html: post.title.rendered }}
           />
           <p className="text-[#94A3B8] text-sm">{formatarData(post.date)}</p>
@@ -124,8 +123,7 @@ export default async function BlogPostPage({
               {relacionados.length > 0 && (
                 <div className="bg-dark-mid rounded-xl p-6">
                   <h3
-                    className="text-lg font-black uppercase text-white mb-5"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    className="text-lg font-black uppercase text-white mb-5 font-display"
                   >
                     RELACIONADOS
                   </h3>
@@ -154,8 +152,7 @@ export default async function BlogPostPage({
               {outros.length > 0 && (
                 <div className="bg-dark-mid rounded-xl p-6">
                   <h3
-                    className="text-lg font-black uppercase text-white mb-5"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    className="text-lg font-black uppercase text-white mb-5 font-display"
                   >
                     TODOS OS ARTIGOS
                   </h3>
@@ -181,8 +178,7 @@ export default async function BlogPostPage({
               {/* CTA */}
               <div className="bg-cobersteel-blue rounded-xl p-6 text-center">
                 <h3
-                  className="text-xl font-black uppercase text-white mb-3"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-xl font-black uppercase text-white mb-3 font-display"
                 >
                   PRECISA DE UM GALPÃO?
                 </h3>

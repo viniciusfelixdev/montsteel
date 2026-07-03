@@ -115,8 +115,7 @@ export default function ServicosPage() {
             Início
           </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display"
           >
             SERVIÇOS E MANUTENÇÕES
           </h1>
@@ -128,8 +127,7 @@ export default function ServicosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-none"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white leading-none font-display"
             >
               O QUE FAZEMOS POR VOCÊ
             </h2>
@@ -150,8 +148,7 @@ export default function ServicosPage() {
                 <div>
                   <div className="flex items-center flex-wrap gap-x-3 gap-y-1.5 mb-3">
                     <h3
-                      className="text-2xl font-black uppercase text-white leading-tight"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                      className="text-2xl font-black uppercase text-white leading-tight font-display"
                     >
                       {s.titulo}
                     </h3>
@@ -175,8 +172,7 @@ export default function ServicosPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-none"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white leading-none font-display"
             >
               CONTE SEMPRE COM
             </h2>
@@ -197,8 +193,7 @@ export default function ServicosPage() {
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-4xl sm:text-5xl font-black uppercase text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl sm:text-5xl font-black uppercase text-white mb-4 font-display"
           >
             AGENDE UM SERVIÇO DE MANUTENÇÃO
           </h2>

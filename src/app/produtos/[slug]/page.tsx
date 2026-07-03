@@ -84,8 +84,7 @@ export default async function ProdutoPage({
             </Link>
           </div>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4 font-display"
           >
             {product.name}
           </h1>
@@ -102,8 +101,7 @@ export default async function ProdutoPage({
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             <div className="lg:col-span-2 space-y-4">
               <h2
-                className="text-3xl font-black uppercase text-white mb-6"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-3xl font-black uppercase text-white mb-6 font-display"
               >
                 O QUE SÃO OS <span className="text-cobersteel-blue">{product.name.toUpperCase()}</span>
               </h2>
@@ -130,8 +128,7 @@ export default async function ProdutoPage({
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1 h-6 rounded-full bg-cobersteel-blue flex-shrink-0" aria-hidden="true" />
                 <h2
-                  className="text-xl font-black uppercase text-white tracking-wide"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-xl font-black uppercase text-white tracking-wide font-display"
                 >
                   APLICAÇÕES
                 </h2>
@@ -151,8 +148,7 @@ export default async function ProdutoPage({
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1 h-6 rounded-full bg-cobersteel-gold flex-shrink-0" aria-hidden="true" />
                 <h2
-                  className="text-xl font-black uppercase text-white tracking-wide"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-xl font-black uppercase text-white tracking-wide font-display"
                 >
                   VANTAGENS
                 </h2>
@@ -172,8 +168,7 @@ export default async function ProdutoPage({
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-1 h-6 rounded-full bg-cobersteel-silver flex-shrink-0" aria-hidden="true" />
                 <h2
-                  className="text-xl font-black uppercase text-white tracking-wide"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-xl font-black uppercase text-white tracking-wide font-display"
                 >
                   ESPECIFICAÇÕES
                 </h2>
@@ -196,8 +191,7 @@ export default async function ProdutoPage({
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-4xl font-black uppercase text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl font-black uppercase text-white mb-4 font-display"
           >
             PRONTO PARA DAR O PRÓXIMO PASSO?
           </h2>

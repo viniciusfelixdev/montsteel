@@ -58,8 +58,7 @@ export default function NormasAbntPage() {
             Início
           </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display"
           >
             CONFORMIDADE COM <span className="text-cobersteel-blue">NORMAS ABNT</span>
           </h1>
@@ -75,8 +74,7 @@ export default function NormasAbntPage() {
                 Nosso Posicionamento
               </p>
               <h2
-                className="text-4xl sm:text-5xl font-black uppercase text-white mb-6"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-4xl sm:text-5xl font-black uppercase text-white mb-6 font-display"
               >
                 NORMAS ABNT NÃO SÃO BUROCRACIA
               </h2>
@@ -107,8 +105,7 @@ export default function NormasAbntPage() {
                       <p.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                     </div>
                     <h3
-                      className="font-black uppercase text-white text-base mb-2"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                      className="font-black uppercase text-white text-base mb-2 font-display"
                     >
                       {p.titulo}
                     </h3>
@@ -129,8 +126,7 @@ export default function NormasAbntPage() {
               Referências Técnicas
             </p>
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white mb-4"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white mb-4 font-display"
             >
               NORMAS APLICÁVEIS AOS <span className="text-cobersteel-blue">NOSSOS PROJETOS</span>
             </h2>
@@ -179,8 +175,7 @@ export default function NormasAbntPage() {
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-4xl sm:text-5xl font-black uppercase text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl sm:text-5xl font-black uppercase text-white mb-4 font-display"
           >
             SOLICITE UM PROJETO NORMATIZADO
           </h2>

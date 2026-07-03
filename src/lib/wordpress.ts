@@ -24,16 +24,58 @@ export interface WordPressPost {
   _embedded?: WordPressEmbedded;
 }
 
-/** Lista os posts publicados no WordPress, mais recentes primeiro. */
-export async function getPosts(): Promise<WordPressPost[]> {
+export interface WordPressCategory {
+  id: number;
+  name: string;
+  slug: string;
+  count: number;
+}
+
+export const POSTS_PER_PAGE = 9;
+
+/**
+ * Lista os posts publicados no WordPress, mais recentes primeiro, com paginação real
+ * (a API do WordPress limita por padrão a 10 por página — sem isso, posts além do
+ * limite somem silenciosamente da listagem).
+ */
+export async function getPosts({
+  page = 1,
+  perPage = POSTS_PER_PAGE,
+  categoryId,
+}: { page?: number; perPage?: number; categoryId?: number } = {}): Promise<{
+  posts: WordPressPost[];
+  totalPages: number;
+}> {
+  if (!API_URL) return { posts: [], totalPages: 0 };
+
+  const params = new URLSearchParams({
+    _embed: "",
+    page: String(page),
+    per_page: String(perPage),
+  });
+  if (categoryId) params.set("categories", String(categoryId));
+
+  const res = await fetch(`${API_URL}/posts?${params.toString()}`, {
+    next: { revalidate: 300 },
+  });
+  if (!res.ok) return { posts: [], totalPages: 0 };
+
+  const posts: WordPressPost[] = await res.json();
+  const totalPages = Number(res.headers.get("X-WP-TotalPages")) || 1;
+  return { posts, totalPages };
+}
+
+/** Lista as categorias do WordPress que têm ao menos um post publicado. */
+export async function getCategories(): Promise<WordPressCategory[]> {
   if (!API_URL) return [];
 
-  const res = await fetch(`${API_URL}/posts?_embed`, {
+  const res = await fetch(`${API_URL}/categories?per_page=100&orderby=count&order=desc`, {
     next: { revalidate: 300 },
   });
   if (!res.ok) return [];
 
-  return res.json();
+  const categories: WordPressCategory[] = await res.json();
+  return categories.filter((c) => c.count > 0);
 }
 
 /** Busca um post pelo slug. Retorna null se não existir. */

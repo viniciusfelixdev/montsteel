@@ -60,8 +60,7 @@ export default function OrcamentoPage() {
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1
-            className="text-5xl sm:text-6xl font-black uppercase tracking-tight text-white"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-6xl font-black uppercase tracking-tight text-white font-display"
           >
             SOLICITAR ORÇAMENTO
           </h1>
@@ -84,8 +83,7 @@ export default function OrcamentoPage() {
             <aside>
               <div className="bg-dark-mid rounded-xl p-6 sticky top-24">
                 <h2
-                  className="text-xl font-bold uppercase text-white mb-6"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-xl font-bold uppercase text-white mb-6 font-display"
                 >
                   Informações de Contato
                 </h2>

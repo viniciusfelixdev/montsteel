@@ -69,8 +69,7 @@ export default async function PortfolioCasePage({
           </Link>
 
           <h1
-            className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-5 max-w-4xl leading-[0.95]"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-5 max-w-4xl leading-[0.95] font-display"
           >
             {caso.titulo}
           </h1>
@@ -98,8 +97,7 @@ export default async function PortfolioCasePage({
                   <Target className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
                 </div>
                 <h2
-                  className="text-3xl font-black uppercase text-white"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-3xl font-black uppercase text-white font-display"
                 >
                   O Desafio
                 </h2>
@@ -118,8 +116,7 @@ export default async function PortfolioCasePage({
                   <CheckCircle2 className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                 </div>
                 <h2
-                  className="text-3xl font-black uppercase text-white"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-3xl font-black uppercase text-white font-display"
                 >
                   A Solução
                 </h2>
@@ -140,8 +137,7 @@ export default async function PortfolioCasePage({
           <div className="grid lg:grid-cols-2 gap-14">
             <div>
               <h2
-                className="text-3xl font-black uppercase text-white mb-8"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-3xl font-black uppercase text-white mb-8 font-display"
               >
                 FICHA <span className="text-cobersteel-blue">TÉCNICA</span>
               </h2>
@@ -164,15 +160,13 @@ export default async function PortfolioCasePage({
             {produto && (
               <div>
                 <h2
-                  className="text-3xl font-black uppercase text-white mb-8"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-3xl font-black uppercase text-white mb-8 font-display"
                 >
                   SOLUÇÃO <span className="text-cobersteel-blue">APLICADA</span>
                 </h2>
                 <div className="bg-dark-mid rounded-xl p-8">
                   <h3
-                    className="text-2xl font-black uppercase text-white mb-2"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    className="text-2xl font-black uppercase text-white mb-2 font-display"
                   >
                     {produto.name}
                   </h3>
@@ -197,8 +191,7 @@ export default async function PortfolioCasePage({
             <figure className="bg-dark-steel rounded-2xl p-10 sm:p-12">
               <Quote className="w-10 h-10 text-cobersteel-blue/40 mb-6" aria-hidden="true" />
               <blockquote
-                className="text-2xl sm:text-3xl text-white leading-snug mb-6 text-balance"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-2xl sm:text-3xl text-white leading-snug mb-6 text-balance font-display"
               >
                 &ldquo;{caso.depoimento.texto}&rdquo;
               </blockquote>
@@ -216,8 +209,7 @@ export default async function PortfolioCasePage({
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-4xl font-black uppercase text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl font-black uppercase text-white mb-4 font-display"
           >
             TEM UM PROJETO PARECIDO?
           </h2>

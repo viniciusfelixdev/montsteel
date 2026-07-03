@@ -45,8 +45,7 @@ export default function AdvantagesBanner() {
               </div>
               <div>
                 <h3
-                  className="font-bold text-white text-sm uppercase tracking-wide mb-1"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="font-bold text-white text-sm uppercase tracking-wide mb-1 font-display"
                 >
                   {item.title}
                 </h3>

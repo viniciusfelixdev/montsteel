@@ -49,12 +49,39 @@ export type ContactPayload = z.infer<typeof contactPayloadSchema>;
 
 /* ---------------- Renderização do e-mail ---------------- */
 
+/**
+ * Escapa HTML e converte qualquer caractere não-ASCII (acentos, cedilha, travessão)
+ * em entidade numérica (ex.: "ç" -> "&#231;"). Isso deixa o HTML gerado 100% ASCII,
+ * imune a erro de detecção de charset por qualquer sistema que processe o e-mail
+ * depois de sair da nossa aplicação (ex.: rastreamento de cliques/abertura do
+ * provedor de envio).
+ */
 function escapeHtml(value: string): string {
-  return String(value)
+  const escaped = String(value)
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+
+  return Array.from(escaped)
+    .map((char) => {
+      const code = char.codePointAt(0)!;
+      return code > 127 ? `&#${code};` : char;
+    })
+    .join("");
+}
+
+/**
+ * Codifica uma string com acentos no formato "encoded-word" do RFC 2047
+ * (=?UTF-8?B?...?=), exigido para caracteres não-ASCII em cabeçalhos de
+ * e-mail como o Subject — ao contrário do corpo HTML, cabeçalhos não têm
+ * como declarar charset via meta tag, então precisam ser ASCII puro.
+ */
+function mimeEncodeWord(value: string): string {
+  // eslint-disable-next-line no-control-regex
+  if (/^[\x00-\x7F]*$/.test(value)) return value;
+  const base64 = Buffer.from(value, "utf8").toString("base64");
+  return `=?UTF-8?B?${base64}?=`;
 }
 
 function row(label: string, value?: string): string {
@@ -72,7 +99,7 @@ export function buildEmail(data: ContactPayload): {
 } {
   if (data.type === "orcamento") {
     return {
-      subject: `Novo orçamento — ${data.empresa} (${data.nome})`,
+      subject: mimeEncodeWord(`Novo orçamento — ${data.empresa} (${data.nome})`),
       replyTo: data.email,
       html: emailShell(
         "Nova solicitação de orçamento",
@@ -92,7 +119,7 @@ export function buildEmail(data: ContactPayload): {
   }
 
   return {
-    subject: `Novo cadastro de fornecedor — ${data.razaoSocial}`,
+    subject: mimeEncodeWord(`Novo cadastro de fornecedor — ${data.razaoSocial}`),
     replyTo: data.email,
     html: emailShell(
       "Novo cadastro de fornecedor",
@@ -111,13 +138,23 @@ export function buildEmail(data: ContactPayload): {
 }
 
 function emailShell(title: string, rows: string): string {
-  return `<div style="background:#0F1923;padding:24px;font-family:Arial,Helvetica,sans-serif;">
-    <div style="max-width:640px;margin:0 auto;background:#1A2535;border:1px solid #2A3A50;border-radius:12px;overflow:hidden;">
-      <div style="background:#5C88B5;padding:18px 24px;">
-        <h1 style="margin:0;color:#fff;font-size:18px;text-transform:uppercase;letter-spacing:.02em;">${escapeHtml(title)}</h1>
-        <p style="margin:4px 0 0;color:#E2E8F0;font-size:12px;">Enviado pelo site cobersteel.com.br</p>
+  return `<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>${escapeHtml(title)}</title>
+  </head>
+  <body style="margin:0;padding:0;">
+    <div style="background:#0F1923;padding:24px;font-family:Arial,Helvetica,sans-serif;">
+      <div style="max-width:640px;margin:0 auto;background:#1A2535;border:1px solid #2A3A50;border-radius:12px;overflow:hidden;">
+        <div style="background:#5C88B5;padding:18px 24px;">
+          <h1 style="margin:0;color:#fff;font-size:18px;text-transform:uppercase;letter-spacing:.02em;">${escapeHtml(title)}</h1>
+          <p style="margin:4px 0 0;color:#E2E8F0;font-size:12px;">Enviado pelo site cobersteel.com.br</p>
+        </div>
+        <table style="width:100%;border-collapse:collapse;">${rows}</table>
       </div>
-      <table style="width:100%;border-collapse:collapse;">${rows}</table>
     </div>
-  </div>`;
+  </body>
+</html>`;
 }

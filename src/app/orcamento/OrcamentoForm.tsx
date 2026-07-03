@@ -89,8 +89,7 @@ export default function OrcamentoForm() {
       <div className="bg-dark-mid rounded-xl p-10 text-center">
         <CheckCircle2 className="w-14 h-14 text-green-400 mx-auto mb-4" aria-hidden="true" />
         <h2
-          className="text-2xl font-black uppercase text-white mb-2"
-          style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+          className="text-2xl font-black uppercase text-white mb-2 font-display"
         >
           Orçamento Solicitado!
         </h2>
@@ -114,8 +113,7 @@ export default function OrcamentoForm() {
       className="bg-dark-mid rounded-xl p-6 sm:p-8 space-y-6"
     >
       <h2
-        className="text-2xl font-black uppercase text-white"
-        style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+        className="text-2xl font-black uppercase text-white font-display"
       >
         Dados do Projeto
       </h2>

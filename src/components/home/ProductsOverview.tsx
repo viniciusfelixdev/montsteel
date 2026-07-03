@@ -32,8 +32,7 @@ export default function ProductsOverview() {
         >
           <h2
             id="produtos-titulo"
-            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white font-display"
           >
             NOSSOS PRODUTOS
           </h2>
@@ -74,8 +73,7 @@ export default function ProductsOverview() {
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-6">
                   <h3
-                    className="text-xl font-bold uppercase text-white mb-2 group-hover:text-cobersteel-gold transition-colors"
-                    style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                    className="text-xl font-bold uppercase text-white mb-2 group-hover:text-cobersteel-gold transition-colors font-display"
                   >
                     {product.name}
                   </h3>
@@ -111,8 +109,7 @@ export default function ProductsOverview() {
               </div>
               <div className="flex flex-col flex-1 p-6">
                 <h3
-                  className="text-xl font-bold uppercase text-white mb-2 group-hover:text-cobersteel-gold transition-colors"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-xl font-bold uppercase text-white mb-2 group-hover:text-cobersteel-gold transition-colors font-display"
                 >
                   Niveladoras de Doca
                 </h3>

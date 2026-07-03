@@ -78,8 +78,7 @@ export default async function NormaPage({
           </div>
 
           <h1
-            className="text-4xl sm:text-6xl font-black uppercase tracking-tight mb-4 leading-tight text-white"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-4xl sm:text-6xl font-black uppercase tracking-tight mb-4 leading-tight text-white font-display"
           >
             {norma.titulo}
           </h1>
@@ -96,8 +95,7 @@ export default async function NormaPage({
             {norma.conteudo.map((bloco) => (
               <div key={bloco.subtitulo}>
                 <h2
-                  className="text-2xl font-black uppercase text-white mb-4"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-2xl font-black uppercase text-white mb-4 font-display"
                 >
                   {bloco.subtitulo}
                 </h2>
@@ -107,8 +105,7 @@ export default async function NormaPage({
 
             <div>
               <h2
-                className="text-2xl font-black uppercase text-white mb-4"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-2xl font-black uppercase text-white mb-4 font-display"
               >
                 Como a CoberSteel aplica esta norma
               </h2>
@@ -117,8 +114,7 @@ export default async function NormaPage({
 
             <div>
               <h2
-                className="text-2xl font-black uppercase text-white mb-4"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-2xl font-black uppercase text-white mb-4 font-display"
               >
                 Pontos Críticos que Você Precisa Conhecer
               </h2>
@@ -142,8 +138,7 @@ export default async function NormaPage({
       <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl sm:text-4xl font-black uppercase text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 font-display"
           >
             SOLICITE UM PROJETO CONFORME A {norma.codigo}
           </h2>

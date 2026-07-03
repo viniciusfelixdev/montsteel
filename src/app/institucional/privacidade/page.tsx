@@ -107,8 +107,7 @@ export default function PrivacidadePage() {
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1
-            className="text-5xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4 font-display"
           >
             PRIVACIDADE
           </h1>
@@ -129,8 +128,7 @@ export default function PrivacidadePage() {
             {sections.map((s) => (
               <div key={s.titulo}>
                 <h2
-                  className="text-xl font-black uppercase text-white mb-3"
-                  style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                  className="text-xl font-black uppercase text-white mb-3 font-display"
                 >
                   {s.titulo}
                 </h2>

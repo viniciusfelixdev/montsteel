@@ -9,7 +9,6 @@ import {
   ChevronLeft, ChevronRight, ArrowLeft,
 } from "lucide-react";
 import CustomSelect from "@/components/shared/CustomSelect";
-import { CONTACT_INFO } from "@/lib/constants";
 import { trackFormSubmit } from "@/components/shared/Analytics";
 
 const CATEGORIA_OPTIONS = [
@@ -262,8 +261,7 @@ export default function FornecedoresPage() {
             Início
           </Link>
           <h1
-            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display"
           >
             SEJA UM <span className="text-cobersteel-blue">FORNECEDOR</span>
           </h1>
@@ -275,8 +273,7 @@ export default function FornecedoresPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
           <h2
             id="fornecedores-carousel-titulo"
-            className="text-3xl font-black uppercase text-white"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-3xl font-black uppercase text-white font-display"
           >
             NOSSOS PRINCIPAIS FORNECEDORES
           </h2>
@@ -341,8 +338,7 @@ export default function FornecedoresPage() {
           <div className="text-center mb-12">
             <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">O que buscamos</p>
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white font-display"
             >
               CATEGORIAS DE <span className="text-cobersteel-blue">FORNECIMENTO</span>
             </h2>
@@ -364,8 +360,7 @@ export default function FornecedoresPage() {
                         <cat.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                       </span>
                       <span
-                        className="flex-1 font-black uppercase text-white text-base sm:text-lg"
-                        style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                        className="flex-1 font-black uppercase text-white text-base sm:text-lg font-display"
                       >
                         {cat.titulo}
                       </span>
@@ -429,8 +424,7 @@ export default function FornecedoresPage() {
             <div>
               <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Critérios</p>
               <h2
-                className="text-4xl font-black uppercase text-white mb-8"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-4xl font-black uppercase text-white mb-8 font-display"
               >
                 REQUISITOS PARA <span className="text-cobersteel-blue">HOMOLOGAÇÃO</span>
               </h2>
@@ -448,8 +442,7 @@ export default function FornecedoresPage() {
             <div>
               <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Como funciona</p>
               <h2
-                className="text-4xl font-black uppercase text-white mb-8"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-4xl font-black uppercase text-white mb-8 font-display"
               >
                 PROCESSO DE <span className="text-cobersteel-blue">CADASTRO</span>
               </h2>
@@ -457,14 +450,13 @@ export default function FornecedoresPage() {
                 {etapas.map((e) => (
                   <div key={e.num} className="flex gap-5 items-start">
                     <span
-                      className="text-3xl font-black text-cobersteel-blue/30 leading-none flex-shrink-0 w-10"
-                      style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                      className="text-3xl font-black text-cobersteel-blue/30 leading-none flex-shrink-0 w-10 font-display"
                       aria-hidden="true"
                     >
                       {e.num}
                     </span>
                     <div>
-                      <p className="font-black uppercase text-white text-sm mb-1" style={{ fontFamily: "'Barlow Condensed', sans-serif" }}>
+                      <p className="font-black uppercase text-white text-sm mb-1 font-display">
                         {e.titulo}
                       </p>
                       <p className="text-[16px] text-[#94A3B8] leading-relaxed">{e.desc}</p>
@@ -483,8 +475,7 @@ export default function FornecedoresPage() {
           <div className="text-center mb-10">
             <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Formulário</p>
             <h2
-              className="text-4xl font-black uppercase text-white"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl font-black uppercase text-white font-display"
             >
               CADASTRE SUA EMPRESA
             </h2>
@@ -494,8 +485,7 @@ export default function FornecedoresPage() {
             <div className="bg-dark-mid rounded-xl p-10 text-center">
               <CheckCircle2 className="w-12 h-12 text-cobersteel-gold mx-auto mb-4" aria-hidden="true" />
               <h3
-                className="text-2xl font-black uppercase text-white mb-2"
-                style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+                className="text-2xl font-black uppercase text-white mb-2 font-display"
               >
                 Cadastro Recebido!
               </h3>

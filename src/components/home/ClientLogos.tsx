@@ -78,8 +78,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
           >
             <h2
               id="clientes-titulo"
-              className="text-3xl font-black uppercase text-white"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-3xl font-black uppercase text-white font-display"
             >
               EMPRESAS QUE CONFIAM NA COBERSTEEL
             </h2>

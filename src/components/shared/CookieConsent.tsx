@@ -11,8 +11,11 @@ export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Só mostra se o usuário ainda não escolheu.
+    // Lido só no efeito (não no initializer do useState) de propósito: localStorage
+    // não existe durante a renderização no servidor, e ler aqui evita divergência
+    // de hidratação entre o HTML do servidor e o primeiro render no cliente.
     const stored = localStorage.getItem(CONSENT_KEY);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!stored) setVisible(true);
   }, []);
 
@@ -36,8 +39,7 @@ export default function CookieConsent() {
         </div>
         <div>
           <h2
-            className="text-sm font-black uppercase text-white mb-1"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="text-sm font-black uppercase text-white mb-1 font-display"
           >
             Sua privacidade
           </h2>

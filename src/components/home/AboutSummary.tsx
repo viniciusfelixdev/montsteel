@@ -22,8 +22,7 @@ export default function AboutSummary() {
             </p>
             <h2
               id="sobre-titulo"
-              className="text-4xl sm:text-5xl font-black uppercase text-white mb-6 leading-tight"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+              className="text-4xl sm:text-5xl font-black uppercase text-white mb-6 leading-tight font-display"
             >
               INFRAESTRUTURA INDUSTRIAL
               <br />
