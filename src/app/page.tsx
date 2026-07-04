@@ -1,12 +1,24 @@
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import Hero from "@/components/home/Hero";
-import AdvantagesBanner from "@/components/home/AdvantagesBanner";
 import ProductsOverview from "@/components/home/ProductsOverview";
-import NumbersSection from "@/components/home/NumbersSection";
-import SegmentsGrid from "@/components/home/SegmentsGrid";
-import ClientLogos from "@/components/home/ClientLogos";
-import AboutSummary from "@/components/home/AboutSummary";
 import TrackedLink from "@/components/shared/TrackedLink";
+
+// Seções abaixo da dobra: mantidas fora do bundle inicial da home (ssr:true
+// preserva o conteúdo no HTML para SEO, só o JS de animação carrega sob demanda).
+const sectionSkeleton = <div className="h-96" aria-hidden="true" />;
+const NumbersSection = dynamic(() => import("@/components/home/NumbersSection"), {
+  loading: () => sectionSkeleton,
+});
+const SegmentsGrid = dynamic(() => import("@/components/home/SegmentsGrid"), {
+  loading: () => sectionSkeleton,
+});
+const ClientLogos = dynamic(() => import("@/components/home/ClientLogos"), {
+  loading: () => sectionSkeleton,
+});
+const AboutSummary = dynamic(() => import("@/components/home/AboutSummary"), {
+  loading: () => sectionSkeleton,
+});
 
 export const metadata: Metadata = {
   title: "CoberSteel | Galpões de Lona, Metálicos e Coberturas Industriais — Ibaté/SP",
@@ -19,7 +31,6 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <AdvantagesBanner />
       <ProductsOverview />
 
       <NumbersSection />

@@ -1,9 +1,9 @@
-export interface ProductVantagem {
+interface ProductVantagem {
   titulo: string;
   desc: string;
 }
 
-export interface ProductSpec {
+interface ProductSpec {
   label: string;
   value: string;
 }

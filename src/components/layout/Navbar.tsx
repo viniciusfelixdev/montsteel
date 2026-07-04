@@ -56,7 +56,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 inset-x-0 z-40 transition-[background-color,box-shadow] duration-300 ${
         scrolled ? "bg-dark-steel shadow-lg" : "bg-transparent"
       }`}
     >
@@ -69,7 +69,7 @@ export default function Navbar() {
           <Image
             src="/logo-branca.svg"
             alt="CoberSteel"
-            width={370}
+            width={155}
             height={94}
             priority
             className="h-11 w-auto"
@@ -212,7 +212,7 @@ export default function Navbar() {
         <div className="lg:hidden fixed inset-0 z-50 bg-dark-steel flex flex-col">
           <div className="flex items-center justify-between px-4 h-16 border-b border-dark-border">
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <Image src="/logo-branca.svg" alt="CoberSteel" width={140} height={35} className="h-9 w-auto" />
+              <Image src="/logo-branca.svg" alt="CoberSteel" width={58} height={35} className="h-9 w-auto" />
             </Link>
             <button onClick={() => setMobileOpen(false)} aria-label="Fechar menu" className="text-white p-2">
               <X className="w-6 h-6" />

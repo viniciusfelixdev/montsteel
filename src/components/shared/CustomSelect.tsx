@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useId } from "react";
 import { ChevronDown, Check } from "lucide-react";
 
-export interface SelectOption {
+interface SelectOption {
   value: string;
   label: string;
 }
@@ -20,6 +20,7 @@ interface CustomSelectProps {
   options: SelectOption[];
   placeholder?: string;
   name?: string;
+  onBlur?: () => void;
 }
 
 const accent: Record<Variant, { ring: string; chevron: string; active: string; check: string }> = {
@@ -47,6 +48,7 @@ export default function CustomSelect({
   options,
   placeholder = "Selecione",
   name,
+  onBlur,
 }: CustomSelectProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -71,7 +73,17 @@ export default function CustomSelect({
   }, []);
 
   return (
-    <div className="flex flex-col gap-1.5" ref={ref}>
+    <div
+      className="flex flex-col gap-1.5"
+      ref={ref}
+      onBlur={(e) => {
+        // Só dispara quando o foco sai do componente inteiro (não ao mover
+        // do botão-gatilho para uma opção da lista, que também é um blur do botão).
+        if (onBlur && !ref.current?.contains(e.relatedTarget as Node)) {
+          onBlur();
+        }
+      }}
+    >
       {label && (
         <label className="text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">
           {label} {required && <span className="text-cobersteel-gold">*</span>}

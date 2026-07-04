@@ -54,7 +54,7 @@ export default function CookieConsent() {
         <button
           onClick={() => decide("rejected")}
           aria-label="Fechar e recusar"
-          className="text-[#94A3B8] hover:text-white transition-colors flex-shrink-0"
+          className="flex items-center justify-center w-11 h-11 -mt-2.5 -mr-2.5 text-[#94A3B8] hover:text-white transition-colors flex-shrink-0"
         >
           <X className="w-4 h-4" aria-hidden="true" />
         </button>
@@ -62,13 +62,13 @@ export default function CookieConsent() {
       <div className="flex gap-3">
         <button
           onClick={() => decide("rejected")}
-          className="flex-1 py-2.5 text-xs font-bold uppercase tracking-wide text-white border border-white/25 hover:border-white rounded-lg transition-colors"
+          className="flex-1 py-3.5 text-xs font-bold uppercase tracking-wide text-white border border-white/25 hover:border-white rounded-lg transition-colors"
         >
           Recusar
         </button>
         <button
           onClick={() => decide("accepted")}
-          className="flex-1 py-2.5 text-xs font-bold uppercase tracking-wide bg-cobersteel-gold text-dark-steel hover:bg-amber-400 rounded-lg transition-colors"
+          className="flex-1 py-3.5 text-xs font-bold uppercase tracking-wide bg-cobersteel-gold text-dark-steel hover:bg-amber-400 rounded-lg transition-colors"
         >
           Aceitar
         </button>

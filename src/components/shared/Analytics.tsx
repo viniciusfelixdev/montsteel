@@ -21,10 +21,45 @@ export function trackButtonClick(buttonName: string, location: string) {
   });
 }
 
-/** Dispara evento de envio de formulário com sucesso no GA4. */
-export function trackFormSubmit(formName: string) {
+/**
+ * Dispara evento de envio de formulário com sucesso no GA4.
+ * `extraParams` deve conter apenas valores não-PII (slugs de campos de
+ * seleção, categorias, etc.) — nunca nome, e-mail, telefone ou texto livre cru.
+ */
+export function trackFormSubmit(formName: string, extraParams?: Record<string, string>) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-  window.gtag("event", "envio_formulario_sucesso", { form_name: formName });
+  window.gtag("event", "envio_formulario_sucesso", { form_name: formName, ...extraParams });
+}
+
+/**
+ * Dispara evento de abandono de formulário no GA4 quando o usuário sai de um
+ * campo (onBlur) sem ter concluído o envio. `fieldName` deve ser um slug
+ * fixo do campo (ex: "email", "area_m2") — nunca o valor digitado pelo usuário.
+ */
+export function trackFormAbandon(formName: string, fieldName: string) {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  window.gtag("event", "formulario_abandono", {
+    form_name: formName,
+    last_focused_field: fieldName,
+  });
+}
+
+/** Dispara evento de marco de tempo de leitura de um artigo do blog no GA4. */
+export function trackBlogReadProgress(articleSlug: string, timeSeconds: number) {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  window.gtag("event", "leitura_blog_progresso", {
+    article_slug: articleSlug,
+    reading_time_seconds: timeSeconds,
+  });
+}
+
+/** Dispara evento de clique em CTA de orçamento originado de um artigo do blog no GA4. */
+export function trackBlogToConversionClick(articleSlug: string, ctaLocation: string) {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  window.gtag("event", "clique_conversao_blog", {
+    from_article_slug: articleSlug,
+    cta_location: ctaLocation,
+  });
 }
 
 /**

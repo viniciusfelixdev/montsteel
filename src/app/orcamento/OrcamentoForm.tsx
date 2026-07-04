@@ -3,11 +3,11 @@
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { SEGMENTS } from "@/lib/constants";
 import CustomSelect from "@/components/shared/CustomSelect";
-import { trackFormSubmit } from "@/components/shared/Analytics";
+import { trackFormAbandon, trackFormSubmit } from "@/components/shared/Analytics";
 
 const SEGMENTO_OPTIONS = [
   ...SEGMENTS.map((s) => ({ value: s.slug, label: s.name })),
@@ -53,9 +53,48 @@ const labelClass = "block text-xs font-semibold uppercase tracking-wide text-[#9
 
 const errorClass = "mt-1 text-xs text-red-400 flex items-center gap-1";
 
+const DIACRITICS_REGEX = /[\p{Diacritic}]/gu;
+
+/** Reduz texto livre a um slug seguro para envio ao GA4 (sem PII, sem caracteres livres). */
+function slugify(value: string): string {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(DIACRITICS_REGEX, "")
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .slice(0, 40);
+}
+
+/** Nome de cada campo para o parâmetro `last_focused_field` do GA4 — consistente com os slugs já usados em `envio_formulario_sucesso`. */
+const FIELD_TRACK_NAMES = {
+  nome: "nome",
+  email: "email",
+  telefone: "telefone",
+  empresa: "empresa",
+  segmento: "segmento_atuacao",
+  tipoInteresse: "tipo_interesse",
+  produto: "produto",
+  dimensoes: "area_m2",
+};
+
 export default function OrcamentoForm() {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState(false);
+  // Dedupe: cada campo só dispara "formulario_abandono" uma vez por sessão de preenchimento.
+  const trackedAbandonFields = useRef<Set<string>>(new Set());
+  const successRef = useRef<HTMLDivElement>(null);
+
+  // Centraliza a tela no card de confirmação ao enviar, já que ele substitui o
+  // formulário no mesmo lugar e o usuário pode não perceber a mudança se estiver scrollado.
+  useEffect(() => {
+    if (!submitted) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    successRef.current?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "center",
+    });
+  }, [submitted]);
 
   const {
     register,
@@ -67,6 +106,25 @@ export default function OrcamentoForm() {
     resolver: zodResolver(schema),
   });
 
+  function handleFieldBlur(fieldKey: keyof typeof FIELD_TRACK_NAMES) {
+    if (submitted) return;
+    if (trackedAbandonFields.current.has(fieldKey)) return;
+    trackedAbandonFields.current.add(fieldKey);
+    trackFormAbandon("orcamento", FIELD_TRACK_NAMES[fieldKey]);
+  }
+
+  /** Igual a `register(name)`, mas compõe o onBlur original com o rastreamento de abandono. */
+  function registerWithAbandonTracking(name: keyof typeof FIELD_TRACK_NAMES) {
+    const field = register(name);
+    return {
+      ...field,
+      onBlur: (event: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        field.onBlur(event);
+        handleFieldBlur(name);
+      },
+    };
+  }
+
   async function onSubmit(data: FormData) {
     setSubmitError(false);
     try {
@@ -76,7 +134,11 @@ export default function OrcamentoForm() {
         body: JSON.stringify({ type: "orcamento", ...data }),
       });
       if (!res.ok) throw new Error("Falha no envio");
-      trackFormSubmit("orcamento");
+      trackFormSubmit("orcamento", {
+        segmento_atuacao: data.segmento,
+        tipo_interesse: data.tipoInteresse,
+        area_m2: data.dimensoes ? slugify(data.dimensoes) : "nao_informado",
+      });
       setSubmitted(true);
       reset();
     } catch {
@@ -86,7 +148,7 @@ export default function OrcamentoForm() {
 
   if (submitted) {
     return (
-      <div className="bg-dark-mid rounded-xl p-10 text-center">
+      <div ref={successRef} className="bg-dark-mid rounded-xl p-10 text-center">
         <CheckCircle2 className="w-14 h-14 text-green-400 mx-auto mb-4" aria-hidden="true" />
         <h2
           className="text-2xl font-black uppercase text-white mb-2 font-display"
@@ -97,7 +159,10 @@ export default function OrcamentoForm() {
           Recebemos sua solicitação. Nossa equipe entrará em contato em até 24 horas úteis.
         </p>
         <button
-          onClick={() => setSubmitted(false)}
+          onClick={() => {
+            trackedAbandonFields.current.clear();
+            setSubmitted(false);
+          }}
           className="text-cobersteel-blue text-sm hover:underline"
         >
           Enviar nova solicitação
@@ -138,7 +203,7 @@ export default function OrcamentoForm() {
             className={fieldClass}
             aria-required="true"
             aria-invalid={!!errors.nome}
-            {...register("nome")}
+            {...registerWithAbandonTracking("nome")}
           />
           {errors.nome && (
             <p className={errorClass} role="alert">
@@ -158,7 +223,7 @@ export default function OrcamentoForm() {
             className={fieldClass}
             aria-required="true"
             aria-invalid={!!errors.email}
-            {...register("email")}
+            {...registerWithAbandonTracking("email")}
           />
           {errors.email && (
             <p className={errorClass} role="alert">
@@ -182,7 +247,7 @@ export default function OrcamentoForm() {
             className={fieldClass}
             aria-required="true"
             aria-invalid={!!errors.telefone}
-            {...register("telefone")}
+            {...registerWithAbandonTracking("telefone")}
           />
           {errors.telefone && (
             <p className={errorClass} role="alert">
@@ -202,7 +267,7 @@ export default function OrcamentoForm() {
             className={fieldClass}
             aria-required="true"
             aria-invalid={!!errors.empresa}
-            {...register("empresa")}
+            {...registerWithAbandonTracking("empresa")}
           />
           {errors.empresa && (
             <p className={errorClass} role="alert">
@@ -226,6 +291,7 @@ export default function OrcamentoForm() {
               placeholder="Selecione o segmento"
               value={field.value || ""}
               onChange={field.onChange}
+              onBlur={() => handleFieldBlur("segmento")}
               options={SEGMENTO_OPTIONS}
               error={errors.segmento?.message}
             />
@@ -242,6 +308,7 @@ export default function OrcamentoForm() {
               placeholder="Selecione o tipo"
               value={field.value || ""}
               onChange={field.onChange}
+              onBlur={() => handleFieldBlur("tipoInteresse")}
               options={TIPO_INTERESSE_OPTIONS}
               error={errors.tipoInteresse?.message}
             />
@@ -262,6 +329,7 @@ export default function OrcamentoForm() {
               placeholder="Selecione o produto"
               value={field.value || ""}
               onChange={field.onChange}
+              onBlur={() => handleFieldBlur("produto")}
               options={PRODUTO_OPTIONS}
               error={errors.produto?.message}
             />
@@ -276,7 +344,7 @@ export default function OrcamentoForm() {
             type="text"
             placeholder="Ex: 20 x 60 m"
             className={fieldClass}
-            {...register("dimensoes")}
+            {...registerWithAbandonTracking("dimensoes")}
           />
         </div>
       </div>

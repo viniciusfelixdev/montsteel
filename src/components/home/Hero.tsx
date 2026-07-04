@@ -9,7 +9,7 @@ import { trackButtonClick } from "@/components/shared/Analytics";
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen min-h-[100svh] flex items-center justify-center overflow-hidden"
       aria-label="Seção principal"
     >
       {/* Background image */}
@@ -19,6 +19,7 @@ export default function Hero() {
           alt=""
           fill
           priority
+          quality={65}
           className="object-cover"
           sizes="100vw"
         />
@@ -28,14 +29,14 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 40 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           {/* Badge */}
           {/* Headline */}
           <h1
-            className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl font-black tracking-tight text-white leading-none mb-6 whitespace-nowrap font-display"
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black uppercase tracking-tight text-white leading-[0.95] mb-6 font-display text-balance"
           >
             Infraestrutura Que Sustenta Sua Operação
           </h1>
@@ -68,7 +69,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <motion.a
         href="#produtos"
-        aria-label="Rolar para conhecer os produtos"
+        aria-label="Explorar: rolar para conhecer os produtos"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors cursor-pointer"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

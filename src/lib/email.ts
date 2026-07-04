@@ -15,29 +15,29 @@ export const EMAIL_CONFIG = {
 
 /* ---------------- Schemas ---------------- */
 
-export const orcamentoSchema = z.object({
+const orcamentoSchema = z.object({
   type: z.literal("orcamento"),
-  nome: z.string().min(2),
-  email: z.string().email(),
-  telefone: z.string().min(8),
-  empresa: z.string().min(2),
-  segmento: z.string().min(1),
-  tipoInteresse: z.string().min(1),
-  produto: z.string().min(1),
-  areaNecessaria: z.string().optional().default(""),
-  mensagem: z.string().optional().default(""),
+  nome: z.string().min(2).max(150),
+  email: z.string().email().max(200),
+  telefone: z.string().min(8).max(30),
+  empresa: z.string().min(2).max(150),
+  segmento: z.string().min(1).max(100),
+  tipoInteresse: z.string().min(1).max(100),
+  produto: z.string().min(1).max(100),
+  areaNecessaria: z.string().max(50).optional().default(""),
+  mensagem: z.string().max(5000).optional().default(""),
 });
 
-export const fornecedorSchema = z.object({
+const fornecedorSchema = z.object({
   type: z.literal("fornecedor"),
-  razaoSocial: z.string().min(2),
-  cnpj: z.string().min(11),
-  responsavel: z.string().min(2),
-  email: z.string().email(),
-  telefone: z.string().min(8),
-  categoria: z.string().min(1),
-  atuacao: z.string().min(1),
-  mensagem: z.string().optional().default(""),
+  razaoSocial: z.string().min(2).max(150),
+  cnpj: z.string().min(11).max(20),
+  responsavel: z.string().min(2).max(150),
+  email: z.string().email().max(200),
+  telefone: z.string().min(8).max(30),
+  categoria: z.string().min(1).max(100),
+  atuacao: z.string().min(1).max(100),
+  mensagem: z.string().max(5000).optional().default(""),
 });
 
 export const contactPayloadSchema = z.discriminatedUnion("type", [

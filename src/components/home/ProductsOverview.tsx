@@ -60,7 +60,7 @@ export default function ProductsOverview() {
                       alt={product.name}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px"
                     />
                   ) : (
                     <div className="w-full h-full bg-dark-steel flex items-center justify-center">

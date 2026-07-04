@@ -103,7 +103,7 @@ export default function OrcamentoPage() {
                             href={item.href}
                             target={item.href.startsWith("http") ? "_blank" : undefined}
                             rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className="text-sm text-white hover:text-cobersteel-gold transition-colors"
+                            className="inline-block py-2.5 -my-2.5 text-sm text-white hover:text-cobersteel-gold transition-colors"
                           >
                             {item.value}
                           </a>

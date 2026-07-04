@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import TrackedLink from "@/components/shared/TrackedLink";
+import BlogReadTracker from "@/components/blog/BlogReadTracker";
+import BlogCTALink from "@/components/blog/BlogCTALink";
 import { ArrowLeft, Clock, Tag } from "lucide-react";
 import {
   getPosts,
@@ -11,6 +12,8 @@ import {
   getFeaturedImage,
   getCategoryName,
   stripHtml,
+  sanitizeContent,
+  sanitizeTitle,
   estimateReadingTime,
 } from "@/lib/wordpress";
 
@@ -49,6 +52,8 @@ export default async function BlogPostPage({
 
   return (
     <>
+      <BlogReadTracker articleSlug={slug} />
+
       {/* Header */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div
@@ -65,7 +70,7 @@ export default async function BlogPostPage({
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-8 group"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-8 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Blog
@@ -81,7 +86,7 @@ export default async function BlogPostPage({
           </div>
           <h1
             className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4 max-w-3xl leading-tight font-display"
-            dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+            dangerouslySetInnerHTML={{ __html: sanitizeTitle(post.title.rendered) }}
           />
           <p className="text-[#94A3B8] text-sm">{formatarData(post.date)}</p>
         </div>
@@ -96,7 +101,7 @@ export default async function BlogPostPage({
             <article className="lg:col-span-2">
               <div
                 className="prose-custom"
-                dangerouslySetInnerHTML={{ __html: post.content.rendered }}
+                dangerouslySetInnerHTML={{ __html: sanitizeContent(post.content.rendered) }}
               />
 
               {/* CTA inline */}
@@ -105,14 +110,14 @@ export default async function BlogPostPage({
                   <p className="text-white font-semibold mb-1">Precisa de uma solução como essa?</p>
                   <p className="text-sm text-[#94A3B8]">Fale com nossos especialistas e receba uma proposta personalizada.</p>
                 </div>
-                <TrackedLink
+                <BlogCTALink
                   href="/orcamento"
-                  trackName="solicitar_orcamento"
-                  trackLocation="blog_post_inline"
+                  articleSlug={slug}
+                  ctaLocation="inline_body"
                   className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
                 >
                   Solicitar Orçamento
-                </TrackedLink>
+                </BlogCTALink>
               </div>
             </article>
 
@@ -138,7 +143,7 @@ export default async function BlogPostPage({
                             <p className="text-xs font-semibold text-cobersteel-blue mb-1">{getCategoryName(r)}</p>
                             <p
                               className="text-sm text-white group-hover:text-cobersteel-gold transition-colors leading-snug line-clamp-2"
-                              dangerouslySetInnerHTML={{ __html: r.title.rendered }}
+                              dangerouslySetInnerHTML={{ __html: sanitizeTitle(r.title.rendered) }}
                             />
                           </div>
                         </Link>
@@ -166,7 +171,7 @@ export default async function BlogPostPage({
                           <Tag className="w-3 h-3 text-cobersteel-gold flex-shrink-0" aria-hidden="true" />
                           <span
                             className="line-clamp-1"
-                            dangerouslySetInnerHTML={{ __html: p.title.rendered }}
+                            dangerouslySetInnerHTML={{ __html: sanitizeTitle(p.title.rendered) }}
                           />
                         </Link>
                       </li>
@@ -185,14 +190,14 @@ export default async function BlogPostPage({
                 <p className="text-white/80 text-sm mb-5">
                   Fale com nossos especialistas e receba uma proposta sob medida.
                 </p>
-                <TrackedLink
+                <BlogCTALink
                   href="/orcamento"
-                  trackName="solicitar_orcamento"
-                  trackLocation="blog_post_sidebar"
+                  articleSlug={slug}
+                  ctaLocation="sidebar"
                   className="block w-full py-3 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
                 >
                   Solicitar Orçamento
-                </TrackedLink>
+                </BlogCTALink>
               </div>
 
             </aside>

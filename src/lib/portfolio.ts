@@ -6,19 +6,19 @@
 // valores e salve. Campos com "?" são opcionais — podem ser omitidos.
 // =============================================================================
 
-export interface PortfolioMetric {
+interface PortfolioMetric {
   /** Número de destaque. Ex.: "+60%", "47 dias", "5.000 m²" */
   valor: string;
   /** Descrição curta do número. Ex.: "de capacidade de armazenagem" */
   label: string;
 }
 
-export interface PortfolioSpec {
+interface PortfolioSpec {
   label: string;
   value: string;
 }
 
-export interface PortfolioDepoimento {
+interface PortfolioDepoimento {
   texto: string;
   autor: string;
   cargo: string;

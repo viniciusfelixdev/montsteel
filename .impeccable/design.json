@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-03T00:00:00.000Z",
+  "title": "Design System: CoberSteel",
+  "extensions": {
+    "colorMeta": {
+      "cobersteel-gold": {
+        "role": "primary",
+        "displayName": "Foundry Gold",
+        "canonical": "oklch(76% 0.13 75)",
+        "tonalRamp": [
+          "oklch(20% 0.03 75)",
+          "oklch(32% 0.06 75)",
+          "oklch(44% 0.09 75)",
+          "oklch(56% 0.11 75)",
+          "oklch(68% 0.13 75)",
+          "oklch(76% 0.13 75)",
+          "oklch(86% 0.10 75)",
+          "oklch(95% 0.04 75)"
+        ]
+      },
+      "cobersteel-blue": {
+        "role": "secondary",
+        "displayName": "Steel Blue",
+        "canonical": "oklch(63% 0.08 250)",
+        "tonalRamp": [
+          "oklch(18% 0.02 250)",
+          "oklch(30% 0.04 250)",
+          "oklch(42% 0.06 250)",
+          "oklch(53% 0.07 250)",
+          "oklch(63% 0.08 250)",
+          "oklch(73% 0.06 250)",
+          "oklch(84% 0.04 250)",
+          "oklch(94% 0.02 250)"
+        ]
+      },
+      "cobersteel-silver": {
+        "role": "tertiary",
+        "displayName": "Metal Silver",
+        "canonical": "oklch(75% 0.01 240)",
+        "tonalRamp": [
+          "oklch(20% 0.00 240)",
+          "oklch(32% 0.01 240)",
+          "oklch(44% 0.01 240)",
+          "oklch(56% 0.01 240)",
+          "oklch(68% 0.01 240)",
+          "oklch(75% 0.01 240)",
+          "oklch(85% 0.01 240)",
+          "oklch(95% 0.00 240)"
+        ]
+      },
+      "dark-steel": {
+        "role": "neutral",
+        "displayName": "Foundry Black",
+        "canonical": "oklch(15% 0 0)",
+        "tonalRamp": [
+          "oklch(6% 0 0)",
+          "oklch(15% 0 0)",
+          "oklch(24% 0 0)",
+          "oklch(33% 0 0)",
+          "oklch(45% 0 0)",
+          "oklch(60% 0 0)",
+          "oklch(78% 0 0)",
+          "oklch(93% 0 0)"
+        ]
+      },
+      "dark-mid": {
+        "role": "neutral",
+        "displayName": "Foundry Mid",
+        "canonical": "oklch(22% 0 0)"
+      },
+      "dark-border": {
+        "role": "neutral",
+        "displayName": "Foundry Border",
+        "canonical": "oklch(28% 0 0)"
+      },
+      "light-bg": {
+        "role": "neutral",
+        "displayName": "Daylight Bg",
+        "canonical": "oklch(96% 0 0)"
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Muted Slate",
+        "canonical": "oklch(70% 0.03 250)"
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headlines e headers de página, sempre maiúsculo." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de seção." },
+      "body": { "displayName": "Body", "purpose": "Corpo de texto padrão, 18px." },
+      "label": { "displayName": "Label", "purpose": "Labels de formulário, badges, botões." }
+    },
+    "shadows": [
+      { "name": "scroll-state", "value": "0 10px 15px -3px rgb(0 0 0 / 0.1)", "purpose": "Navbar após 20px de scroll — reforça a transição transparente → sólida." },
+      { "name": "overlay", "value": "0 20px 25px -5px rgb(0 0 0 / 0.1)", "purpose": "Dropdowns e menus suspensos." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Transições de cor/estado padrão (200-300ms)." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA de conversão — Solicitar Orçamento, Falar no WhatsApp.",
+      "html": "<button class=\"ds-btn-primary\">Solicitar Orçamento</button>",
+      "css": ".ds-btn-primary { background: #D7A03B; color: #0F0F0F; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; padding: 12px 24px; border-radius: 8px; border: none; font-size: 14px; transition: background 0.2s ease; cursor: pointer; } .ds-btn-primary:hover { background: #fbbf24; } .ds-btn-primary:focus-visible { outline: 2px solid #D7A03B; outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ação secundária ao lado do CTA primário (ex.: Conhecer Produtos).",
+      "html": "<button class=\"ds-btn-secondary\">Conhecer Produtos</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: #FFFFFF; font-weight: 700; text-transform: uppercase; letter-spacing: 0.02em; padding: 10px 22px; border-radius: 8px; border: 2px solid #FFFFFF; font-size: 14px; transition: background 0.2s ease, color 0.2s ease; cursor: pointer; } .ds-btn-secondary:hover { background: #FFFFFF; color: #5C88B5; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Campo de texto padrão de formulário (orçamento, contato).",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Seu nome\" />",
+      "css": ".ds-input { background: #0F0F0F; color: #FFFFFF; border: 1px solid #2A2A2A; border-radius: 8px; padding: 12px 16px; font-size: 14px; width: 100%; transition: border-color 0.2s ease; } .ds-input::placeholder { color: #64748B; } .ds-input:focus-visible { outline: none; border-color: #5C88B5; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Container elevado sobre o fundo escuro — produtos, formulários, informações.",
+      "html": "<div class=\"ds-card\">Conteúdo do card</div>",
+      "css": ".ds-card { background: #1A1A1A; border-radius: 16px; padding: 24px; }"
+    },
+    {
+      "name": "CustomSelect Trigger",
+      "kind": "custom",
+      "refersTo": "input-field",
+      "description": "Dropdown customizado com chevron — Segmento, Tipo de Interesse, Produto.",
+      "html": "<button class=\"ds-select-trigger\"><span>Selecione o segmento</span><svg class=\"ds-chevron\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M6 9l6 6 6-6\"/></svg></button>",
+      "css": ".ds-select-trigger { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; background: #0F0F0F; border: 1px solid #2A2A2A; border-radius: 8px; padding: 12px 16px; font-size: 14px; color: #64748B; cursor: pointer; transition: border-color 0.2s ease; } .ds-select-trigger:hover { border-color: rgba(215, 160, 59, 0.4); } .ds-select-trigger:focus-visible { outline: none; border-color: #D7A03B; box-shadow: 0 0 0 1px rgba(215, 160, 59, 0.2); } .ds-chevron { width: 16px; height: 16px; color: #D7A03B; flex-shrink: 0; }"
+    },
+    {
+      "name": "Navbar",
+      "kind": "nav",
+      "refersTo": "card",
+      "description": "Header fixo, transparente no topo, sólido após scroll. Altura sempre 64px.",
+      "html": "<header class=\"ds-navbar\"><div class=\"ds-navbar-inner\"><span class=\"ds-logo\">COBERSTEEL</span><button class=\"ds-btn-primary\">Solicitar Orçamento</button></div></header>",
+      "css": ".ds-navbar { position: fixed; top: 0; left: 0; right: 0; height: 64px; background: #0F0F0F; z-index: 40; box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); } .ds-navbar-inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; } .ds-logo { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; letter-spacing: -0.02em; color: #FFFFFF; text-transform: uppercase; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night Foundry",
+    "overview": "A CoberSteel opera num galpão à noite: fundo quase-preto dominante (#0F0F0F), com o dourado (#D7A03B) surgindo como pontos de energia — solda, luz de segurança, o CTA que não se pode ignorar — e o azul do logo (#5C88B5) como o aço frio, técnico, confiável. Nada aqui é decorativo por decoração; cada elemento existe porque um gestor industrial, avaliando fornecedores às 22h num notebook corporativo, precisa acreditar que essa empresa constrói coisas que não caem. O sistema rejeita explicitamente o que o resto do setor faz: sites pesados, datados, sem hierarquia, que parecem catálogo de PDF escaneado.",
+    "keyCharacteristics": [
+      "Tema escuro dominante (#0F0F0F) como padrão; claro (#F4F4F4) só em Segmentos, para quebrar ritmo deliberadamente",
+      "Dourado usado com extrema disciplina — reservado para CTAs de conversão, nunca decoração geral",
+      "Barlow Condensed maiúsculo e comprimido para todo display/headline; Inter para corpo, sempre 18px",
+      "Elevação por camadas tonais (dark-steel → dark-mid → dark-border), não por sombra pesada",
+      "Sólido e direto: sem frescura, sem animação decorativa sem propósito"
+    ],
+    "rules": [
+      { "name": "The Gold Discipline Rule", "body": "Dourado aparece em CTAs de conversão e nada mais — nunca em headings, nunca em fundos de seção inteira, nunca como decoração. Se o dourado está em toda parte, parou de significar \"aja agora\".", "section": "colors" },
+      { "name": "The All-Caps Display Rule", "body": "Todo texto em Barlow Condensada 700/800 é maiúsculo. Minúsculas nessa família quebram o efeito de \"placa industrial\" que o peso condensado busca.", "section": "typography" },
+      { "name": "The Tonal-First Rule", "body": "Se dois elementos precisam se diferenciar em profundidade, a primeira ferramenta é mudar de dark-steel para dark-mid (ou adicionar dark-border), não adicionar sombra. Sombra é reforço de interação, não estrutura.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do manter o corpo de texto em 18px (text-base = 1.125rem) — decisão deliberada de legibilidade sobre o padrão de 16px.",
+      "Do usar camadas tonais (dark-steel → dark-mid → dark-border) como mecanismo primário de profundidade.",
+      "Do reservar o dourado (cobersteel-gold) exclusivamente para CTAs de conversão.",
+      "Do manter a altura da navbar fixa em 64px (h-16) sempre — só a cor de fundo transiciona no scroll, nunca a altura.",
+      "Do respeitar prefers-reduced-motion em toda animação Framer Motion, com fallback sem movimento.",
+      "Do verificar contraste WCAG AA em todo texto sobre fundo escuro."
+    ],
+    "donts": [
+      "Don't deixar o site \"pesado e antiquado\" como os concorrentes do setor.",
+      "Don't usar gradiente decorativo em texto (background-clip: text).",
+      "Don't aplicar transform/will-change: transform num ancestral do <header> — quebra o position: fixed de qualquer drawer/modal filho.",
+      "Don't estilizar ::-webkit-scrollbar sem escopo @media (pointer: fine).",
+      "Don't usar dourado em headings, fundos de seção inteira ou qualquer lugar que não seja um CTA de ação direta.",
+      "Don't deixar hero display typography passar de 6rem."
+    ]
+  }
+}

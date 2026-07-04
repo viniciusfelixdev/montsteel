@@ -1,7 +1,9 @@
+import sanitizeHtmlLib from "sanitize-html";
+
 const API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
 /** Imagem usada quando o post não tem imagem destacada definida no WordPress. */
-export const FALLBACK_POST_IMAGE = "/images/blog-banner.png";
+const FALLBACK_POST_IMAGE = "/images/blog-banner.png";
 
 interface WordPressTerm {
   id: number;
@@ -31,7 +33,7 @@ export interface WordPressCategory {
   count: number;
 }
 
-export const POSTS_PER_PAGE = 9;
+const POSTS_PER_PAGE = 9;
 
 /**
  * Lista os posts publicados no WordPress, mais recentes primeiro, com paginação real
@@ -114,6 +116,41 @@ export function getCategoryName(post: WordPressPost): string {
 /** Remove tags HTML de um trecho de conteúdo (ex.: excerpt.rendered). */
 export function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, "").trim();
+}
+
+/**
+ * Sanitiza o HTML do corpo de um post vindo do WordPress antes de renderizar com
+ * dangerouslySetInnerHTML. O conteúdo vem de um CMS externo — qualquer editor com
+ * acesso ao WordPress (ou uma conta/plugin comprometido) poderia injetar <script>
+ * ou atributos on*= que rodariam no navegador de quem visita o site (XSS
+ * armazenado). Permite só as tags de formatação usadas pelo .prose-custom.
+ */
+export function sanitizeContent(html: string): string {
+  return sanitizeHtmlLib(html, {
+    allowedTags: [
+      "p", "br", "strong", "b", "em", "i", "u", "s", "a",
+      "h1", "h2", "h3", "h4", "h5", "h6",
+      "ul", "ol", "li", "blockquote", "img", "figure", "figcaption",
+      "table", "thead", "tbody", "tr", "th", "td", "hr", "span", "pre", "code",
+    ],
+    allowedAttributes: {
+      a: ["href", "target", "rel"],
+      img: ["src", "alt", "width", "height", "loading"],
+      "*": ["class"],
+    },
+    allowedSchemes: ["http", "https", "mailto"],
+    transformTags: {
+      a: sanitizeHtmlLib.simpleTransform("a", { rel: "noopener noreferrer", target: "_blank" }),
+    },
+  });
+}
+
+/** Mesma sanitização, mas para títulos: só formatação inline simples, sem links/imagens. */
+export function sanitizeTitle(html: string): string {
+  return sanitizeHtmlLib(html, {
+    allowedTags: ["strong", "b", "em", "i", "span", "br"],
+    allowedAttributes: {},
+  });
 }
 
 /** Estima o tempo de leitura em minutos a partir do HTML do conteúdo. */

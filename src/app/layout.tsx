@@ -1,11 +1,28 @@
 import type { Metadata, Viewport } from "next";
+import { Barlow_Condensed, Inter } from "next/font/google";
 import "./globals.css";
+
+// Fontes self-hosted via next/font: elimina o @import render-blocking do Google Fonts
+// e usa fallback com métricas ajustadas automaticamente, reduzindo o CLS causado pela
+// troca de fonte (crítico aqui porque Barlow Condensed aparece em headings de até 96px).
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["700", "800"],
+  display: "swap",
+  variable: "--font-barlow-condensed",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-inter",
+});
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/shared/WhatsAppButton";
+import DeferredWidgets from "@/components/shared/DeferredWidgets";
 import ScrollToTop from "@/components/shared/ScrollToTop";
 import Analytics from "@/components/shared/Analytics";
-import CookieConsent from "@/components/shared/CookieConsent";
 import StructuredData from "@/components/shared/StructuredData";
 import { SITE_URL } from "@/lib/site";
 
@@ -41,7 +58,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="h-full antialiased">
+    <html lang="pt-BR" className={`h-full antialiased ${barlowCondensed.variable} ${inter.variable}`}>
       <body className="min-h-full flex flex-col bg-dark-steel text-white">
         <a
           href="#main-content"
@@ -54,9 +71,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <WhatsAppButton />
+        <DeferredWidgets />
         <ScrollToTop />
-        <CookieConsent />
         <Analytics />
         <StructuredData />
       </body>

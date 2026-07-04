@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme inline {
@@ -9,8 +8,11 @@
   --color-dark-mid:          #1A1A1A;
   --color-dark-border:       #2A2A2A;
   --color-light-bg:          #F4F4F4;
-  --font-display: 'Barlow Condensed', sans-serif;
-  --font-body:    'Inter', sans-serif;
+  /* Fontes carregadas via next/font/google em layout.tsx (self-hosted, sem @import
+     render-blocking); as variáveis --font-barlow-condensed/--font-inter são injetadas
+     no <html> e incluem fallback com métricas ajustadas para minimizar CLS na troca. */
+  --font-display: var(--font-barlow-condensed), sans-serif;
+  --font-body:    var(--font-inter), sans-serif;
 
   /* Tamanho padrão de corpo do site: 18px (em vez do 1rem/16px padrão do
      Tailwind). Qualquer elemento com "text-base" em qualquer página passa
@@ -21,6 +23,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 :root {
@@ -76,24 +79,31 @@ textarea:focus-visible,
   border-radius: 4px;
 }
 
-::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
+/* Scrollbar customizada só em dispositivos com ponteiro fino (desktop/mouse).
+   Em touch/mobile, o navegador já usa scrollbar overlay (sem reservar espaço);
+   estilizar ::-webkit-scrollbar incondicionalmente faz alguns navegadores mobile
+   reservarem gutter mesmo assim, causando overflow horizontal e zoom-to-fit indesejado. */
+@media (pointer: fine) {
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
 
-::-webkit-scrollbar-track {
-  background: #0F0F0F;
-}
+  ::-webkit-scrollbar-track {
+    background: #0F0F0F;
+  }
 
-::-webkit-scrollbar-thumb {
-  background: #5C88B5;
-  border-radius: 9999px;
+  ::-webkit-scrollbar-thumb {
+    background: #5C88B5;
+    border-radius: 9999px;
+  }
 }
 
 body {
   background-color: #0F0F0F;
   color: #FFFFFF;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -116,7 +126,7 @@ body {
 .prose-custom h2,
 .prose-custom h3,
 .prose-custom h4 {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: var(--font-display);
   font-weight: 800;
   text-transform: uppercase;
   color: #FFFFFF;

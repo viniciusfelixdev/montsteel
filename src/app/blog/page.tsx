@@ -10,6 +10,7 @@ import {
   getFeaturedImage,
   getCategoryName,
   stripHtml,
+  sanitizeTitle,
   estimateReadingTime,
 } from "@/lib/wordpress";
 
@@ -101,7 +102,7 @@ export default async function BlogPage({
                 </div>
                 <h2
                   className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 leading-tight group-hover:text-cobersteel-gold transition-colors font-display"
-                  dangerouslySetInnerHTML={{ __html: destaque.title.rendered }}
+                  dangerouslySetInnerHTML={{ __html: sanitizeTitle(destaque.title.rendered) }}
                 />
                 <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-6 flex-1 line-clamp-3">
                   {stripHtml(destaque.excerpt.rendered)}
@@ -180,7 +181,7 @@ export default async function BlogPage({
                         </span>
                         <h3
                           className="font-black uppercase text-white text-base mb-2 leading-tight group-hover:text-cobersteel-gold transition-colors flex-1 font-display"
-                          dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                          dangerouslySetInnerHTML={{ __html: sanitizeTitle(post.title.rendered) }}
                         />
                         <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-4 line-clamp-2">
                           {stripHtml(post.excerpt.rendered)}
@@ -240,14 +241,14 @@ export default async function BlogPage({
                   <h3 className="text-lg font-black uppercase text-white mb-5 font-display">
                     CATEGORIAS
                   </h3>
-                  <ul className="space-y-2">
+                  <ul className="space-y-0">
                     {categories.map((cat) => {
                       const isActive = cat.id === categoryId;
                       return (
                         <li key={cat.id}>
                           <Link
                             href={isActive ? "/blog" : pageHref(1, cat.id)}
-                            className={`flex items-center justify-between py-2 text-sm transition-colors ${
+                            className={`flex items-center justify-between py-2.5 text-sm transition-colors ${
                               isActive ? "text-cobersteel-gold" : "text-[#94A3B8] hover:text-white"
                             }`}
                           >
@@ -287,7 +288,7 @@ export default async function BlogPage({
                             <p className="text-xs font-semibold text-cobersteel-blue mb-1">{getCategoryName(post)}</p>
                             <p
                               className="text-sm text-white group-hover:text-cobersteel-gold transition-colors leading-snug line-clamp-2"
-                              dangerouslySetInnerHTML={{ __html: post.title.rendered }}
+                              dangerouslySetInnerHTML={{ __html: sanitizeTitle(post.title.rendered) }}
                             />
                           </div>
                         </Link>

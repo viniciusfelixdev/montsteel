@@ -87,7 +87,7 @@ export default async function SegmentoPage({
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/#segmentos"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2 rounded-lg transition-all mb-6 group"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-6 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Todos os segmentos
@@ -165,7 +165,7 @@ export default async function SegmentoPage({
                   </div>
                   <Link
                     href={`/produtos/projetos-especiais?from=segmentos/${segment.slug}`}
-                    className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2 bg-cobersteel-gold text-dark-steel text-sm font-bold rounded-lg hover:bg-amber-400 transition-colors"
+                    className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2.5 bg-cobersteel-gold text-dark-steel text-sm font-bold rounded-lg hover:bg-amber-400 transition-colors"
                   >
                     Ver Projetos Especiais
                   </Link>
