@@ -89,32 +89,32 @@ export default async function NormaPage({
       </section>
 
       {/* Conteúdo */}
-      <section className="bg-dark-steel py-16">
+      <section className="bg-light-bg dark:bg-dark-steel py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-10">
             {norma.conteudo.map((bloco) => (
               <div key={bloco.subtitulo}>
                 <h2
-                  className="text-2xl font-black uppercase text-white mb-4 font-display"
+                  className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
                 >
                   {bloco.subtitulo}
                 </h2>
-                <p className="text-[#94A3B8] leading-relaxed">{bloco.texto}</p>
+                <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">{bloco.texto}</p>
               </div>
             ))}
 
             <div>
               <h2
-                className="text-2xl font-black uppercase text-white mb-4 font-display"
+                className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
               >
                 Como a CoberSteel aplica esta norma
               </h2>
-              <p className="text-[#94A3B8] leading-relaxed">{norma.aplicacaoCoberSteel}</p>
+              <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">{norma.aplicacaoCoberSteel}</p>
             </div>
 
             <div>
               <h2
-                className="text-2xl font-black uppercase text-white mb-4 font-display"
+                className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
               >
                 Pontos Críticos que Você Precisa Conhecer
               </h2>
@@ -125,7 +125,7 @@ export default async function NormaPage({
                       className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold flex-shrink-0 mt-2"
                       aria-hidden="true"
                     />
-                    <span className="text-[#94A3B8] leading-relaxed">{ponto}</span>
+                    <span className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">{ponto}</span>
                   </li>
                 ))}
               </ul>
@@ -135,14 +135,14 @@ export default async function NormaPage({
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
+      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 font-display"
+            className="text-3xl sm:text-4xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
           >
             SOLICITE UM PROJETO CONFORME A {norma.codigo}
           </h2>
-          <p className="text-white/80 mb-8">
+          <p className="text-dark-steel/80 dark:text-white/80 mb-8">
             Cada projeto CoberSteel é desenvolvido sob medida para você, com documentação técnica completa e ART de engenharia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -158,7 +158,7 @@ export default async function NormaPage({
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

@@ -64,7 +64,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
 
   return (
     <section
-      className="bg-dark-steel py-16 overflow-hidden"
+      className="bg-light-bg dark:bg-dark-steel py-16 overflow-hidden"
       aria-labelledby={showTitle ? "clientes-titulo" : undefined}
       aria-label={showTitle ? undefined : "Empresas que confiam na CoberSteel"}
     >
@@ -78,11 +78,11 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
           >
             <h2
               id="clientes-titulo"
-              className="text-3xl font-black uppercase text-white font-display"
+              className="text-3xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
               EMPRESAS QUE CONFIAM NA COBERSTEEL
             </h2>
-            <p className="mt-3 text-sm text-[#94A3B8]">
+            <p className="mt-3 text-sm text-slate-600 dark:text-[#94A3B8]">
               Soluções para os maiores players da indústria nacional
             </p>
           </motion.div>
@@ -96,15 +96,15 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
         onMouseLeave={() => { pausedRef.current = false; }}
       >
         {/* Fades laterais */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 z-10 bg-gradient-to-r from-dark-steel to-transparent" aria-hidden="true" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 z-10 bg-gradient-to-l from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 z-10 bg-gradient-to-r from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 z-10 bg-gradient-to-l from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
 
         {/* Setas */}
         <button
           type="button"
           onClick={() => nudge(-1)}
           aria-label="Logos anteriores"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-dark-mid/90 border border-dark-border text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-dark-mid/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
         >
           <ChevronLeft className="w-5 h-5" aria-hidden="true" />
         </button>
@@ -112,7 +112,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
           type="button"
           onClick={() => nudge(1)}
           aria-label="Próximos logos"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-dark-mid/90 border border-dark-border text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-dark-mid/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
         >
           <ChevronRight className="w-5 h-5" aria-hidden="true" />
         </button>

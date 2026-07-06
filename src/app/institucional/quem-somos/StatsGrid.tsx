@@ -47,7 +47,7 @@ function StatValue({ value }: { value: string }) {
   return (
     <div
       ref={ref}
-      className="text-4xl sm:text-5xl font-black text-white mb-1.5 font-display"
+      className="text-4xl sm:text-5xl font-black text-dark-steel dark:text-white mb-1.5 font-display"
       aria-label={`${prefix}${numeric.toLocaleString("pt-BR")}${suffix}`}
     >
       <span aria-hidden="true">
@@ -63,7 +63,7 @@ export default function StatsGrid() {
   const reduce = useReducedMotion();
 
   return (
-    <div className="grid grid-cols-2 divide-x divide-y divide-dark-border border-y border-dark-border">
+    <div className="grid grid-cols-2 divide-x divide-y divide-slate-200 dark:divide-dark-border border-y border-slate-200 dark:border-dark-border">
       {stats.map((stat, i) => (
         <motion.div
           key={stat.label}
@@ -79,7 +79,7 @@ export default function StatsGrid() {
             aria-hidden="true"
           />
           <StatValue value={stat.value} />
-          <p className="text-sm text-[#94A3B8]">{stat.label}</p>
+          <p className="text-sm text-slate-600 dark:text-[#94A3B8]">{stat.label}</p>
         </motion.div>
       ))}
     </div>

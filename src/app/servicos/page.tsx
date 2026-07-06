@@ -123,15 +123,15 @@ export default function ServicosPage() {
       </section>
 
       {/* Serviços */}
-      <section className="bg-dark-steel py-24">
+      <section className="bg-light-bg dark:bg-dark-steel py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-none font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white leading-none font-display"
             >
               O QUE FAZEMOS POR VOCÊ
             </h2>
-            <p className="text-lg text-[#94A3B8] leading-relaxed mt-4">
+            <p className="text-lg text-slate-600 dark:text-[#94A3B8] leading-relaxed mt-4">
               Oferecemos soluções completas para cada etapa da vida da sua estrutura, da montagem inicial à manutenção contínua, sempre com responsabilidade técnica.
             </p>
           </div>
@@ -140,7 +140,7 @@ export default function ServicosPage() {
             {servicos.map((s) => (
               <div
                 key={s.titulo}
-                className="bg-dark-mid rounded-2xl p-10 flex items-start gap-5 min-h-[180px]"
+                className="bg-white dark:bg-dark-mid rounded-2xl p-10 flex items-start gap-5 min-h-[180px]"
               >
                 <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/15 flex items-center justify-center flex-shrink-0">
                   <s.icon className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
@@ -148,7 +148,7 @@ export default function ServicosPage() {
                 <div>
                   <div className="flex items-center flex-wrap gap-x-3 gap-y-1.5 mb-3">
                     <h3
-                      className="text-2xl font-black uppercase text-white leading-tight font-display"
+                      className="text-2xl font-black uppercase text-dark-steel dark:text-white leading-tight font-display"
                     >
                       {s.titulo}
                     </h3>
@@ -159,7 +159,7 @@ export default function ServicosPage() {
                       </span>
                     )}
                   </div>
-                  <p className="text-[16px] text-[#94A3B8] leading-relaxed">{s.desc}</p>
+                  <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}
@@ -168,11 +168,11 @@ export default function ServicosPage() {
       </section>
 
       {/* Garantias gerais */}
-      <section className="bg-dark-mid py-24">
+      <section className="bg-white dark:bg-dark-mid py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-14">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-none font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white leading-none font-display"
             >
               CONTE SEMPRE COM
             </h2>
@@ -180,7 +180,7 @@ export default function ServicosPage() {
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">
             {servicos.flatMap((s) => s.itens).map((item) => (
-              <li key={item} className="flex items-start gap-2 text-[16px] text-[#94A3B8] leading-snug">
+              <li key={item} className="flex items-start gap-2 text-[16px] text-slate-600 dark:text-[#94A3B8] leading-snug">
                 <CheckCircle2 className="w-4 h-4 text-cobersteel-gold/80 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 {item}
               </li>
@@ -190,14 +190,14 @@ export default function ServicosPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
+      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-4xl sm:text-5xl font-black uppercase text-white mb-4 font-display"
+            className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
           >
             AGENDE UM SERVIÇO DE MANUTENÇÃO
           </h2>
-          <p className="text-white/80 text-lg mb-8">
+          <p className="text-dark-steel/80 dark:text-white/80 text-lg mb-8">
             Fale com nossa equipe técnica e receba um orçamento elaborado sob medida para você.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -213,7 +213,7 @@ export default function ServicosPage() {
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-dark-steel/10 dark:bg-white/10 text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

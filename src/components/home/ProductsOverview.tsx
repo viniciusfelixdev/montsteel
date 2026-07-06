@@ -18,7 +18,7 @@ export default function ProductsOverview() {
   return (
     <section
       id="produtos"
-      className="bg-dark-steel py-20"
+      className="bg-light-bg dark:bg-dark-steel py-20"
       aria-labelledby="produtos-titulo"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,11 +32,11 @@ export default function ProductsOverview() {
         >
           <h2
             id="produtos-titulo"
-            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white font-display"
+            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-dark-steel dark:text-white font-display"
           >
             NOSSOS PRODUTOS
           </h2>
-          <p className="mt-4 text-[#94A3B8] max-w-xl mx-auto">
+          <p className="mt-4 text-slate-600 dark:text-[#94A3B8] max-w-xl mx-auto">
             Cada solução é desenvolvida sob medida para você e está disponível para locação e venda em todo o Brasil.
           </p>
         </motion.div>
@@ -44,7 +44,7 @@ export default function ProductsOverview() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PRODUCTS.map((product, i) => (
-            <Link key={product.slug} href={`/produtos/${product.slug}`} className="group flex flex-col bg-dark-mid rounded-xl overflow-hidden cursor-pointer">
+            <Link key={product.slug} href={`/produtos/${product.slug}`} className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer">
               <motion.article
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -63,21 +63,21 @@ export default function ProductsOverview() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px"
                     />
                   ) : (
-                    <div className="w-full h-full bg-dark-steel flex items-center justify-center">
+                    <div className="w-full h-full bg-light-bg dark:bg-dark-steel flex items-center justify-center">
                       <div className="w-8 h-1 bg-cobersteel-blue/40 rounded" />
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-mid/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-transparent dark:from-dark-mid/60 to-transparent" />
                 </div>
 
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-6">
                   <h3
-                    className="text-xl font-bold uppercase text-white mb-2 group-hover:text-cobersteel-gold transition-colors font-display"
+                    className="text-xl font-bold uppercase text-dark-steel dark:text-white mb-2 group-hover:text-cobersteel-gold transition-colors font-display"
                   >
                     {product.name}
                   </h3>
-                  <p className="text-[16px] text-[#94A3B8] mb-6 leading-relaxed flex-1">
+                  <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] mb-6 leading-relaxed flex-1">
                     {product.shortDesc}
                   </p>
                   <span className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white group-hover:bg-cobersteel-blue group-hover:text-white transition-all self-start">
@@ -89,7 +89,7 @@ export default function ProductsOverview() {
           ))}
 
           {/* Niveladoras de Doca */}
-          <Link href="/produtos/niveladoras-de-doca" className="group flex flex-col bg-dark-mid rounded-xl overflow-hidden cursor-pointer">
+          <Link href="/produtos/niveladoras-de-doca" className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer">
             <motion.article
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -105,15 +105,15 @@ export default function ProductsOverview() {
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-mid/60 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-transparent dark:from-dark-mid/60 to-transparent" />
               </div>
               <div className="flex flex-col flex-1 p-6">
                 <h3
-                  className="text-xl font-bold uppercase text-white mb-2 group-hover:text-cobersteel-gold transition-colors font-display"
+                  className="text-xl font-bold uppercase text-dark-steel dark:text-white mb-2 group-hover:text-cobersteel-gold transition-colors font-display"
                 >
                   Niveladoras de Doca
                 </h3>
-                <p className="text-[16px] text-[#94A3B8] mb-6 leading-relaxed flex-1">
+                <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] mb-6 leading-relaxed flex-1">
                   Equipamentos logísticos para otimizar o carregamento e descarregamento de veículos
                 </p>
                 <span className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white group-hover:bg-cobersteel-blue group-hover:text-white transition-all self-start">

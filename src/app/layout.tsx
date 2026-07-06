@@ -24,10 +24,14 @@ import DeferredWidgets from "@/components/shared/DeferredWidgets";
 import ScrollToTop from "@/components/shared/ScrollToTop";
 import Analytics from "@/components/shared/Analytics";
 import StructuredData from "@/components/shared/StructuredData";
+import ThemeProvider from "@/components/shared/ThemeProvider";
 import { SITE_URL } from "@/lib/site";
 
 export const viewport: Viewport = {
-  themeColor: "#0F1923",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#0F0F0F" },
+    { media: "(prefers-color-scheme: light)", color: "#E7EAED" },
+  ],
 };
 
 export const metadata: Metadata = {
@@ -58,23 +62,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`h-full antialiased ${barlowCondensed.variable} ${inter.variable}`}>
-      <body className="min-h-full flex flex-col bg-dark-steel text-white">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-cobersteel-gold focus:text-dark-steel focus:font-semibold focus:rounded"
-        >
-          Ir para o conteúdo principal
-        </a>
-        <Navbar />
-        <main id="main-content" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-        <DeferredWidgets />
-        <ScrollToTop />
-        <Analytics />
-        <StructuredData />
+    <html
+      lang="pt-BR"
+      className={`h-full antialiased ${barlowCondensed.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-full flex flex-col bg-light-bg dark:bg-dark-steel text-dark-steel dark:text-white">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-cobersteel-gold focus:text-dark-steel focus:font-semibold focus:rounded"
+          >
+            Ir para o conteúdo principal
+          </a>
+          <Navbar />
+          <main id="main-content" className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <DeferredWidgets />
+          <ScrollToTop />
+          <Analytics />
+          <StructuredData />
+        </ThemeProvider>
       </body>
     </html>
   );

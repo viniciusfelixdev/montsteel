@@ -104,7 +104,7 @@ export default function PrivacidadePage() {
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1
             className="text-5xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4 font-display"
@@ -118,37 +118,37 @@ export default function PrivacidadePage() {
       </section>
 
       {/* Conteúdo */}
-      <section className="bg-dark-steel py-16">
+      <section className="bg-light-bg dark:bg-dark-steel py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-dark-mid rounded-xl p-8 sm:p-12 space-y-10">
-            <p className="text-[#94A3B8] leading-relaxed">
+          <div className="bg-white dark:bg-dark-mid rounded-xl p-8 sm:p-12 space-y-10">
+            <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
               A CoberSteel valoriza a privacidade e a proteção dos dados pessoais de seus clientes, parceiros e visitantes. Esta Política descreve como coletamos, usamos, armazenamos e protegemos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD).
             </p>
 
             {sections.map((s) => (
               <div key={s.titulo}>
                 <h2
-                  className="text-xl font-black uppercase text-white mb-3 font-display"
+                  className="text-xl font-black uppercase text-dark-steel dark:text-white mb-3 font-display"
                 >
                   {s.titulo}
                 </h2>
-                <p className="text-[#94A3B8] leading-relaxed text-sm">{s.conteudo}</p>
+                <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed text-sm">{s.conteudo}</p>
                 {s.itens && (
                   <ul className="mt-3 space-y-2 pl-1">
                     {s.itens.map((item) => (
-                      <li key={item.label} className="text-[#94A3B8] leading-relaxed text-sm">
-                        <span className="text-white font-semibold">{item.label}:</span> {item.texto}
+                      <li key={item.label} className="text-slate-600 dark:text-[#94A3B8] leading-relaxed text-sm">
+                        <span className="text-dark-steel dark:text-white font-semibold">{item.label}:</span> {item.texto}
                       </li>
                     ))}
                   </ul>
                 )}
                 {s.rodape && (
-                  <p className="text-[#94A3B8] leading-relaxed text-sm mt-3">{s.rodape}</p>
+                  <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed text-sm mt-3">{s.rodape}</p>
                 )}
                 {s.linkParceiros && (
-                  <p className="text-[#94A3B8] leading-relaxed text-sm mt-3">
+                  <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed text-sm mt-3">
                     Saiba mais sobre nossos{" "}
-                    <Link href="/institucional/parceiros" className="text-[#A7B2BF] hover:text-white transition-colors">
+                    <Link href="/institucional/parceiros" className="text-slate-500 dark:text-[#A7B2BF] hover:text-dark-steel dark:hover:text-white transition-colors">
                       Parceiros Comerciais
                     </Link>
                     .
@@ -157,8 +157,8 @@ export default function PrivacidadePage() {
               </div>
             ))}
 
-            <div className="border-t border-dark-border pt-8">
-              <p className="text-xs text-[#94A3B8]">
+            <div className="border-t border-slate-200 dark:border-dark-border pt-8">
+              <p className="text-xs text-slate-600 dark:text-[#94A3B8]">
                 CoberSteel Coberturas e Estruturas Industriais — {CONTACT_INFO.address} — {CONTACT_INFO.email}
               </p>
             </div>

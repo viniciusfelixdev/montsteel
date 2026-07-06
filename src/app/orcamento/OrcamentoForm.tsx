@@ -47,9 +47,9 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const fieldClass =
-  "w-full bg-dark-steel border border-dark-border rounded-lg px-4 py-3 text-sm text-white placeholder-[#64748B] focus:outline-none focus:border-cobersteel-blue transition-colors";
+  "w-full bg-light-bg dark:bg-dark-steel border border-slate-300 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#64748B] focus:outline-none focus:border-cobersteel-blue transition-colors";
 
-const labelClass = "block text-xs font-semibold uppercase tracking-wide text-[#94A3B8] mb-1.5";
+const labelClass = "block text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-[#94A3B8] mb-1.5";
 
 const errorClass = "mt-1 text-xs text-red-400 flex items-center gap-1";
 
@@ -148,14 +148,14 @@ export default function OrcamentoForm() {
 
   if (submitted) {
     return (
-      <div ref={successRef} className="bg-dark-mid rounded-xl p-10 text-center">
+      <div ref={successRef} className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center">
         <CheckCircle2 className="w-14 h-14 text-green-400 mx-auto mb-4" aria-hidden="true" />
         <h2
-          className="text-2xl font-black uppercase text-white mb-2 font-display"
+          className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-2 font-display"
         >
           Orçamento Solicitado!
         </h2>
-        <p className="text-[#94A3B8] mb-6">
+        <p className="text-slate-600 dark:text-[#94A3B8] mb-6">
           Recebemos sua solicitação. Nossa equipe entrará em contato em até 24 horas úteis.
         </p>
         <button
@@ -175,10 +175,10 @@ export default function OrcamentoForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="bg-dark-mid rounded-xl p-6 sm:p-8 space-y-6"
+      className="bg-white dark:bg-dark-mid rounded-xl p-6 sm:p-8 space-y-6"
     >
       <h2
-        className="text-2xl font-black uppercase text-white font-display"
+        className="text-2xl font-black uppercase text-dark-steel dark:text-white font-display"
       >
         Dados do Projeto
       </h2>
@@ -368,12 +368,12 @@ export default function OrcamentoForm() {
         <label className="flex items-start gap-3 cursor-pointer">
           <input
             type="checkbox"
-            className="mt-0.5 w-4 h-4 rounded border-dark-border bg-dark-steel accent-cobersteel-blue"
+            className="mt-0.5 w-4 h-4 rounded border-slate-300 dark:border-dark-border bg-light-bg dark:bg-dark-steel accent-cobersteel-blue"
             aria-required="true"
             aria-invalid={!!errors.lgpd}
             {...register("lgpd")}
           />
-          <span className="text-xs text-[#94A3B8] leading-relaxed">
+          <span className="text-xs text-slate-600 dark:text-[#94A3B8] leading-relaxed">
             Li e concordo com a{" "}
             <a
               href="/institucional/privacidade"

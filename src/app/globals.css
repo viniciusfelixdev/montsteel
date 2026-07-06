@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Habilita o variant `dark:` reagindo à classe `.dark` no <html> (toggle manual via
+   next-themes), em vez do prefers-color-scheme padrão do Tailwind v4. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-cobersteel-blue:   #5C88B5;
   --color-cobersteel-gold:   #D7A03B;
@@ -7,7 +11,7 @@
   --color-dark-steel:        #0F0F0F;
   --color-dark-mid:          #1A1A1A;
   --color-dark-border:       #2A2A2A;
-  --color-light-bg:          #F4F4F4;
+  --color-light-bg:          #E7EAED;
   /* Fontes carregadas via next/font/google em layout.tsx (self-hosted, sem @import
      render-blocking); as variáveis --font-barlow-condensed/--font-inter são injetadas
      no <html> e incluem fallback com métricas ajustadas para minimizar CLS na troca. */
@@ -40,6 +44,20 @@ html {
   /* Altura mínima do bloco título+texto — trava a variação de altura entre as páginas.
      Calculada com margem para o pior caso (título em 3 linhas + parágrafo em 2 linhas). */
   --institucional-content-min-height: 20rem;
+
+  /* Tokens de tema (trocam de valor com a classe .dark no <html>) usados nos pontos
+     globais deste arquivo — scrollbar e conteúdo do blog vindo do WordPress. */
+  --scrollbar-track: #E7EAED;
+  --prose-text: #334155;
+  --prose-heading: #0F0F0F;
+  --prose-cta-bg: #E9EDF1;
+}
+
+.dark {
+  --scrollbar-track: #0F0F0F;
+  --prose-text: #94A3B8;
+  --prose-heading: #FFFFFF;
+  --prose-cta-bg: #16181C;
 }
 
 /* Segmentos: padding fixo do banner. Mudar aqui ajusta todas as páginas de segmento de uma vez. */
@@ -90,7 +108,7 @@ textarea:focus-visible,
   }
 
   ::-webkit-scrollbar-track {
-    background: #0F0F0F;
+    background: var(--scrollbar-track);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -100,8 +118,6 @@ textarea:focus-visible,
 }
 
 body {
-  background-color: #0F0F0F;
-  color: #FFFFFF;
   font-family: var(--font-body);
   overflow-x: hidden;
 }
@@ -116,7 +132,7 @@ body {
 
 /* Estiliza o HTML bruto vindo do content.rendered da API do WordPress (/blog/[slug]). */
 .prose-custom {
-  color: #94A3B8;
+  color: var(--prose-text);
   line-height: 1.75;
 }
 .prose-custom p {
@@ -129,7 +145,7 @@ body {
   font-family: var(--font-display);
   font-weight: 800;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: var(--prose-heading);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
@@ -166,7 +182,7 @@ body {
   margin: 1.5rem 0;
 }
 .prose-custom strong {
-  color: #FFFFFF;
+  color: var(--prose-heading);
   font-weight: 600;
 }
 
@@ -181,7 +197,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: #16181C !important;
+  background-color: var(--prose-cta-bg) !important;
   border-radius: 1rem;
   padding: 2rem;
   margin: 2.5rem 0;

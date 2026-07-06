@@ -58,7 +58,7 @@ export default async function PortfolioCasePage({
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/80" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/institucional/portfolio"
@@ -87,7 +87,7 @@ export default async function PortfolioCasePage({
       </section>
 
       {/* Desafio + Solução */}
-      <section className="bg-dark-mid py-20">
+      <section className="bg-white dark:bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14">
             {/* Desafio */}
@@ -97,14 +97,14 @@ export default async function PortfolioCasePage({
                   <Target className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
                 </div>
                 <h2
-                  className="text-3xl font-black uppercase text-white font-display"
+                  className="text-3xl font-black uppercase text-dark-steel dark:text-white font-display"
                 >
                   O Desafio
                 </h2>
               </div>
               <div className="space-y-4">
                 {caso.desafio.map((p, i) => (
-                  <p key={i} className="text-[#94A3B8] leading-relaxed">{p}</p>
+                  <p key={i} className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">{p}</p>
                 ))}
               </div>
             </div>
@@ -116,14 +116,14 @@ export default async function PortfolioCasePage({
                   <CheckCircle2 className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                 </div>
                 <h2
-                  className="text-3xl font-black uppercase text-white font-display"
+                  className="text-3xl font-black uppercase text-dark-steel dark:text-white font-display"
                 >
                   A Solução
                 </h2>
               </div>
               <div className="space-y-4">
                 {caso.solucao.map((p, i) => (
-                  <p key={i} className="text-[#94A3B8] leading-relaxed">{p}</p>
+                  <p key={i} className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">{p}</p>
                 ))}
               </div>
             </div>
@@ -132,25 +132,25 @@ export default async function PortfolioCasePage({
       </section>
 
       {/* Ficha técnica + Solução aplicada */}
-      <section className="bg-dark-steel py-20">
+      <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14">
             <div>
               <h2
-                className="text-3xl font-black uppercase text-white mb-8 font-display"
+                className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
                 FICHA <span className="text-cobersteel-blue">TÉCNICA</span>
               </h2>
-              <div className="rounded-xl overflow-hidden border border-dark-border">
+              <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-dark-border">
                 {caso.specs.map((s, i) => (
                   <div
                     key={s.label}
                     className={`flex items-center justify-between px-5 py-4 text-sm ${
-                      i % 2 === 0 ? "bg-dark-mid" : "bg-dark-steel"
+                      i % 2 === 0 ? "bg-white dark:bg-dark-mid" : "bg-light-bg dark:bg-dark-steel"
                     }`}
                   >
-                    <span className="text-[#94A3B8] font-medium">{s.label}</span>
-                    <span className="text-white font-semibold text-right">{s.value}</span>
+                    <span className="text-slate-600 dark:text-[#94A3B8] font-medium">{s.label}</span>
+                    <span className="text-dark-steel dark:text-white font-semibold text-right">{s.value}</span>
                   </div>
                 ))}
               </div>
@@ -160,17 +160,17 @@ export default async function PortfolioCasePage({
             {produto && (
               <div>
                 <h2
-                  className="text-3xl font-black uppercase text-white mb-8 font-display"
+                  className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
                 >
                   SOLUÇÃO <span className="text-cobersteel-blue">APLICADA</span>
                 </h2>
-                <div className="bg-dark-mid rounded-xl p-8">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-8">
                   <h3
-                    className="text-2xl font-black uppercase text-white mb-2 font-display"
+                    className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-2 font-display"
                   >
                     {produto.name}
                   </h3>
-                  <p className="text-[16px] text-[#94A3B8] mb-6">{produto.tagline}</p>
+                  <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] mb-6">{produto.tagline}</p>
                   <Link
                     href={`/produtos/${produto.slug}`}
                     className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-5 py-3 rounded-lg hover:bg-cobersteel-blue hover:text-white transition-all"
@@ -186,17 +186,17 @@ export default async function PortfolioCasePage({
 
       {/* Depoimento (opcional) */}
       {caso.depoimento && (
-        <section className="bg-dark-mid py-20">
+        <section className="bg-white dark:bg-dark-mid py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <figure className="bg-dark-steel rounded-2xl p-10 sm:p-12">
+            <figure className="bg-light-bg dark:bg-dark-steel rounded-2xl p-10 sm:p-12">
               <Quote className="w-10 h-10 text-cobersteel-blue/40 mb-6" aria-hidden="true" />
               <blockquote
-                className="text-2xl sm:text-3xl text-white leading-snug mb-6 text-balance font-display"
+                className="text-2xl sm:text-3xl text-dark-steel dark:text-white leading-snug mb-6 text-balance font-display"
               >
                 &ldquo;{caso.depoimento.texto}&rdquo;
               </blockquote>
-              <figcaption className="text-sm text-[#94A3B8]">
-                <span className="font-semibold text-white">{caso.depoimento.autor}</span>
+              <figcaption className="text-sm text-slate-600 dark:text-[#94A3B8]">
+                <span className="font-semibold text-dark-steel dark:text-white">{caso.depoimento.autor}</span>
                 {" · "}
                 {caso.depoimento.cargo}
               </figcaption>
@@ -206,14 +206,14 @@ export default async function PortfolioCasePage({
       )}
 
       {/* CTA final */}
-      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
+      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-4xl font-black uppercase text-white mb-4 font-display"
+            className="text-4xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
           >
             TEM UM PROJETO PARECIDO?
           </h2>
-          <p className="text-white/80 mb-8">
+          <p className="text-dark-steel/80 dark:text-white/80 mb-8">
             Fale com nossos especialistas e receba uma solução desenvolvida sob medida para a sua operação.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -229,7 +229,7 @@ export default async function PortfolioCasePage({
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-10 py-4 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

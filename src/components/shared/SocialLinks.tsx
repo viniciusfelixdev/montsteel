@@ -17,7 +17,7 @@ const NETWORKS: { key: keyof typeof ICONS; label: string; href: string }[] = [
 export default function SocialLinks({
   className = "",
   iconClassName = "w-4 h-4",
-  linkClassName = "text-white/80 hover:text-cobersteel-gold transition-colors",
+  linkClassName = "text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold transition-colors",
 }: {
   className?: string;
   iconClassName?: string;

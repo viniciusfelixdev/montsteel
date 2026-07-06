@@ -269,15 +269,15 @@ export default function FornecedoresPage() {
       </section>
 
       {/* Carrossel de fornecedores */}
-      <section className="bg-dark-steel py-16 overflow-hidden" aria-labelledby="fornecedores-carousel-titulo">
+      <section className="bg-light-bg dark:bg-dark-steel py-16 overflow-hidden" aria-labelledby="fornecedores-carousel-titulo">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 text-center">
           <h2
             id="fornecedores-carousel-titulo"
-            className="text-3xl font-black uppercase text-white font-display"
+            className="text-3xl font-black uppercase text-dark-steel dark:text-white font-display"
           >
             NOSSOS PRINCIPAIS FORNECEDORES
           </h2>
-          <p className="mt-3 text-sm text-[#94A3B8]">
+          <p className="mt-3 text-sm text-slate-600 dark:text-[#94A3B8]">
             Parceiros homologados que garantem a qualidade e a rastreabilidade de cada projeto
           </p>
         </div>
@@ -287,14 +287,14 @@ export default function FornecedoresPage() {
           onMouseEnter={() => { supplierPausedRef.current = true; }}
           onMouseLeave={() => { supplierPausedRef.current = false; }}
         >
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 z-10 bg-gradient-to-r from-dark-steel to-transparent" aria-hidden="true" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 z-10 bg-gradient-to-l from-dark-steel to-transparent" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 z-10 bg-gradient-to-r from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 z-10 bg-gradient-to-l from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
 
           <button
             type="button"
             onClick={() => nudgeSuppliers(-1)}
             aria-label="Fornecedores anteriores"
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-dark-steel/90 border border-dark-border text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-light-bg/90 dark:bg-dark-steel/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
           >
             <ChevronLeft className="w-5 h-5" aria-hidden="true" />
           </button>
@@ -302,7 +302,7 @@ export default function FornecedoresPage() {
             type="button"
             onClick={() => nudgeSuppliers(1)}
             aria-label="Próximos fornecedores"
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-dark-steel/90 border border-dark-border text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-light-bg/90 dark:bg-dark-steel/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
           >
             <ChevronRight className="w-5 h-5" aria-hidden="true" />
           </button>
@@ -333,22 +333,22 @@ export default function FornecedoresPage() {
       </section>
 
       {/* Categorias */}
-      <section className="bg-dark-mid py-20">
+      <section className="bg-white dark:bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">O que buscamos</p>
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
               CATEGORIAS DE <span className="text-cobersteel-blue">FORNECIMENTO</span>
             </h2>
           </div>
 
-          <div className="max-w-3xl mx-auto rounded-xl overflow-hidden divide-y divide-dark-border border border-dark-border">
+          <div className="max-w-3xl mx-auto rounded-xl overflow-hidden divide-y divide-slate-200 dark:divide-dark-border border border-slate-200 dark:border-dark-border">
             {categorias.map((cat) => {
               const aberta = categoriaAberta === cat.titulo;
               return (
-                <div key={cat.titulo} className="bg-dark-steel">
+                <div key={cat.titulo} className="bg-light-bg dark:bg-dark-steel">
                   <h3>
                     <button
                       type="button"
@@ -360,7 +360,7 @@ export default function FornecedoresPage() {
                         <cat.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                       </span>
                       <span
-                        className="flex-1 font-black uppercase text-white text-base sm:text-lg font-display"
+                        className="flex-1 font-black uppercase text-dark-steel dark:text-white text-base sm:text-lg font-display"
                       >
                         {cat.titulo}
                       </span>
@@ -379,7 +379,7 @@ export default function FornecedoresPage() {
                           const chave = `${cat.titulo}__${item.nome}`;
                           const itemOpen = itemAberto === chave;
                           return (
-                            <li key={item.nome} className="rounded-lg bg-dark-mid/60 overflow-hidden">
+                            <li key={item.nome} className="rounded-lg bg-white dark:bg-dark-mid/60 overflow-hidden">
                               <button
                                 type="button"
                                 onClick={() => setItemAberto(itemOpen ? null : chave)}
@@ -387,7 +387,7 @@ export default function FornecedoresPage() {
                                 className="w-full flex items-center gap-2.5 px-4 py-3 text-left hover:bg-cobersteel-blue/5 transition-colors"
                               >
                                 <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-blue flex-shrink-0" aria-hidden="true" />
-                                <span className="flex-1 text-sm font-semibold text-white">{item.nome}</span>
+                                <span className="flex-1 text-sm font-semibold text-dark-steel dark:text-white">{item.nome}</span>
                                 <ChevronDown
                                   className={`w-4 h-4 text-cobersteel-blue flex-shrink-0 transition-transform duration-300 ${itemOpen ? "rotate-180" : ""}`}
                                   aria-hidden="true"
@@ -397,7 +397,7 @@ export default function FornecedoresPage() {
                                 className={`grid transition-all duration-300 ease-out ${itemOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
                               >
                                 <div className="overflow-hidden">
-                                  <p className="px-4 pb-4 pl-8 text-sm text-[#94A3B8] leading-relaxed">
+                                  <p className="px-4 pb-4 pl-8 text-sm text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                                     {item.descricao}
                                   </p>
                                 </div>
@@ -416,7 +416,7 @@ export default function FornecedoresPage() {
       </section>
 
       {/* Requisitos + Processo */}
-      <section className="bg-dark-mid py-20">
+      <section className="bg-white dark:bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-14">
 
@@ -424,7 +424,7 @@ export default function FornecedoresPage() {
             <div>
               <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Critérios</p>
               <h2
-                className="text-4xl font-black uppercase text-white mb-8 font-display"
+                className="text-4xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
                 REQUISITOS PARA <span className="text-cobersteel-blue">HOMOLOGAÇÃO</span>
               </h2>
@@ -432,7 +432,7 @@ export default function FornecedoresPage() {
                 {requisitos.map((r) => (
                   <li key={r} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-cobersteel-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
-                    <span className="text-sm text-[#94A3B8] leading-relaxed">{r}</span>
+                    <span className="text-sm text-slate-600 dark:text-[#94A3B8] leading-relaxed">{r}</span>
                   </li>
                 ))}
               </ul>
@@ -442,7 +442,7 @@ export default function FornecedoresPage() {
             <div>
               <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Como funciona</p>
               <h2
-                className="text-4xl font-black uppercase text-white mb-8 font-display"
+                className="text-4xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
                 PROCESSO DE <span className="text-cobersteel-blue">CADASTRO</span>
               </h2>
@@ -456,10 +456,10 @@ export default function FornecedoresPage() {
                       {e.num}
                     </span>
                     <div>
-                      <p className="font-black uppercase text-white text-sm mb-1 font-display">
+                      <p className="font-black uppercase text-dark-steel dark:text-white text-sm mb-1 font-display">
                         {e.titulo}
                       </p>
-                      <p className="text-[16px] text-[#94A3B8] leading-relaxed">{e.desc}</p>
+                      <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed">{e.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -470,37 +470,37 @@ export default function FornecedoresPage() {
       </section>
 
       {/* Formulário */}
-      <section className="bg-dark-steel py-20">
+      <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Formulário</p>
             <h2
-              className="text-4xl font-black uppercase text-white font-display"
+              className="text-4xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
               CADASTRE SUA EMPRESA
             </h2>
           </div>
 
           {enviado ? (
-            <div className="bg-dark-mid rounded-xl p-10 text-center">
+            <div className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center">
               <CheckCircle2 className="w-12 h-12 text-cobersteel-gold mx-auto mb-4" aria-hidden="true" />
               <h3
-                className="text-2xl font-black uppercase text-white mb-2 font-display"
+                className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-2 font-display"
               >
                 Cadastro Recebido!
               </h3>
-              <p className="text-[#94A3B8] text-sm">
+              <p className="text-slate-600 dark:text-[#94A3B8] text-sm">
                 Nossa equipe de suprimentos analisará o perfil da sua empresa e entrará em contato em até 5 dias úteis.
               </p>
             </div>
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="bg-dark-mid rounded-xl p-8 space-y-5"
+              className="bg-white dark:bg-dark-mid rounded-xl p-8 space-y-5"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-semibold text-slate-600 dark:text-[#94A3B8] uppercase tracking-wider mb-2">
                     Razão Social *
                   </label>
                   <input
@@ -509,12 +509,12 @@ export default function FornecedoresPage() {
                     required
                     value={form.razaoSocial}
                     onChange={handleChange}
-                    className="w-full bg-dark-steel border border-dark-border rounded-lg px-4 py-3 text-sm text-white placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
                     placeholder="Nome da empresa"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-semibold text-slate-600 dark:text-[#94A3B8] uppercase tracking-wider mb-2">
                     CNPJ *
                   </label>
                   <input
@@ -523,7 +523,7 @@ export default function FornecedoresPage() {
                     required
                     value={form.cnpj}
                     onChange={handleChange}
-                    className="w-full bg-dark-steel border border-dark-border rounded-lg px-4 py-3 text-sm text-white placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
                     placeholder="00.000.000/0000-00"
                   />
                 </div>
@@ -531,7 +531,7 @@ export default function FornecedoresPage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-semibold text-slate-600 dark:text-[#94A3B8] uppercase tracking-wider mb-2">
                     Responsável *
                   </label>
                   <input
@@ -540,12 +540,12 @@ export default function FornecedoresPage() {
                     required
                     value={form.responsavel}
                     onChange={handleChange}
-                    className="w-full bg-dark-steel border border-dark-border rounded-lg px-4 py-3 text-sm text-white placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
                     placeholder="Nome do contato"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-2">
+                  <label className="block text-xs font-semibold text-slate-600 dark:text-[#94A3B8] uppercase tracking-wider mb-2">
                     Telefone *
                   </label>
                   <input
@@ -554,14 +554,14 @@ export default function FornecedoresPage() {
                     required
                     value={form.telefone}
                     onChange={handleChange}
-                    className="w-full bg-dark-steel border border-dark-border rounded-lg px-4 py-3 text-sm text-white placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
                     placeholder="(00) 00000-0000"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-2">
+                <label className="block text-xs font-semibold text-slate-600 dark:text-[#94A3B8] uppercase tracking-wider mb-2">
                   E-mail *
                 </label>
                 <input
@@ -570,7 +570,7 @@ export default function FornecedoresPage() {
                   required
                   value={form.email}
                   onChange={handleChange}
-                  className="w-full bg-dark-steel border border-dark-border rounded-lg px-4 py-3 text-sm text-white placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                  className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
                   placeholder="contato@suaempresa.com.br"
                 />
               </div>
@@ -597,7 +597,7 @@ export default function FornecedoresPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-[#94A3B8] uppercase tracking-wider mb-2">
+                <label className="block text-xs font-semibold text-slate-600 dark:text-[#94A3B8] uppercase tracking-wider mb-2">
                   Descreva seus produtos ou serviços
                 </label>
                 <textarea
@@ -605,7 +605,7 @@ export default function FornecedoresPage() {
                   rows={4}
                   value={form.mensagem}
                   onChange={handleChange}
-                  className="w-full bg-dark-steel border border-dark-border rounded-lg px-4 py-3 text-sm text-white placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors resize-none"
+                  className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors resize-none"
                   placeholder="Descreva o que sua empresa oferece, diferenciais, capacidade de atendimento, etc."
                 />
               </div>
@@ -626,9 +626,9 @@ export default function FornecedoresPage() {
                 {enviando ? "Enviando..." : "Enviar Cadastro"}
               </button>
 
-              <p className="text-xs text-[#94A3B8] text-center">
+              <p className="text-xs text-slate-600 dark:text-[#94A3B8] text-center">
                 Seus dados são tratados com confidencialidade conforme nossa{" "}
-                <Link href="/institucional/privacidade" className="text-cobersteel-blue hover:text-white transition-colors">
+                <Link href="/institucional/privacidade" className="text-cobersteel-blue hover:text-dark-steel dark:hover:text-white transition-colors">
                   Privacidade
                 </Link>.
               </p>

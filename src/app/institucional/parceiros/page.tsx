@@ -34,17 +34,17 @@ export default function ParceirosPage() {
       </section>
 
       {/* Placeholder — cases em breve */}
-      <section className="bg-dark-steel py-20">
+      <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/15 flex items-center justify-center mx-auto mb-6">
             <Handshake className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
           </div>
           <h2
-            className="text-3xl font-black uppercase text-white mb-4 font-display"
+            className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
           >
             CASES EM CONSTRUÇÃO
           </h2>
-          <p className="text-[#94A3B8] leading-relaxed">
+          <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
             Estamos reunindo os primeiros cases desenvolvidos com nossos parceiros estratégicos. Em breve, esta página vai reunir histórias reais de parcerias, projetos conjuntos e resultados.
           </p>
         </div>

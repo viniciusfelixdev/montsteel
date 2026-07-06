@@ -106,20 +106,20 @@ export default async function SegmentoPage({
       </section>
 
       {/* Desafios + Soluções */}
-      <section className="bg-dark-steel py-20">
+      <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
 
             {/* Desafios do setor */}
             <div>
               <h2
-                className="text-3xl font-black uppercase text-white mb-8 font-display"
+                className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
                 DESAFIOS DO <span className="text-cobersteel-blue">SETOR</span>
               </h2>
               <div className="space-y-5">
                 {segment.desafios.map((d, i) => (
-                  <p key={i} className="text-[#94A3B8] leading-relaxed text-base">
+                  <p key={i} className="text-slate-600 dark:text-[#94A3B8] leading-relaxed text-base">
                     {d}
                   </p>
                 ))}
@@ -129,7 +129,7 @@ export default async function SegmentoPage({
             {/* Soluções recomendadas */}
             <div>
               <h2
-                className="text-3xl font-black uppercase text-white mb-8 font-display"
+                className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
                 SOLUÇÕES <span className="text-cobersteel-blue">RECOMENDADAS</span>
               </h2>
@@ -139,15 +139,15 @@ export default async function SegmentoPage({
                   <Link
                     key={p.slug}
                     href={`/produtos/${p.slug}?from=segmentos/${segment.slug}`}
-                    className="group flex items-center justify-between p-4 bg-dark-mid rounded-xl hover:bg-dark-mid/70 transition-colors"
+                    className="group flex items-center justify-between p-4 bg-white dark:bg-dark-mid rounded-xl hover:bg-light-bg/70 dark:hover:bg-dark-mid/70 transition-colors"
                   >
                     <div>
                       <p
-                        className="font-black uppercase text-white text-base group-hover:text-cobersteel-gold transition-colors font-display"
+                        className="font-black uppercase text-dark-steel dark:text-white text-base group-hover:text-cobersteel-gold transition-colors font-display"
                       >
                         {p.name}
                       </p>
-                      <p className="text-[14px] text-[#94A3B8] mt-0.5">{p.shortDesc}</p>
+                      <p className="text-[14px] text-slate-600 dark:text-[#94A3B8] mt-0.5">{p.shortDesc}</p>
                     </div>
                     <ChevronRight className="w-4 h-4 text-cobersteel-gold flex-shrink-0 ml-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </Link>
@@ -155,11 +155,11 @@ export default async function SegmentoPage({
               </div>
 
               {/* Outras soluções */}
-              <div className="bg-dark-mid rounded-xl p-5">
+              <div className="bg-white dark:bg-dark-mid rounded-xl p-5">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                   <div className="flex-1">
-                    <p className="text-white font-semibold text-base mb-1">Não encontrou o que precisa?</p>
-                    <p className="text-[#94A3B8] text-sm">
+                    <p className="text-dark-steel dark:text-white font-semibold text-base mb-1">Não encontrou o que precisa?</p>
+                    <p className="text-slate-600 dark:text-[#94A3B8] text-sm">
                       Desenvolvemos projetos especiais sob medida para o setor de {segment.name}.
                     </p>
                   </div>
@@ -178,14 +178,14 @@ export default async function SegmentoPage({
       </section>
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
+      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-4xl sm:text-5xl font-black uppercase text-white mb-4 font-display"
+            className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
           >
             FALE COM UM ESPECIALISTA EM {segment.name.toUpperCase()}
           </h2>
-          <p className="text-white/80 text-lg mb-8">
+          <p className="text-dark-steel/80 dark:text-white/80 text-lg mb-8">
             Cada projeto é desenvolvido sob medida para você. Fale com um especialista e receba uma proposta personalizada, sem compromisso.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -201,7 +201,7 @@ export default async function SegmentoPage({
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

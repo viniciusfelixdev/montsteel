@@ -56,13 +56,13 @@ export default function PortfolioPage() {
       <ClientLogos />
 
       {/* Grid de obras */}
-      <section className="bg-dark-steel py-20">
+      <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {PORTFOLIO_DATA.map((o) => (
               <article
                 key={o.slug}
-                className="group bg-dark-mid rounded-xl overflow-hidden flex flex-col"
+                className="group bg-white dark:bg-dark-mid rounded-xl overflow-hidden flex flex-col"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -75,11 +75,11 @@ export default function PortfolioPage() {
                 </div>
                 <div className="flex flex-col flex-1 p-6">
                   <h2
-                    className="font-black uppercase text-white text-lg mb-3 leading-tight font-display"
+                    className="font-black uppercase text-dark-steel dark:text-white text-lg mb-3 leading-tight font-display"
                   >
                     {o.titulo}
                   </h2>
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-[#94A3B8] mb-5 flex-1">
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-600 dark:text-[#94A3B8] mb-5 flex-1">
                     <span className="flex items-center gap-1.5">
                       <Tag className="w-3.5 h-3.5 text-cobersteel-gold" aria-hidden="true" />
                       {o.setor}
@@ -100,7 +100,7 @@ export default function PortfolioPage() {
                     >
                       Ver estudo de caso <ArrowRight className="w-4 h-4" aria-hidden="true" />
                     </Link>
-                    <span className="inline-flex items-center gap-1.5 text-xs text-[#94A3B8]">
+                    <span className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-[#94A3B8]">
                       <Calendar className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
                       {o.ano}
                     </span>
@@ -113,15 +113,15 @@ export default function PortfolioPage() {
       </section>
 
       {/* CoberSteel no Brasil — atuação nacional */}
-      <section className="bg-dark-mid py-16">
+      <section className="bg-white dark:bg-dark-mid py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
               ATUAÇÃO NACIONAL
             </h2>
-            <p className="text-[#94A3B8] max-w-2xl mx-auto mt-4">
+            <p className="text-slate-600 dark:text-[#94A3B8] max-w-2xl mx-auto mt-4">
               De Norte a Sul, levamos infraestrutura industrial flexível para onde a sua operação precisa crescer.
             </p>
           </div>
@@ -129,16 +129,16 @@ export default function PortfolioPage() {
           {/* Regiões */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {regioes.map((r) => (
-              <div key={r.nome} className="bg-dark-steel rounded-xl p-6">
+              <div key={r.nome} className="bg-light-bg dark:bg-dark-steel rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <MapPin className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
                   <h3
-                    className="font-black uppercase text-white text-lg font-display"
+                    className="font-black uppercase text-dark-steel dark:text-white text-lg font-display"
                   >
                     {r.nome}
                   </h3>
                 </div>
-                <p className="text-[16px] text-[#94A3B8] leading-relaxed">{r.desc}</p>
+                <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed">{r.desc}</p>
               </div>
             ))}
           </div>
@@ -147,14 +147,14 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-16">
+      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 font-display"
+            className="text-3xl sm:text-4xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
           >
             SEU PROJETO PODE SER O PRÓXIMO
           </h2>
-          <p className="text-white/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-dark-steel/80 dark:text-white/80 mb-8 max-w-2xl mx-auto">
             Conte para a gente o que você precisa e receba uma proposta personalizada para a sua operação.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -170,7 +170,7 @@ export default function PortfolioPage() {
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border-2 border-white text-white font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-block border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

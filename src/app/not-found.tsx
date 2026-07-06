@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function NotFound() {
   return (
-    <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-dark-steel to-dark-mid overflow-hidden px-4">
+    <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-light-bg to-white dark:from-dark-steel dark:to-dark-mid overflow-hidden px-4">
       {/* Chevron signature de fundo */}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.04]" aria-hidden="true">
         <svg width="600" height="240" viewBox="0 0 120 48">
@@ -23,11 +23,11 @@ export default function NotFound() {
           404
         </p>
         <h1
-          className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 -mt-4 font-display"
+          className="text-3xl sm:text-4xl font-black uppercase text-dark-steel dark:text-white mb-4 -mt-4 font-display"
         >
           Página não encontrada
         </h1>
-        <p className="text-[#94A3B8] mb-8 leading-relaxed">
+        <p className="text-slate-600 dark:text-[#94A3B8] mb-8 leading-relaxed">
           O endereço que você acessou não existe ou foi movido. Mas a estrutura continua de pé — vamos te levar de volta ao caminho certo.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -42,7 +42,7 @@ export default function NotFound() {
             href="/orcamento"
             trackName="solicitar_orcamento"
             trackLocation="404"
-            className="group inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/25 text-white font-bold text-sm uppercase rounded-lg hover:border-white transition-colors"
+            className="group inline-flex items-center justify-center gap-2 px-6 py-3 border border-dark-steel/25 dark:border-white/25 text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:border-dark-steel dark:hover:border-white transition-colors"
           >
             Solicitar Orçamento
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />

@@ -40,17 +40,17 @@ export default function HomePage() {
       <ClientLogos />
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20" aria-labelledby="cta-titulo">
+      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-20" aria-labelledby="cta-titulo">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             id="cta-titulo"
-            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-white mb-4 font-display"
+            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-dark-steel dark:text-white mb-4 font-display"
           >
             PRONTO PARA ESCALAR
             <br />
             SUA OPERAÇÃO?
           </h2>
-          <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">
+          <p className="text-dark-steel/80 dark:text-white/80 text-lg mb-8 max-w-xl mx-auto">
             Fale com nossos especialistas e receba um projeto desenvolvido sob medida para você.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -66,7 +66,7 @@ export default function HomePage() {
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-white text-white font-bold text-sm uppercase tracking-wide rounded hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-10 py-4 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase tracking-wide rounded hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

@@ -3,9 +3,11 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { NAV_PRODUCTS, NAV_INSTITUCIONAL, SEGMENTS } from "@/lib/constants";
 import SocialLinks from "@/components/shared/SocialLinks";
+import ThemeToggle from "@/components/shared/ThemeToggle";
 import { trackButtonClick } from "@/components/shared/Analytics";
 
 export default function Navbar() {
@@ -14,9 +16,28 @@ export default function Navbar() {
   const [productsOpen, setProductsOpen] = useState(false);
   const [segmentsOpen, setSegmentsOpen] = useState(false);
   const [instOpen, setInstOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
   const productsRef = useRef<HTMLDivElement>(null);
   const segmentsRef = useRef<HTMLDivElement>(null);
   const instRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Só sabemos o tema real após montar no cliente (evita mismatch de hidratação).
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMounted(true);
+  }, []);
+
+  // Antes de montar (SSR), assume-se o tema escuro padrão do site — o header
+  // só ganha fundo sólido antes do scroll quando o tema claro está ativo,
+  // já que o logo/texto branco do header transparente depende de um fundo
+  // escuro por trás (hero com overlay escuro fixo, independente do tema).
+  const isLight = mounted && resolvedTheme === "light";
+  const solidHeader = scrolled || isLight;
+  // Só usa texto/logo escuros quando o fundo sólido do header é claro (tema claro).
+  // Quando o header fica sólido no tema escuro (rolando a página), o fundo continua
+  // escuro — então o texto precisa continuar branco, não escurecer junto.
+  const useDarkText = solidHeader && isLight;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -57,7 +78,7 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-40 transition-[background-color,box-shadow] duration-300 ${
-        scrolled ? "bg-dark-steel shadow-lg" : "bg-transparent"
+        solidHeader ? "bg-light-bg dark:bg-dark-steel shadow-lg" : "bg-transparent"
       }`}
     >
       <nav
@@ -67,7 +88,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex-shrink-0" aria-label="CoberSteel — Página inicial">
           <Image
-            src="/logo-branca.svg"
+            src={useDarkText ? "/logo-escura.svg" : "/logo-branca.svg"}
             alt="CoberSteel"
             width={155}
             height={94}
@@ -82,20 +103,20 @@ export default function Navbar() {
           <div ref={productsRef} className="relative">
             <button
               onClick={() => { setProductsOpen(!productsOpen); setSegmentsOpen(false); }}
-              className="flex items-center gap-1 text-sm font-medium text-white/90 hover:text-cobersteel-gold transition-colors"
+              className={`flex items-center gap-1 text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               aria-expanded={productsOpen}
               aria-haspopup="true"
             >
               Produtos <ChevronDown className={`w-4 h-4 transition-transform ${productsOpen ? "rotate-180" : ""}`} />
             </button>
             {productsOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 bg-dark-mid border border-dark-border rounded-lg shadow-xl py-2">
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border rounded-lg shadow-xl py-2">
                 {NAV_PRODUCTS.map((p) => (
                   <Link
                     key={p.href}
                     href={p.href}
                     onClick={() => setProductsOpen(false)}
-                    className="block px-4 py-2.5 text-sm text-white/80 hover:text-cobersteel-gold hover:bg-dark-steel transition-colors"
+                    className="block px-4 py-2.5 text-sm text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold hover:bg-light-bg dark:hover:bg-dark-steel transition-colors"
                   >
                     {p.label}
                   </Link>
@@ -108,21 +129,21 @@ export default function Navbar() {
           <div ref={segmentsRef} className="relative">
             <button
               onClick={() => { setSegmentsOpen(!segmentsOpen); setProductsOpen(false); }}
-              className="flex items-center gap-1 text-sm font-medium text-white/90 hover:text-cobersteel-gold transition-colors"
+              className={`flex items-center gap-1 text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               aria-expanded={segmentsOpen}
               aria-haspopup="true"
             >
               Segmentos <ChevronDown className={`w-4 h-4 transition-transform ${segmentsOpen ? "rotate-180" : ""}`} />
             </button>
             {segmentsOpen && (
-              <div className="absolute top-full left-0 mt-2 w-80 bg-dark-mid border border-dark-border rounded-lg shadow-xl py-3 px-3">
+              <div className="absolute top-full left-0 mt-2 w-80 bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border rounded-lg shadow-xl py-3 px-3">
                 <div className="grid grid-cols-2 gap-1">
                   {SEGMENTS.map((s) => (
                     <Link
                       key={s.slug}
                       href={`/segmentos/${s.slug}`}
                       onClick={() => setSegmentsOpen(false)}
-                      className="block px-3 py-2 text-sm text-white/80 hover:text-cobersteel-gold hover:bg-dark-steel rounded transition-colors"
+                      className="block px-3 py-2 text-sm text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold hover:bg-light-bg dark:hover:bg-dark-steel rounded transition-colors"
                     >
                       {s.name}
                     </Link>
@@ -136,20 +157,20 @@ export default function Navbar() {
           <div ref={instRef} className="relative">
             <button
               onClick={() => { setInstOpen(!instOpen); setProductsOpen(false); setSegmentsOpen(false); }}
-              className="flex items-center gap-1 text-sm font-medium text-white/90 hover:text-cobersteel-gold transition-colors"
+              className={`flex items-center gap-1 text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               aria-expanded={instOpen}
               aria-haspopup="true"
             >
               Institucional <ChevronDown className={`w-4 h-4 transition-transform ${instOpen ? "rotate-180" : ""}`} />
             </button>
             {instOpen && (
-              <div className="absolute top-full left-0 mt-2 w-64 bg-dark-mid border border-dark-border rounded-lg shadow-xl py-2">
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border rounded-lg shadow-xl py-2">
                 {NAV_INSTITUCIONAL.map((i) => (
                   <Link
                     key={i.href}
                     href={i.href}
                     onClick={() => setInstOpen(false)}
-                    className="block px-4 py-2.5 text-sm text-white/80 hover:text-cobersteel-gold hover:bg-dark-steel transition-colors"
+                    className="block px-4 py-2.5 text-sm text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold hover:bg-light-bg dark:hover:bg-dark-steel transition-colors"
                   >
                     {i.label}
                   </Link>
@@ -165,7 +186,7 @@ export default function Navbar() {
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-white/90 hover:text-cobersteel-gold transition-colors"
+                className={`text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               >
                 {l.label}
               </a>
@@ -173,7 +194,7 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-white/90 hover:text-cobersteel-gold transition-colors"
+                className={`text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               >
                 {l.label}
               </Link>
@@ -181,8 +202,12 @@ export default function Navbar() {
           )}
 
           {/* Separador + redes sociais */}
-          <div className="w-px h-5 bg-white/20" aria-hidden="true" />
-          <SocialLinks className="flex items-center gap-3" />
+          <div className={`w-px h-5 ${useDarkText ? "bg-dark-steel/20" : "bg-white/20"}`} aria-hidden="true" />
+          <SocialLinks
+            className="flex items-center gap-3"
+            linkClassName={`hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/80" : "text-white/80"}`}
+          />
+          <ThemeToggle />
         </div>
 
         {/* CTA */}
@@ -198,7 +223,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden text-white p-2"
+          className={`lg:hidden p-2 ${useDarkText ? "text-dark-steel" : "text-white"}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
           aria-expanded={mobileOpen}
@@ -209,14 +234,18 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-50 bg-dark-steel flex flex-col">
-          <div className="flex items-center justify-between px-4 h-16 border-b border-dark-border">
+        <div className="lg:hidden fixed inset-0 z-50 bg-light-bg dark:bg-dark-steel flex flex-col">
+          <div className="flex items-center justify-between px-4 h-16 border-b border-slate-200 dark:border-dark-border">
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <Image src="/logo-branca.svg" alt="CoberSteel" width={58} height={35} className="h-9 w-auto" />
+              <Image src="/logo-escura.svg" alt="CoberSteel" width={58} height={35} className="h-9 w-auto dark:hidden" />
+              <Image src="/logo-branca.svg" alt="CoberSteel" width={58} height={35} className="h-9 w-auto hidden dark:block" />
             </Link>
-            <button onClick={() => setMobileOpen(false)} aria-label="Fechar menu" className="text-white p-2">
-              <X className="w-6 h-6" />
-            </button>
+            <div className="flex items-center gap-2">
+              <ThemeToggle />
+              <button onClick={() => setMobileOpen(false)} aria-label="Fechar menu" className="text-dark-steel dark:text-white p-2">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
           </div>
           <nav className="flex-1 overflow-y-auto py-6 px-4 space-y-1">
             <p className="text-xs uppercase tracking-widest text-cobersteel-silver mb-2 px-3">Produtos</p>
@@ -225,12 +254,12 @@ export default function Navbar() {
                 key={p.href}
                 href={p.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-3 text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-dark-mid transition-colors"
+                className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
               >
                 {p.label}
               </Link>
             ))}
-            <div className="border-t border-dark-border my-4" />
+            <div className="border-t border-slate-200 dark:border-dark-border my-4" />
             <p className="text-xs uppercase tracking-widest text-cobersteel-silver mb-2 px-3">Segmentos</p>
             <div className="grid grid-cols-2 gap-1">
               {SEGMENTS.map((s) => (
@@ -238,25 +267,25 @@ export default function Navbar() {
                   key={s.slug}
                   href={`/segmentos/${s.slug}`}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-2 text-sm text-white/80 hover:text-cobersteel-gold rounded hover:bg-dark-mid transition-colors"
+                  className="block px-3 py-2 text-sm text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold rounded hover:bg-white dark:hover:bg-dark-mid transition-colors"
                 >
                   {s.name}
                 </Link>
               ))}
             </div>
-            <div className="border-t border-dark-border my-4" />
+            <div className="border-t border-slate-200 dark:border-dark-border my-4" />
             <p className="text-xs uppercase tracking-widest text-cobersteel-silver mb-2 px-3">Institucional</p>
             {NAV_INSTITUCIONAL.map((i) => (
               <Link
                 key={i.href}
                 href={i.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-3 text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-dark-mid transition-colors"
+                className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
               >
                 {i.label}
               </Link>
             ))}
-            <div className="border-t border-dark-border my-4" />
+            <div className="border-t border-slate-200 dark:border-dark-border my-4" />
             {navLinks.map((l) =>
               l.external ? (
                 <a
@@ -265,7 +294,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-3 text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-dark-mid transition-colors"
+                  className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
                 >
                   {l.label}
                 </a>
@@ -274,7 +303,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-3 text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-dark-mid transition-colors"
+                  className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -294,7 +323,7 @@ export default function Navbar() {
             </div>
 
             {/* Redes sociais */}
-            <div className="border-t border-dark-border mt-6 pt-6">
+            <div className="border-t border-slate-200 dark:border-dark-border mt-6 pt-6">
               <SocialLinks className="flex items-center justify-center gap-6" iconClassName="w-5 h-5" />
             </div>
           </nav>

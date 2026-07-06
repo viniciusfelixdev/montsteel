@@ -85,7 +85,7 @@ export default function CustomSelect({
       }}
     >
       {label && (
-        <label className="text-xs font-semibold uppercase tracking-wide text-[#94A3B8]">
+        <label className="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-[#94A3B8]">
           {label} {required && <span className="text-cobersteel-gold">*</span>}
         </label>
       )}
@@ -101,10 +101,10 @@ export default function CustomSelect({
           aria-expanded={open}
           aria-controls={listId}
           className={`
-            w-full flex items-center justify-between gap-2 bg-dark-steel border rounded-lg
+            w-full flex items-center justify-between gap-2 bg-light-bg dark:bg-dark-steel border rounded-lg
             px-4 py-3 text-sm text-left transition-all cursor-pointer focus:outline-none
-            ${selected ? "text-white" : "text-[#64748B]"}
-            ${error ? "border-red-500/60" : "border-dark-border"}
+            ${selected ? "text-dark-steel dark:text-white" : "text-slate-500 dark:text-[#64748B]"}
+            ${error ? "border-red-500/60" : "border-slate-300 dark:border-dark-border"}
             ${styles.ring}
           `}
         >
@@ -119,7 +119,7 @@ export default function CustomSelect({
           <ul
             id={listId}
             role="listbox"
-            className="absolute z-30 mt-2 w-full bg-dark-mid border border-dark-border rounded-lg shadow-xl py-1.5"
+            className="absolute z-30 mt-2 w-full bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border rounded-lg shadow-xl py-1.5"
           >
             {options.map((opt) => {
               const isActive = opt.value === value;
@@ -133,7 +133,7 @@ export default function CustomSelect({
                     }}
                     className={`
                       w-full flex items-center justify-between gap-2 px-4 py-2.5 text-sm text-left transition-colors
-                      ${isActive ? styles.active : "text-white/80 hover:bg-dark-steel hover:text-white"}
+                      ${isActive ? styles.active : "text-dark-steel/80 dark:text-white/80 hover:bg-light-bg dark:hover:bg-dark-steel hover:text-dark-steel dark:hover:text-white"}
                     `}
                   >
                     <span className="truncate">{opt.label}</span>

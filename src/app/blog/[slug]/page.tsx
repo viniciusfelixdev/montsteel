@@ -66,7 +66,7 @@ export default async function BlogPostPage({
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/80" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/blog"
@@ -93,7 +93,7 @@ export default async function BlogPostPage({
       </section>
 
       {/* Conteúdo + Sidebar */}
-      <section className="bg-dark-steel py-16">
+      <section className="bg-light-bg dark:bg-dark-steel py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
@@ -105,10 +105,10 @@ export default async function BlogPostPage({
               />
 
               {/* CTA inline */}
-              <div className="mt-12 p-6 bg-dark-mid rounded-xl flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <div className="mt-12 p-6 bg-white dark:bg-dark-mid rounded-xl flex flex-col sm:flex-row items-start sm:items-center gap-5">
                 <div className="flex-1">
-                  <p className="text-white font-semibold mb-1">Precisa de uma solução como essa?</p>
-                  <p className="text-sm text-[#94A3B8]">Fale com nossos especialistas e receba uma proposta personalizada.</p>
+                  <p className="text-dark-steel dark:text-white font-semibold mb-1">Precisa de uma solução como essa?</p>
+                  <p className="text-sm text-slate-600 dark:text-[#94A3B8]">Fale com nossos especialistas e receba uma proposta personalizada.</p>
                 </div>
                 <BlogCTALink
                   href="/orcamento"
@@ -126,9 +126,9 @@ export default async function BlogPostPage({
 
               {/* Artigos relacionados */}
               {relacionados.length > 0 && (
-                <div className="bg-dark-mid rounded-xl p-6">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-6">
                   <h3
-                    className="text-lg font-black uppercase text-white mb-5 font-display"
+                    className="text-lg font-black uppercase text-dark-steel dark:text-white mb-5 font-display"
                   >
                     RELACIONADOS
                   </h3>
@@ -142,7 +142,7 @@ export default async function BlogPostPage({
                           <div className="flex-1">
                             <p className="text-xs font-semibold text-cobersteel-blue mb-1">{getCategoryName(r)}</p>
                             <p
-                              className="text-sm text-white group-hover:text-cobersteel-gold transition-colors leading-snug line-clamp-2"
+                              className="text-sm text-dark-steel dark:text-white group-hover:text-cobersteel-gold transition-colors leading-snug line-clamp-2"
                               dangerouslySetInnerHTML={{ __html: sanitizeTitle(r.title.rendered) }}
                             />
                           </div>
@@ -155,9 +155,9 @@ export default async function BlogPostPage({
 
               {/* Todos os artigos */}
               {outros.length > 0 && (
-                <div className="bg-dark-mid rounded-xl p-6">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-6">
                   <h3
-                    className="text-lg font-black uppercase text-white mb-5 font-display"
+                    className="text-lg font-black uppercase text-dark-steel dark:text-white mb-5 font-display"
                   >
                     TODOS OS ARTIGOS
                   </h3>
@@ -166,7 +166,7 @@ export default async function BlogPostPage({
                       <li key={p.id}>
                         <Link
                           href={`/blog/${p.slug}`}
-                          className="group flex items-center gap-2 text-sm text-[#94A3B8] hover:text-white transition-colors"
+                          className="group flex items-center gap-2 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors"
                         >
                           <Tag className="w-3 h-3 text-cobersteel-gold flex-shrink-0" aria-hidden="true" />
                           <span

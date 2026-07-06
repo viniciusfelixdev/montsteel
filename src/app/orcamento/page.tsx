@@ -71,7 +71,7 @@ export default function OrcamentoPage() {
       </section>
 
       {/* Content */}
-      <section className="bg-dark-steel py-16">
+      <section className="bg-light-bg dark:bg-dark-steel py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Form */}
@@ -81,9 +81,9 @@ export default function OrcamentoPage() {
 
             {/* Contact sidebar */}
             <aside>
-              <div className="bg-dark-mid rounded-xl p-6 sticky top-24">
+              <div className="bg-white dark:bg-dark-mid rounded-xl p-6 sticky top-24">
                 <h2
-                  className="text-xl font-bold uppercase text-white mb-6 font-display"
+                  className="text-xl font-bold uppercase text-dark-steel dark:text-white mb-6 font-display"
                 >
                   Informações de Contato
                 </h2>
@@ -95,7 +95,7 @@ export default function OrcamentoPage() {
                         aria-hidden="true"
                       />
                       <div>
-                        <p className="text-xs text-[#94A3B8] uppercase tracking-wider mb-0.5">
+                        <p className="text-xs text-slate-600 dark:text-[#94A3B8] uppercase tracking-wider mb-0.5">
                           {item.label}
                         </p>
                         {item.href ? (
@@ -103,19 +103,19 @@ export default function OrcamentoPage() {
                             href={item.href}
                             target={item.href.startsWith("http") ? "_blank" : undefined}
                             rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className="inline-block py-2.5 -my-2.5 text-sm text-white hover:text-cobersteel-gold transition-colors"
+                            className="inline-block py-2.5 -my-2.5 text-sm text-dark-steel dark:text-white hover:text-cobersteel-gold transition-colors"
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-sm text-white">{item.value}</p>
+                          <p className="text-sm text-dark-steel dark:text-white">{item.value}</p>
                         )}
                       </div>
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-8 pt-6 border-t border-dark-border">
+                <div className="mt-8 pt-6 border-t border-slate-200 dark:border-dark-border">
                   <a
                     href={CONTACT_INFO.whatsappLink}
                     target="_blank"
@@ -135,7 +135,7 @@ export default function OrcamentoPage() {
                   </a>
                 </div>
 
-                <div className="mt-6 rounded-lg overflow-hidden border border-dark-border">
+                <div className="mt-6 rounded-lg overflow-hidden border border-slate-200 dark:border-dark-border">
                   <iframe
                     title="Localização da CoberSteel no mapa"
                     src={`https://www.google.com/maps?q=${encodeURIComponent(CONTACT_INFO.address)}&output=embed`}

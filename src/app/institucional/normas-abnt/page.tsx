@@ -66,7 +66,7 @@ export default function NormasAbntPage() {
       </section>
 
       {/* Por que normas importam */}
-      <section className="bg-dark-steel py-20">
+      <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             <div>
@@ -74,42 +74,42 @@ export default function NormasAbntPage() {
                 Nosso Posicionamento
               </p>
               <h2
-                className="text-4xl sm:text-5xl font-black uppercase text-white mb-6 font-display"
+                className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-6 font-display"
               >
                 NORMAS ABNT NÃO SÃO BUROCRACIA
               </h2>
               <div className="space-y-4">
-                <p className="text-[#94A3B8] leading-relaxed">
+                <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                   No setor de galpões industriais, é comum encontrar estruturas projetadas sem cálculo de engenharia formal, sem ART e sem conformidade com as normas técnicas brasileiras. O resultado é uma infraestrutura que parece funcionar bem, até que um evento climático extremo, uma sobrecarga de equipamento ou simplesmente o tempo coloquem tudo à prova.
                 </p>
-                <p className="text-[#94A3B8] leading-relaxed">
+                <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                   Assinamos cada projeto com um engenheiro responsável e calculamos tudo conforme as normas ABNT pertinentes. Para nós, isso não é um diferencial, é o mínimo que você merece ao investir na infraestrutura da sua operação.
                 </p>
-                <p className="text-[#94A3B8] leading-relaxed">
+                <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                   A conformidade técnica também protege você juridicamente. Com ART e documentação completa, sua estrutura é aceita por seguradoras, aprovada em prefeituras e resiste sem imprevistos a qualquer auditoria de fiscalização.
                 </p>
               </div>
             </div>
 
             <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#64748B] mb-5">
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-[#64748B] mb-5">
                 Como aplicamos isso no seu projeto
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 {pilares.map((p) => (
                   <div
                     key={p.titulo}
-                    className="p-6 bg-dark-mid rounded-xl border border-dark-border"
+                    className="p-6 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border"
                   >
                     <div className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 flex items-center justify-center mb-4">
                       <p.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
                     </div>
                     <h3
-                      className="font-black uppercase text-white text-base mb-2 font-display"
+                      className="font-black uppercase text-dark-steel dark:text-white text-base mb-2 font-display"
                     >
                       {p.titulo}
                     </h3>
-                    <p className="text-[14px] text-[#94A3B8] leading-relaxed">{p.desc}</p>
+                    <p className="text-[14px] text-slate-600 dark:text-[#94A3B8] leading-relaxed">{p.desc}</p>
                   </div>
                 ))}
               </div>
@@ -119,29 +119,29 @@ export default function NormasAbntPage() {
       </section>
 
       {/* Tabela de normas */}
-      <section className="bg-dark-mid py-20">
+      <section className="bg-white dark:bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
               Referências Técnicas
             </p>
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white mb-4 font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
             >
               NORMAS APLICÁVEIS AOS <span className="text-cobersteel-blue">NOSSOS PROJETOS</span>
             </h2>
-            <p className="text-[#94A3B8] leading-relaxed">
+            <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
               Estas são as normas técnicas que orientam o cálculo estrutural dos nossos galpões. Clique em qualquer uma para entender o que ela exige e como isso protege a sua operação.
             </p>
           </div>
 
-          <div className="border border-dark-border rounded-xl overflow-hidden">
+          <div className="border border-slate-200 dark:border-dark-border rounded-xl overflow-hidden">
             {NORMAS.map((n, i) => (
               <Link
                 key={n.codigo}
                 href={`/institucional/normas-abnt/${n.slug}`}
-                className={`grid sm:grid-cols-4 gap-4 px-6 py-5 border-b border-dark-border last:border-0 hover:bg-cobersteel-blue/10 transition-colors group ${
-                  i % 2 === 0 ? "bg-dark-steel" : "bg-dark-mid"
+                className={`grid sm:grid-cols-4 gap-4 px-6 py-5 border-b border-slate-200 dark:border-dark-border last:border-0 hover:bg-cobersteel-blue/10 transition-colors group ${
+                  i % 2 === 0 ? "bg-light-bg dark:bg-dark-steel" : "bg-white dark:bg-dark-mid"
                 }`}
               >
                 <div className="sm:col-span-1 flex items-start">
@@ -151,13 +151,13 @@ export default function NormasAbntPage() {
                 </div>
                 <div className="sm:col-span-3 flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-base font-semibold text-white mb-1 group-hover:text-cobersteel-blue transition-colors">
+                    <p className="text-base font-semibold text-dark-steel dark:text-white mb-1 group-hover:text-cobersteel-blue transition-colors">
                       {n.titulo}
                     </p>
-                    <p className="text-[16px] text-[#94A3B8] leading-relaxed">{n.resumo}</p>
+                    <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed">{n.resumo}</p>
                   </div>
                   <ChevronRight
-                    className="w-4 h-4 text-[#94A3B8] group-hover:text-cobersteel-blue group-hover:translate-x-1 flex-shrink-0 mt-0.5 transition-all"
+                    className="w-4 h-4 text-slate-600 dark:text-[#94A3B8] group-hover:text-cobersteel-blue group-hover:translate-x-1 flex-shrink-0 mt-0.5 transition-all"
                     aria-hidden="true"
                   />
                 </div>
@@ -165,21 +165,21 @@ export default function NormasAbntPage() {
             ))}
           </div>
 
-          <p className="mt-6 text-xs text-[#94A3B8] text-center">
+          <p className="mt-6 text-xs text-slate-600 dark:text-[#94A3B8] text-center">
             As normas aplicáveis variam conforme o tipo de estrutura, a localidade e o uso do seu galpão. Nossa equipe de engenharia identifica as referências específicas para o seu projeto.
           </p>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
+      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-4xl sm:text-5xl font-black uppercase text-white mb-4 font-display"
+            className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
           >
             SOLICITE UM PROJETO NORMATIZADO
           </h2>
-          <p className="text-white/80 text-lg mb-8">
+          <p className="text-dark-steel/80 dark:text-white/80 text-lg mb-8">
             Fale com a nossa equipe de especialistas e receba um projeto desenvolvido sob medida para você, com ART, documentação completa e total conformidade com as normas ABNT.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -195,7 +195,7 @@ export default function NormasAbntPage() {
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-bold text-sm uppercase rounded-lg hover:bg-white hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

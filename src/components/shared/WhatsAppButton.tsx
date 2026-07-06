@@ -13,7 +13,7 @@ export default function WhatsAppButton() {
       className="fixed bottom-6 right-6 z-50 group flex items-center gap-2"
       onClick={() => trackButtonClick("whatsapp_flutuante", "whatsapp_button")}
     >
-      <span className="hidden group-hover:block bg-dark-mid text-white text-sm px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap border border-dark-border">
+      <span className="hidden group-hover:block bg-white dark:bg-dark-mid text-dark-steel dark:text-white text-sm px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap border border-slate-200 dark:border-dark-border">
         Fale conosco no WhatsApp
       </span>
       <div className="w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-200">

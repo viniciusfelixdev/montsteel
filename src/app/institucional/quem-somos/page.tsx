@@ -109,22 +109,22 @@ export default function QuemSomosPage() {
       </section>
 
       {/* Sobre a empresa */}
-      <section className="bg-dark-steel py-24 sm:py-28">
+      <section className="bg-light-bg dark:bg-dark-steel py-24 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-14 lg:gap-16 items-center">
             <Reveal className="lg:col-span-7">
               <h2
-                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8 leading-[0.95] font-display"
+                className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-8 leading-[0.95] font-display"
               >
                 NOSSA <span className="text-cobersteel-blue">JORNADA</span>
               </h2>
-              <p className="text-lg text-white/80 leading-relaxed mb-5">
+              <p className="text-lg text-dark-steel/80 dark:text-white/80 leading-relaxed mb-5">
                 A CoberSteel é referência no mercado de galpões temporários de lona (PVC) e galpões metálicos, com sólida experiência e mais de 25 anos de atuação de nossos fundadores no setor. Somos especializados em infraestrutura flexível para armazenagem e coberturas, além de equipamentos logísticos para a indústria, e oferecemos soluções integradas e personalizadas para cada cliente.
               </p>
-              <p className="text-lg text-white/80 leading-relaxed mb-5">
+              <p className="text-lg text-dark-steel/80 dark:text-white/80 leading-relaxed mb-5">
                 Desde a nossa criação, temos como foco a inovação e o empreendedorismo, prezando pela alta qualidade, segurança e agilidade em todos os serviços prestados. Nosso diferencial vai além da eficiência técnica: o compromisso com a construção de relacionamentos duradouros e verdadeiros com nossos clientes é uma das nossas marcas registradas.
               </p>
-              <p className="text-lg text-white/80 leading-relaxed">
+              <p className="text-lg text-dark-steel/80 dark:text-white/80 leading-relaxed">
                 Oferecemos um portfólio completo de serviços, incluindo venda, locação, manutenção, ampliação e deslocamento de galpões. Independentemente do fabricante ou modelo, estamos prontos para atender às necessidades específicas de cada cliente.
               </p>
             </Reveal>
@@ -138,11 +138,11 @@ export default function QuemSomosPage() {
       </section>
 
       {/* Timeline */}
-      <section className="bg-dark-mid py-24 sm:py-28">
+      <section className="bg-white dark:bg-dark-mid py-24 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center mb-16 max-w-2xl mx-auto">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white leading-[0.95] font-display"
             >
               MARCOS DA NOSSA <span className="text-cobersteel-blue">TRAJETÓRIA</span>
             </h2>
@@ -158,15 +158,14 @@ export default function QuemSomosPage() {
                 >
                   {/* Dot */}
                   <div
-                    className="absolute left-4 lg:left-1/2 top-1/2 w-3.5 h-3.5 rounded-full -translate-x-1/2 -translate-y-1/2 ring-4 ring-dark-mid"
-                    style={{ backgroundColor: "#FFFFFF" }}
+                    className="absolute left-4 lg:left-1/2 top-1/2 w-3.5 h-3.5 rounded-full -translate-x-1/2 -translate-y-1/2 bg-cobersteel-blue ring-4 ring-white dark:ring-dark-mid"
                     aria-hidden="true"
                   />
 
                   {/* Content */}
                   <div className={`ml-10 lg:ml-0 lg:w-1/2 ${i % 2 === 0 ? "lg:pr-16" : "lg:pl-16"}`}>
                     <Reveal>
-                      <div className="bg-dark-steel rounded-xl p-7">
+                      <div className="bg-light-bg dark:bg-dark-steel rounded-xl p-7">
                         <span
                           className="text-sm font-black tracking-widest text-cobersteel-silver font-display"
                         >
@@ -177,7 +176,7 @@ export default function QuemSomosPage() {
                         >
                           {item.title}
                         </h3>
-                        <p className="text-[16px] text-[#94A3B8] leading-relaxed">{item.desc}</p>
+                        <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed">{item.desc}</p>
                       </div>
                     </Reveal>
                   </div>
@@ -191,11 +190,11 @@ export default function QuemSomosPage() {
       </section>
 
       {/* Missão, Visão e Valores */}
-      <section className="bg-dark-steel py-24 sm:py-28">
+      <section className="bg-light-bg dark:bg-dark-steel py-24 sm:py-28">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-14 sm:mb-16">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] text-balance font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white leading-[0.95] text-balance font-display"
             >
               MISSÃO, VISÃO E VALORES
             </h2>
@@ -207,14 +206,14 @@ export default function QuemSomosPage() {
               <div key={titulo}>
                 <Reveal className="grid gap-x-12 gap-y-5 py-10 sm:py-14 lg:grid-cols-[200px_1fr]">
                   <div className="flex items-center gap-3">
-                    <Icon className="w-7 h-7 text-white flex-shrink-0" strokeWidth={2} aria-hidden="true" />
+                    <Icon className="w-7 h-7 text-dark-steel dark:text-white flex-shrink-0" strokeWidth={2} aria-hidden="true" />
                     <h3
-                      className="text-2xl font-black uppercase tracking-wide text-white leading-none font-display"
+                      className="text-2xl font-black uppercase tracking-wide text-dark-steel dark:text-white leading-none font-display"
                     >
                       {titulo}
                     </h3>
                   </div>
-                  <p className="text-lg text-white/80 leading-[1.7] max-w-[68ch] text-pretty">
+                  <p className="text-lg text-dark-steel/80 dark:text-white/80 leading-[1.7] max-w-[68ch] text-pretty">
                     {texto}
                   </p>
                 </Reveal>
@@ -226,32 +225,32 @@ export default function QuemSomosPage() {
       </section>
 
       {/* Equipe / Fundadores */}
-      <section className="bg-dark-mid py-24 sm:py-28">
+      <section className="bg-white dark:bg-dark-mid py-24 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Foto (placeholder — substituir por foto real da equipe) */}
             <Reveal className="lg:col-span-6 order-last lg:order-first">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-dark-steel flex flex-col items-center justify-center text-center px-6">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-light-bg dark:bg-dark-steel flex flex-col items-center justify-center text-center px-6">
                 <Users className="w-12 h-12 text-cobersteel-blue mb-4" strokeWidth={1.25} aria-hidden="true" />
                 <p
-                  className="text-lg font-bold uppercase tracking-wide text-white/70 font-display"
+                  className="text-lg font-bold uppercase tracking-wide text-dark-steel/70 dark:text-white/70 font-display"
                 >
                   Foto da equipe
                 </p>
-                <p className="text-sm text-[#94A3B8] mt-1">Em breve</p>
+                <p className="text-sm text-slate-600 dark:text-[#94A3B8] mt-1">Em breve</p>
               </div>
             </Reveal>
 
             <Reveal className="lg:col-span-6">
               <h2
-                className="text-4xl sm:text-5xl font-black uppercase text-white mb-8 leading-[0.95] font-display"
+                className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-8 leading-[0.95] font-display"
               >
                 POR TRÁS DE CADA <span className="text-cobersteel-blue">ESTRUTURA</span>
               </h2>
-              <p className="text-lg text-white/80 leading-relaxed mb-5">
+              <p className="text-lg text-dark-steel/80 dark:text-white/80 leading-relaxed mb-5">
                 A CoberSteel foi fundada por profissionais que cresceram dentro do chão de fábrica — gente que conhece estrutura metálica de perto, do cálculo ao parafuso, com mais de 25 anos de experiência no setor. Esse jeito hands-on continua o mesmo até hoje.
               </p>
-              <p className="text-lg text-white/80 leading-relaxed">
+              <p className="text-lg text-dark-steel/80 dark:text-white/80 leading-relaxed">
                 Cada projeto passa por engenheiros experientes e por equipes de campo próprias, treinadas e certificadas. A gente não terceiriza o que importa: quando você fala com a CoberSteel, fala com quem realmente levanta o galpão.
               </p>
             </Reveal>
@@ -260,11 +259,11 @@ export default function QuemSomosPage() {
       </section>
 
       {/* Fundadores */}
-      <section className="bg-dark-steel py-24 sm:py-28">
+      <section className="bg-light-bg dark:bg-dark-steel py-24 sm:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="mb-14 sm:mb-16">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white leading-[0.95] font-display"
             >
               NOSSOS <span className="text-cobersteel-blue">FUNDADORES</span>
             </h2>
@@ -273,10 +272,10 @@ export default function QuemSomosPage() {
           <div className="space-y-6">
             {fundadores.map((f, i) => (
               <Reveal key={f.nome} delay={i * 0.08}>
-                <article className="grid grid-cols-[96px_1fr] sm:grid-cols-[160px_1fr] gap-6 sm:gap-8 items-center rounded-2xl bg-dark-mid p-6 sm:p-8">
+                <article className="grid grid-cols-[96px_1fr] sm:grid-cols-[160px_1fr] gap-6 sm:gap-8 items-center rounded-2xl bg-white dark:bg-dark-mid p-6 sm:p-8">
                   {/* Foto (placeholder — substituir por foto real) */}
                   <div
-                    className="aspect-square rounded-xl bg-dark-steel flex items-center justify-center"
+                    className="aspect-square rounded-xl bg-light-bg dark:bg-dark-steel flex items-center justify-center"
                     aria-hidden="true"
                   >
                     <span
@@ -287,14 +286,14 @@ export default function QuemSomosPage() {
                   </div>
                   <div>
                     <h3
-                      className="text-2xl font-black uppercase text-white leading-none font-display"
+                      className="text-2xl font-black uppercase text-dark-steel dark:text-white leading-none font-display"
                     >
                       {f.nome}
                     </h3>
                     <p className="text-sm font-semibold uppercase tracking-wide text-cobersteel-gold mt-1.5 mb-3">
                       {f.cargo}
                     </p>
-                    <p className="text-white/80 leading-relaxed max-w-[60ch] text-pretty">{f.bio}</p>
+                    <p className="text-dark-steel/80 dark:text-white/80 leading-relaxed max-w-[60ch] text-pretty">{f.bio}</p>
                   </div>
                 </article>
               </Reveal>
@@ -304,15 +303,15 @@ export default function QuemSomosPage() {
       </section>
 
       {/* Selos técnicos */}
-      <section className="bg-dark-mid py-24 sm:py-28">
+      <section className="bg-white dark:bg-dark-mid py-24 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center mb-16 max-w-2xl mx-auto">
             <h2
-              className="text-4xl sm:text-5xl font-black uppercase text-white leading-[0.95] text-balance font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white leading-[0.95] text-balance font-display"
             >
               PROJETOS COM <span className="text-cobersteel-blue">SELO DE ENGENHARIA</span>
             </h2>
-            <p className="mt-4 text-lg text-white/80 leading-relaxed">
+            <p className="mt-4 text-lg text-dark-steel/80 dark:text-white/80 leading-relaxed">
               Conformidade técnica não é diferencial, é obrigação. Toda estrutura CoberSteel carrega responsabilidade de engenharia do cálculo à entrega.
             </p>
           </Reveal>
@@ -324,11 +323,11 @@ export default function QuemSomosPage() {
                   <selo.Icon className="w-9 h-9 text-cobersteel-blue" strokeWidth={1.5} aria-hidden="true" />
                 </div>
                 <p
-                  className="text-xl font-black uppercase tracking-wide text-white mb-2 font-display"
+                  className="text-xl font-black uppercase tracking-wide text-dark-steel dark:text-white mb-2 font-display"
                 >
                   {selo.sigla}
                 </p>
-                <p className="text-[16px] text-[#94A3B8] leading-relaxed max-w-[26ch]">{selo.desc}</p>
+                <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed max-w-[26ch]">{selo.desc}</p>
               </Reveal>
             ))}
           </div>
@@ -337,11 +336,11 @@ export default function QuemSomosPage() {
 
 
       {/* Localização / Presença */}
-      <section className="bg-dark-steel py-24 sm:py-28">
+      <section className="bg-light-bg dark:bg-dark-steel py-24 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Reveal className="text-center max-w-5xl mx-auto mb-16">
             <h2
-              className="text-xl sm:text-3xl lg:text-5xl font-black uppercase text-white leading-[0.95] whitespace-nowrap font-display"
+              className="text-xl sm:text-3xl lg:text-5xl font-black uppercase text-dark-steel dark:text-white leading-[0.95] whitespace-nowrap font-display"
             >
               SEDE EM IBATÉ. ATENDIMENTO NO <span className="text-cobersteel-blue">BRASIL TODO</span>
             </h2>
@@ -353,22 +352,22 @@ export default function QuemSomosPage() {
                 <li className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 text-cobersteel-gold flex-shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-white mb-0.5">Sede</p>
-                    <p className="text-[#94A3B8] leading-relaxed">{CONTACT_INFO.address}</p>
+                    <p className="text-sm font-semibold uppercase tracking-wide text-dark-steel dark:text-white mb-0.5">Sede</p>
+                    <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">{CONTACT_INFO.address}</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <Truck className="w-6 h-6 text-cobersteel-gold flex-shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-white mb-0.5">Abrangência</p>
-                    <p className="text-[#94A3B8] leading-relaxed">Projeto, fabricação e instalação em todas as regiões do país.</p>
+                    <p className="text-sm font-semibold uppercase tracking-wide text-dark-steel dark:text-white mb-0.5">Abrangência</p>
+                    <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">Projeto, fabricação e instalação em todas as regiões do país.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <Phone className="w-6 h-6 text-cobersteel-gold flex-shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-white mb-0.5">Contato</p>
-                    <p className="text-[#94A3B8] leading-relaxed">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-dark-steel dark:text-white mb-0.5">Contato</p>
+                    <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
                       {CONTACT_INFO.phone1} · {CONTACT_INFO.whatsapp} (WhatsApp)
                     </p>
                   </div>
@@ -376,15 +375,15 @@ export default function QuemSomosPage() {
                 <li className="flex items-start gap-4">
                   <Clock className="w-6 h-6 text-cobersteel-gold flex-shrink-0 mt-0.5" strokeWidth={2} aria-hidden="true" />
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-white mb-0.5">Horário</p>
-                    <p className="text-[#94A3B8] leading-relaxed">{CONTACT_INFO.hours}</p>
+                    <p className="text-sm font-semibold uppercase tracking-wide text-dark-steel dark:text-white mb-0.5">Horário</p>
+                    <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">{CONTACT_INFO.hours}</p>
                   </div>
                 </li>
               </ul>
             </Reveal>
 
             <Reveal className="lg:col-span-7" delay={0.1}>
-              <div className="rounded-2xl overflow-hidden border border-dark-border">
+              <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-dark-border">
                 <iframe
                   title="Mapa da sede da CoberSteel em Ibaté/SP"
                   src={`https://www.google.com/maps?q=${encodeURIComponent(CONTACT_INFO.address)}&output=embed`}
@@ -402,14 +401,14 @@ export default function QuemSomosPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-dark-steel to-[#101E30] py-20">
+      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-20">
         <Reveal className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
-            className="text-3xl sm:text-5xl font-black uppercase text-white mb-5 leading-[0.95] font-display"
+            className="text-3xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-5 leading-[0.95] font-display"
           >
             VAMOS CONSTRUIR JUNTOS?
           </h2>
-          <p className="text-white/85 text-lg max-w-2xl mx-auto mb-9 leading-relaxed">
+          <p className="text-dark-steel/85 dark:text-white/85 text-lg max-w-2xl mx-auto mb-9 leading-relaxed">
             Fale com nossos especialistas e receba um projeto personalizado para a sua operação.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -426,7 +425,7 @@ export default function QuemSomosPage() {
               href="https://wa.me/5516997977613"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-white hover:text-cobersteel-blue transition font-display"
+              className="inline-flex items-center justify-center gap-2 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition font-display"
             >
               Falar no WhatsApp
             </a>

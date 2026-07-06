@@ -65,7 +65,7 @@ export default async function BlogPage({
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/80" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4 font-display">
             BLOG <span className="text-cobersteel-blue">COBERSTEEL</span>
@@ -77,11 +77,11 @@ export default async function BlogPage({
       </section>
 
       {destaque && (
-        <section className="bg-dark-steel py-16">
+        <section className="bg-light-bg dark:bg-dark-steel py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Link
               href={`/blog/${destaque.slug}`}
-              className="group grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden bg-dark-mid"
+              className="group grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden bg-white dark:bg-dark-mid"
             >
               <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[360px] overflow-hidden">
                 <Image
@@ -98,17 +98,17 @@ export default async function BlogPage({
                   <span className="text-xs font-bold font-mono px-3 py-1 rounded border text-cobersteel-blue border-cobersteel-blue/40 bg-cobersteel-blue/10 uppercase">
                     {getCategoryName(destaque)}
                   </span>
-                  <span className="text-xs text-[#64748B]">Destaque</span>
+                  <span className="text-xs text-slate-500 dark:text-[#64748B]">Destaque</span>
                 </div>
                 <h2
-                  className="text-3xl sm:text-4xl font-black uppercase text-white mb-4 leading-tight group-hover:text-cobersteel-gold transition-colors font-display"
+                  className="text-3xl sm:text-4xl font-black uppercase text-dark-steel dark:text-white mb-4 leading-tight group-hover:text-cobersteel-gold transition-colors font-display"
                   dangerouslySetInnerHTML={{ __html: sanitizeTitle(destaque.title.rendered) }}
                 />
-                <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-6 flex-1 line-clamp-3">
+                <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed mb-6 flex-1 line-clamp-3">
                   {stripHtml(destaque.excerpt.rendered)}
                 </p>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4 text-xs text-[#64748B]">
+                  <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-[#64748B]">
                     <span>{formatarData(destaque.date)}</span>
                     <span className="flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5" aria-hidden="true" />
@@ -126,10 +126,10 @@ export default async function BlogPage({
       )}
 
       {/* Grid + Sidebar */}
-      <section className="bg-dark-steel pb-20">
+      <section className="bg-light-bg dark:bg-dark-steel pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between flex-wrap gap-4 mb-8">
-            <h2 className="text-2xl font-black uppercase text-white font-display">
+            <h2 className="text-2xl font-black uppercase text-dark-steel dark:text-white font-display">
               {activeCategory ? (
                 <>
                   ARTIGOS EM <span className="text-cobersteel-blue">{activeCategory.name.toUpperCase()}</span>
@@ -141,7 +141,7 @@ export default async function BlogPage({
             {activeCategory && (
               <Link
                 href="/blog"
-                className="text-sm font-semibold text-cobersteel-blue hover:text-white transition-colors"
+                className="text-sm font-semibold text-cobersteel-blue hover:text-dark-steel dark:hover:text-white transition-colors"
               >
                 Ver todas as categorias
               </Link>
@@ -152,11 +152,11 @@ export default async function BlogPage({
             {/* Artigos */}
             <div className="lg:col-span-2">
               {demais.length === 0 ? (
-                <div className="bg-dark-mid rounded-xl p-10 text-center">
-                  <p className="text-white font-semibold mb-2">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center">
+                  <p className="text-dark-steel dark:text-white font-semibold mb-2">
                     {activeCategory ? "Nenhum artigo nessa categoria ainda." : "Nenhum artigo publicado no momento."}
                   </p>
-                  <p className="text-sm text-[#94A3B8]">Volte em breve para conferir nosso conteúdo.</p>
+                  <p className="text-sm text-slate-600 dark:text-[#94A3B8]">Volte em breve para conferir nosso conteúdo.</p>
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -164,7 +164,7 @@ export default async function BlogPage({
                     <Link
                       key={post.id}
                       href={`/blog/${post.slug}`}
-                      className="group flex flex-col bg-dark-mid rounded-xl overflow-hidden"
+                      className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden"
                     >
                       <div className="relative aspect-[16/9] overflow-hidden">
                         <Image
@@ -180,13 +180,13 @@ export default async function BlogPage({
                           {getCategoryName(post)}
                         </span>
                         <h3
-                          className="font-black uppercase text-white text-base mb-2 leading-tight group-hover:text-cobersteel-gold transition-colors flex-1 font-display"
+                          className="font-black uppercase text-dark-steel dark:text-white text-base mb-2 leading-tight group-hover:text-cobersteel-gold transition-colors flex-1 font-display"
                           dangerouslySetInnerHTML={{ __html: sanitizeTitle(post.title.rendered) }}
                         />
-                        <p className="text-[16px] text-[#94A3B8] leading-relaxed mb-4 line-clamp-2">
+                        <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed mb-4 line-clamp-2">
                           {stripHtml(post.excerpt.rendered)}
                         </p>
-                        <div className="flex items-center gap-3 text-xs text-[#64748B]">
+                        <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-[#64748B]">
                           <span>{formatarData(post.date)}</span>
                           <span className="flex items-center gap-1">
                             <Clock className="w-3 h-3" aria-hidden="true" />
@@ -207,14 +207,14 @@ export default async function BlogPage({
                     aria-disabled={page <= 1}
                     className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                       page <= 1
-                        ? "pointer-events-none opacity-30 bg-dark-mid text-[#94A3B8]"
-                        : "bg-dark-mid text-white hover:bg-cobersteel-blue/20"
+                        ? "pointer-events-none opacity-30 bg-white dark:bg-dark-mid text-slate-600 dark:text-[#94A3B8]"
+                        : "bg-white dark:bg-dark-mid text-dark-steel dark:text-white hover:bg-cobersteel-blue/20"
                     }`}
                   >
                     <ChevronLeft className="w-4 h-4" aria-hidden="true" />
                     Anterior
                   </Link>
-                  <span className="text-sm text-[#94A3B8] px-2">
+                  <span className="text-sm text-slate-600 dark:text-[#94A3B8] px-2">
                     Página {page} de {totalPages}
                   </span>
                   <Link
@@ -222,8 +222,8 @@ export default async function BlogPage({
                     aria-disabled={page >= totalPages}
                     className={`inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg text-sm font-semibold transition-colors ${
                       page >= totalPages
-                        ? "pointer-events-none opacity-30 bg-dark-mid text-[#94A3B8]"
-                        : "bg-dark-mid text-white hover:bg-cobersteel-blue/20"
+                        ? "pointer-events-none opacity-30 bg-white dark:bg-dark-mid text-slate-600 dark:text-[#94A3B8]"
+                        : "bg-white dark:bg-dark-mid text-dark-steel dark:text-white hover:bg-cobersteel-blue/20"
                     }`}
                   >
                     Próxima
@@ -237,8 +237,8 @@ export default async function BlogPage({
             <aside className="lg:col-span-1 space-y-8 lg:sticky lg:top-20 lg:self-start">
               {/* Categorias */}
               {categories.length > 0 && (
-                <div className="bg-dark-mid rounded-xl p-6">
-                  <h3 className="text-lg font-black uppercase text-white mb-5 font-display">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-6">
+                  <h3 className="text-lg font-black uppercase text-dark-steel dark:text-white mb-5 font-display">
                     CATEGORIAS
                   </h3>
                   <ul className="space-y-0">
@@ -249,14 +249,14 @@ export default async function BlogPage({
                           <Link
                             href={isActive ? "/blog" : pageHref(1, cat.id)}
                             className={`flex items-center justify-between py-2.5 text-sm transition-colors ${
-                              isActive ? "text-cobersteel-gold" : "text-[#94A3B8] hover:text-white"
+                              isActive ? "text-cobersteel-gold" : "text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white"
                             }`}
                           >
                             <span className="flex items-center gap-2">
                               <Tag className="w-3.5 h-3.5 text-cobersteel-gold" aria-hidden="true" />
                               {cat.name}
                             </span>
-                            <span className="text-xs text-[#64748B]">{cat.count}</span>
+                            <span className="text-xs text-slate-500 dark:text-[#64748B]">{cat.count}</span>
                           </Link>
                         </li>
                       );
@@ -267,8 +267,8 @@ export default async function BlogPage({
 
               {/* Artigos recentes */}
               {recentPosts.length > 0 && (
-                <div className="bg-dark-mid rounded-xl p-6">
-                  <h3 className="text-lg font-black uppercase text-white mb-5 font-display">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-6">
+                  <h3 className="text-lg font-black uppercase text-dark-steel dark:text-white mb-5 font-display">
                     RECENTES
                   </h3>
                   <ul className="space-y-4">
@@ -287,7 +287,7 @@ export default async function BlogPage({
                           <div className="flex-1 min-w-0">
                             <p className="text-xs font-semibold text-cobersteel-blue mb-1">{getCategoryName(post)}</p>
                             <p
-                              className="text-sm text-white group-hover:text-cobersteel-gold transition-colors leading-snug line-clamp-2"
+                              className="text-sm text-dark-steel dark:text-white group-hover:text-cobersteel-gold transition-colors leading-snug line-clamp-2"
                               dangerouslySetInnerHTML={{ __html: sanitizeTitle(post.title.rendered) }}
                             />
                           </div>
