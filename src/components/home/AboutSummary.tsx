@@ -17,7 +17,7 @@ export default function AboutSummary() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
+            <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
               Sobre Nós
             </p>
             <h2

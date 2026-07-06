@@ -1,14 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Cookie, X } from "lucide-react";
 
 export const CONSENT_KEY = "cobersteel-cookie-consent";
 export const CONSENT_EVENT = "cobersteel-consent-changed";
+// Nome da custom property lida por WhatsAppButton/ScrollToTop para se
+// empurrarem para cima enquanto o banner ocupa o canto inferior da tela.
+const BANNER_OFFSET_VAR = "--cookie-banner-h";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
+  const bannerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Lido só no efeito (não no initializer do useState) de propósito: localStorage
@@ -18,6 +22,29 @@ export default function CookieConsent() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     if (!stored) setVisible(true);
   }, []);
+
+  // Publica a altura real do banner numa custom property no <html> enquanto ele
+  // está visível, para que o botão de WhatsApp e o de voltar ao topo — ambos
+  // fixos no canto inferior — subam o suficiente para não ficarem cobertos.
+  useEffect(() => {
+    const root = document.documentElement;
+    if (!visible) {
+      root.style.removeProperty(BANNER_OFFSET_VAR);
+      return;
+    }
+    const el = bannerRef.current;
+    if (!el) return;
+    const update = () => {
+      root.style.setProperty(BANNER_OFFSET_VAR, `${el.offsetHeight + 12}px`);
+    };
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => {
+      ro.disconnect();
+      root.style.removeProperty(BANNER_OFFSET_VAR);
+    };
+  }, [visible]);
 
   function decide(choice: "accepted" | "rejected") {
     localStorage.setItem(CONSENT_KEY, choice);
@@ -29,6 +56,7 @@ export default function CookieConsent() {
 
   return (
     <div
+      ref={bannerRef}
       role="dialog"
       aria-label="Consentimento de cookies"
       className="fixed bottom-4 inset-x-4 sm:left-auto sm:right-6 sm:max-w-md z-50 bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border rounded-xl shadow-2xl p-5"

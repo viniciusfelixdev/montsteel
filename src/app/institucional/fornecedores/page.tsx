@@ -338,7 +338,7 @@ export default function FornecedoresPage() {
       <section className="bg-white dark:bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">O que buscamos</p>
+            <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">O que buscamos</p>
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
@@ -424,7 +424,7 @@ export default function FornecedoresPage() {
 
             {/* Requisitos */}
             <div>
-              <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Critérios</p>
+              <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Critérios</p>
               <h2
                 className="text-4xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
@@ -442,7 +442,7 @@ export default function FornecedoresPage() {
 
             {/* Processo */}
             <div>
-              <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Como funciona</p>
+              <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Como funciona</p>
               <h2
                 className="text-4xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
@@ -475,7 +475,7 @@ export default function FornecedoresPage() {
       <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Formulário</p>
+            <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Formulário</p>
             <h2
               className="text-4xl font-black uppercase text-dark-steel dark:text-white font-display"
             >

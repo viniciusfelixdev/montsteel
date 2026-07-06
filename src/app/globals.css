@@ -246,7 +246,7 @@ body {
 }
 .prose-custom .wp-block-columns .wp-block-button__link:hover,
 .prose-custom .wp-block-group.has-background .wp-block-button__link:hover {
-  background-color: #E8B657 !important;
+  filter: brightness(1.15);
 }
 
 /* Carrossel de logos: esconde a barra de rolagem do trilho */

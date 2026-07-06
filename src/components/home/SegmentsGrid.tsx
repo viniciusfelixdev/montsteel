@@ -34,7 +34,7 @@ export default function SegmentsGrid() {
   return (
     <section
       id="segmentos"
-      className="bg-light-bg py-20 scroll-mt-16"
+      className="bg-light-bg dark:bg-dark-steel py-20 scroll-mt-16"
       aria-labelledby="segmentos-titulo"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +46,7 @@ export default function SegmentsGrid() {
         >
           <h2
             id="segmentos-titulo"
-            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-dark-steel font-display"
+            className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-dark-steel dark:text-white font-display"
           >
             ATENDEMOS OS PRINCIPAIS SETORES
             <br />
@@ -69,7 +69,7 @@ export default function SegmentsGrid() {
                 <Link
                   href={`/segmentos/${seg.slug}`}
                   className={`group relative flex flex-col items-center gap-3 p-5 rounded-xl shadow-[0_6px_20px_rgba(15,25,35,0.18)] hover:shadow-[0_14px_32px_rgba(15,25,35,0.28)] hover:-translate-y-1 transition-all text-center overflow-hidden ${
-                    bgImage ? "" : "bg-white"
+                    bgImage ? "" : "bg-white dark:bg-dark-mid dark:border dark:border-dark-border"
                   }`}
                 >
                   {bgImage && (
@@ -89,7 +89,7 @@ export default function SegmentsGrid() {
                     className={`relative w-9 h-9 rounded-xl flex items-center justify-center transition-colors ${
                       bgImage
                         ? "bg-white/15 group-hover:bg-cobersteel-blue"
-                        : "bg-cobersteel-blue/10 group-hover:bg-cobersteel-blue"
+                        : "bg-cobersteel-blue/10 dark:bg-cobersteel-blue/15 group-hover:bg-cobersteel-blue"
                     }`}
                   >
                     <Icon
@@ -99,7 +99,7 @@ export default function SegmentsGrid() {
                   </div>
                   <span
                     className={`relative text-lg font-bold uppercase transition-colors font-display ${
-                      bgImage ? "text-white" : "text-dark-steel group-hover:text-cobersteel-blue"
+                      bgImage ? "text-white" : "text-dark-steel dark:text-white group-hover:text-cobersteel-blue"
                     }`}
                   >
                     {seg.name}

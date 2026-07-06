@@ -1,5 +1,19 @@
 "use client";
 
+import { Barlow_Condensed, Inter } from "next/font/google";
+
+const barlowCondensed = Barlow_Condensed({
+  subsets: ["latin"],
+  weight: ["800"],
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  display: "swap",
+});
+
 // Captura erros que acontecem no próprio layout raiz. Como substitui o
 // layout inteiro, precisa renderizar suas próprias tags <html> e <body>.
 export default function GlobalError({
@@ -9,7 +23,7 @@ export default function GlobalError({
   reset: () => void;
 }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={inter.className}>
       <body
         style={{
           margin: 0,
@@ -19,14 +33,13 @@ export default function GlobalError({
           justifyContent: "center",
           background: "#0F1923",
           color: "#fff",
-          fontFamily: "Arial, Helvetica, sans-serif",
           textAlign: "center",
           padding: "24px",
         }}
       >
         <div style={{ maxWidth: 480 }}>
-          <p style={{ fontSize: 64, fontWeight: 800, color: "#5C88B5", margin: 0 }}>OPS</p>
-          <h1 style={{ fontSize: 26, textTransform: "uppercase", marginTop: 8 }}>
+          <p className={barlowCondensed.className} style={{ fontSize: 64, fontWeight: 800, color: "#5C88B5", margin: 0 }}>OPS</p>
+          <h1 className={barlowCondensed.className} style={{ fontSize: 26, textTransform: "uppercase", marginTop: 8 }}>
             Algo deu errado
           </h1>
           <p style={{ color: "#94A3B8", lineHeight: 1.6, marginBottom: 28 }}>

@@ -72,7 +72,7 @@ export default function NormasAbntPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-start">
             <div>
-              <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
+              <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
                 Nosso Posicionamento
               </p>
               <h2

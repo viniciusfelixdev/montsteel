@@ -97,7 +97,7 @@ export default function TrabalheCOnoscoPage() {
       <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Por que nos Escolher</p>
+            <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Por que nos Escolher</p>
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white font-display"
             >

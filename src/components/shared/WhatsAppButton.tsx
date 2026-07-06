@@ -10,7 +10,7 @@ export default function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Fale conosco no WhatsApp"
-      className="fixed bottom-6 right-6 z-50 group flex items-center gap-2"
+      className="fixed bottom-[calc(1.5rem+var(--cookie-banner-h,0px))] right-6 z-50 group flex items-center gap-2 transition-[bottom] duration-300"
       onClick={() => trackButtonClick("whatsapp_flutuante", "whatsapp_button")}
     >
       <span className="hidden group-hover:block bg-white dark:bg-dark-mid text-dark-steel dark:text-white text-sm px-3 py-1.5 rounded-lg shadow-lg whitespace-nowrap border border-slate-200 dark:border-dark-border">

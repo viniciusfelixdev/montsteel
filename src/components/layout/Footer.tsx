@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Clock, Phone, Mail, ShieldCheck } from "lucide-react";
+import { MapPin, Clock, Phone, Mail } from "lucide-react";
 import { CONTACT_INFO, PRODUCTS, SEGMENTS } from "@/lib/constants";
 
 export default function Footer() {
@@ -52,6 +52,28 @@ export default function Footer() {
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
                   <path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
+                </svg>
+              </a>
+              <a
+                href={CONTACT_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn da CoberSteel"
+                className="w-11 h-11 rounded-lg bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border flex items-center justify-center text-slate-600 dark:text-[#94A3B8] hover:text-cobersteel-gold hover:border-cobersteel-gold transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </a>
+              <a
+                href={CONTACT_INFO.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook da CoberSteel"
+                className="w-11 h-11 rounded-lg bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border flex items-center justify-center text-slate-600 dark:text-[#94A3B8] hover:text-cobersteel-gold hover:border-cobersteel-gold transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+                  <path d="M22 12.061C22 6.505 17.523 2 12 2S2 6.505 2 12.061c0 5.022 3.657 9.184 8.438 9.939v-7.03H7.898v-2.909h2.54V9.845c0-2.522 1.492-3.915 3.777-3.915 1.094 0 2.238.197 2.238.197v2.475h-1.26c-1.243 0-1.63.775-1.63 1.57v1.889h2.773l-.443 2.909h-2.33V22c4.781-.755 8.437-4.917 8.437-9.939z"/>
                 </svg>
               </a>
             </div>
@@ -233,14 +255,20 @@ export default function Footer() {
           <p className="text-xs text-slate-600 dark:text-[#94A3B8]">
             © {year} CoberSteel. Todos os direitos reservados.
           </p>
-          <Link
-            href="/institucional/privacidade"
-            title="Tratamento de dados em conformidade com a Lei Geral de Proteção de Dados"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-[#94A3B8] border border-slate-300 dark:border-dark-border rounded-full px-3 py-1.5 hover:text-cobersteel-blue hover:border-cobersteel-blue transition-colors"
-          >
-            <ShieldCheck className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
-            Conforme a LGPD
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/institucional/privacidade"
+              className="text-xs font-semibold text-slate-600 dark:text-[#94A3B8] hover:text-cobersteel-blue transition-colors"
+            >
+              Política de Privacidade
+            </Link>
+            <Link
+              href="/institucional/termos-de-uso"
+              className="text-xs font-semibold text-slate-600 dark:text-[#94A3B8] hover:text-cobersteel-blue transition-colors"
+            >
+              Termos de Uso
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

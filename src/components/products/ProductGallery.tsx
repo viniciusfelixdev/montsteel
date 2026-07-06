@@ -67,7 +67,7 @@ export default function ProductGallery({ images, alt }: Props) {
               type="button"
               onClick={(e) => { e.stopPropagation(); prev(); }}
               aria-label="Foto anterior"
-              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center opacity-100 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-opacity duration-300"
             >
               <ChevronLeft className="w-5 h-5 text-white" />
             </button>
@@ -75,7 +75,7 @@ export default function ProductGallery({ images, alt }: Props) {
               type="button"
               onClick={(e) => { e.stopPropagation(); next(); }}
               aria-label="Próxima foto"
-              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center opacity-100 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 transition-opacity duration-300"
             >
               <ChevronRight className="w-5 h-5 text-white" />
             </button>

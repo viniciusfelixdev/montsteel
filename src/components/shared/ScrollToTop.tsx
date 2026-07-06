@@ -19,7 +19,7 @@ export default function ScrollToTop() {
       aria-label="Voltar ao topo"
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
-      className={`fixed bottom-24 right-7 z-50 w-12 h-12 bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white rounded-full flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue hover:text-white transition-all duration-300 ease-out ${
+      className={`fixed bottom-[calc(6rem+var(--cookie-banner-h,0px))] right-7 z-50 w-12 h-12 bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white rounded-full flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue hover:text-white transition-all duration-300 ease-out ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3 pointer-events-none"
       }`}
     >

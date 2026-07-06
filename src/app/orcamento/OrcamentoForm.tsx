@@ -114,6 +114,7 @@ export default function OrcamentoForm() {
     reset,
   } = useForm<FormData>({
     resolver: zodResolver(schema),
+    mode: "onBlur",
     defaultValues: {
       produto: defaultProduto,
       segmento: defaultSegmento,
