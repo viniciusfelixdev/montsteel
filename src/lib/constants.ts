@@ -1,15 +1,22 @@
+export const COMPANY_INFO = {
+  razaoSocial: "MONTSTEEL SERVIÇOS & MONTAGEM LTDA",
+  nomeFantasia: "MONTSTEEL SERVIÇOS & MONTAGEM",
+  cnpj: "59.078.277/0001-80",
+  fundacao: "2025-01-24",
+  naturezaJuridica: "Sociedade Empresária Limitada",
+};
+
 export const CONTACT_INFO = {
-  address: "Rua Júlio Gonzaga, 317 - Distrito Industrial Antonio Guaraty - Ibaté/SP",
-  hours: "Segunda a Sexta, das 8h às 18h",
-  phone1: "(16) 2120-0477",
-  whatsapp: "(16) 99797-7613",
-  phone2: "(11) 95045-6268",
-  email: "contato@cobersteel.com.br",
-  whatsappLink: "https://wa.me/5516997977613",
-  instagram: "https://instagram.com/cobersteel",
-  youtube: "https://youtube.com/@cobersteel",
-  facebook: "https://facebook.com/cobersteel",
-  linkedin: "https://linkedin.com/company/cobersteel",
+  address: "Prolongamento Júlio Gonzaga, nº 317 - Barracão Industrial - Parque Industrial Antônio Guará - Ibaté/SP - CEP 14817-474",
+  hours: "Horário a definir",
+  phone1: "(14) 9697-8948",
+  whatsapp: "(14) 9697-8948",
+  email: "financeiro@montsteel.com.br",
+  whatsappLink: "https://wa.me/551496978948",
+  instagram: "https://instagram.com/montsteel",
+  youtube: "https://youtube.com/@montsteel",
+  facebook: "https://facebook.com/montsteel",
+  linkedin: "https://linkedin.com/company/montsteel",
 };
 
 export const COMPANY_NUMBERS = [

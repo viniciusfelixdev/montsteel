@@ -44,7 +44,7 @@ export default function ProductsOverview() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PRODUCTS.map((product, i) => (
-            <Link key={product.slug} href={`/produtos/${product.slug}`} className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer">
+            <Link key={product.slug} href={`/produtos/${product.slug}`} className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
               <motion.article
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ export default function ProductsOverview() {
                     />
                   ) : (
                     <div className="w-full h-full bg-light-bg dark:bg-dark-steel flex items-center justify-center">
-                      <div className="w-8 h-1 bg-cobersteel-blue/40 rounded" />
+                      <div className="w-8 h-1 bg-montsteel-blue/40 rounded" />
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-transparent dark:from-dark-mid/60 to-transparent" />
@@ -73,14 +73,14 @@ export default function ProductsOverview() {
                 {/* Content */}
                 <div className="flex flex-col flex-1 p-6">
                   <h3
-                    className="text-xl font-bold uppercase text-dark-steel dark:text-white mb-2 group-hover:text-cobersteel-gold transition-colors font-display"
+                    className="text-xl font-bold uppercase text-dark-steel dark:text-white mb-2 group-hover:text-montsteel-gold transition-colors font-display"
                   >
                     {product.name}
                   </h3>
                   <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] mb-6 leading-relaxed flex-1">
                     {product.shortDesc}
                   </p>
-                  <span className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white group-hover:bg-cobersteel-blue group-hover:text-white transition-all self-start">
+                  <span className="inline-flex items-center gap-2 border border-montsteel-blue text-montsteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-montsteel-blue hover:text-white group-hover:bg-montsteel-blue group-hover:text-white transition-all self-start">
                     Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </span>
                 </div>
@@ -89,7 +89,7 @@ export default function ProductsOverview() {
           ))}
 
           {/* Niveladoras de Doca */}
-          <Link href="/produtos/niveladoras-de-doca" className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer">
+          <Link href="/produtos/niveladoras-de-doca" className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
             <motion.article
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -109,14 +109,14 @@ export default function ProductsOverview() {
               </div>
               <div className="flex flex-col flex-1 p-6">
                 <h3
-                  className="text-xl font-bold uppercase text-dark-steel dark:text-white mb-2 group-hover:text-cobersteel-gold transition-colors font-display"
+                  className="text-xl font-bold uppercase text-dark-steel dark:text-white mb-2 group-hover:text-montsteel-gold transition-colors font-display"
                 >
                   Niveladoras de Doca
                 </h3>
                 <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] mb-6 leading-relaxed flex-1">
                   Equipamentos logísticos para otimizar o carregamento e descarregamento de veículos
                 </p>
-                <span className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-cobersteel-blue hover:text-white group-hover:bg-cobersteel-blue group-hover:text-white transition-all self-start">
+                <span className="inline-flex items-center gap-2 border border-montsteel-blue text-montsteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-montsteel-blue hover:text-white group-hover:bg-montsteel-blue group-hover:text-white transition-all self-start">
                   Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </span>
               </div>

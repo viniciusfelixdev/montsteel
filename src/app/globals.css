@@ -5,13 +5,13 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --color-cobersteel-blue:   #5C88B5;
-  --color-cobersteel-gold:   #D7A03B;
-  --color-cobersteel-silver: #B0B8BD;
-  --color-dark-steel:        #0F0F0F;
-  --color-dark-mid:          #1A1A1A;
-  --color-dark-border:       #2A2A2A;
-  --color-light-bg:          #E7EAED;
+  --color-montsteel-blue:   #CC8000;
+  --color-montsteel-gold:   #FFA500;
+  --color-montsteel-silver: #999999;
+  --color-dark-steel:        #1A1A1A;
+  --color-dark-mid:          #2B2B2B;
+  --color-dark-border:       #3D3D3D;
+  --color-light-bg:          #F8F8F8;
   /* Fontes carregadas via next/font/google em layout.tsx (self-hosted, sem @import
      render-blocking); as variáveis --font-barlow-condensed/--font-inter são injetadas
      no <html> e incluem fallback com métricas ajustadas para minimizar CLS na troca. */
@@ -47,14 +47,14 @@ html {
 
   /* Tokens de tema (trocam de valor com a classe .dark no <html>) usados nos pontos
      globais deste arquivo — scrollbar e conteúdo do blog vindo do WordPress. */
-  --scrollbar-track: #E7EAED;
+  --scrollbar-track: #F8F8F8;
   --prose-text: #334155;
-  --prose-heading: #0F0F0F;
+  --prose-heading: #1A1A1A;
   --prose-cta-bg: #E9EDF1;
 }
 
 .dark {
-  --scrollbar-track: #0F0F0F;
+  --scrollbar-track: #1A1A1A;
   --prose-text: #94A3B8;
   --prose-heading: #FFFFFF;
   --prose-cta-bg: #16181C;
@@ -92,7 +92,7 @@ input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid #D7A03B;
+  outline: 2px solid #FFA500;
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -112,7 +112,7 @@ textarea:focus-visible,
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #5C88B5;
+    background: #CC8000;
     border-radius: 9999px;
   }
 }
@@ -163,11 +163,11 @@ body {
   margin-bottom: 0.5rem;
 }
 .prose-custom a {
-  color: #5C88B5;
+  color: #CC8000;
   text-decoration: underline;
 }
 .prose-custom a:hover {
-  color: #D7A03B;
+  color: #FFA500;
 }
 .prose-custom img {
   border-radius: 0.75rem;
@@ -176,7 +176,7 @@ body {
   height: auto;
 }
 .prose-custom blockquote {
-  border-left: 2px solid #D7A03B;
+  border-left: 2px solid #FFA500;
   padding-left: 1rem;
   font-style: italic;
   margin: 1.5rem 0;
@@ -235,8 +235,8 @@ body {
 .prose-custom .wp-block-columns .wp-block-button__link,
 .prose-custom .wp-block-group.has-background .wp-block-button__link {
   display: inline-block;
-  background-color: #D7A03B !important;
-  color: #0F0F0F !important;
+  background-color: #FFA500 !important;
+  color: #1A1A1A !important;
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;

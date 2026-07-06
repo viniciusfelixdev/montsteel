@@ -25,16 +25,16 @@ interface CustomSelectProps {
 
 const accent: Record<Variant, { ring: string; chevron: string; active: string; check: string }> = {
   gold: {
-    ring: "focus:border-cobersteel-gold focus:ring-1 focus:ring-cobersteel-gold/20 hover:border-cobersteel-gold/40",
-    chevron: "text-cobersteel-gold",
-    active: "bg-cobersteel-gold/15 text-cobersteel-gold",
-    check: "text-cobersteel-gold",
+    ring: "focus:border-montsteel-gold focus:ring-1 focus:ring-montsteel-gold/20 hover:border-montsteel-gold/40",
+    chevron: "text-montsteel-gold",
+    active: "bg-montsteel-gold/15 text-montsteel-gold",
+    check: "text-montsteel-gold",
   },
   blue: {
-    ring: "focus:border-cobersteel-blue focus:ring-1 focus:ring-cobersteel-blue/20 hover:border-cobersteel-blue/40",
-    chevron: "text-cobersteel-blue",
-    active: "bg-cobersteel-blue/15 text-cobersteel-blue",
-    check: "text-cobersteel-blue",
+    ring: "focus:border-montsteel-blue focus:ring-1 focus:ring-montsteel-blue/20 hover:border-montsteel-blue/40",
+    chevron: "text-montsteel-blue",
+    active: "bg-montsteel-blue/15 text-montsteel-blue",
+    check: "text-montsteel-blue",
   },
 };
 
@@ -86,7 +86,7 @@ export default function CustomSelect({
     >
       {label && (
         <label className="text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-[#94A3B8]">
-          {label} {required && <span className="text-cobersteel-gold">*</span>}
+          {label} {required && <span className="text-montsteel-gold">*</span>}
         </label>
       )}
 

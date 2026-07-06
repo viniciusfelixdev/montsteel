@@ -1,10 +1,10 @@
 ---
-name: CoberSteel
+name: MontSteel
 description: Galpões e coberturas industriais — locação e venda, com precisão técnica ABNT
 colors:
-  cobersteel-blue: "#5C88B5"
-  cobersteel-gold: "#D7A03B"
-  cobersteel-silver: "#B0B8BD"
+  montsteel-blue: "#5C88B5"
+  montsteel-gold: "#D7A03B"
+  montsteel-silver: "#B0B8BD"
   dark-steel: "#0F0F0F"
   dark-mid: "#1A1A1A"
   dark-border: "#2A2A2A"
@@ -47,7 +47,7 @@ spacing:
   xl: "48px"
 components:
   button-primary:
-    backgroundColor: "{colors.cobersteel-gold}"
+    backgroundColor: "{colors.montsteel-gold}"
     textColor: "{colors.dark-steel}"
     rounded: "{rounded.lg}"
     padding: "12px 24px"
@@ -69,13 +69,13 @@ components:
     padding: "24px"
 ---
 
-# Design System: CoberSteel
+# Design System: MontSteel
 
 ## 1. Overview
 
 **Creative North Star: "The Night Foundry"**
 
-A CoberSteel opera num galpão à noite: fundo quase-preto dominante (#0F0F0F), com o dourado (#D7A03B) surgindo como pontos de energia — solda, luz de segurança, o CTA que não se pode ignorar — e o azul do logo (#5C88B5) como o aço frio, técnico, confiável. Nada aqui é decorativo por decoração; cada elemento existe porque um gestor industrial, avaliando fornecedores às 22h num notebook corporativo, precisa acreditar que essa empresa constrói coisas que não caem.
+A MontSteel opera num galpão à noite: fundo quase-preto dominante (#0F0F0F), com o dourado (#D7A03B) surgindo como pontos de energia — solda, luz de segurança, o CTA que não se pode ignorar — e o azul do logo (#5C88B5) como o aço frio, técnico, confiável. Nada aqui é decorativo por decoração; cada elemento existe porque um gestor industrial, avaliando fornecedores às 22h num notebook corporativo, precisa acreditar que essa empresa constrói coisas que não caem.
 
 O sistema rejeita explicitamente o que o resto do setor faz: sites pesados, datados, sem hierarquia, que parecem catálogo de PDF escaneado. Não há gradientes decorativos, não há ilustração fofa, não há textura de "tech genérico". A estrutura visual central é o "V invertido" do logo — o telhado do galpão — usado como divisor de seção recorrente, não como enfeite pontual.
 
@@ -140,8 +140,8 @@ O sistema não usa sombra como mecanismo primário de profundidade — usa **cam
 
 ### Buttons
 - **Shape:** `rounded-lg` (8px) na maioria; `rounded` (4px) no CTA do navbar.
-- **Primary:** fundo `cobersteel-gold`, texto `dark-steel`, `font-bold`/`font-semibold`, uppercase, `hover:bg-amber-400`. Reservado para a ação de conversão (Solicitar Orçamento, Falar no WhatsApp).
-- **Secondary / Outline:** borda branca 2px, texto branco, `hover:bg-white hover:text-cobersteel-blue`. Usado ao lado do primário quando duas ações coexistem (Hero: "Solicitar Orçamento" + "Conhecer Produtos").
+- **Primary:** fundo `montsteel-gold`, texto `dark-steel`, `font-bold`/`font-semibold`, uppercase, `hover:bg-amber-400`. Reservado para a ação de conversão (Solicitar Orçamento, Falar no WhatsApp).
+- **Secondary / Outline:** borda branca 2px, texto branco, `hover:bg-white hover:text-montsteel-blue`. Usado ao lado do primário quando duas ações coexistem (Hero: "Solicitar Orçamento" + "Conhecer Produtos").
 - **Hover / Focus:** transições de cor em ~200-300ms; foco visível consistente via `outline: 2px solid #D7A03B` em todo elemento interativo (link, button, input, select).
 
 ### Cards
@@ -152,7 +152,7 @@ O sistema não usa sombra como mecanismo primário de profundidade — usa **cam
 
 ### Inputs / Fields
 - **Style:** fundo `dark-steel`, borda `dark-border`, `rounded-lg`, `px-4 py-3`, texto branco, placeholder em `#64748B`.
-- **Focus:** borda muda para `cobersteel-blue` (ou `cobersteel-gold` em contextos de conversão como CustomSelect) + leve ring de cor.
+- **Focus:** borda muda para `montsteel-blue` (ou `montsteel-gold` em contextos de conversão como CustomSelect) + leve ring de cor.
 - **Error:** borda `red-500/60` + texto de erro `red-400` com ícone `AlertCircle`.
 
 ### Navigation
@@ -168,7 +168,7 @@ Dropdown customizado usado em formulários (Segmento, Tipo de Interesse, Produto
 ### Do:
 - **Do** manter o corpo de texto em 18px (`text-base` = 1.125rem) — decisão deliberada de legibilidade sobre o padrão de 16px.
 - **Do** usar camadas tonais (`dark-steel` → `dark-mid` → `dark-border`) como mecanismo primário de profundidade.
-- **Do** reservar o dourado (`cobersteel-gold`) exclusivamente para CTAs de conversão.
+- **Do** reservar o dourado (`montsteel-gold`) exclusivamente para CTAs de conversão.
 - **Do** manter a altura da navbar fixa em 64px (`h-16`) sempre — só a cor de fundo transiciona no scroll, nunca a altura.
 - **Do** respeitar `prefers-reduced-motion` em toda animação Framer Motion, com fallback sem movimento.
 - **Do** verificar contraste WCAG AA em todo texto sobre fundo escuro — `text-muted` (#94A3B8) já foi calibrado para isso, não escurecer ainda mais "por elegância".

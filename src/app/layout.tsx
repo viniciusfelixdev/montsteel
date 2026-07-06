@@ -29,28 +29,28 @@ import { SITE_URL } from "@/lib/site";
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: dark)", color: "#0F0F0F" },
-    { media: "(prefers-color-scheme: light)", color: "#E7EAED" },
+    { media: "(prefers-color-scheme: dark)", color: "#1A1A1A" },
+    { media: "(prefers-color-scheme: light)", color: "#F8F8F8" },
   ],
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "CoberSteel | Galpões de Lona, Metálicos e Coberturas Industriais — Ibaté/SP",
+  title: "MontSteel | Galpões de Lona, Metálicos e Coberturas Industriais — Ibaté/SP",
   description:
-    "Galpões e coberturas industriais para locação e venda. Projetos conforme normas ABNT, com mais de 25 anos de experiência. Atendemos todo o Brasil.",
+    "Galpões e coberturas industriais para locação e venda. Projetos conforme normas ABNT. Atendemos todo o Brasil.",
   openGraph: {
-    title: "CoberSteel | Galpões e Coberturas Industriais",
+    title: "MontSteel | Galpões e Coberturas Industriais",
     description:
       "Infraestrutura industrial flexível: galpões de lona, metálicos e híbridos para locação e venda.",
     type: "website",
     locale: "pt_BR",
-    siteName: "CoberSteel",
+    siteName: "MontSteel",
     url: SITE_URL,
   },
   twitter: {
     card: "summary_large_image",
-    title: "CoberSteel | Galpões e Coberturas Industriais",
+    title: "MontSteel | Galpões e Coberturas Industriais",
     description:
       "Infraestrutura industrial flexível: galpões de lona, metálicos e híbridos para locação e venda.",
   },
@@ -71,7 +71,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-cobersteel-gold focus:text-dark-steel focus:font-semibold focus:rounded"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-montsteel-gold focus:text-dark-steel focus:font-semibold focus:rounded"
           >
             Ir para o conteúdo principal
           </a>

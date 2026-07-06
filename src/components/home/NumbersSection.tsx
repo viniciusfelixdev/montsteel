@@ -62,7 +62,7 @@ export default function NumbersSection() {
             >
               NÚMEROS QUE COMPROVAM
               <br />
-              <span className="text-cobersteel-blue">NOSSA EXPERIÊNCIA</span>
+              <span className="text-montsteel-blue">NOSSA EXPERIÊNCIA</span>
             </h2>
           </motion.div>
 
@@ -79,7 +79,7 @@ export default function NumbersSection() {
                   className="text-center p-6 bg-black/50 rounded-xl backdrop-blur-sm"
                 >
                   <div className="flex justify-center mb-4">
-                    <Icon className="w-8 h-8 text-cobersteel-blue" aria-hidden="true" />
+                    <Icon className="w-8 h-8 text-montsteel-blue" aria-hidden="true" />
                   </div>
                   <div
                     className="text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-1 font-display whitespace-nowrap"

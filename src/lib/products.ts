@@ -40,7 +40,7 @@ export const PRODUCTS_DATA: Product[] = [
     img: "/images/produtos/galpao-de-lona.webp",
     gallery: ["/images/produtos/galpao-de-lona.webp"],
     descricao: [
-      "O Galpão de Lona da CoberSteel é uma estrutura flexível e de alta resistência, ideal para armazenagem temporária ou para rápida expansão de capacidade operacional. Com instalação ágil e sem necessidade de obras de alvenaria, é a solução perfeita para quem precisa de espaço com rapidez e custo controlado.",
+      "O Galpão de Lona da MontSteel é uma estrutura flexível e de alta resistência, ideal para armazenagem temporária ou para rápida expansão de capacidade operacional. Com instalação ágil e sem necessidade de obras de alvenaria, é a solução perfeita para quem precisa de espaço com rapidez e custo controlado.",
       "Disponível para locação e venda, o galpão de lona se adapta a diferentes dimensões e configurações, atendendo desde pequenas operações até grandes complexos industriais e agrícolas.",
       "Também conhecido no mercado como galpão lonado, barracão de lona ou tenda industrial, esse modelo é a opção mais ágil quando o prazo é curto e a operação não pode esperar por uma obra convencional.",
     ],
@@ -80,7 +80,7 @@ export const PRODUCTS_DATA: Product[] = [
     img: "/images/produtos/galpao-metalico.webp",
     gallery: ["/images/produtos/galpao-metalico.webp"],
     descricao: [
-      "O Galpão Metálico CoberSteel é uma estrutura permanente de alta resistência, projetada para atender operações industriais que exigem durabilidade, capacidade de carga elevada e eficiência no uso do espaço. Ideal para abrigar maquinários pesados, linhas de produção e grandes estoques.",
+      "O Galpão Metálico MontSteel é uma estrutura permanente de alta resistência, projetada para atender operações industriais que exigem durabilidade, capacidade de carga elevada e eficiência no uso do espaço. Ideal para abrigar maquinários pesados, linhas de produção e grandes estoques.",
       "Todos os projetos são desenvolvidos e calculados conforme normas ABNT, garantindo segurança estrutural e conformidade técnica. A estrutura é ampliável e pode ser relocada conforme a expansão do negócio.",
       "Também chamado de galpão de aço, barracão metálico ou pavilhão industrial, esse modelo é a escolha certa para operações que exigem estrutura permanente, alta capacidade de carga e conformidade técnica rigorosa.",
     ],
@@ -120,7 +120,7 @@ export const PRODUCTS_DATA: Product[] = [
     img: "/images/produtos/galpao-coberecosteeel-hibrido.webp",
     gallery: ["/images/produtos/galpao-coberecosteeel-hibrido.webp"],
     descricao: [
-      "O Galpão CoberECOsteel Híbrido é a solução inovadora da CoberSteel que combina estrutura metálica com cobertura de lona de alta performance. O resultado é uma estrutura que reúne o melhor dos dois mundos: a robustez do metal com a flexibilidade e o custo reduzido da lona.",
+      "O Galpão CoberECOsteel Híbrido é a solução inovadora da MontSteel que combina estrutura metálica com cobertura de lona de alta performance. O resultado é uma estrutura que reúne o melhor dos dois mundos: a robustez do metal com a flexibilidade e o custo reduzido da lona.",
       "Com menor pegada ambiental e maior eficiência no uso de materiais, o modelo híbrido é a escolha ideal para empresas que buscam aliar desempenho operacional com responsabilidade ESG e economia circular.",
       "Também conhecido como galpão híbrido ou cobertura híbrida aço-lona, esse modelo é ideal para quem busca equilíbrio entre robustez estrutural, economia de material e responsabilidade ambiental.",
     ],
@@ -161,7 +161,7 @@ export const PRODUCTS_DATA: Product[] = [
     img: "/images/produtos/mezaninos-metalicos.webp",
     gallery: ["/images/produtos/mezaninos-metalicos.webp"],
     descricao: [
-      "Os Mezaninos Metálicos da CoberSteel são a solução inteligente para empresas que precisam ampliar sua área útil sem expandir a planta física. Aproveitando o pé-direito alto de galpões existentes, o mezanino cria um novo pavimento interno com alta capacidade de carga e instalação rápida.",
+      "Os Mezaninos Metálicos da MontSteel são a solução inteligente para empresas que precisam ampliar sua área útil sem expandir a planta física. Aproveitando o pé-direito alto de galpões existentes, o mezanino cria um novo pavimento interno com alta capacidade de carga e instalação rápida.",
       "Ideal para escritórios industriais, mezzanines de produção e armazenagem em altura, o projeto é calculado estruturalmente e executado com aço de alta qualidade, garantindo segurança e durabilidade.",
       "Também chamado de piso intermediário industrial, sobreloja ou mezanino industrial, esse sistema aproveita o pé-direito do galpão para criar um novo pavimento sem ampliar a área construída.",
     ],
@@ -202,7 +202,7 @@ export const PRODUCTS_DATA: Product[] = [
     img: "/images/produtos/projetos-especiais.webp",
     gallery: ["/images/produtos/projetos-especiais.webp"],
     descricao: [
-      "Quando os produtos padrão não atendem, a CoberSteel desenvolve Projetos Especiais sob medida. Nossa equipe de engenharia projeta e executa estruturas para demandas que fogem ao convencional: geometrias irregulares, cargas extremas, ambientes corrosivos ou alturas incomuns.",
+      "Quando os produtos padrão não atendem, a MontSteel desenvolve Projetos Especiais sob medida. Nossa equipe de engenharia projeta e executa estruturas para demandas que fogem ao convencional: geometrias irregulares, cargas extremas, ambientes corrosivos ou alturas incomuns.",
       "Do levantamento de requisitos à instalação final, cada projeto especial é tratado com rigor técnico, cálculo estrutural conforme normas ABNT e acompanhamento próximo da nossa equipe.",
       "Também chamado de galpão sob medida, estrutura especial industrial ou projeto estrutural personalizado, esse serviço atende demandas que fogem do padrão de mercado, com engenharia dedicada do início ao fim.",
     ],
@@ -244,8 +244,8 @@ export const PRODUCTS_DATA: Product[] = [
     img: "/images/produtos/niveladoras-de-doca.webp",
     gallery: ["/images/produtos/niveladoras-de-doca.webp"],
     descricao: [
-      "As Niveladoras de Doca da CoberSteel são equipamentos logísticos que eliminam a diferença de nível entre a plataforma de carga e a carroceria do veículo, permitindo a movimentação segura e eficiente de mercadorias com empilhadeiras e transpaletes.",
-      "Disponíveis nos modelos mecânico, hidráulico e elétrico, as niveladoras se adaptam a diferentes volumes de operação e tipos de veículo — de caminhões leves a carretas de grande porte. A instalação é feita pela equipe CoberSteel com mínima interrupção das operações.",
+      "As Niveladoras de Doca da MontSteel são equipamentos logísticos que eliminam a diferença de nível entre a plataforma de carga e a carroceria do veículo, permitindo a movimentação segura e eficiente de mercadorias com empilhadeiras e transpaletes.",
+      "Disponíveis nos modelos mecânico, hidráulico e elétrico, as niveladoras se adaptam a diferentes volumes de operação e tipos de veículo — de caminhões leves a carretas de grande porte. A instalação é feita pela equipe MontSteel com mínima interrupção das operações.",
       "Também conhecida como dock leveler, plataforma niveladora ou rampa niveladora de doca, esse equipamento é essencial para operações logísticas que exigem segurança e agilidade na expedição.",
     ],
     vantagens: [
@@ -253,7 +253,7 @@ export const PRODUCTS_DATA: Product[] = [
       { titulo: "Agilidade no Carregamento", desc: "Reduz o tempo de carga e descarga, aumentando a produtividade do seu centro de distribuição." },
       { titulo: "Modelos para Todo Porte", desc: "Mecânica, hidráulica ou elétrica — escolha conforme o volume e tipo de operação." },
       { titulo: "Alta Capacidade de Carga", desc: "Suporta o tráfego de empilhadeiras pesadas com segurança e durabilidade." },
-      { titulo: "Instalação Rápida", desc: "Instalação pela equipe CoberSteel com mínima interrupção das atividades." },
+      { titulo: "Instalação Rápida", desc: "Instalação pela equipe MontSteel com mínima interrupção das atividades." },
       { titulo: "Manutenção Simples", desc: "Componentes acessíveis e manutenção preventiva com plano de revisão periódica." },
     ],
     aplicacoes: [

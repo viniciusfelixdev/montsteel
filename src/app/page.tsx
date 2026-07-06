@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CONTACT_INFO } from "@/lib/constants";
 import dynamic from "next/dynamic";
 import Hero from "@/components/home/Hero";
 import ProductsOverview from "@/components/home/ProductsOverview";
@@ -21,9 +22,9 @@ const AboutSummary = dynamic(() => import("@/components/home/AboutSummary"), {
 });
 
 export const metadata: Metadata = {
-  title: "CoberSteel | Galpões de Lona, Metálicos e Coberturas Industriais — Ibaté/SP",
+  title: "MontSteel | Galpões de Lona, Metálicos e Coberturas Industriais — Ibaté/SP",
   description:
-    "Galpões e coberturas industriais para locação e venda. Mais de 25 anos de experiência. Projetos conforme normas ABNT. Atendemos todo o Brasil.",
+    "Galpões e coberturas industriais para locação e venda. Projetos conforme normas ABNT. Atendemos todo o Brasil.",
   alternates: { canonical: "/" },
 };
 
@@ -41,7 +42,7 @@ export default function HomePage() {
       <NumbersSection />
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-20" aria-labelledby="cta-titulo">
+      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#FFE3B8] dark:from-dark-steel dark:to-[#2E2000] py-20" aria-labelledby="cta-titulo">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             id="cta-titulo"
@@ -59,15 +60,15 @@ export default function HomePage() {
               href="/orcamento"
               trackName="solicitar_orcamento_gratuito"
               trackLocation="home_cta_final"
-              className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-400 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento Gratuito
             </TrackedLink>
             <a
-              href="https://wa.me/5516997977613"
+              href={CONTACT_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase tracking-wide rounded hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-dark-steel/10 dark:bg-white/10 text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-montsteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

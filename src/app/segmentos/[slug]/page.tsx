@@ -5,7 +5,7 @@ import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ChevronRight } from "lucide-react";
 import { getSegment, SEGMENTS_DATA } from "@/lib/segments";
-import { PRODUCTS } from "@/lib/constants";
+import { PRODUCTS, CONTACT_INFO } from "@/lib/constants";
 
 const SEGMENT_IMAGES: Record<string, string> = {
   "agronegocio": "/images/segmentos/agronegocio.webp",
@@ -35,8 +35,8 @@ export async function generateMetadata({
   const segment = getSegment(slug);
   if (!segment) return {};
   return {
-    title: `Galpões para ${segment.name} | CoberSteel — Infraestrutura Industrial`,
-    description: `Soluções CoberSteel para o setor de ${segment.name}. Galpões, coberturas e infraestrutura industrial conforme normas ABNT para sua operação.`,
+    title: `Galpões para ${segment.name} | MontSteel — Infraestrutura Industrial`,
+    description: `Soluções MontSteel para o setor de ${segment.name}. Galpões, coberturas e infraestrutura industrial conforme normas ABNT para sua operação.`,
     alternates: { canonical: `/segmentos/${segment.slug}` },
   };
 }
@@ -69,7 +69,7 @@ export default async function SegmentoPage({
               }}
               aria-hidden="true"
             />
-            <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+            <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
           </>
         ) : (
           <>
@@ -78,7 +78,7 @@ export default async function SegmentoPage({
               className="absolute inset-0 opacity-10"
               style={{
                 backgroundImage:
-                  "repeating-linear-gradient(45deg, #5C88B5 0, #5C88B5 1px, transparent 0, transparent 50%)",
+                  "repeating-linear-gradient(45deg, #CC8000 0, #CC8000 1px, transparent 0, transparent 50%)",
                 backgroundSize: "20px 20px",
               }}
               aria-hidden="true"
@@ -106,8 +106,8 @@ export default async function SegmentoPage({
           >
             {segment.name}
           </h1>
-          <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-cobersteel-gold uppercase tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold" aria-hidden="true" />
+          <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-montsteel-gold uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-montsteel-gold" aria-hidden="true" />
             Soluções sob medida para o seu setor
           </p>
         </div>
@@ -123,7 +123,7 @@ export default async function SegmentoPage({
               <h2
                 className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
-                DESAFIOS DO <span className="text-cobersteel-blue">SETOR</span>
+                DESAFIOS DO <span className="text-montsteel-blue">SETOR</span>
               </h2>
               <div className="space-y-5">
                 {segment.desafios.map((d, i) => (
@@ -139,7 +139,7 @@ export default async function SegmentoPage({
               <h2
                 className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
-                SOLUÇÕES <span className="text-cobersteel-blue">RECOMENDADAS</span>
+                SOLUÇÕES <span className="text-montsteel-blue">RECOMENDADAS</span>
               </h2>
 
               <div className="space-y-3 mb-6">
@@ -151,13 +151,13 @@ export default async function SegmentoPage({
                   >
                     <div>
                       <p
-                        className="font-black uppercase text-dark-steel dark:text-white text-base group-hover:text-cobersteel-gold transition-colors font-display"
+                        className="font-black uppercase text-dark-steel dark:text-white text-base group-hover:text-montsteel-gold transition-colors font-display"
                       >
                         {p.name}
                       </p>
                       <p className="text-[14px] text-slate-600 dark:text-[#94A3B8] mt-0.5">{p.shortDesc}</p>
                     </div>
-                    <ChevronRight className="w-4 h-4 text-cobersteel-gold flex-shrink-0 ml-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                    <ChevronRight className="w-4 h-4 text-montsteel-gold flex-shrink-0 ml-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </Link>
                 ))}
               </div>
@@ -173,7 +173,7 @@ export default async function SegmentoPage({
                   </div>
                   <Link
                     href={`/produtos/projetos-especiais?from=segmentos/${segment.slug}`}
-                    className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2.5 bg-cobersteel-gold text-dark-steel text-sm font-bold rounded-lg hover:bg-amber-400 transition-colors"
+                    className="flex-shrink-0 inline-flex items-center gap-2 px-4 py-2.5 bg-montsteel-gold text-dark-steel text-sm font-bold rounded-lg hover:bg-amber-400 transition-colors"
                   >
                     Ver Projetos Especiais
                   </Link>
@@ -186,7 +186,7 @@ export default async function SegmentoPage({
       </section>
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-20">
+      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#FFE3B8] dark:from-dark-steel dark:to-[#2E2000] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
@@ -201,15 +201,15 @@ export default async function SegmentoPage({
               href={`/orcamento?segmento=${segment.slug}`}
               trackName="solicitar_orcamento_gratuito"
               trackLocation="segmento_cta_final"
-              className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento Gratuito
             </TrackedLink>
             <a
-              href="https://wa.me/5516997977613"
+              href={CONTACT_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-dark-steel/10 dark:bg-white/10 text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-montsteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

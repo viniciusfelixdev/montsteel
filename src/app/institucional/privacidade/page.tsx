@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, COMPANY_INFO } from "@/lib/constants";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Privacidade | CoberSteel",
+  title: "Privacidade | MontSteel",
   description:
-    "Saiba como a CoberSteel coleta, usa e protege seus dados pessoais conforme a Lei Geral de Proteção de Dados (LGPD).",
+    "Saiba como a MontSteel coleta, usa e protege seus dados pessoais conforme a Lei Geral de Proteção de Dados (LGPD).",
   alternates: { canonical: "/institucional/privacidade" },
 };
 
@@ -22,7 +22,7 @@ type Secao = {
 const sections: Secao[] = [
   {
     titulo: "1. Quem somos",
-    conteudo: `A CoberSteel é uma empresa especializada em infraestrutura industrial flexível, com sede na Rua Júlio Gonzaga, 317 - Distrito Industrial Antonio Guaraty - Ibaté/SP. Para fins desta Política, somos o Controlador dos seus dados pessoais, conforme definido pela Lei nº 13.709/2018 (LGPD).`,
+    conteudo: `A MontSteel (${COMPANY_INFO.razaoSocial}, CNPJ ${COMPANY_INFO.cnpj}) é uma empresa especializada em infraestrutura industrial flexível. Para fins desta Política, somos o Controlador dos seus dados pessoais, conforme definido pela Lei nº 13.709/2018 (LGPD).`,
   },
   {
     titulo: "2. Quais dados coletamos",
@@ -86,7 +86,7 @@ const sections: Secao[] = [
   },
   {
     titulo: "12. Contato",
-    conteudo: `Para dúvidas, solicitações ou exercício dos seus direitos relacionados a esta Política, entre em contato com nosso encarregado de dados (DPO) pelo e-mail contato@cobersteel.com.br ou pelo telefone (16) 2120-0477.`,
+    conteudo: `Para dúvidas, solicitações ou exercício dos seus direitos relacionados a esta Política, entre em contato com nosso encarregado de dados (DPO) pelo e-mail ${CONTACT_INFO.email} ou pelo telefone ${CONTACT_INFO.phone1}.`,
   },
 ];
 
@@ -104,7 +104,7 @@ export default function PrivacidadePage() {
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Privacidade" }]} />
@@ -124,7 +124,7 @@ export default function PrivacidadePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white dark:bg-dark-mid rounded-xl p-8 sm:p-12 space-y-10">
             <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
-              A CoberSteel valoriza a privacidade e a proteção dos dados pessoais de seus clientes, parceiros e visitantes. Esta Política descreve como coletamos, usamos, armazenamos e protegemos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD).
+              A MontSteel valoriza a privacidade e a proteção dos dados pessoais de seus clientes, parceiros e visitantes. Esta Política descreve como coletamos, usamos, armazenamos e protegemos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD).
             </p>
 
             {sections.map((s) => (
@@ -161,7 +161,7 @@ export default function PrivacidadePage() {
 
             <div className="border-t border-slate-200 dark:border-dark-border pt-8">
               <p className="text-xs text-slate-600 dark:text-[#94A3B8]">
-                CoberSteel Coberturas e Estruturas Industriais — {CONTACT_INFO.address} — {CONTACT_INFO.email}
+                {COMPANY_INFO.razaoSocial} — CNPJ {COMPANY_INFO.cnpj} — {CONTACT_INFO.address} — {CONTACT_INFO.email}
               </p>
             </div>
           </div>

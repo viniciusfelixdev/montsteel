@@ -164,7 +164,7 @@ const etapas = [
   { num: "01", titulo: "Envio do Cadastro", desc: "Preencha o formulário abaixo com os dados da sua empresa e área de atuação." },
   { num: "02", titulo: "Análise", desc: "Nossa equipe de suprimentos avalia o perfil e entra em contato em até 5 dias úteis." },
   { num: "03", titulo: "Homologação", desc: "Fornecedores aprovados recebem o kit de homologação com os requisitos técnicos e documentais." },
-  { num: "04", titulo: "Parceria Ativa", desc: "Após homologado, você passa a receber cotações e oportunidades de negócio com a CoberSteel." },
+  { num: "04", titulo: "Parceria Ativa", desc: "Após homologado, você passa a receber cotações e oportunidades de negócio com a MontSteel." },
 ];
 
 export default function FornecedoresPage() {
@@ -252,7 +252,7 @@ export default function FornecedoresPage() {
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Fornecedores" }]} />
           <Link
@@ -265,7 +265,7 @@ export default function FornecedoresPage() {
           <h1
             className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display"
           >
-            SEJA UM <span className="text-cobersteel-blue">FORNECEDOR</span>
+            SEJA UM <span className="text-montsteel-blue">FORNECEDOR</span>
           </h1>
         </div>
       </section>
@@ -296,7 +296,7 @@ export default function FornecedoresPage() {
             type="button"
             onClick={() => nudgeSuppliers(-1)}
             aria-label="Fornecedores anteriores"
-            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-light-bg/90 dark:bg-dark-steel/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+            className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-light-bg/90 dark:bg-dark-steel/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-montsteel-blue hover:border-montsteel-blue transition-colors"
           >
             <ChevronLeft className="w-5 h-5" aria-hidden="true" />
           </button>
@@ -304,7 +304,7 @@ export default function FornecedoresPage() {
             type="button"
             onClick={() => nudgeSuppliers(1)}
             aria-label="Próximos fornecedores"
-            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-light-bg/90 dark:bg-dark-steel/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-light-bg/90 dark:bg-dark-steel/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-montsteel-blue hover:border-montsteel-blue transition-colors"
           >
             <ChevronRight className="w-5 h-5" aria-hidden="true" />
           </button>
@@ -338,11 +338,11 @@ export default function FornecedoresPage() {
       <section className="bg-white dark:bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">O que buscamos</p>
+            <p className="text-amber-800 dark:text-montsteel-gold text-xs font-semibold uppercase tracking-widest mb-3">O que buscamos</p>
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
-              CATEGORIAS DE <span className="text-cobersteel-blue">FORNECIMENTO</span>
+              CATEGORIAS DE <span className="text-montsteel-blue">FORNECIMENTO</span>
             </h2>
           </div>
 
@@ -356,10 +356,10 @@ export default function FornecedoresPage() {
                       type="button"
                       onClick={() => setCategoriaAberta(aberta ? null : cat.titulo)}
                       aria-expanded={aberta}
-                      className="w-full flex items-center gap-4 px-5 sm:px-6 py-5 text-left hover:bg-cobersteel-blue/5 transition-colors"
+                      className="w-full flex items-center gap-4 px-5 sm:px-6 py-5 text-left hover:bg-montsteel-blue/5 transition-colors"
                     >
-                      <span className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 flex items-center justify-center flex-shrink-0">
-                        <cat.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
+                      <span className="w-10 h-10 rounded-lg bg-montsteel-blue/20 flex items-center justify-center flex-shrink-0">
+                        <cat.icon className="w-5 h-5 text-montsteel-blue" aria-hidden="true" />
                       </span>
                       <span
                         className="flex-1 font-black uppercase text-dark-steel dark:text-white text-base sm:text-lg font-display"
@@ -367,7 +367,7 @@ export default function FornecedoresPage() {
                         {cat.titulo}
                       </span>
                       <ChevronDown
-                        className={`w-5 h-5 text-cobersteel-blue flex-shrink-0 transition-transform duration-300 ${aberta ? "rotate-180" : ""}`}
+                        className={`w-5 h-5 text-montsteel-blue flex-shrink-0 transition-transform duration-300 ${aberta ? "rotate-180" : ""}`}
                         aria-hidden="true"
                       />
                     </button>
@@ -386,12 +386,12 @@ export default function FornecedoresPage() {
                                 type="button"
                                 onClick={() => setItemAberto(itemOpen ? null : chave)}
                                 aria-expanded={itemOpen}
-                                className="w-full flex items-center gap-2.5 px-4 py-3 text-left hover:bg-cobersteel-blue/5 transition-colors"
+                                className="w-full flex items-center gap-2.5 px-4 py-3 text-left hover:bg-montsteel-blue/5 transition-colors"
                               >
-                                <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-blue flex-shrink-0" aria-hidden="true" />
+                                <span className="w-1.5 h-1.5 rounded-full bg-montsteel-blue flex-shrink-0" aria-hidden="true" />
                                 <span className="flex-1 text-sm font-semibold text-dark-steel dark:text-white">{item.nome}</span>
                                 <ChevronDown
-                                  className={`w-4 h-4 text-cobersteel-blue flex-shrink-0 transition-transform duration-300 ${itemOpen ? "rotate-180" : ""}`}
+                                  className={`w-4 h-4 text-montsteel-blue flex-shrink-0 transition-transform duration-300 ${itemOpen ? "rotate-180" : ""}`}
                                   aria-hidden="true"
                                 />
                               </button>
@@ -424,16 +424,16 @@ export default function FornecedoresPage() {
 
             {/* Requisitos */}
             <div>
-              <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Critérios</p>
+              <p className="text-amber-800 dark:text-montsteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Critérios</p>
               <h2
                 className="text-4xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
-                REQUISITOS PARA <span className="text-cobersteel-blue">HOMOLOGAÇÃO</span>
+                REQUISITOS PARA <span className="text-montsteel-blue">HOMOLOGAÇÃO</span>
               </h2>
               <ul className="space-y-4">
                 {requisitos.map((r) => (
                   <li key={r} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-cobersteel-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <CheckCircle2 className="w-5 h-5 text-montsteel-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
                     <span className="text-sm text-slate-600 dark:text-[#94A3B8] leading-relaxed">{r}</span>
                   </li>
                 ))}
@@ -442,17 +442,17 @@ export default function FornecedoresPage() {
 
             {/* Processo */}
             <div>
-              <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Como funciona</p>
+              <p className="text-amber-800 dark:text-montsteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Como funciona</p>
               <h2
                 className="text-4xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
-                PROCESSO DE <span className="text-cobersteel-blue">CADASTRO</span>
+                PROCESSO DE <span className="text-montsteel-blue">CADASTRO</span>
               </h2>
               <div className="space-y-5">
                 {etapas.map((e) => (
                   <div key={e.num} className="flex gap-5 items-start">
                     <span
-                      className="text-3xl font-black text-cobersteel-blue/30 leading-none flex-shrink-0 w-10 font-display"
+                      className="text-3xl font-black text-montsteel-blue/30 leading-none flex-shrink-0 w-10 font-display"
                       aria-hidden="true"
                     >
                       {e.num}
@@ -475,7 +475,7 @@ export default function FornecedoresPage() {
       <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
-            <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Formulário</p>
+            <p className="text-amber-800 dark:text-montsteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Formulário</p>
             <h2
               className="text-4xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
@@ -485,7 +485,7 @@ export default function FornecedoresPage() {
 
           {enviado ? (
             <div className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center">
-              <CheckCircle2 className="w-12 h-12 text-cobersteel-gold mx-auto mb-4" aria-hidden="true" />
+              <CheckCircle2 className="w-12 h-12 text-montsteel-gold mx-auto mb-4" aria-hidden="true" />
               <h3
                 className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-2 font-display"
               >
@@ -511,7 +511,7 @@ export default function FornecedoresPage() {
                     required
                     value={form.razaoSocial}
                     onChange={handleChange}
-                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-montsteel-blue transition-colors"
                     placeholder="Nome da empresa"
                   />
                 </div>
@@ -525,7 +525,7 @@ export default function FornecedoresPage() {
                     required
                     value={form.cnpj}
                     onChange={handleChange}
-                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-montsteel-blue transition-colors"
                     placeholder="00.000.000/0000-00"
                   />
                 </div>
@@ -542,7 +542,7 @@ export default function FornecedoresPage() {
                     required
                     value={form.responsavel}
                     onChange={handleChange}
-                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-montsteel-blue transition-colors"
                     placeholder="Nome do contato"
                   />
                 </div>
@@ -556,7 +556,7 @@ export default function FornecedoresPage() {
                     required
                     value={form.telefone}
                     onChange={handleChange}
-                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                    className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-montsteel-blue transition-colors"
                     placeholder="(00) 00000-0000"
                   />
                 </div>
@@ -572,7 +572,7 @@ export default function FornecedoresPage() {
                   required
                   value={form.email}
                   onChange={handleChange}
-                  className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors"
+                  className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-montsteel-blue transition-colors"
                   placeholder="contato@suaempresa.com.br"
                 />
               </div>
@@ -607,7 +607,7 @@ export default function FornecedoresPage() {
                   rows={4}
                   value={form.mensagem}
                   onChange={handleChange}
-                  className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-cobersteel-blue transition-colors resize-none"
+                  className="w-full bg-light-bg dark:bg-dark-steel border border-slate-200 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#94A3B8]/50 focus:outline-none focus:border-montsteel-blue transition-colors resize-none"
                   placeholder="Descreva o que sua empresa oferece, diferenciais, capacidade de atendimento, etc."
                 />
               </div>
@@ -622,7 +622,7 @@ export default function FornecedoresPage() {
               <button
                 type="submit"
                 disabled={enviando}
-                className="inline-flex items-center justify-center gap-2 w-full py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                className="inline-flex items-center justify-center gap-2 w-full py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <Send className="w-4 h-4" aria-hidden="true" />
                 {enviando ? "Enviando..." : "Enviar Cadastro"}
@@ -630,7 +630,7 @@ export default function FornecedoresPage() {
 
               <p className="text-xs text-slate-600 dark:text-[#94A3B8] text-center">
                 Seus dados são tratados com confidencialidade conforme nossa{" "}
-                <Link href="/institucional/privacidade" className="text-cobersteel-blue hover:text-dark-steel dark:hover:text-white transition-colors">
+                <Link href="/institucional/privacidade" className="text-montsteel-blue hover:text-dark-steel dark:hover:text-white transition-colors">
                   Privacidade
                 </Link>.
               </p>

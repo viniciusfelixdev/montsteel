@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import Link from "next/link";
-import { MapPin, Mail, Clock, Users, TrendingUp, Shield, Heart, Briefcase, ArrowLeft, ArrowRight } from "lucide-react";
+import { MapPin, Clock, Users, TrendingUp, Shield, Heart, Briefcase, ArrowLeft, ArrowRight } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import CandidaturaForm from "./CandidaturaForm";
 
 const vagas = [
   {
@@ -40,16 +42,16 @@ const vagas = [
 ];
 
 export const metadata: Metadata = {
-  title: "Trabalhe Conosco | CoberSteel — Galpões e Coberturas Industriais",
+  title: "Trabalhe Conosco | MontSteel — Galpões e Coberturas Industriais",
   description:
-    "Faça parte do time CoberSteel. Confira nossas oportunidades e envie seu currículo para trabalhar com infraestrutura industrial de ponta.",
+    "Faça parte do time MontSteel. Confira nossas oportunidades e envie seu currículo para trabalhar com infraestrutura industrial de ponta.",
   alternates: { canonical: "/institucional/trabalhe-conosco" },
 };
 
 const beneficios = [
   { icon: TrendingUp, titulo: "Crescimento Profissional", desc: "Oportunidades reais de desenvolvimento e crescimento dentro da empresa." },
   { icon: Users, titulo: "Time Colaborativo", desc: "Ambiente de trabalho onde a troca de experiências e o trabalho em equipe são valorizados." },
-  { icon: Shield, titulo: "Estabilidade", desc: "Empresa sólida com mais de 25 anos de mercado e crescimento contínuo." },
+  { icon: Shield, titulo: "Estabilidade", desc: "Empresa sólida, em crescimento contínuo." },
   { icon: Heart, titulo: "Propósito", desc: "Trabalhe em projetos que impactam a infraestrutura industrial de grandes empresas do Brasil." },
 ];
 
@@ -75,7 +77,7 @@ export default function TrabalheCOnoscoPage() {
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Trabalhe Conosco" }]} />
           <Link
@@ -97,18 +99,18 @@ export default function TrabalheCOnoscoPage() {
       <section className="bg-light-bg dark:bg-dark-steel py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Por que nos Escolher</p>
+            <p className="text-amber-800 dark:text-montsteel-gold text-xs font-semibold uppercase tracking-widest mb-3">Por que nos Escolher</p>
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
-              UM LUGAR PARA <span className="text-cobersteel-blue">CRESCER</span>
+              UM LUGAR PARA <span className="text-montsteel-blue">CRESCER</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {beneficios.map((b) => (
               <div key={b.titulo} className="p-6 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border">
-                <div className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 flex items-center justify-center mb-4">
-                  <b.icon className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
+                <div className="w-10 h-10 rounded-lg bg-montsteel-blue/20 flex items-center justify-center mb-4">
+                  <b.icon className="w-5 h-5 text-montsteel-blue" aria-hidden="true" />
                 </div>
                 <h3
                   className="font-bold uppercase text-dark-steel dark:text-white text-base mb-2 font-display"
@@ -129,7 +131,7 @@ export default function TrabalheCOnoscoPage() {
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
-              ÁREAS QUE <span className="text-cobersteel-blue">CONTRATAMOS</span>
+              ÁREAS QUE <span className="text-montsteel-blue">CONTRATAMOS</span>
             </h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -154,7 +156,7 @@ export default function TrabalheCOnoscoPage() {
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
-              VAGAS <span className="text-cobersteel-blue">ABERTAS</span>
+              VAGAS <span className="text-montsteel-blue">ABERTAS</span>
             </h2>
           </div>
 
@@ -166,17 +168,17 @@ export default function TrabalheCOnoscoPage() {
               >
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-cobersteel-blue bg-cobersteel-blue/10 border border-cobersteel-blue/30 px-2.5 py-1 rounded">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-montsteel-blue bg-montsteel-blue/10 border border-montsteel-blue/30 px-2.5 py-1 rounded">
                       <Briefcase className="w-3 h-3" aria-hidden="true" /> {v.tipo}
                     </span>
                     <span className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-[#94A3B8]">
-                      <MapPin className="w-3 h-3 text-cobersteel-blue" aria-hidden="true" /> {v.local}
+                      <MapPin className="w-3 h-3 text-montsteel-blue" aria-hidden="true" /> {v.local}
                     </span>
                     <span className="text-xs text-slate-600 dark:text-[#94A3B8]">· {v.modelo}</span>
-                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-cobersteel-gold bg-cobersteel-gold/10 border border-cobersteel-gold/30 px-2.5 py-1 rounded-full">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-montsteel-gold bg-montsteel-gold/10 border border-montsteel-gold/30 px-2.5 py-1 rounded-full">
                       <span className="relative flex h-1.5 w-1.5">
-                        <span className="absolute inline-flex h-full w-full rounded-full bg-cobersteel-gold opacity-75 animate-ping" />
-                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-cobersteel-gold" />
+                        <span className="absolute inline-flex h-full w-full rounded-full bg-montsteel-gold opacity-75 animate-ping" />
+                        <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-montsteel-gold" />
                       </span>
                       {v.quantidade} {v.quantidade === 1 ? "posição aberta" : "posições abertas"}
                     </span>
@@ -189,13 +191,13 @@ export default function TrabalheCOnoscoPage() {
                   <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed">{v.desc}</p>
                 </div>
 
-                <a
-                  href={`mailto:${CONTACT_INFO.email}?subject=${encodeURIComponent(`Candidatura — ${v.titulo} (${v.local})`)}`}
-                  className="group inline-flex items-center justify-center gap-2 flex-shrink-0 px-6 py-3 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors w-full sm:w-auto"
+                <Link
+                  href={`?vaga=${encodeURIComponent(v.titulo)}#candidatura-form`}
+                  className="group inline-flex items-center justify-center gap-2 flex-shrink-0 px-6 py-3 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors w-full sm:w-auto"
                 >
                   Aplicar
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -203,51 +205,46 @@ export default function TrabalheCOnoscoPage() {
       </section>
 
       {/* Formulário / Envio de currículo */}
-      <section className="bg-white dark:bg-dark-mid py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-light-bg dark:bg-dark-steel rounded-xl p-8 border border-slate-200 dark:border-dark-border">
+      <section id="candidatura-form" className="bg-white dark:bg-dark-mid py-20 scroll-mt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 max-w-2xl mx-auto">
             <h2
-              className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-2 font-display"
+              className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
-              ENVIE SEU CURRÍCULO
+              ENVIE SUA <span className="text-montsteel-blue">CANDIDATURA</span>
             </h2>
-            <p className="text-slate-600 dark:text-[#94A3B8] text-sm mb-8">
-              Não encontrou uma vaga específica? Envie seu currículo para nosso banco de talentos. Analisamos todos os perfis e entramos em contato quando surgir uma oportunidade compatível.
-            </p>
+          </div>
 
-            <div className="space-y-4 mb-8">
-              <div className="flex items-start gap-3 text-sm text-slate-600 dark:text-[#94A3B8]">
-                <Mail className="w-4 h-4 text-cobersteel-blue mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <div>
-                  <p className="text-dark-steel dark:text-white font-medium mb-0.5">E-mail para envio</p>
-                  <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-dark-steel dark:hover:text-white transition-colors">
-                    {CONTACT_INFO.email}
-                  </a>
-                  <p className="text-xs mt-1">Assunto: Currículo — [Área de interesse]</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 text-sm text-slate-600 dark:text-[#94A3B8]">
-                <MapPin className="w-4 h-4 text-cobersteel-blue mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <div>
-                  <p className="text-dark-steel dark:text-white font-medium mb-0.5">Sede</p>
-                  <p>{CONTACT_INFO.address}</p>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 text-sm text-slate-600 dark:text-[#94A3B8]">
-                <Clock className="w-4 h-4 text-cobersteel-blue mt-0.5 flex-shrink-0" aria-hidden="true" />
-                <div>
-                  <p className="text-dark-steel dark:text-white font-medium mb-0.5">Horário de atendimento</p>
-                  <p>{CONTACT_INFO.hours}</p>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div className="lg:col-span-2">
+              <Suspense fallback={null}>
+                <CandidaturaForm vagas={vagas.map((v) => v.titulo)} />
+              </Suspense>
             </div>
 
-            <a
-              href={`mailto:${CONTACT_INFO.email}?subject=Currículo — Banco de Talentos`}
-              className="inline-flex items-center justify-center w-full py-3 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
-            >
-              Enviar Currículo por E-mail
-            </a>
+            <aside>
+              <div className="bg-light-bg dark:bg-dark-steel rounded-xl p-6 sticky top-24 border border-slate-200 dark:border-dark-border">
+                <h3 className="text-lg font-bold uppercase text-dark-steel dark:text-white mb-6 font-display">
+                  Outras Formas de Contato
+                </h3>
+                <div className="space-y-5">
+                  <div className="flex items-start gap-3 text-sm text-slate-600 dark:text-[#94A3B8]">
+                    <MapPin className="w-4 h-4 text-montsteel-blue mt-0.5 flex-shrink-0" aria-hidden="true" />
+                    <div>
+                      <p className="text-dark-steel dark:text-white font-medium mb-0.5">Sede</p>
+                      <p>{CONTACT_INFO.address}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3 text-sm text-slate-600 dark:text-[#94A3B8]">
+                    <Clock className="w-4 h-4 text-montsteel-blue mt-0.5 flex-shrink-0" aria-hidden="true" />
+                    <div>
+                      <p className="text-dark-steel dark:text-white font-medium mb-0.5">Horário de atendimento</p>
+                      <p>{CONTACT_INFO.hours}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </section>

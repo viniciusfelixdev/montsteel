@@ -44,7 +44,7 @@ export interface PortfolioCase {
   resumo: string;
   /** O desafio do cliente — um parágrafo por item */
   desafio: string[];
-  /** A solução entregue pela CoberSteel — um parágrafo por item */
+  /** A solução entregue pela MontSteel — um parágrafo por item */
   solucao: string[];
   /** Resultados em números — vira cards de destaque */
   resultados: PortfolioMetric[];
@@ -71,7 +71,7 @@ export const PORTFOLIO_DATA: PortfolioCase[] = [
       "A estrutura também precisava atender a critérios rigorosos de aproveitamento de luz natural e ventilação, reduzindo o custo operacional do novo setor.",
     ],
     solucao: [
-      "A CoberSteel desenvolveu um galpão metálico com vão livre de 30 metros, calculado conforme as normas ABNT para suportar a carga da ponte rolante e dos equipamentos previstos. O projeto incluiu telhas translúcidas para iluminação natural e sistema de ventilação por exaustores.",
+      "A MontSteel desenvolveu um galpão metálico com vão livre de 30 metros, calculado conforme as normas ABNT para suportar a carga da ponte rolante e dos equipamentos previstos. O projeto incluiu telhas translúcidas para iluminação natural e sistema de ventilação por exaustores.",
       "A montagem foi planejada em fases, com isolamento da frente de obra, permitindo que a fábrica seguisse produzindo durante toda a execução.",
     ],
     resultados: [

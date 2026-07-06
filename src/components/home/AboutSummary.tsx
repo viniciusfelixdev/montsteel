@@ -17,7 +17,7 @@ export default function AboutSummary() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-amber-800 dark:text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
+            <p className="text-amber-800 dark:text-montsteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
               Sobre Nós
             </p>
             <h2
@@ -26,10 +26,10 @@ export default function AboutSummary() {
             >
               INFRAESTRUTURA INDUSTRIAL
               <br />
-              <span className="text-cobersteel-blue">COM QUEM ENTENDE DO NEGÓCIO</span>
+              <span className="text-montsteel-blue">COM QUEM ENTENDE DO NEGÓCIO</span>
             </h2>
             <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed mb-4">
-              A CoberSteel é especializada em infraestrutura industrial flexível, oferecendo galpões de lona, metálicos e híbridos para locação e venda em todo o Brasil. Construímos nossa reputação sobre três pilares: segurança estrutural, agilidade na entrega e compromisso com o cliente.
+              A MontSteel é especializada em infraestrutura industrial flexível, oferecendo galpões de lona, metálicos e híbridos para locação e venda em todo o Brasil. Construímos nossa reputação sobre três pilares: segurança estrutural, agilidade na entrega e compromisso com o cliente.
             </p>
             <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed mb-8">
               Atendemos os maiores setores da indústria nacional, do agronegócio ao petroquímico, com soluções <span className="text-dark-steel dark:text-white font-medium">desenvolvidas sob medida para você</span>, conforme normas ABNT e a realidade específica da sua operação.
@@ -52,8 +52,8 @@ export default function AboutSummary() {
             className="relative aspect-[4/3] rounded-2xl overflow-hidden"
           >
             <Image
-              src="/images/geral/cobersteel.webp"
-              alt="Equipe CoberSteel"
+              src="/images/geral/montsteel.webp"
+              alt="Equipe MontSteel"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"

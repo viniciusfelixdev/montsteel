@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CONTACT_INFO } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
@@ -8,9 +9,9 @@ import ClientLogos from "@/components/home/ClientLogos";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Portfólio de Obras | CoberSteel — Galpões e Coberturas Industriais",
+  title: "Portfólio de Obras | MontSteel — Galpões e Coberturas Industriais",
   description:
-    "Conheça obras e projetos entregues pela CoberSteel: galpões de lona, metálicos, híbridos e mezaninos. Atuação nacional nos principais setores da indústria brasileira.",
+    "Conheça obras e projetos entregues pela MontSteel: galpões de lona, metálicos, híbridos e mezaninos. Atuação nacional nos principais setores da indústria brasileira.",
   alternates: { canonical: "/institucional/portfolio" },
 };
 
@@ -31,13 +32,13 @@ export default function PortfolioPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/geral/cobersteel.webp')",
+            backgroundImage: "url('/images/geral/montsteel.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Portfólio" }]} />
           <Link
@@ -50,7 +51,7 @@ export default function PortfolioPage() {
           <h1
             className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-6 font-display"
           >
-            NOSSO <span className="text-cobersteel-blue">PORTFÓLIO</span>
+            NOSSO <span className="text-montsteel-blue">PORTFÓLIO</span>
           </h1>
         </div>
       </section>
@@ -83,27 +84,27 @@ export default function PortfolioPage() {
                   </h2>
                   <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-slate-600 dark:text-[#94A3B8] mb-5 flex-1">
                     <span className="flex items-center gap-1.5">
-                      <Tag className="w-3.5 h-3.5 text-cobersteel-gold" aria-hidden="true" />
+                      <Tag className="w-3.5 h-3.5 text-montsteel-gold" aria-hidden="true" />
                       {o.setor}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
+                      <MapPin className="w-3.5 h-3.5 text-montsteel-blue" aria-hidden="true" />
                       {o.local}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <Ruler className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
+                      <Ruler className="w-3.5 h-3.5 text-montsteel-blue" aria-hidden="true" />
                       {o.area}
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-4">
                     <Link
                       href={`/institucional/portfolio/${o.slug}`}
-                      className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-cobersteel-blue hover:text-white transition-all"
+                      className="inline-flex items-center gap-2 border border-montsteel-blue text-montsteel-blue text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-montsteel-blue hover:text-white transition-all"
                     >
                       Ver estudo de caso <ArrowRight className="w-4 h-4" aria-hidden="true" />
                     </Link>
                     <span className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-[#94A3B8]">
-                      <Calendar className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
+                      <Calendar className="w-3.5 h-3.5 text-montsteel-blue" aria-hidden="true" />
                       {o.ano}
                     </span>
                   </div>
@@ -114,7 +115,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* CoberSteel no Brasil — atuação nacional */}
+      {/* MontSteel no Brasil — atuação nacional */}
       <section className="bg-white dark:bg-dark-mid py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -133,7 +134,7 @@ export default function PortfolioPage() {
             {regioes.map((r) => (
               <div key={r.nome} className="bg-light-bg dark:bg-dark-steel rounded-xl p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <MapPin className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
+                  <MapPin className="w-5 h-5 text-montsteel-gold" aria-hidden="true" />
                   <h3
                     className="font-black uppercase text-dark-steel dark:text-white text-lg font-display"
                   >
@@ -149,7 +150,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-16">
+      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#FFE3B8] dark:from-dark-steel dark:to-[#2E2000] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-3xl sm:text-4xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
@@ -164,15 +165,15 @@ export default function PortfolioPage() {
               href="/orcamento"
               trackName="solicitar_orcamento"
               trackLocation="portfolio_cta_final"
-              className="inline-block bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-amber-400 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
             </TrackedLink>
             <a
-              href="https://wa.me/5516997977613"
+              href={CONTACT_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase tracking-wide px-8 py-4 rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-dark-steel/10 dark:bg-white/10 text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-montsteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

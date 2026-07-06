@@ -8,7 +8,7 @@ export interface Norma {
     subtitulo: string;
     texto: string;
   }[];
-  aplicacaoCoberSteel: string;
+  aplicacaoMontSteel: string;
   pontosCriticos: string[];
 }
 
@@ -42,8 +42,8 @@ export const NORMAS: Norma[] = [
           "A terminologia e a classificação definidas aqui são o alicerce para a NBR 17010-2, que trata dos requisitos de projeto propriamente ditos. Sem essa padronização inicial, seria impossível redigir requisitos técnicos objetivos que se apliquem de forma consistente a diferentes fabricantes e projetos.",
       },
     ],
-    aplicacaoCoberSteel:
-      "A CoberSteel adota a terminologia e a classificação da NBR 17010-1 em toda a documentação técnica e comercial dos galpões de lona e do modelo híbrido CoberECOsteel, garantindo que a proposta, o memorial descritivo e o contrato usem exatamente os termos técnicos reconhecidos pelo mercado.",
+    aplicacaoMontSteel:
+      "A MontSteel adota a terminologia e a classificação da NBR 17010-1 em toda a documentação técnica e comercial dos galpões de lona e do modelo híbrido CoberECOsteel, garantindo que a proposta, o memorial descritivo e o contrato usem exatamente os termos técnicos reconhecidos pelo mercado.",
     pontosCriticos: [
       "Padroniza o vocabulário técnico entre fabricante, projetista e cliente",
       "Classifica as estruturas conforme sistema estrutural, tipo de membrana e finalidade de uso",
@@ -56,7 +56,7 @@ export const NORMAS: Norma[] = [
     codigo: "ABNT NBR 17010-2",
     titulo: "Estruturas Modulares Revestidas com Membranas Técnicas — Requisitos de Projeto",
     resumo:
-      "Define os requisitos técnicos de projeto para estruturas cobertas com membranas técnicas — a norma central que orienta o dimensionamento dos galpões de lona CoberSteel.",
+      "Define os requisitos técnicos de projeto para estruturas cobertas com membranas técnicas — a norma central que orienta o dimensionamento dos galpões de lona MontSteel.",
     categoria: "Estruturas com Membrana Técnica",
     conteudo: [
       {
@@ -80,8 +80,8 @@ export const NORMAS: Norma[] = [
           "A norma orienta os critérios de segurança e a expectativa de vida útil para esse tipo de estrutura, distinguindo uma instalação projetada e calculada de uma simples cobertura improvisada. Isso inclui recomendações de manutenção periódica da membrana e dos pontos de fixação, fundamentais para manter o desempenho da estrutura ao longo do tempo.",
       },
     ],
-    aplicacaoCoberSteel:
-      "Todo projeto de Galpão de Lona e do modelo Híbrido CoberECOsteel desenvolvido pela CoberSteel segue os requisitos da NBR 17010-2, combinados com o cálculo de cargas de vento da NBR 6123. Isso garante que a estrutura entregue atenda aos critérios normativos específicos para esse tipo de cobertura — algo que nem todos os fornecedores do mercado seguem.",
+    aplicacaoMontSteel:
+      "Todo projeto de Galpão de Lona e do modelo Híbrido CoberECOsteel desenvolvido pela MontSteel segue os requisitos da NBR 17010-2, combinados com o cálculo de cargas de vento da NBR 6123. Isso garante que a estrutura entregue atenda aos critérios normativos específicos para esse tipo de cobertura — algo que nem todos os fornecedores do mercado seguem.",
     pontosCriticos: [
       "Estabelece requisitos de projeto específicos para estruturas com membrana técnica, complementando normas gerais como a NBR 6123",
       "Exige verificação conjunta da resistência da membrana e da estrutura de sustentação",

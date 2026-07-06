@@ -19,7 +19,7 @@ export default function Error({
     <section className="relative min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-light-bg to-white dark:from-dark-steel dark:to-dark-mid px-4">
       <div className="text-center max-w-xl">
         <p
-          className="text-6xl sm:text-7xl font-black text-cobersteel-gold/30 mb-2 font-display"
+          className="text-6xl sm:text-7xl font-black text-montsteel-gold/30 mb-2 font-display"
         >
           OPS
         </p>
@@ -34,7 +34,7 @@ export default function Error({
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={reset}
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
           >
             <RotateCcw className="w-4 h-4" aria-hidden="true" />
             Tentar novamente

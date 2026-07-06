@@ -3,7 +3,7 @@ import TrackedLink from "@/components/shared/TrackedLink";
 import { Home, ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Página não encontrada | CoberSteel",
+  title: "Página não encontrada | MontSteel",
 };
 
 export default function NotFound() {
@@ -12,13 +12,13 @@ export default function NotFound() {
       {/* Chevron signature de fundo */}
       <div className="absolute inset-0 flex items-center justify-center opacity-[0.04]" aria-hidden="true">
         <svg width="600" height="240" viewBox="0 0 120 48">
-          <polyline points="0,48 60,0 120,48" fill="none" stroke="#5C88B5" strokeWidth="6" />
+          <polyline points="0,48 60,0 120,48" fill="none" stroke="#CC8000" strokeWidth="6" />
         </svg>
       </div>
 
       <div className="relative text-center max-w-xl">
         <p
-          className="text-[8rem] sm:text-[11rem] font-black leading-none text-cobersteel-blue/30 font-display"
+          className="text-[8rem] sm:text-[11rem] font-black leading-none text-montsteel-blue/30 font-display"
         >
           404
         </p>
@@ -33,7 +33,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <Link
             href="/"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
           >
             <Home className="w-4 h-4" aria-hidden="true" />
             Voltar para a Home

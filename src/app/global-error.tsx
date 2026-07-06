@@ -31,14 +31,14 @@ export default function GlobalError({
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0F1923",
+          background: "#1A1A1A",
           color: "#fff",
           textAlign: "center",
           padding: "24px",
         }}
       >
         <div style={{ maxWidth: 480 }}>
-          <p className={barlowCondensed.className} style={{ fontSize: 64, fontWeight: 800, color: "#5C88B5", margin: 0 }}>OPS</p>
+          <p className={barlowCondensed.className} style={{ fontSize: 64, fontWeight: 800, color: "#CC8000", margin: 0 }}>OPS</p>
           <h1 className={barlowCondensed.className} style={{ fontSize: 26, textTransform: "uppercase", marginTop: 8 }}>
             Algo deu errado
           </h1>
@@ -49,8 +49,8 @@ export default function GlobalError({
             onClick={() => reset()}
             style={{
               padding: "12px 28px",
-              background: "#D7A03B",
-              color: "#0F1923",
+              background: "#FFA500",
+              color: "#1A1A1A",
               fontWeight: 700,
               textTransform: "uppercase",
               border: "none",

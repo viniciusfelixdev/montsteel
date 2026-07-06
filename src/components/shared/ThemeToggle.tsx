@@ -27,7 +27,7 @@ export default function ThemeToggle({ className = "" }: { className?: string }) 
       type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label={isDark ? "Ativar tema claro" : "Ativar tema escuro"}
-      className={`flex items-center justify-center w-9 h-9 rounded-full border border-slate-300 dark:border-dark-border text-dark-steel/70 dark:text-white/80 hover:text-cobersteel-gold hover:border-cobersteel-gold transition-colors ${className}`}
+      className={`flex items-center justify-center w-9 h-9 rounded-full border border-slate-300 dark:border-dark-border text-dark-steel/70 dark:text-white/80 hover:text-montsteel-gold hover:border-montsteel-gold transition-colors ${className}`}
     >
       {isDark ? <Sun size={18} /> : <Moon size={18} />}
     </button>

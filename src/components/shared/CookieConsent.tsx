@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Cookie, X } from "lucide-react";
 
-export const CONSENT_KEY = "cobersteel-cookie-consent";
-export const CONSENT_EVENT = "cobersteel-consent-changed";
+export const CONSENT_KEY = "montsteel-cookie-consent";
+export const CONSENT_EVENT = "montsteel-consent-changed";
 // Nome da custom property lida por WhatsAppButton/ScrollToTop para se
 // empurrarem para cima enquanto o banner ocupa o canto inferior da tela.
 const BANNER_OFFSET_VAR = "--cookie-banner-h";
@@ -62,8 +62,8 @@ export default function CookieConsent() {
       className="fixed bottom-4 inset-x-4 sm:left-auto sm:right-6 sm:max-w-md z-50 bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border rounded-xl shadow-2xl p-5"
     >
       <div className="flex items-start gap-3 mb-3">
-        <div className="w-9 h-9 rounded-lg bg-cobersteel-gold/15 border border-cobersteel-gold/30 flex items-center justify-center flex-shrink-0">
-          <Cookie className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
+        <div className="w-9 h-9 rounded-lg bg-montsteel-gold/15 border border-montsteel-gold/30 flex items-center justify-center flex-shrink-0">
+          <Cookie className="w-5 h-5 text-montsteel-gold" aria-hidden="true" />
         </div>
         <div>
           <h2
@@ -73,7 +73,7 @@ export default function CookieConsent() {
           </h2>
           <p className="text-xs text-slate-600 dark:text-[#94A3B8] leading-relaxed">
             Usamos cookies para analisar o tráfego e melhorar sua experiência. Você pode aceitar ou recusar os cookies de análise. Saiba mais na nossa{" "}
-            <Link href="/institucional/privacidade" className="text-cobersteel-blue hover:underline">
+            <Link href="/institucional/privacidade" className="text-montsteel-blue hover:underline">
               Privacidade
             </Link>
             .
@@ -96,7 +96,7 @@ export default function CookieConsent() {
         </button>
         <button
           onClick={() => decide("accepted")}
-          className="flex-1 py-3.5 text-xs font-bold uppercase tracking-wide bg-cobersteel-gold text-dark-steel hover:bg-amber-400 rounded-lg transition-colors"
+          className="flex-1 py-3.5 text-xs font-bold uppercase tracking-wide bg-montsteel-gold text-dark-steel hover:bg-amber-400 rounded-lg transition-colors"
         >
           Aceitar
         </button>

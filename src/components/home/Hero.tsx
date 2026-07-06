@@ -23,7 +23,7 @@ export default function Hero() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0F0F0F]/75 via-[#0F0F0F]/55 to-[#0F0F0F]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A]/75 via-[#1A1A1A]/55 to-[#1A1A1A]" />
       </div>
 
 
@@ -52,13 +52,13 @@ export default function Hero() {
             <Link
               href="/orcamento"
               onClick={() => trackButtonClick("solicitar_orcamento", "hero")}
-              className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide rounded hover:bg-amber-400 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
             </Link>
             <Link
               href="#produtos"
-              className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/40 text-white font-semibold text-sm uppercase tracking-wide rounded hover:bg-white/10 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-bold text-sm uppercase rounded-lg hover:bg-white/20 transition-colors"
             >
               Conhecer Produtos
             </Link>

@@ -17,7 +17,7 @@ const NETWORKS: { key: keyof typeof ICONS; label: string; href: string }[] = [
 export default function SocialLinks({
   className = "",
   iconClassName = "w-4 h-4",
-  linkClassName = "text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold transition-colors",
+  linkClassName = "text-dark-steel/80 dark:text-white/80 hover:text-montsteel-gold transition-colors",
 }: {
   className?: string;
   iconClassName?: string;
@@ -31,7 +31,7 @@ export default function SocialLinks({
           href={n.href}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`${n.label} da CoberSteel`}
+          aria-label={`${n.label} da MontSteel`}
           className={linkClassName}
         >
           <svg viewBox="0 0 24 24" fill="currentColor" className={iconClassName} aria-hidden="true">

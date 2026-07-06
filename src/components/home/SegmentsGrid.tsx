@@ -82,24 +82,24 @@ export default function SegmentsGrid() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                         aria-hidden="true"
                       />
-                      <div className="absolute inset-0 bg-[#0F0F0F]/60 group-hover:bg-[#0F0F0F]/50 transition-colors" aria-hidden="true" />
+                      <div className="absolute inset-0 bg-[#1A1A1A]/60 group-hover:bg-[#1A1A1A]/50 transition-colors" aria-hidden="true" />
                     </>
                   )}
                   <div
                     className={`relative w-9 h-9 rounded-xl flex items-center justify-center transition-colors ${
                       bgImage
-                        ? "bg-white/15 group-hover:bg-cobersteel-blue"
-                        : "bg-cobersteel-blue/10 dark:bg-cobersteel-blue/15 group-hover:bg-cobersteel-blue"
+                        ? "bg-white/15 group-hover:bg-montsteel-blue"
+                        : "bg-montsteel-blue/10 dark:bg-montsteel-blue/15 group-hover:bg-montsteel-blue"
                     }`}
                   >
                     <Icon
-                      className={`w-4 h-4 transition-colors ${bgImage ? "text-white" : "text-cobersteel-blue"} group-hover:text-white`}
+                      className={`w-4 h-4 transition-colors ${bgImage ? "text-white" : "text-montsteel-blue"} group-hover:text-white`}
                       aria-hidden="true"
                     />
                   </div>
                   <span
                     className={`relative text-lg font-bold uppercase transition-colors font-display ${
-                      bgImage ? "text-white" : "text-dark-steel dark:text-white group-hover:text-cobersteel-blue"
+                      bgImage ? "text-white" : "text-dark-steel dark:text-white group-hover:text-montsteel-blue"
                     }`}
                   >
                     {seg.name}

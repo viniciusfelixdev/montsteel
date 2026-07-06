@@ -1,4 +1,4 @@
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, COMPANY_INFO } from "@/lib/constants";
 import { SITE_URL } from "@/lib/site";
 
 /**
@@ -9,28 +9,26 @@ export default function StructuredData() {
   const data = {
     "@context": "https://schema.org",
     "@type": "GeneralContractor",
-    name: "CoberSteel",
+    name: "MontSteel",
+    legalName: COMPANY_INFO.razaoSocial,
+    foundingDate: COMPANY_INFO.fundacao,
+    taxID: COMPANY_INFO.cnpj,
     description:
-      "Galpões e coberturas industriais para locação e venda. Projetos conforme normas ABNT, com mais de 25 anos de experiência.",
+      "Galpões e coberturas industriais para locação e venda. Projetos conforme normas ABNT.",
     url: SITE_URL,
     logo: `${SITE_URL}/icon.svg`,
     image: `${SITE_URL}/opengraph-image`,
     email: CONTACT_INFO.email,
-    telephone: "+551621200477",
+    telephone: "+" + CONTACT_INFO.whatsappLink.replace("https://wa.me/", ""),
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Rua Júlio Gonzaga, 317 - Distrito Industrial Antonio Guaraty",
+      streetAddress: "Prolongamento Júlio Gonzaga, nº 317 - Barracão Industrial - Parque Industrial Antônio Guará",
       addressLocality: "Ibaté",
       addressRegion: "SP",
+      postalCode: "14817-474",
       addressCountry: "BR",
     },
     areaServed: "BR",
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "18:00",
-    },
     sameAs: [CONTACT_INFO.instagram, CONTACT_INFO.youtube],
   };
 

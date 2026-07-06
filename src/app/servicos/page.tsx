@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CONTACT_INFO } from "@/lib/constants";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
@@ -16,9 +17,9 @@ type Servico = {
 };
 
 export const metadata: Metadata = {
-  title: "Serviços e Manutenções | CoberSteel — Galpões e Coberturas Industriais",
+  title: "Serviços e Manutenções | MontSteel — Galpões e Coberturas Industriais",
   description:
-    "Instalação, montagem, manutenção preventiva e corretiva, ampliações e deslocamento de galpões industriais. Equipe especializada CoberSteel em todo o Brasil.",
+    "Instalação, montagem, manutenção preventiva e corretiva, ampliações e deslocamento de galpões industriais. Equipe especializada MontSteel em todo o Brasil.",
   alternates: { canonical: "/servicos" },
 };
 
@@ -100,7 +101,7 @@ export default function ServicosPage() {
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Serviços" }]} />
           <Link
@@ -138,8 +139,8 @@ export default function ServicosPage() {
                 key={s.titulo}
                 className="bg-white dark:bg-dark-mid rounded-2xl p-10 flex items-start gap-5 min-h-[180px]"
               >
-                <div className="w-14 h-14 rounded-xl bg-cobersteel-blue/15 flex items-center justify-center flex-shrink-0">
-                  <s.icon className="w-7 h-7 text-cobersteel-blue" aria-hidden="true" />
+                <div className="w-14 h-14 rounded-xl bg-montsteel-blue/15 flex items-center justify-center flex-shrink-0">
+                  <s.icon className="w-7 h-7 text-montsteel-blue" aria-hidden="true" />
                 </div>
                 <div>
                   <div className="flex items-center flex-wrap gap-x-3 gap-y-1.5 mb-3">
@@ -149,7 +150,7 @@ export default function ServicosPage() {
                       {s.titulo}
                     </h3>
                     {s.badge && (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-cobersteel-gold bg-cobersteel-gold/10 px-2.5 py-1 rounded-full">
+                      <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide text-montsteel-gold bg-montsteel-gold/10 px-2.5 py-1 rounded-full">
                         <Zap className="w-3 h-3" aria-hidden="true" />
                         {s.badge}
                       </span>
@@ -177,7 +178,7 @@ export default function ServicosPage() {
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-4">
             {servicos.flatMap((s) => s.itens).map((item) => (
               <li key={item} className="flex items-start gap-2 text-[16px] text-slate-600 dark:text-[#94A3B8] leading-snug">
-                <CheckCircle2 className="w-4 h-4 text-cobersteel-gold/80 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                <CheckCircle2 className="w-4 h-4 text-montsteel-gold/80 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 {item}
               </li>
             ))}
@@ -186,7 +187,7 @@ export default function ServicosPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-20">
+      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#FFE3B8] dark:from-dark-steel dark:to-[#2E2000] py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
@@ -201,15 +202,15 @@ export default function ServicosPage() {
               href="/orcamento"
               trackName="solicitar_orcamento"
               trackLocation="servicos_cta_final"
-              className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
             </TrackedLink>
             <a
-              href="https://wa.me/5516997977613"
+              href={CONTACT_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-dark-steel/10 dark:bg-white/10 text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-dark-steel/10 dark:bg-white/10 text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-montsteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

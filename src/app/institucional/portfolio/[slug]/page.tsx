@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CONTACT_INFO } from "@/lib/constants";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
@@ -20,7 +21,7 @@ export async function generateMetadata({
   const caso = getPortfolioCase(slug);
   if (!caso) return {};
   return {
-    title: `${caso.titulo} | Portfólio CoberSteel`,
+    title: `${caso.titulo} | Portfólio MontSteel`,
     description: caso.resumo,
     alternates: { canonical: `/institucional/portfolio/${caso.slug}` },
   };
@@ -58,7 +59,7 @@ export default async function PortfolioCasePage({
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/80" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/80" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
@@ -86,7 +87,7 @@ export default async function PortfolioCasePage({
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             {meta.map(({ Icon, label, gold }) => (
               <span key={label} className="inline-flex items-center gap-2 text-sm text-white/80">
-                <Icon className={`w-4 h-4 ${gold ? "text-cobersteel-gold" : "text-cobersteel-blue"}`} aria-hidden="true" />
+                <Icon className={`w-4 h-4 ${gold ? "text-montsteel-gold" : "text-montsteel-blue"}`} aria-hidden="true" />
                 {label}
               </span>
             ))}
@@ -101,8 +102,8 @@ export default async function PortfolioCasePage({
             {/* Desafio */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-cobersteel-gold/20 flex items-center justify-center">
-                  <Target className="w-5 h-5 text-cobersteel-gold" aria-hidden="true" />
+                <div className="w-10 h-10 rounded-lg bg-montsteel-gold/20 flex items-center justify-center">
+                  <Target className="w-5 h-5 text-montsteel-gold" aria-hidden="true" />
                 </div>
                 <h2
                   className="text-3xl font-black uppercase text-dark-steel dark:text-white font-display"
@@ -120,8 +121,8 @@ export default async function PortfolioCasePage({
             {/* Solução */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-lg bg-cobersteel-blue/20 flex items-center justify-center">
-                  <CheckCircle2 className="w-5 h-5 text-cobersteel-blue" aria-hidden="true" />
+                <div className="w-10 h-10 rounded-lg bg-montsteel-blue/20 flex items-center justify-center">
+                  <CheckCircle2 className="w-5 h-5 text-montsteel-blue" aria-hidden="true" />
                 </div>
                 <h2
                   className="text-3xl font-black uppercase text-dark-steel dark:text-white font-display"
@@ -147,7 +148,7 @@ export default async function PortfolioCasePage({
               <h2
                 className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
               >
-                FICHA <span className="text-cobersteel-blue">TÉCNICA</span>
+                FICHA <span className="text-montsteel-blue">TÉCNICA</span>
               </h2>
               <div className="rounded-xl overflow-hidden border border-slate-200 dark:border-dark-border">
                 {caso.specs.map((s, i) => (
@@ -170,7 +171,7 @@ export default async function PortfolioCasePage({
                 <h2
                   className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-8 font-display"
                 >
-                  SOLUÇÃO <span className="text-cobersteel-blue">APLICADA</span>
+                  SOLUÇÃO <span className="text-montsteel-blue">APLICADA</span>
                 </h2>
                 <div className="bg-white dark:bg-dark-mid rounded-xl p-8">
                   <h3
@@ -181,7 +182,7 @@ export default async function PortfolioCasePage({
                   <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] mb-6">{produto.tagline}</p>
                   <Link
                     href={`/produtos/${produto.slug}`}
-                    className="inline-flex items-center gap-2 border border-cobersteel-blue text-cobersteel-blue text-sm font-semibold px-5 py-3 rounded-lg hover:bg-cobersteel-blue hover:text-white transition-all"
+                    className="inline-flex items-center gap-2 border border-montsteel-blue text-montsteel-blue text-sm font-semibold px-5 py-3 rounded-lg hover:bg-montsteel-blue hover:text-white transition-all"
                   >
                     Ver produto <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </Link>
@@ -197,7 +198,7 @@ export default async function PortfolioCasePage({
         <section className="bg-white dark:bg-dark-mid py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <figure className="bg-light-bg dark:bg-dark-steel rounded-2xl p-10 sm:p-12">
-              <Quote className="w-10 h-10 text-cobersteel-blue/40 mb-6" aria-hidden="true" />
+              <Quote className="w-10 h-10 text-montsteel-blue/40 mb-6" aria-hidden="true" />
               <blockquote
                 className="text-2xl sm:text-3xl text-dark-steel dark:text-white leading-snug mb-6 text-balance font-display"
               >
@@ -214,7 +215,7 @@ export default async function PortfolioCasePage({
       )}
 
       {/* CTA final */}
-      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-16">
+      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#FFE3B8] dark:from-dark-steel dark:to-[#2E2000] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-4xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
@@ -229,15 +230,15 @@ export default async function PortfolioCasePage({
               href="/orcamento"
               trackName="solicitar_orcamento"
               trackLocation="portfolio_detalhe_cta_final"
-              className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               Solicitar Orçamento
             </TrackedLink>
             <a
-              href="https://wa.me/5516997977613"
+              href={CONTACT_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-dark-steel/10 dark:bg-white/10 text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-montsteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

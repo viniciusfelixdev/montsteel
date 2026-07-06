@@ -66,7 +66,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
     <section
       className="bg-light-bg dark:bg-dark-steel py-16 overflow-hidden"
       aria-labelledby={showTitle ? "clientes-titulo" : undefined}
-      aria-label={showTitle ? undefined : "Empresas que confiam na CoberSteel"}
+      aria-label={showTitle ? undefined : "Empresas que confiam na MontSteel"}
     >
       {showTitle && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -80,7 +80,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
               id="clientes-titulo"
               className="text-3xl font-black uppercase text-dark-steel dark:text-white font-display"
             >
-              EMPRESAS QUE CONFIAM NA COBERSTEEL
+              EMPRESAS QUE CONFIAM NA MONTSTEEL
             </h2>
             <p className="mt-3 text-sm text-slate-600 dark:text-[#94A3B8]">
               Soluções para os maiores players da indústria nacional
@@ -104,7 +104,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
           type="button"
           onClick={() => nudge(-1)}
           aria-label="Logos anteriores"
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-dark-mid/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-dark-mid/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-montsteel-blue hover:border-montsteel-blue transition-colors"
         >
           <ChevronLeft className="w-5 h-5" aria-hidden="true" />
         </button>
@@ -112,7 +112,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
           type="button"
           onClick={() => nudge(1)}
           aria-label="Próximos logos"
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-dark-mid/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-cobersteel-blue hover:border-cobersteel-blue transition-colors"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 dark:bg-dark-mid/90 border border-slate-200 dark:border-dark-border text-dark-steel dark:text-white flex items-center justify-center shadow-lg hover:bg-montsteel-blue hover:border-montsteel-blue transition-colors"
         >
           <ChevronRight className="w-5 h-5" aria-hidden="true" />
         </button>

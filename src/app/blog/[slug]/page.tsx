@@ -29,7 +29,7 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return {};
   return {
-    title: `${stripHtml(post.title.rendered)} | Blog CoberSteel`,
+    title: `${stripHtml(post.title.rendered)} | Blog MontSteel`,
     description: stripHtml(post.excerpt.rendered),
     alternates: { canonical: `/blog/${slug}` },
   };
@@ -66,7 +66,7 @@ export default async function BlogPostPage({
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/80" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/80" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
@@ -84,7 +84,7 @@ export default async function BlogPostPage({
             Blog
           </Link>
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-xs font-bold font-mono px-3 py-1 rounded border text-cobersteel-blue border-cobersteel-blue/40 bg-cobersteel-blue/10 uppercase">
+            <span className="text-xs font-bold font-mono px-3 py-1 rounded border text-montsteel-blue border-montsteel-blue/40 bg-montsteel-blue/10 uppercase">
               {categoria}
             </span>
             <span className="flex items-center gap-1.5 text-xs text-[#94A3B8]">
@@ -122,7 +122,7 @@ export default async function BlogPostPage({
                   href="/orcamento"
                   articleSlug={slug}
                   ctaLocation="inline_body"
-                  className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+                  className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
                 >
                   Solicitar Orçamento
                 </BlogCTALink>
@@ -148,9 +148,9 @@ export default async function BlogPostPage({
                             <Image src={getFeaturedImage(r)} alt={stripHtml(r.title.rendered)} fill className="object-cover" sizes="56px" />
                           </div>
                           <div className="flex-1">
-                            <p className="text-xs font-semibold text-cobersteel-blue mb-1">{getCategoryName(r)}</p>
+                            <p className="text-xs font-semibold text-montsteel-blue mb-1">{getCategoryName(r)}</p>
                             <p
-                              className="text-sm text-dark-steel dark:text-white group-hover:text-cobersteel-gold transition-colors leading-snug line-clamp-2"
+                              className="text-sm text-dark-steel dark:text-white group-hover:text-montsteel-gold transition-colors leading-snug line-clamp-2"
                               dangerouslySetInnerHTML={{ __html: sanitizeTitle(r.title.rendered) }}
                             />
                           </div>
@@ -176,7 +176,7 @@ export default async function BlogPostPage({
                           href={`/blog/${p.slug}`}
                           className="group flex items-center gap-2 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors"
                         >
-                          <Tag className="w-3 h-3 text-cobersteel-gold flex-shrink-0" aria-hidden="true" />
+                          <Tag className="w-3 h-3 text-montsteel-gold flex-shrink-0" aria-hidden="true" />
                           <span
                             className="line-clamp-1"
                             dangerouslySetInnerHTML={{ __html: sanitizeTitle(p.title.rendered) }}
@@ -189,7 +189,7 @@ export default async function BlogPostPage({
               )}
 
               {/* CTA */}
-              <div className="bg-cobersteel-blue rounded-xl p-6 text-center">
+              <div className="bg-montsteel-blue rounded-xl p-6 text-center">
                 <h3
                   className="text-xl font-black uppercase text-white mb-3 font-display"
                 >
@@ -202,7 +202,7 @@ export default async function BlogPostPage({
                   href="/orcamento"
                   articleSlug={slug}
                   ctaLocation="sidebar"
-                  className="block w-full py-3 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+                  className="block w-full py-3 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
                 >
                   Solicitar Orçamento
                 </BlogCTALink>

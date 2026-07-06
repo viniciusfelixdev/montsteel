@@ -48,7 +48,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const fieldClass =
-  "w-full bg-light-bg dark:bg-dark-steel border border-slate-300 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#64748B] focus:outline-none focus:border-cobersteel-blue transition-colors";
+  "w-full bg-light-bg dark:bg-dark-steel border border-slate-300 dark:border-dark-border rounded-lg px-4 py-3 text-sm text-dark-steel dark:text-white placeholder-slate-400 dark:placeholder-[#64748B] focus:outline-none focus:border-montsteel-blue transition-colors";
 
 const labelClass = "block text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-[#94A3B8] mb-1.5";
 
@@ -178,7 +178,7 @@ export default function OrcamentoForm() {
             trackedAbandonFields.current.clear();
             setSubmitted(false);
           }}
-          className="text-cobersteel-blue text-sm hover:underline"
+          className="text-montsteel-blue text-sm hover:underline"
         >
           Enviar nova solicitação
         </button>
@@ -209,7 +209,7 @@ export default function OrcamentoForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="nome" className={labelClass}>
-            Nome completo <span className="text-cobersteel-gold">*</span>
+            Nome completo <span className="text-montsteel-gold">*</span>
           </label>
           <input
             id="nome"
@@ -229,7 +229,7 @@ export default function OrcamentoForm() {
         </div>
         <div>
           <label htmlFor="email" className={labelClass}>
-            E-mail <span className="text-cobersteel-gold">*</span>
+            E-mail <span className="text-montsteel-gold">*</span>
           </label>
           <input
             id="email"
@@ -253,7 +253,7 @@ export default function OrcamentoForm() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label htmlFor="telefone" className={labelClass}>
-            Telefone / WhatsApp <span className="text-cobersteel-gold">*</span>
+            Telefone / WhatsApp <span className="text-montsteel-gold">*</span>
           </label>
           <input
             id="telefone"
@@ -273,7 +273,7 @@ export default function OrcamentoForm() {
         </div>
         <div>
           <label htmlFor="empresa" className={labelClass}>
-            Empresa <span className="text-cobersteel-gold">*</span>
+            Empresa <span className="text-montsteel-gold">*</span>
           </label>
           <input
             id="empresa"
@@ -383,7 +383,7 @@ export default function OrcamentoForm() {
         <label className="flex items-start gap-3 cursor-pointer">
           <input
             type="checkbox"
-            className="mt-0.5 w-4 h-4 rounded border-slate-300 dark:border-dark-border bg-light-bg dark:bg-dark-steel accent-cobersteel-blue"
+            className="mt-0.5 w-4 h-4 rounded border-slate-300 dark:border-dark-border bg-light-bg dark:bg-dark-steel accent-montsteel-blue"
             aria-required="true"
             aria-invalid={!!errors.lgpd}
             {...register("lgpd")}
@@ -392,13 +392,13 @@ export default function OrcamentoForm() {
             Li e concordo com a{" "}
             <a
               href="/institucional/privacidade"
-              className="text-cobersteel-blue hover:underline"
+              className="text-montsteel-blue hover:underline"
               target="_blank"
             >
               Privacidade
             </a>{" "}
-            da CoberSteel e autorizo o uso dos meus dados para contato.{" "}
-            <span className="text-cobersteel-gold">*</span>
+            da MontSteel e autorizo o uso dos meus dados para contato.{" "}
+            <span className="text-montsteel-gold">*</span>
           </span>
         </label>
         {errors.lgpd && (
@@ -413,7 +413,7 @@ export default function OrcamentoForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide rounded-lg hover:bg-amber-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+        className="w-full py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase tracking-wide rounded-lg hover:bg-amber-400 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {isSubmitting ? "Enviando..." : "Solicitar Orçamento Gratuito"}
       </button>

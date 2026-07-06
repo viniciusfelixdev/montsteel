@@ -10,7 +10,7 @@ Gestores industriais, logísticos e de compras em empresas B2B nos setores de ag
 
 ## Product Purpose
 
-Site institucional e comercial da CoberSteel (galpões de lona, metálicos, híbridos, mezaninos, projetos especiais e niveladoras de doca). Existe para gerar leads qualificados via formulário de orçamento e WhatsApp, comunicar mais de 25 anos de experiência e conformidade técnica (ABNT), e posicionar a marca acima da média do setor — que historicamente usa sites pesados, antiquados e genéricos. Sucesso = solicitações de orçamento qualificadas e percepção de solidez/confiança na primeira impressão.
+Site institucional e comercial da MontSteel (galpões de lona, metálicos, híbridos, mezaninos, projetos especiais e niveladoras de doca). Existe para gerar leads qualificados via formulário de orçamento e WhatsApp, comunicar mais de 25 anos de experiência e conformidade técnica (ABNT), e posicionar a marca acima da média do setor — que historicamente usa sites pesados, antiquados e genéricos. Sucesso = solicitações de orçamento qualificadas e percepção de solidez/confiança na primeira impressão.
 
 ## Brand Personality
 
@@ -18,7 +18,7 @@ Robusto, preciso, confiável. Industrial mas moderno — não deve parecer gené
 
 ## Anti-references
 
-Sites do setor de galpões/coberturas industriais em geral: visualmente pesados, antiquados, genéricos, sem hierarquia clara, sem identidade de marca forte. A CoberSteel deve se diferenciar precisamente por não parecer "mais um site do setor".
+Sites do setor de galpões/coberturas industriais em geral: visualmente pesados, antiquados, genéricos, sem hierarquia clara, sem identidade de marca forte. A MontSteel deve se diferenciar precisamente por não parecer "mais um site do setor".
 
 ## Design Principles
 

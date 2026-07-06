@@ -74,7 +74,7 @@ export default function StatsGrid() {
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
         >
           <stat.Icon
-            className="w-8 h-8 text-cobersteel-blue mb-4"
+            className="w-8 h-8 text-montsteel-blue mb-4"
             strokeWidth={1.25}
             aria-hidden="true"
           />

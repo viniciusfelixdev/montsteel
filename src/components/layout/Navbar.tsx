@@ -86,10 +86,10 @@ export default function Navbar() {
         aria-label="Navegação principal"
       >
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0" aria-label="CoberSteel — Página inicial">
+        <Link href="/" className="flex-shrink-0" aria-label="MontSteel — Página inicial">
           <Image
             src={useDarkText ? "/logo-escura.svg" : "/logo-branca.svg"}
-            alt="CoberSteel"
+            alt="MontSteel"
             width={155}
             height={94}
             priority
@@ -103,7 +103,7 @@ export default function Navbar() {
           <div ref={productsRef} className="relative">
             <button
               onClick={() => { setProductsOpen(!productsOpen); setSegmentsOpen(false); }}
-              className={`flex items-center gap-1 text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
+              className={`flex items-center gap-1 text-sm font-medium hover:text-montsteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               aria-expanded={productsOpen}
               aria-haspopup="true"
             >
@@ -116,7 +116,7 @@ export default function Navbar() {
                     key={p.href}
                     href={p.href}
                     onClick={() => setProductsOpen(false)}
-                    className="block px-4 py-2.5 text-sm text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold hover:bg-light-bg dark:hover:bg-dark-steel transition-colors"
+                    className="block px-4 py-2.5 text-sm text-dark-steel/80 dark:text-white/80 hover:text-montsteel-gold hover:bg-light-bg dark:hover:bg-dark-steel transition-colors"
                   >
                     {p.label}
                   </Link>
@@ -129,7 +129,7 @@ export default function Navbar() {
           <div ref={segmentsRef} className="relative">
             <button
               onClick={() => { setSegmentsOpen(!segmentsOpen); setProductsOpen(false); }}
-              className={`flex items-center gap-1 text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
+              className={`flex items-center gap-1 text-sm font-medium hover:text-montsteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               aria-expanded={segmentsOpen}
               aria-haspopup="true"
             >
@@ -143,7 +143,7 @@ export default function Navbar() {
                       key={s.slug}
                       href={`/segmentos/${s.slug}`}
                       onClick={() => setSegmentsOpen(false)}
-                      className="block px-3 py-2 text-sm text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold hover:bg-light-bg dark:hover:bg-dark-steel rounded transition-colors"
+                      className="block px-3 py-2 text-sm text-dark-steel/80 dark:text-white/80 hover:text-montsteel-gold hover:bg-light-bg dark:hover:bg-dark-steel rounded transition-colors"
                     >
                       {s.name}
                     </Link>
@@ -157,7 +157,7 @@ export default function Navbar() {
           <div ref={instRef} className="relative">
             <button
               onClick={() => { setInstOpen(!instOpen); setProductsOpen(false); setSegmentsOpen(false); }}
-              className={`flex items-center gap-1 text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
+              className={`flex items-center gap-1 text-sm font-medium hover:text-montsteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               aria-expanded={instOpen}
               aria-haspopup="true"
             >
@@ -170,7 +170,7 @@ export default function Navbar() {
                     key={i.href}
                     href={i.href}
                     onClick={() => setInstOpen(false)}
-                    className="block px-4 py-2.5 text-sm text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold hover:bg-light-bg dark:hover:bg-dark-steel transition-colors"
+                    className="block px-4 py-2.5 text-sm text-dark-steel/80 dark:text-white/80 hover:text-montsteel-gold hover:bg-light-bg dark:hover:bg-dark-steel transition-colors"
                   >
                     {i.label}
                   </Link>
@@ -186,7 +186,7 @@ export default function Navbar() {
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
+                className={`text-sm font-medium hover:text-montsteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               >
                 {l.label}
               </a>
@@ -194,7 +194,7 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`text-sm font-medium hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
+                className={`text-sm font-medium hover:text-montsteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               >
                 {l.label}
               </Link>
@@ -205,7 +205,7 @@ export default function Navbar() {
           <div className={`w-px h-5 ${useDarkText ? "bg-dark-steel/20" : "bg-white/20"}`} aria-hidden="true" />
           <SocialLinks
             className="flex items-center gap-3"
-            linkClassName={`hover:text-cobersteel-gold transition-colors ${useDarkText ? "text-dark-steel/80" : "text-white/80"}`}
+            linkClassName={`hover:text-montsteel-gold transition-colors ${useDarkText ? "text-dark-steel/80" : "text-white/80"}`}
           />
           <ThemeToggle />
         </div>
@@ -215,7 +215,7 @@ export default function Navbar() {
           <Link
             href="/orcamento"
             onClick={() => trackButtonClick("solicitar_orcamento", "navbar_desktop")}
-            className="bg-cobersteel-gold text-dark-steel font-semibold text-sm px-5 py-2.5 rounded hover:bg-amber-400 transition-colors uppercase tracking-wide"
+            className="bg-montsteel-gold text-dark-steel font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-amber-400 transition-colors uppercase"
           >
             Solicitar Orçamento
           </Link>
@@ -237,8 +237,8 @@ export default function Navbar() {
         <div className="lg:hidden fixed inset-0 z-50 bg-light-bg dark:bg-dark-steel flex flex-col">
           <div className="flex items-center justify-between px-4 h-16 border-b border-slate-200 dark:border-dark-border">
             <Link href="/" onClick={() => setMobileOpen(false)}>
-              <Image src="/logo-escura.svg" alt="CoberSteel" width={58} height={35} className="h-9 w-auto dark:hidden" />
-              <Image src="/logo-branca.svg" alt="CoberSteel" width={58} height={35} className="h-9 w-auto hidden dark:block" />
+              <Image src="/logo-escura.svg" alt="MontSteel" width={58} height={35} className="h-9 w-auto dark:hidden" />
+              <Image src="/logo-branca.svg" alt="MontSteel" width={58} height={35} className="h-9 w-auto hidden dark:block" />
             </Link>
             <div className="flex items-center gap-2">
               <ThemeToggle />
@@ -248,39 +248,39 @@ export default function Navbar() {
             </div>
           </div>
           <nav className="flex-1 overflow-y-auto py-6 px-4 space-y-1">
-            <p className="text-xs uppercase tracking-widest text-cobersteel-silver mb-2 px-3">Produtos</p>
+            <p className="text-xs uppercase tracking-widest text-montsteel-silver mb-2 px-3">Produtos</p>
             {NAV_PRODUCTS.map((p) => (
               <Link
                 key={p.href}
                 href={p.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
+                className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-montsteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
               >
                 {p.label}
               </Link>
             ))}
             <div className="border-t border-slate-200 dark:border-dark-border my-4" />
-            <p className="text-xs uppercase tracking-widest text-cobersteel-silver mb-2 px-3">Segmentos</p>
+            <p className="text-xs uppercase tracking-widest text-montsteel-silver mb-2 px-3">Segmentos</p>
             <div className="grid grid-cols-2 gap-1">
               {SEGMENTS.map((s) => (
                 <Link
                   key={s.slug}
                   href={`/segmentos/${s.slug}`}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-2 text-sm text-dark-steel/80 dark:text-white/80 hover:text-cobersteel-gold rounded hover:bg-white dark:hover:bg-dark-mid transition-colors"
+                  className="block px-3 py-2 text-sm text-dark-steel/80 dark:text-white/80 hover:text-montsteel-gold rounded hover:bg-white dark:hover:bg-dark-mid transition-colors"
                 >
                   {s.name}
                 </Link>
               ))}
             </div>
             <div className="border-t border-slate-200 dark:border-dark-border my-4" />
-            <p className="text-xs uppercase tracking-widest text-cobersteel-silver mb-2 px-3">Institucional</p>
+            <p className="text-xs uppercase tracking-widest text-montsteel-silver mb-2 px-3">Institucional</p>
             {NAV_INSTITUCIONAL.map((i) => (
               <Link
                 key={i.href}
                 href={i.href}
                 onClick={() => setMobileOpen(false)}
-                className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
+                className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-montsteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
               >
                 {i.label}
               </Link>
@@ -294,7 +294,7 @@ export default function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
+                  className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-montsteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
                 >
                   {l.label}
                 </a>
@@ -303,7 +303,7 @@ export default function Navbar() {
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-cobersteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
+                  className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-montsteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -316,7 +316,7 @@ export default function Navbar() {
                   trackButtonClick("solicitar_orcamento", "navbar_mobile");
                   setMobileOpen(false);
                 }}
-                className="block w-full text-center bg-cobersteel-gold text-dark-steel font-semibold py-3 rounded uppercase tracking-wide hover:bg-amber-400 transition-colors"
+                className="block w-full text-center bg-montsteel-gold text-dark-steel font-bold text-sm py-3 rounded-lg uppercase hover:bg-amber-400 transition-colors"
               >
                 Solicitar Orçamento
               </Link>

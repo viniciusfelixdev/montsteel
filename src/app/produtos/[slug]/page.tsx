@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CONTACT_INFO } from "@/lib/constants";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +24,7 @@ export async function generateMetadata({
   const product = getProduct(slug);
   if (!product) return {};
   return {
-    title: `${product.name} | CoberSteel — Galpões e Coberturas Industriais`,
+    title: `${product.name} | MontSteel — Galpões e Coberturas Industriais`,
     description: product.metaDescription ?? product.tagline,
     alternates: { canonical: `/produtos/${product.slug}` },
   };
@@ -51,7 +52,7 @@ export default async function ProdutoPage({
     description: product.metaDescription ?? product.tagline,
     image: `${SITE_URL}${product.img}`,
     url: `${SITE_URL}/produtos/${product.slug}`,
-    brand: { "@type": "Brand", name: "CoberSteel" },
+    brand: { "@type": "Brand", name: "MontSteel" },
     category: "Galpões e coberturas industriais",
   };
 
@@ -65,13 +66,13 @@ export default async function ProdutoPage({
       <section className="relative pt-32 pb-20 overflow-hidden">
         <Image
           src={product.img}
-          alt={`${product.name} — CoberSteel`}
+          alt={`${product.name} — MontSteel`}
           fill
           priority
           sizes="100vw"
           className="object-cover"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -112,8 +113,8 @@ export default async function ProdutoPage({
           >
             {product.name}
           </h1>
-          <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-cobersteel-gold uppercase tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold" aria-hidden="true" />
+          <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-montsteel-gold uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-montsteel-gold" aria-hidden="true" />
             Desenvolvid{product.feminino ? "a" : "o"}{product.plural ? "s" : ""} sob medida para você
           </p>
         </div>
@@ -128,7 +129,7 @@ export default async function ProdutoPage({
                 className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-6 font-display"
               >
                 O QUE {product.plural ? "SÃO" : "É"} {product.plural ? (product.feminino ? "AS" : "OS") : (product.feminino ? "A" : "O")}{" "}
-                <span className="text-cobersteel-blue">{product.name.toUpperCase()}</span>
+                <span className="text-montsteel-blue">{product.name.toUpperCase()}</span>
               </h2>
               {product.descricao.map((p, i) => (
                 <p key={i} className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed">{p}</p>
@@ -151,7 +152,7 @@ export default async function ProdutoPage({
             {/* Aplicações */}
             <div className="bg-white dark:bg-dark-mid p-8 lg:p-10">
               <div className="flex items-center gap-3 mb-6">
-                <span className="w-1 h-6 rounded-full bg-cobersteel-blue flex-shrink-0" aria-hidden="true" />
+                <span className="w-1 h-6 rounded-full bg-montsteel-blue flex-shrink-0" aria-hidden="true" />
                 <h2
                   className="text-xl font-black uppercase text-dark-steel dark:text-white tracking-wide font-display"
                 >
@@ -162,7 +163,7 @@ export default async function ProdutoPage({
                 {product.aplicacoes.map((a) => (
                   <li key={a} className="flex items-start gap-3 text-[16px] text-slate-600 dark:text-[#94A3B8]">
                     <span className="flex items-center h-6 flex-shrink-0">
-                      <ArrowRight className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
+                      <ArrowRight className="w-3.5 h-3.5 text-montsteel-blue" aria-hidden="true" />
                     </span>
                     {a}
                   </li>
@@ -173,7 +174,7 @@ export default async function ProdutoPage({
             {/* Vantagens */}
             <div className="bg-white dark:bg-dark-mid p-8 lg:p-10">
               <div className="flex items-center gap-3 mb-6">
-                <span className="w-1 h-6 rounded-full bg-cobersteel-gold flex-shrink-0" aria-hidden="true" />
+                <span className="w-1 h-6 rounded-full bg-montsteel-gold flex-shrink-0" aria-hidden="true" />
                 <h2
                   className="text-xl font-black uppercase text-dark-steel dark:text-white tracking-wide font-display"
                 >
@@ -184,7 +185,7 @@ export default async function ProdutoPage({
                 {product.vantagens.map((v) => (
                   <li key={v.titulo} className="flex items-start gap-3 text-[16px] text-slate-600 dark:text-[#94A3B8]">
                     <span className="flex items-center h-6 flex-shrink-0">
-                      <ArrowRight className="w-3.5 h-3.5 text-cobersteel-gold" aria-hidden="true" />
+                      <ArrowRight className="w-3.5 h-3.5 text-montsteel-gold" aria-hidden="true" />
                     </span>
                     {v.titulo}
                   </li>
@@ -195,7 +196,7 @@ export default async function ProdutoPage({
             {/* Especificações Técnicas */}
             <div className="bg-white dark:bg-dark-mid p-8 lg:p-10">
               <div className="flex items-center gap-3 mb-6">
-                <span className="w-1 h-6 rounded-full bg-cobersteel-silver flex-shrink-0" aria-hidden="true" />
+                <span className="w-1 h-6 rounded-full bg-montsteel-silver flex-shrink-0" aria-hidden="true" />
                 <h2
                   className="text-xl font-black uppercase text-dark-steel dark:text-white tracking-wide font-display"
                 >
@@ -217,7 +218,7 @@ export default async function ProdutoPage({
       </section>
 
       {/* CTA final */}
-      <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-16">
+      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#FFE3B8] dark:from-dark-steel dark:to-[#2E2000] py-16">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             className="text-4xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
@@ -232,15 +233,15 @@ export default async function ProdutoPage({
               href={`/orcamento?produto=${product.orcamentoValue}${originSegment ? `&segmento=${originSegment.slug}` : ""}`}
               trackName={product.ctaLabel}
               trackLocation="produto_cta_final"
-              className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded hover:bg-amber-400 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >
               {product.ctaLabel}
             </TrackedLink>
             <a
-              href="https://wa.me/5516997977613"
+              href={CONTACT_INFO.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-dark-steel dark:border-white text-dark-steel dark:text-white font-bold text-sm uppercase rounded hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-cobersteel-blue transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-dark-steel/10 dark:bg-white/10 text-dark-steel dark:text-white font-bold text-sm uppercase rounded-lg hover:bg-dark-steel dark:hover:bg-white hover:text-white dark:hover:text-montsteel-blue transition-colors"
             >
               Falar no WhatsApp
             </a>

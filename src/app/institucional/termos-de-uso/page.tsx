@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { CONTACT_INFO } from "@/lib/constants";
+import { CONTACT_INFO, COMPANY_INFO } from "@/lib/constants";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Termos de Uso | CoberSteel",
+  title: "Termos de Uso | MontSteel",
   description:
-    "Condições de uso do site da CoberSteel: regras de utilização, propriedade intelectual, limitação de responsabilidade e foro aplicável.",
+    "Condições de uso do site da MontSteel: regras de utilização, propriedade intelectual, limitação de responsabilidade e foro aplicável.",
   alternates: { canonical: "/institucional/termos-de-uso" },
 };
 
@@ -22,15 +22,15 @@ type Secao = {
 const sections: Secao[] = [
   {
     titulo: "1. Aceitação dos Termos",
-    conteudo: `Ao acessar e utilizar o site da CoberSteel, você concorda integralmente com estes Termos de Uso. Caso não concorde com qualquer disposição aqui prevista, recomendamos que não utilize este site.`,
+    conteudo: `Ao acessar e utilizar o site da MontSteel, você concorda integralmente com estes Termos de Uso. Caso não concorde com qualquer disposição aqui prevista, recomendamos que não utilize este site.`,
   },
   {
     titulo: "2. Sobre o site",
-    conteudo: `Este site tem finalidade institucional e comercial: apresentar os produtos e serviços da CoberSteel (galpões de lona, metálicos, híbridos, mezaninos, projetos especiais e niveladoras de doca), permitir o envio de solicitações de orçamento e disponibilizar conteúdo técnico e informativo sobre infraestrutura industrial.`,
+    conteudo: `Este site tem finalidade institucional e comercial: apresentar os produtos e serviços da MontSteel (galpões de lona, metálicos, híbridos, mezaninos, projetos especiais e niveladoras de doca), permitir o envio de solicitações de orçamento e disponibilizar conteúdo técnico e informativo sobre infraestrutura industrial.`,
   },
   {
     titulo: "3. Uso permitido",
-    conteudo: `Você pode navegar e utilizar este site para fins lícitos, relacionados à avaliação e contratação dos produtos e serviços da CoberSteel. Não é permitido:`,
+    conteudo: `Você pode navegar e utilizar este site para fins lícitos, relacionados à avaliação e contratação dos produtos e serviços da MontSteel. Não é permitido:`,
     itens: [
       { label: "Uso indevido", texto: "Utilizar o site de forma que possa danificar, sobrecarregar ou comprometer seu funcionamento ou segurança." },
       { label: "Acesso não autorizado", texto: "Tentar acessar áreas restritas, sistemas ou dados sem autorização." },
@@ -40,7 +40,7 @@ const sections: Secao[] = [
   },
   {
     titulo: "4. Propriedade intelectual",
-    conteudo: `Todo o conteúdo deste site — incluindo textos, imagens, logotipos, marca, layout, código-fonte e materiais técnicos — é de propriedade da CoberSteel ou licenciado para seu uso, e está protegido pela legislação brasileira de direitos autorais e propriedade industrial. É proibida a reprodução, distribuição ou uso comercial de qualquer conteúdo deste site sem autorização prévia e por escrito da CoberSteel.`,
+    conteudo: `Todo o conteúdo deste site — incluindo textos, imagens, logotipos, marca, layout, código-fonte e materiais técnicos — é de propriedade da MontSteel ou licenciado para seu uso, e está protegido pela legislação brasileira de direitos autorais e propriedade industrial. É proibida a reprodução, distribuição ou uso comercial de qualquer conteúdo deste site sem autorização prévia e por escrito da MontSteel.`,
   },
   {
     titulo: "5. Orçamentos e propostas comerciais",
@@ -52,11 +52,11 @@ const sections: Secao[] = [
   },
   {
     titulo: "7. Limitação de responsabilidade",
-    conteudo: `A CoberSteel envida esforços para manter as informações deste site atualizadas e corretas, mas não garante a ausência total de erros, imprecisões ou indisponibilidades temporárias. A CoberSteel não se responsabiliza por danos decorrentes do uso ou da impossibilidade de uso deste site, incluindo interrupções, falhas técnicas ou ações de terceiros, ressalvados os casos previstos em lei.`,
+    conteudo: `A MontSteel envida esforços para manter as informações deste site atualizadas e corretas, mas não garante a ausência total de erros, imprecisões ou indisponibilidades temporárias. A MontSteel não se responsabiliza por danos decorrentes do uso ou da impossibilidade de uso deste site, incluindo interrupções, falhas técnicas ou ações de terceiros, ressalvados os casos previstos em lei.`,
   },
   {
     titulo: "8. Links para sites de terceiros",
-    conteudo: `Este site pode conter links para sites de terceiros (redes sociais, parceiros, WordPress do blog). A CoberSteel não se responsabiliza pelo conteúdo, pelas políticas de privacidade ou pelas práticas desses sites externos.`,
+    conteudo: `Este site pode conter links para sites de terceiros (redes sociais, parceiros, WordPress do blog). A MontSteel não se responsabiliza pelo conteúdo, pelas políticas de privacidade ou pelas práticas desses sites externos.`,
   },
   {
     titulo: "9. Privacidade e proteção de dados",
@@ -69,11 +69,11 @@ const sections: Secao[] = [
   },
   {
     titulo: "11. Legislação e foro aplicável",
-    conteudo: `Estes Termos de Uso são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da comarca de Ibaté/SP para dirimir quaisquer controvérsias decorrentes destes Termos, com renúncia expressa a qualquer outro, por mais privilegiado que seja.`,
+    conteudo: `Estes Termos de Uso são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da comarca da sede da MontSteel para dirimir quaisquer controvérsias decorrentes destes Termos, com renúncia expressa a qualquer outro, por mais privilegiado que seja.`,
   },
   {
     titulo: "12. Contato",
-    conteudo: `Para dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail contato@cobersteel.com.br ou pelo telefone (16) 2120-0477.`,
+    conteudo: `Para dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail ${CONTACT_INFO.email} ou pelo telefone ${CONTACT_INFO.phone1}.`,
   },
 ];
 
@@ -91,7 +91,7 @@ export default function TermosDeUsoPage() {
           }}
           aria-hidden="true"
         />
-        <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Termos de Uso" }]} />
@@ -111,7 +111,7 @@ export default function TermosDeUsoPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white dark:bg-dark-mid rounded-xl p-8 sm:p-12 space-y-10">
             <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
-              Estes Termos de Uso regulam o acesso e a utilização do site da CoberSteel. Ao navegar por este site, você concorda com as condições descritas abaixo. Leia com atenção antes de utilizar nossos serviços.
+              Estes Termos de Uso regulam o acesso e a utilização do site da MontSteel. Ao navegar por este site, você concorda com as condições descritas abaixo. Leia com atenção antes de utilizar nossos serviços.
             </p>
 
             {sections.map((s) => (
@@ -148,7 +148,7 @@ export default function TermosDeUsoPage() {
 
             <div className="border-t border-slate-200 dark:border-dark-border pt-8">
               <p className="text-xs text-slate-600 dark:text-[#94A3B8]">
-                CoberSteel Coberturas e Estruturas Industriais — {CONTACT_INFO.address} — {CONTACT_INFO.email}
+                {COMPANY_INFO.razaoSocial} — CNPJ {COMPANY_INFO.cnpj} — {CONTACT_INFO.address} — {CONTACT_INFO.email}
               </p>
             </div>
           </div>

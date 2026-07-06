@@ -92,7 +92,7 @@ export default function ProductGallery({ images, alt }: Props) {
               type="button"
               onClick={() => setCurrent(i)}
               className={`relative w-16 h-12 rounded-lg overflow-hidden flex-shrink-0 ring-2 transition-all ${
-                i === current ? "ring-cobersteel-gold" : "ring-transparent opacity-60 hover:opacity-100"
+                i === current ? "ring-montsteel-gold" : "ring-transparent opacity-60 hover:opacity-100"
               }`}
               aria-label={`Ver foto ${i + 1}`}
             >

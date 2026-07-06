@@ -24,11 +24,11 @@ export const TEMPLATE_CASE: PortfolioCase = {
   produtoSlug: "slug-do-produto-relacionado",
   resumo: "Uma frase que resume o projeto — aparece no card da listagem e logo abaixo do título na página do caso.",
   desafio: [
-    "Primeiro parágrafo: contexto do cliente e o problema/gargalo que ele enfrentava antes da CoberSteel.",
+    "Primeiro parágrafo: contexto do cliente e o problema/gargalo que ele enfrentava antes da MontSteel.",
     "Segundo parágrafo (opcional): detalhe adicional do desafio — prazo, orçamento, restrições técnicas etc.",
   ],
   solucao: [
-    "Primeiro parágrafo: o que a CoberSteel especificou/projetou/instalou e por quê.",
+    "Primeiro parágrafo: o que a MontSteel especificou/projetou/instalou e por quê.",
     "Segundo parágrafo (opcional): detalhe de execução — normas seguidas, fases da obra, diferencial técnico.",
   ],
   resultados: [

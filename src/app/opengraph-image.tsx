@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "CoberSteel — Galpões e Coberturas Industriais";
+export const alt = "MontSteel — Galpões e Coberturas Industriais";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -16,20 +16,20 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "linear-gradient(135deg, #0F1923 0%, #1A2535 100%)",
+          background: "linear-gradient(135deg, #1A1A1A 0%, #242424 100%)",
           fontFamily: "sans-serif",
         }}
       >
         {/* Chevron / telhado — elemento signature */}
         <div style={{ display: "flex", marginBottom: 32 }}>
           <svg width="120" height="48" viewBox="0 0 120 48">
-            <polygon points="0,48 60,0 120,48" fill="#D7A03B" />
+            <polygon points="0,48 60,0 120,48" fill="#FFA500" />
           </svg>
         </div>
         <div
           style={{
             display: "flex",
-            color: "#5C88B5",
+            color: "#CC8000",
             fontSize: 28,
             fontWeight: 700,
             letterSpacing: 6,
@@ -37,7 +37,7 @@ export default function OpengraphImage() {
             marginBottom: 16,
           }}
         >
-          CoberSteel
+          MontSteel
         </div>
         <div
           style={{
