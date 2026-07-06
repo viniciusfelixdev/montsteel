@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Package, Truck, Wrench, HardHat, Layers,
   CheckCircle2, ChevronDown, Send, AlertCircle,
@@ -316,18 +315,18 @@ export default function FornecedoresPage() {
             {suppliersLoop.map((s, i) => (
               <div
                 key={`${s.file}-${i}`}
-                className={`shrink-0 rounded-xl px-8 py-5 flex items-center justify-center ${
-                  s.dark ? "bg-dark-steel" : "bg-white"
+                className={`shrink-0 rounded-xl px-8 py-5 h-[88px] w-[160px] flex items-center justify-center ${
+                  s.dark ? "bg-dark-steel" : "bg-white border border-slate-200"
                 }`}
                 aria-hidden={i >= suppliers.length}
               >
-                <Image
-                  src={`/images/suppliers/${s.file}`}
-                  alt={s.name}
-                  width={160}
-                  height={80}
-                  className="h-16 w-auto object-contain"
-                />
+                <span
+                  className={`text-lg font-black uppercase tracking-wide text-center font-display ${
+                    s.dark ? "text-white" : "text-dark-steel"
+                  }`}
+                >
+                  {s.name}
+                </span>
               </div>
             ))}
           </div>
