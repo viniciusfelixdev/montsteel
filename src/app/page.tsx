@@ -31,13 +31,14 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <ProductsOverview />
 
-      <NumbersSection />
+      <ClientLogos />
+
+      <ProductsOverview />
 
       <SegmentsGrid />
 
-      <ClientLogos />
+      <NumbersSection />
 
       {/* CTA Final */}
       <section className="bg-gradient-to-br from-[#F4F8FC] to-[#DCE8F5] dark:from-dark-steel dark:to-[#101E30] py-20" aria-labelledby="cta-titulo">

@@ -34,7 +34,7 @@ export default function SegmentsGrid() {
   return (
     <section
       id="segmentos"
-      className="bg-light-bg dark:bg-dark-steel py-20 scroll-mt-16"
+      className="bg-white dark:bg-dark-mid py-20 scroll-mt-16"
       aria-labelledby="segmentos-titulo"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +68,7 @@ export default function SegmentsGrid() {
               >
                 <Link
                   href={`/segmentos/${seg.slug}`}
-                  className={`group relative flex flex-col items-center gap-3 p-5 rounded-xl shadow-[0_6px_20px_rgba(15,25,35,0.18)] hover:shadow-[0_14px_32px_rgba(15,25,35,0.28)] hover:-translate-y-1 transition-all text-center overflow-hidden ${
+                  className={`group relative flex h-full flex-col items-center justify-center gap-3 p-5 rounded-xl shadow-[0_6px_20px_rgba(15,25,35,0.18)] hover:shadow-[0_14px_32px_rgba(15,25,35,0.28)] hover:-translate-y-1 transition-all text-center overflow-hidden ${
                     bgImage ? "" : "bg-white dark:bg-dark-mid dark:border dark:border-dark-border"
                   }`}
                 >
