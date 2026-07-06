@@ -56,12 +56,12 @@ export default function Hero() {
             >
               Solicitar Orçamento
             </Link>
-            <Link
+            <a
               href="#produtos"
               className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-bold text-sm uppercase rounded-lg hover:bg-white/20 transition-colors"
             >
               Conhecer Produtos
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>
