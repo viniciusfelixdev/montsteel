@@ -5,6 +5,7 @@ import TrackedLink from "@/components/shared/TrackedLink";
 import { MapPin, Ruler, ArrowLeft, ArrowRight, Tag, Calendar } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/portfolio";
 import ClientLogos from "@/components/home/ClientLogos";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Portfólio de Obras | CoberSteel — Galpões e Coberturas Industriais",
@@ -30,7 +31,7 @@ export default function PortfolioPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/geral/cobersteel.png')",
+            backgroundImage: "url('/images/geral/cobersteel.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -38,6 +39,7 @@ export default function PortfolioPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Portfólio" }]} />
           <Link
             href="/"
             className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-8 group"

@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
 // CSP calibrada para os serviços de terceiros que o site realmente carrega:
-// GA4 (gtag.js + endpoints de coleta), Google Fonts, embed do Google Maps e
-// imagens destacadas do WordPress Headless (blog). 'unsafe-inline' em script-src
+// GA4 (gtag.js + endpoints de coleta), pixel de audiências do Google Ads
+// (ga-audiences, servido em www.google.com.br para usuários no Brasil),
+// Google Fonts, embed do Google Maps e imagens destacadas do WordPress
+// Headless (blog). 'unsafe-inline' em script-src
 // é necessário porque o projeto não usa nonces do Next.js para os scripts
 // inline do Consent Mode (ga4-consent-default/ga4-init em Analytics.tsx) —
 // troca consciente de uma CSP estrita por uma funcional; migrar para nonces
@@ -19,7 +21,7 @@ const CSP_DIRECTIVES = [
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://www.googletagmanager.com`,
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self'",
-  "img-src 'self' data: https://*.wordpress.com https://*.wp.com https://www.google-analytics.com https://www.google.com",
+  "img-src 'self' data: https://*.wordpress.com https://*.wp.com https://www.google-analytics.com https://www.google.com https://www.google.com.br",
   `connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://*.analytics.google.com https://stats.g.doubleclick.net https://www.google.com${isDev ? " ws://localhost:* ws://127.0.0.1:*" : ""}`,
   "frame-src https://www.google.com",
   "object-src 'none'",

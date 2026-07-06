@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BlogReadTracker from "@/components/blog/BlogReadTracker";
 import BlogCTALink from "@/components/blog/BlogCTALink";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { ArrowLeft, Clock, Tag } from "lucide-react";
 import {
   getPosts,
@@ -66,8 +67,15 @@ export default async function BlogPostPage({
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/80" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Blog", href: "/blog" },
+              { label: stripHtml(post.title.rendered) },
+            ]}
+          />
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-8 group"

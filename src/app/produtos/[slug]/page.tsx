@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import { ArrowRight } from "lucide-react";
 import ProductGallery from "@/components/products/ProductGallery";
 import { PRODUCTS_DATA, getProduct } from "@/lib/products";
 import { getSegment } from "@/lib/segments";
@@ -54,25 +55,11 @@ export default async function ProdutoPage({
     category: "Galpões e coberturas industriais",
   };
 
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Início", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Produtos", item: `${SITE_URL}/#produtos` },
-      { "@type": "ListItem", position: 3, name: product.name, item: `${SITE_URL}/produtos/${product.slug}` },
-    ],
-  };
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Hero da página */}
       <section className="relative pt-32 pb-20 overflow-hidden">
@@ -86,19 +73,13 @@ export default async function ProdutoPage({
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav aria-label="Breadcrumb" className="mb-4">
-            <ol className="flex flex-wrap items-center gap-1.5 text-xs font-medium text-white/70">
-              <li className="flex items-center gap-1.5">
-                <Link href="/" className="hover:text-white transition-colors">Início</Link>
-                <ChevronRight className="w-3 h-3" aria-hidden="true" />
-              </li>
-              <li className="flex items-center gap-1.5">
-                <Link href="/#produtos" className="hover:text-white transition-colors">Produtos</Link>
-                <ChevronRight className="w-3 h-3" aria-hidden="true" />
-              </li>
-              <li className="text-white" aria-current="page">{product.name}</li>
-            </ol>
-          </nav>
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Produtos", href: "/#produtos" },
+              { label: product.name },
+            ]}
+          />
           <div className="flex flex-wrap items-center gap-3 mb-6">
             {originSegment && (
               <Link
@@ -133,7 +114,7 @@ export default async function ProdutoPage({
           </h1>
           <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-cobersteel-gold uppercase tracking-widest">
             <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold" aria-hidden="true" />
-            Desenvolvida sob medida para você
+            Desenvolvid{product.feminino ? "a" : "o"}{product.plural ? "s" : ""} sob medida para você
           </p>
         </div>
       </section>
@@ -146,7 +127,8 @@ export default async function ProdutoPage({
               <h2
                 className="text-3xl font-black uppercase text-dark-steel dark:text-white mb-6 font-display"
               >
-                O QUE SÃO OS <span className="text-cobersteel-blue">{product.name.toUpperCase()}</span>
+                O QUE {product.plural ? "SÃO" : "É"} {product.plural ? (product.feminino ? "AS" : "OS") : (product.feminino ? "A" : "O")}{" "}
+                <span className="text-cobersteel-blue">{product.name.toUpperCase()}</span>
               </h2>
               {product.descricao.map((p, i) => (
                 <p key={i} className="text-[16px] text-slate-600 dark:text-[#94A3B8] leading-relaxed">{p}</p>
@@ -179,7 +161,9 @@ export default async function ProdutoPage({
               <ul className="space-y-3">
                 {product.aplicacoes.map((a) => (
                   <li key={a} className="flex items-start gap-3 text-[16px] text-slate-600 dark:text-[#94A3B8]">
-                    <ArrowRight className="w-3.5 h-3.5 text-cobersteel-blue flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="flex items-center h-6 flex-shrink-0">
+                      <ArrowRight className="w-3.5 h-3.5 text-cobersteel-blue" aria-hidden="true" />
+                    </span>
                     {a}
                   </li>
                 ))}
@@ -199,7 +183,9 @@ export default async function ProdutoPage({
               <ul className="space-y-3">
                 {product.vantagens.map((v) => (
                   <li key={v.titulo} className="flex items-start gap-3 text-[16px] text-slate-600 dark:text-[#94A3B8]">
-                    <ArrowRight className="w-3.5 h-3.5 text-cobersteel-gold flex-shrink-0 mt-0.5" aria-hidden="true" />
+                    <span className="flex items-center h-6 flex-shrink-0">
+                      <ArrowRight className="w-3.5 h-3.5 text-cobersteel-gold" aria-hidden="true" />
+                    </span>
                     {v.titulo}
                   </li>
                 ))}
@@ -243,7 +229,7 @@ export default async function ProdutoPage({
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <TrackedLink
-              href="/orcamento"
+              href={`/orcamento?produto=${product.orcamentoValue}${originSegment ? `&segmento=${originSegment.slug}` : ""}`}
               trackName={product.ctaLabel}
               trackLocation="produto_cta_final"
               className="inline-flex items-center justify-center px-10 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded hover:bg-amber-400 transition-colors"

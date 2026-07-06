@@ -4,6 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { SEGMENTS } from "@/lib/constants";
 import CustomSelect from "@/components/shared/CustomSelect";
@@ -51,7 +52,7 @@ const fieldClass =
 
 const labelClass = "block text-xs font-semibold uppercase tracking-wide text-slate-600 dark:text-[#94A3B8] mb-1.5";
 
-const errorClass = "mt-1 text-xs text-red-400 flex items-center gap-1";
+const errorClass = "mt-1 text-xs text-red-700 dark:text-red-400 flex items-center gap-1";
 
 const DIACRITICS_REGEX = /[\p{Diacritic}]/gu;
 
@@ -85,6 +86,15 @@ export default function OrcamentoForm() {
   const trackedAbandonFields = useRef<Set<string>>(new Set());
   const successRef = useRef<HTMLDivElement>(null);
 
+  // Pré-preenche produto/segmento vindos de ?produto=...&segmento=..., quando o
+  // visitante chega vindo da página de um produto ou de um segmento — evita ter
+  // que selecionar de novo algo que já indicou ao navegar pelo site.
+  const searchParams = useSearchParams();
+  const produtoParam = searchParams.get("produto");
+  const segmentoParam = searchParams.get("segmento");
+  const defaultProduto = PRODUTO_OPTIONS.some((o) => o.value === produtoParam) ? produtoParam! : undefined;
+  const defaultSegmento = SEGMENTO_OPTIONS.some((o) => o.value === segmentoParam) ? segmentoParam! : undefined;
+
   // Centraliza a tela no card de confirmação ao enviar, já que ele substitui o
   // formulário no mesmo lugar e o usuário pode não perceber a mudança se estiver scrollado.
   useEffect(() => {
@@ -104,6 +114,10 @@ export default function OrcamentoForm() {
     reset,
   } = useForm<FormData>({
     resolver: zodResolver(schema),
+    defaultValues: {
+      produto: defaultProduto,
+      segmento: defaultSegmento,
+    },
   });
 
   function handleFieldBlur(fieldKey: keyof typeof FIELD_TRACK_NAMES) {

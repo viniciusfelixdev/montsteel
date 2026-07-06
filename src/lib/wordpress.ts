@@ -3,7 +3,7 @@ import sanitizeHtmlLib from "sanitize-html";
 const API_URL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
 /** Imagem usada quando o post não tem imagem destacada definida no WordPress. */
-const FALLBACK_POST_IMAGE = "/images/blog-banner.png";
+const FALLBACK_POST_IMAGE = "/images/blog-banner.webp";
 
 interface WordPressTerm {
   id: number;

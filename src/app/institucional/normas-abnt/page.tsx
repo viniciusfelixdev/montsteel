@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
 import { ShieldCheck, CheckCircle2, FileText, AlertTriangle, ChevronRight, ArrowLeft } from "lucide-react";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { NORMAS } from "@/lib/normas";
 
 export const metadata: Metadata = {
@@ -42,7 +43,7 @@ export default function NormasAbntPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/normas-abnt-banner.png')",
+            backgroundImage: "url('/images/normas-abnt-banner.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -50,6 +51,7 @@ export default function NormasAbntPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Normas ABNT" }]} />
           <Link
             href="/"
             className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-8 group"
@@ -122,9 +124,6 @@ export default function NormasAbntPage() {
       <section className="bg-white dark:bg-dark-mid py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-12">
-            <p className="text-cobersteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
-              Referências Técnicas
-            </p>
             <h2
               className="text-4xl sm:text-5xl font-black uppercase text-dark-steel dark:text-white mb-4 font-display"
             >

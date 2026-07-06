@@ -16,18 +16,18 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; "aria-hi
 
 // Imagem de fundo por segmento (mesma foto usada no banner da página do segmento).
 const SEGMENT_CARD_IMAGES: Record<string, string> = {
-  "agronegocio": "/images/segmentos/agronegocio.png",
-  "alimentos-bebidas": "/images/segmentos/alimentos-bebidas.png",
-  "automotivo": "/images/segmentos/automotivo.png",
-  "construcao-civil": "/images/segmentos/construcao-civil.png",
-  "industria": "/images/segmentos/industria.png",
-  "mineracao": "/images/segmentos/mineracao.png",
-  "papel-celulose": "/images/segmentos/papel-celulose.png",
-  "petroquimico": "/images/segmentos/petroquimico.png",
-  "portuario": "/images/segmentos/portuario.png",
-  "siderurgico": "/images/segmentos/siderurgico.png",
-  "sucroalcooleiro": "/images/segmentos/sucroalcooleiro.png",
-  "varejo-atacado": "/images/segmentos/varejo-atacado.png",
+  "agronegocio": "/images/segmentos/agronegocio.webp",
+  "alimentos-bebidas": "/images/segmentos/alimentos-bebidas.webp",
+  "automotivo": "/images/segmentos/automotivo.webp",
+  "construcao-civil": "/images/segmentos/construcao-civil.webp",
+  "industria": "/images/segmentos/industria.webp",
+  "mineracao": "/images/segmentos/mineracao.webp",
+  "papel-celulose": "/images/segmentos/papel-celulose.webp",
+  "petroquimico": "/images/segmentos/petroquimico.webp",
+  "portuario": "/images/segmentos/portuario.webp",
+  "siderurgico": "/images/segmentos/siderurgico.webp",
+  "sucroalcooleiro": "/images/segmentos/sucroalcooleiro.webp",
+  "varejo-atacado": "/images/segmentos/varejo-atacado.webp",
 };
 
 export default function SegmentsGrid() {
@@ -68,7 +68,7 @@ export default function SegmentsGrid() {
               >
                 <Link
                   href={`/segmentos/${seg.slug}`}
-                  className={`group relative flex flex-col items-center gap-3 p-5 rounded-xl hover:shadow-md transition-all text-center overflow-hidden ${
+                  className={`group relative flex flex-col items-center gap-3 p-5 rounded-xl shadow-[0_6px_20px_rgba(15,25,35,0.18)] hover:shadow-[0_14px_32px_rgba(15,25,35,0.28)] hover:-translate-y-1 transition-all text-center overflow-hidden ${
                     bgImage ? "" : "bg-white"
                   }`}
                 >

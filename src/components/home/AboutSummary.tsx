@@ -52,7 +52,7 @@ export default function AboutSummary() {
             className="relative aspect-[4/3] rounded-2xl overflow-hidden"
           >
             <Image
-              src="/images/geral/cobersteel.png"
+              src="/images/geral/cobersteel.webp"
               alt="Equipe CoberSteel"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

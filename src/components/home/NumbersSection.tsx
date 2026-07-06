@@ -37,7 +37,7 @@ export default function NumbersSection() {
           um PNG de 1.46MB sem nenhuma otimização. */}
       <div className="absolute inset-0" aria-hidden="true">
         <Image
-          src="/images/data.png"
+          src="/images/data.webp"
           alt=""
           fill
           quality={65}

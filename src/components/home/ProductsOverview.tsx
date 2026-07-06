@@ -7,11 +7,11 @@ import { ArrowRight } from "lucide-react";
 import { PRODUCTS } from "@/lib/constants";
 
 const productImages: Record<string, string> = {
-  "galpao-de-lona":               "/images/produtos/galpao-de-lona.png",
-  "galpao-metalico":              "/images/produtos/galpao-metalico.png",
-  "galpao-coberecosteeel-hibrido":"/images/produtos/galpao-coberecosteeel-hibrido.png",
-  "mezaninos-metalicos":          "/images/produtos/mezaninos-metalicos.png",
-  "projetos-especiais":           "/images/produtos/projetos-especiais.png",
+  "galpao-de-lona":               "/images/produtos/galpao-de-lona.webp",
+  "galpao-metalico":              "/images/produtos/galpao-metalico.webp",
+  "galpao-coberecosteeel-hibrido":"/images/produtos/galpao-coberecosteeel-hibrido.webp",
+  "mezaninos-metalicos":          "/images/produtos/mezaninos-metalicos.webp",
+  "projetos-especiais":           "/images/produtos/projetos-especiais.webp",
 };
 
 export default function ProductsOverview() {
@@ -99,7 +99,7 @@ export default function ProductsOverview() {
             >
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/images/produtos/niveladoras-de-doca.png"
+                  src="/images/produtos/niveladoras-de-doca.webp"
                   alt="Niveladora de Doca"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"

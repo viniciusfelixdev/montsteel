@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, Handshake } from "lucide-react";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Parceiros | CoberSteel — Galpões e Coberturas Industriais",
@@ -15,6 +16,7 @@ export default function ParceirosPage() {
       {/* Header */}
       <section className="relative institucional-banner-padding-bottom overflow-hidden bg-gradient-to-br from-dark-steel to-dark-mid">
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Parceiros" }]} />
           <Link
             href="/"
             className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-8 group"

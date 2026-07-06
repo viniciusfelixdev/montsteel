@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
-import { Clock, Tag, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import { Clock, Tag, ArrowRight, ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   getPosts,
   getCategories,
@@ -58,15 +59,23 @@ export default async function BlogPage({
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/blog-banner.png')",
+            backgroundImage: "url('/images/blog-banner.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/80" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Blog" }]} />
+          <Link
+            href="/"
+            className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-8 group"
+          >
+            <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+            Início
+          </Link>
           <h1 className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4 font-display">
             BLOG <span className="text-cobersteel-blue">COBERSTEEL</span>
           </h1>

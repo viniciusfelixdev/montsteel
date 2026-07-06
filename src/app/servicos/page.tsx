@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import {
   Wrench, ShieldCheck, Zap, Expand, Truck, ClipboardList, CheckCircle2,
   ArrowLeft, type LucideIcon,
@@ -34,37 +35,12 @@ const servicos: Servico[] = [
     ],
   },
   {
-    icon: ShieldCheck,
-    titulo: "Manutenção Preventiva",
-    desc: "Inspeções periódicas programadas para identificar e corrigir pontos de atenção antes que se tornem problemas. A manutenção preventiva prolonga significativamente a vida útil da estrutura e reduz custos no longo prazo.",
-    itens: [
-      "Inspeção visual e estrutural completa",
-      "Verificação de fixações e ancoragens",
-      "Substituição de elementos desgastados",
-      "Relatório técnico pós-inspeção",
-    ],
-  },
-  {
-    icon: Zap,
-    titulo: "Manutenção Corretiva",
-    badge: "Resposta em até 48h",
-    desc: "Atendimento ágil para restaurar a integridade estrutural após danos causados por eventos climáticos, impactos ou deterioração natural. Priorizamos a segurança e a continuidade da sua operação.",
-    itens: [
-      "Atendimento emergencial prioritário",
-      "Diagnóstico técnico preciso",
-      "Execução com peças originais",
-      "Garantia no serviço executado",
-    ],
-  },
-  {
     icon: Expand,
     titulo: "Ampliações",
     desc: "Sua operação cresceu e o espaço ficou pequeno? Expandimos as estruturas existentes com módulos adicionais que se integram perfeitamente à construção original, sem necessidade de demolição.",
     itens: [
-      "Projeto de ampliação integrado à estrutura existente",
       "Mínima interrupção das operações",
       "Aprovação ART de engenharia",
-      "Ampliação lateral ou longitudinal",
     ],
   },
   {
@@ -74,8 +50,27 @@ const servicos: Servico[] = [
     itens: [
       "Desmontagem controlada e catalogada",
       "Transporte especializado",
-      "Remontagem com inspeção de cada peça",
       "Prazo competitivo de execução",
+    ],
+  },
+  {
+    icon: Zap,
+    titulo: "Manutenção Corretiva",
+    badge: "Resposta em até 48h",
+    desc: "Atendimento ágil para restaurar a integridade estrutural após danos causados por eventos climáticos, impactos ou deterioração natural. Priorizamos a segurança e a continuidade da sua operação.",
+    itens: [
+      "Diagnóstico técnico preciso",
+      "Garantia no serviço executado",
+    ],
+  },
+  {
+    icon: ShieldCheck,
+    titulo: "Manutenção Preventiva",
+    desc: "Inspeções periódicas programadas para identificar e corrigir pontos de atenção antes que se tornem problemas. A manutenção preventiva prolonga significativamente a vida útil da estrutura e reduz custos no longo prazo.",
+    itens: [
+      "Inspeção visual e estrutural completa",
+      "Verificação de fixações e ancoragens",
+      "Relatório técnico pós-inspeção",
     ],
   },
   {
@@ -99,7 +94,7 @@ export default function ServicosPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/servicos/banner.png')",
+            backgroundImage: "url('/images/servicos/banner.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -107,6 +102,7 @@ export default function ServicosPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Serviços" }]} />
           <Link
             href="/"
             className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm hover:bg-black/70 px-4 py-2.5 rounded-lg transition-all mb-8 group"

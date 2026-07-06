@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ChevronRight } from "lucide-react";
 import { getSegment, SEGMENTS_DATA } from "@/lib/segments";
 import { PRODUCTS } from "@/lib/constants";
 
 const SEGMENT_IMAGES: Record<string, string> = {
-  "agronegocio": "/images/segmentos/agronegocio.png",
-  "alimentos-bebidas": "/images/segmentos/alimentos-bebidas.png",
-  "automotivo": "/images/segmentos/automotivo.png",
-  "construcao-civil": "/images/segmentos/construcao-civil.png",
-  "industria": "/images/segmentos/industria.png",
-  "mineracao": "/images/segmentos/mineracao.png",
-  "papel-celulose": "/images/segmentos/papel-celulose.png",
-  "petroquimico": "/images/segmentos/petroquimico.png",
-  "portuario": "/images/segmentos/portuario.png",
-  "siderurgico": "/images/segmentos/siderurgico.png",
-  "sucroalcooleiro": "/images/segmentos/sucroalcooleiro.png",
-  "varejo-atacado": "/images/segmentos/varejo-atacado.png",
+  "agronegocio": "/images/segmentos/agronegocio.webp",
+  "alimentos-bebidas": "/images/segmentos/alimentos-bebidas.webp",
+  "automotivo": "/images/segmentos/automotivo.webp",
+  "construcao-civil": "/images/segmentos/construcao-civil.webp",
+  "industria": "/images/segmentos/industria.webp",
+  "mineracao": "/images/segmentos/mineracao.webp",
+  "papel-celulose": "/images/segmentos/papel-celulose.webp",
+  "petroquimico": "/images/segmentos/petroquimico.webp",
+  "portuario": "/images/segmentos/portuario.webp",
+  "siderurgico": "/images/segmentos/siderurgico.webp",
+  "sucroalcooleiro": "/images/segmentos/sucroalcooleiro.webp",
+  "varejo-atacado": "/images/segmentos/varejo-atacado.webp",
 };
 
 export async function generateStaticParams() {
@@ -85,6 +86,13 @@ export default async function SegmentoPage({
           </>
         )}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Segmentos", href: "/#segmentos" },
+              { label: segment.name },
+            ]}
+          />
           <Link
             href="/#segmentos"
             className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-6 group"
@@ -100,7 +108,7 @@ export default async function SegmentoPage({
           </h1>
           <p className="mt-3 inline-flex items-center gap-2 text-xs font-semibold text-cobersteel-gold uppercase tracking-widest">
             <span className="w-1.5 h-1.5 rounded-full bg-cobersteel-gold" aria-hidden="true" />
-            Desenvolvida sob medida para você
+            Soluções sob medida para o seu setor
           </p>
         </div>
       </section>
@@ -190,7 +198,7 @@ export default async function SegmentoPage({
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <TrackedLink
-              href="/orcamento"
+              href={`/orcamento?segmento=${segment.slug}`}
               trackName="solicitar_orcamento_gratuito"
               trackLocation="segmento_cta_final"
               className="inline-flex items-center justify-center px-8 py-4 bg-cobersteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"

@@ -15,7 +15,7 @@ export default function Hero() {
       {/* Background image */}
       <div className="absolute inset-0" aria-hidden="true">
         <Image
-          src="/images/image.png"
+          src="/images/image.webp"
           alt=""
           fill
           priority

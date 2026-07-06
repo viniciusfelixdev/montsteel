@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Privacidade | CoberSteel",
@@ -97,15 +98,16 @@ export default function PrivacidadePage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/privacidade-banner.png')",
+            backgroundImage: "url('/images/privacidade-banner.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Privacidade" }]} />
           <h1
             className="text-5xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4 font-display"
           >

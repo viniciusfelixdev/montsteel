@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import CustomSelect from "@/components/shared/CustomSelect";
 import { trackFormSubmit } from "@/components/shared/Analytics";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 const CATEGORIA_OPTIONS = [
   { value: "aco", label: "Aço e Perfis Metálicos" },
@@ -245,7 +246,7 @@ export default function FornecedoresPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/images/fornecedores-banner.png')",
+            backgroundImage: "url('/images/fornecedores-banner.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -253,6 +254,7 @@ export default function FornecedoresPage() {
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={[{ label: "Início", href: "/" }, { label: "Fornecedores" }]} />
           <Link
             href="/"
             className="self-start inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-8 group"

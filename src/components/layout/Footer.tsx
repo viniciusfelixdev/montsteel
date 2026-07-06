@@ -94,7 +94,7 @@ export default function Footer() {
           {/* Coluna 2 — Empresa */}
           <div>
             <h3
-              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4 font-display"
+              className="text-sm font-bold uppercase tracking-widest text-amber-800 dark:text-cobersteel-gold mb-4 font-display"
             >
               Empresa
             </h3>
@@ -134,13 +134,18 @@ export default function Footer() {
                   Privacidade
                 </Link>
               </li>
+              <li>
+                <Link href="/institucional/termos-de-uso" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                  Termos de Uso
+                </Link>
+              </li>
             </ul>
           </div>
 
           {/* Coluna 3 — Produtos */}
           <div>
             <h3
-              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4 font-display"
+              className="text-sm font-bold uppercase tracking-widest text-amber-800 dark:text-cobersteel-gold mb-4 font-display"
             >
               Produtos
             </h3>
@@ -166,7 +171,7 @@ export default function Footer() {
           {/* Coluna 3 — Segmentos (primeiros 6) */}
           <div>
             <h3
-              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4 font-display"
+              className="text-sm font-bold uppercase tracking-widest text-amber-800 dark:text-cobersteel-gold mb-4 font-display"
             >
               Segmentos
             </h3>
@@ -187,7 +192,7 @@ export default function Footer() {
           {/* Coluna 4 — Contato */}
           <div>
             <h3
-              className="text-sm font-bold uppercase tracking-widest text-cobersteel-gold mb-4 font-display"
+              className="text-sm font-bold uppercase tracking-widest text-amber-800 dark:text-cobersteel-gold mb-4 font-display"
             >
               Contato
             </h3>

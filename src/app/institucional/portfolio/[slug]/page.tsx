@@ -5,6 +5,7 @@ import TrackedLink from "@/components/shared/TrackedLink";
 import { ArrowLeft, ArrowRight, MapPin, Ruler, Calendar, Building2, Target, CheckCircle2, Quote, Tag } from "lucide-react";
 import { PORTFOLIO_DATA, getPortfolioCase } from "@/lib/portfolio";
 import { getProduct } from "@/lib/products";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
 export async function generateStaticParams() {
   return PORTFOLIO_DATA.map((c) => ({ slug: c.slug }));
@@ -58,8 +59,15 @@ export default async function PortfolioCasePage({
           aria-hidden="true"
         />
         <div className="absolute inset-0 bg-[#0F0F0F]/80" aria-hidden="true" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-light-bg dark:from-dark-steel to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Portfólio", href: "/institucional/portfolio" },
+              { label: caso.titulo },
+            ]}
+          />
           <Link
             href="/institucional/portfolio"
             className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-8 group"

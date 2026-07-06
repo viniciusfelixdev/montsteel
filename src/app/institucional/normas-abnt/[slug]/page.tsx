@@ -3,6 +3,7 @@ import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
+import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { getNorma, NORMAS } from "@/lib/normas";
 
 // Banners por norma. Por padrão, nenhuma imagem é exibida.
@@ -60,6 +61,13 @@ export default async function NormaPage({
           </>
         )}
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs
+            items={[
+              { label: "Início", href: "/" },
+              { label: "Normas ABNT", href: "/institucional/normas-abnt" },
+              { label: norma.codigo },
+            ]}
+          />
           <Link
             href="/institucional/normas-abnt"
             className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-6 group"
