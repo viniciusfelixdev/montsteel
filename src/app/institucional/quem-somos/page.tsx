@@ -5,7 +5,7 @@ import {
   Target, Eye, Gem, ArrowLeft, ArrowRight, MapPin, Phone, Clock, Truck,
   ShieldCheck, Stamp, HardHat, BadgeCheck,
 } from "lucide-react";
-import Reveal from "./Reveal";
+import Reveal from "@/components/shared/Reveal";
 import StatsGrid from "./StatsGrid";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { CONTACT_INFO } from "@/lib/constants";

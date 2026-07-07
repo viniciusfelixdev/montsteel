@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import Reveal from "@/components/shared/Reveal";
 
 export default function AboutSummary() {
   return (
@@ -11,12 +11,7 @@ export default function AboutSummary() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
 
           {/* Texto */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <Reveal x={-30} y={0} duration={0.6}>
             <p className="text-amber-800 dark:text-montsteel-gold text-xs font-semibold uppercase tracking-widest mb-3">
               Sobre Nós
             </p>
@@ -41,14 +36,14 @@ export default function AboutSummary() {
               Conheça nossa história
               <span className="group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
             </Link>
-          </motion.div>
+          </Reveal>
 
           {/* Foto */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+          <Reveal
+            x={30}
+            y={0}
+            duration={0.6}
+            delay={0.1}
             className="relative aspect-[4/3] rounded-2xl overflow-hidden"
           >
             <Image
@@ -58,7 +53,7 @@ export default function AboutSummary() {
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
-          </motion.div>
+          </Reveal>
 
         </div>
       </div>

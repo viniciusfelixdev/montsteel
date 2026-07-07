@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import Link from "next/link";
-import OrcamentoForm from "./OrcamentoForm";
+import dynamic from "next/dynamic";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowLeft } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
+
+// react-hook-form + zod só são necessários nesta rota: code-split evita que
+// esse peso vá para o chunk compartilhado carregado por todas as páginas.
+const OrcamentoForm = dynamic(() => import("./OrcamentoForm"));
 
 export const metadata: Metadata = {
   title: "Solicitar Orçamento | MontSteel — Galpões e Coberturas Industriais",

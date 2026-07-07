@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -8,6 +7,7 @@ import {
   FileText, Flame, Anchor, Layers, Leaf, ShoppingCart,
 } from "lucide-react";
 import { SEGMENTS } from "@/lib/constants";
+import Reveal from "@/components/shared/Reveal";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string; "aria-hidden"?: "true" }>> = {
   Wheat, UtensilsCrossed, Car, Building2, Factory, Mountain,
@@ -38,12 +38,7 @@ export default function SegmentsGrid() {
       aria-labelledby="segmentos-titulo"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-14"
-        >
+        <Reveal className="text-center mb-14">
           <h2
             id="segmentos-titulo"
             className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-dark-steel dark:text-white font-display"
@@ -52,19 +47,19 @@ export default function SegmentsGrid() {
             <br />
             DA INDÚSTRIA
           </h2>
-        </motion.div>
+        </Reveal>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {SEGMENTS.map((seg, i) => {
             const Icon = iconMap[seg.icon] || Factory;
             const bgImage = SEGMENT_CARD_IMAGES[seg.slug];
             return (
-              <motion.div
+              <Reveal
                 key={seg.slug}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
+                y={0}
+                scale={0.95}
+                duration={0.4}
+                delay={i * 0.05}
               >
                 <Link
                   href={`/segmentos/${seg.slug}`}
@@ -105,7 +100,7 @@ export default function SegmentsGrid() {
                     {seg.name}
                   </span>
                 </Link>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>

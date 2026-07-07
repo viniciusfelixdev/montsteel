@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PRODUCTS } from "@/lib/constants";
+import Reveal from "@/components/shared/Reveal";
 
 const productImages: Record<string, string> = {
   "galpao-de-lona":               "/images/produtos/galpao-de-lona.webp",
@@ -23,13 +23,7 @@ export default function ProductsOverview() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-14"
-        >
+        <Reveal className="text-center mb-14">
           <h2
             id="produtos-titulo"
             className="text-4xl sm:text-5xl font-black uppercase tracking-tight text-dark-steel dark:text-white font-display"
@@ -39,17 +33,16 @@ export default function ProductsOverview() {
           <p className="mt-4 text-slate-600 dark:text-[#94A3B8] max-w-xl mx-auto">
             Cada solução é desenvolvida sob medida para você e está disponível para locação e venda em todo o Brasil.
           </p>
-        </motion.div>
+        </Reveal>
 
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PRODUCTS.map((product, i) => (
             <Link key={product.slug} href={`/produtos/${product.slug}`} className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
-              <motion.article
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
+              <Reveal
+                as="article"
+                y={30}
+                delay={i * 0.08}
                 className="flex flex-col flex-1"
               >
                 {/* Imagem */}
@@ -59,6 +52,7 @@ export default function ProductsOverview() {
                       src={productImages[product.slug]}
                       alt={product.name}
                       fill
+                      quality={65}
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px"
                     />
@@ -84,17 +78,16 @@ export default function ProductsOverview() {
                     Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </span>
                 </div>
-              </motion.article>
+              </Reveal>
             </Link>
           ))}
 
           {/* Niveladoras de Doca */}
           <Link href="/produtos/niveladoras-de-doca" className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
-            <motion.article
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: PRODUCTS.length * 0.08 }}
+            <Reveal
+              as="article"
+              y={30}
+              delay={PRODUCTS.length * 0.08}
               className="flex flex-col flex-1"
             >
               <div className="relative h-48 overflow-hidden">
@@ -102,6 +95,7 @@ export default function ProductsOverview() {
                   src="/images/produtos/niveladoras-de-doca.webp"
                   alt="Niveladora de Doca"
                   fill
+                  quality={65}
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
@@ -120,7 +114,7 @@ export default function ProductsOverview() {
                   Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </span>
               </div>
-            </motion.article>
+            </Reveal>
           </Link>
         </div>
       </div>

@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Reveal from "@/components/shared/Reveal";
 
 // dark: true → card com fundo escuro (para logos brancas)
 const clients: { name: string; file: string; dark?: boolean }[] = [
@@ -29,23 +29,45 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
   // Lista duplicada para o loop infinito ser contínuo.
   const loop = [...clients, ...clients];
 
-  // Rolagem automática contínua com loop perfeito.
+  // Rolagem automática contínua com loop perfeito. Só roda enquanto o
+  // carrossel está visível na tela (IntersectionObserver) — sem isso, o RAF
+  // ficava escrevendo scrollLeft (força layout a cada frame) indefinidamente,
+  // mesmo com a seção fora da viewport ou a aba em segundo plano.
   useEffect(() => {
     const el = trackRef.current;
     if (!el) return;
-    let raf: number;
+    let raf: number | null = null;
+    let half = el.scrollWidth / 2;
     const speed = 0.5; // px por frame
 
     const step = () => {
       if (el && !pausedRef.current) {
         el.scrollLeft += speed;
-        const half = el.scrollWidth / 2;
         if (el.scrollLeft >= half) el.scrollLeft -= half;
       }
       raf = requestAnimationFrame(step);
     };
-    raf = requestAnimationFrame(step);
-    return () => cancelAnimationFrame(raf);
+
+    const resizeObserver = new ResizeObserver(() => {
+      half = el.scrollWidth / 2;
+    });
+    resizeObserver.observe(el);
+
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && raf === null) {
+        raf = requestAnimationFrame(step);
+      } else if (!entry.isIntersecting && raf !== null) {
+        cancelAnimationFrame(raf);
+        raf = null;
+      }
+    });
+    intersectionObserver.observe(el);
+
+    return () => {
+      if (raf !== null) cancelAnimationFrame(raf);
+      resizeObserver.disconnect();
+      intersectionObserver.disconnect();
+    };
   }, []);
 
   const nudge = (dir: number) => {
@@ -70,12 +92,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
     >
       {showTitle && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
+          <Reveal className="text-center mb-10">
             <h2
               id="clientes-titulo"
               className="text-3xl font-black uppercase text-dark-steel dark:text-white font-display"
@@ -85,7 +102,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
             <p className="mt-3 text-sm text-slate-600 dark:text-[#94A3B8]">
               Soluções para os maiores players da indústria nacional
             </p>
-          </motion.div>
+          </Reveal>
         </div>
       )}
 

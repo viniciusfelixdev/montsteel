@@ -69,6 +69,8 @@ export default async function ProdutoPage({
           alt={`${product.name} — MontSteel`}
           fill
           priority
+          fetchPriority="high"
+          quality={65}
           sizes="100vw"
           className="object-cover"
         />

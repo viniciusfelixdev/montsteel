@@ -100,6 +100,7 @@ export default async function BlogPage({
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   priority
+                  fetchPriority="high"
                 />
               </div>
               <div className="flex flex-col justify-center p-8 lg:p-12">

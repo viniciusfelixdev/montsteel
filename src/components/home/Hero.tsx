@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
@@ -19,6 +18,7 @@ export default function Hero() {
           alt=""
           fill
           priority
+          fetchPriority="high"
           quality={65}
           className="object-cover"
           sizes="100vw"
@@ -28,11 +28,7 @@ export default function Hero() {
 
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial={{ y: 40 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
+        <div className="animate-hero-enter">
           {/* Badge */}
           {/* Headline */}
           <h1
@@ -63,26 +59,20 @@ export default function Hero() {
               Conhecer Produtos
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.a
+      <a
         href="#produtos"
         aria-label="Explorar: rolar para conhecer os produtos"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors cursor-pointer"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
+        className="animate-hero-scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors cursor-pointer"
       >
         <span className="text-xs uppercase tracking-widest">Explorar</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-        >
+        <div className="animate-bounce">
           <ChevronDown className="w-5 h-5" />
-        </motion.div>
-      </motion.a>
+        </div>
+      </a>
     </section>
   );
 }

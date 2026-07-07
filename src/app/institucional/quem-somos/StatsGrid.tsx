@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
 import { CalendarClock, Warehouse, LayoutGrid, ShieldCheck } from "lucide-react";
+import Reveal from "@/components/shared/Reveal";
+import { useInViewOnce, usePrefersReducedMotion } from "@/hooks/useInViewOnce";
 
 const stats = [
   { value: "+25", label: "Anos de mercado", Icon: CalendarClock },
@@ -21,9 +22,8 @@ function parseValue(value: string) {
 
 function StatValue({ value }: { value: string }) {
   const { prefix, suffix, numeric } = parseValue(value);
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  const reduce = useReducedMotion();
+  const { ref, inView } = useInViewOnce<HTMLDivElement>("-60px");
+  const reduce = usePrefersReducedMotion();
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -60,18 +60,14 @@ function StatValue({ value }: { value: string }) {
 }
 
 export default function StatsGrid() {
-  const reduce = useReducedMotion();
-
   return (
     <div className="grid grid-cols-2 divide-x divide-y divide-slate-200 dark:divide-dark-border border-y border-slate-200 dark:border-dark-border">
       {stats.map((stat, i) => (
-        <motion.div
+        <Reveal
           key={stat.label}
           className="flex flex-col items-center text-center px-6 py-10"
-          initial={reduce ? false : { opacity: 0, y: 16 }}
-          whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 }}
+          margin="-60px"
+          delay={i * 0.08}
         >
           <stat.Icon
             className="w-8 h-8 text-montsteel-blue mb-4"
@@ -80,7 +76,7 @@ export default function StatsGrid() {
           />
           <StatValue value={stat.value} />
           <p className="text-sm text-slate-600 dark:text-[#94A3B8]">{stat.label}</p>
-        </motion.div>
+        </Reveal>
       ))}
     </div>
   );

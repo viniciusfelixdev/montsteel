@@ -1,20 +1,25 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Warehouse, KeyRound, Maximize2, Wrench } from "lucide-react";
 import { COMPANY_NUMBERS } from "@/lib/constants";
+import Reveal from "@/components/shared/Reveal";
+import { useInViewOnce, usePrefersReducedMotion } from "@/hooks/useInViewOnce";
 
 const numberIcons = [Warehouse, KeyRound, Maximize2, Wrench];
 
 function Counter({ target, duration = 2000 }: { target: number; duration?: number }) {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true });
+  const { ref, inView } = useInViewOnce<HTMLSpanElement>();
+  const reduce = usePrefersReducedMotion();
 
   useEffect(() => {
     if (!inView) return;
+    if (reduce) {
+      setCount(target);
+      return;
+    }
     const start = performance.now();
     const step = (now: number) => {
       const elapsed = now - start;
@@ -24,7 +29,7 @@ function Counter({ target, duration = 2000 }: { target: number; duration?: numbe
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
-  }, [inView, target, duration]);
+  }, [inView, target, duration, reduce]);
 
   return <span ref={ref}>{count.toLocaleString("pt-BR")}</span>;
 }
@@ -50,12 +55,7 @@ export default function NumbersSection() {
       <div className="relative z-10 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-14"
-          >
+          <Reveal className="text-center mb-14">
             <h2
               id="numeros-titulo"
               className="text-4xl sm:text-5xl font-black uppercase text-white font-display"
@@ -64,18 +64,16 @@ export default function NumbersSection() {
               <br />
               <span className="text-montsteel-blue">NOSSA EXPERIÊNCIA</span>
             </h2>
-          </motion.div>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {COMPANY_NUMBERS.map((item, i) => {
               const Icon = numberIcons[i];
               return (
-                <motion.div
+                <Reveal
                   key={item.label}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  y={30}
+                  delay={i * 0.1}
                   className="text-center p-6 bg-black/50 rounded-xl backdrop-blur-sm"
                 >
                   <div className="flex justify-center mb-4">
@@ -89,7 +87,7 @@ export default function NumbersSection() {
                     <span className="text-xl sm:text-2xl ml-1">{item.unit}</span>
                   </div>
                   <p className="text-sm text-[#94A3B8] mt-2">{item.label}</p>
-                </motion.div>
+                </Reveal>
               );
             })}
           </div>

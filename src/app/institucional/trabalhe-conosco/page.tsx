@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { MapPin, Clock, Users, TrendingUp, Shield, Heart, Briefcase, ArrowLeft, ArrowRight } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
-import CandidaturaForm from "./CandidaturaForm";
+
+// react-hook-form + zod só são necessários nesta rota: code-split evita que
+// esse peso vá para o chunk compartilhado carregado por todas as páginas.
+const CandidaturaForm = dynamic(() => import("./CandidaturaForm"));
 
 const vagas = [
   {
