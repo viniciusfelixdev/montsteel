@@ -34,7 +34,7 @@ export default function SegmentsGrid() {
   return (
     <section
       id="segmentos"
-      className="bg-white dark:bg-dark-mid py-20 scroll-mt-16"
+      className="cv-auto bg-white dark:bg-dark-mid py-20 scroll-mt-16"
       aria-labelledby="segmentos-titulo"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

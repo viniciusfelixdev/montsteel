@@ -86,7 +86,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
 
   return (
     <section
-      className="bg-light-bg dark:bg-dark-steel py-16 overflow-hidden"
+      className="cv-auto bg-light-bg dark:bg-dark-steel py-16 overflow-hidden"
       aria-labelledby={showTitle ? "clientes-titulo" : undefined}
       aria-label={showTitle ? undefined : "Empresas que confiam na MontSteel"}
     >

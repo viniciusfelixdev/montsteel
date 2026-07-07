@@ -42,7 +42,7 @@ export default function HomePage() {
       <NumbersSection />
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-br from-[#FFF8EF] to-[#FFE3B8] dark:from-dark-steel dark:to-[#2E2000] py-20" aria-labelledby="cta-titulo">
+      <section className="cv-auto bg-gradient-to-br from-[#FFF8EF] to-[#FFE3B8] dark:from-dark-steel dark:to-[#2E2000] py-20" aria-labelledby="cta-titulo">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2
             id="cta-titulo"

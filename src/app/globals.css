@@ -276,6 +276,24 @@ body {
   filter: brightness(1.15);
 }
 
+/*
+ * Seções abaixo da dobra na home: pula cálculo de layout/paint até o usuário
+ * rolar até perto delas (Chrome/Edge — Firefox/Safari ignoram e renderizam
+ * normal, sem regressão). "auto" em contain-intrinsic-size usa o tamanho real
+ * já renderizado quando disponível; o valor após é só um chute inicial para
+ * reservar espaço e evitar layout shift antes da 1ª medição real.
+ */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+/* Mesma ideia, para seções bem mais altas (ex.: footer com 5 colunas empilhadas no mobile). */
+.cv-auto-tall {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
 /* Carrossel de logos: esconde a barra de rolagem do trilho */
 .no-scrollbar {
   -ms-overflow-style: none;

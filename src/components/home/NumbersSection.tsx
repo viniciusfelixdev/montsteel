@@ -36,7 +36,7 @@ function Counter({ target, duration = 2000 }: { target: number; duration?: numbe
 
 export default function NumbersSection() {
   return (
-    <section aria-labelledby="numeros-titulo" className="relative overflow-hidden">
+    <section aria-labelledby="numeros-titulo" className="cv-auto relative overflow-hidden">
       {/* Fundo: next/image otimiza automaticamente para WebP/AVIF e redimensiona
           por breakpoint — a versão anterior (background-image CSS direto) servia
           um PNG de 1.46MB sem nenhuma otimização. */}

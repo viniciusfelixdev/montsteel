@@ -7,7 +7,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-light-bg dark:bg-dark-steel border-t border-slate-200 dark:border-transparent">
+    <footer className="cv-auto-tall bg-light-bg dark:bg-dark-steel border-t border-slate-200 dark:border-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Coluna 1 — Marca */}
