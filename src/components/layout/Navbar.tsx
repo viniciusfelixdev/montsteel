@@ -238,6 +238,7 @@ export default function Navbar() {
         <div className="hidden lg:block">
           <Link
             href="/orcamento"
+            prefetch={false}
             onClick={() => trackButtonClick("solicitar_orcamento", "navbar_desktop")}
             className="bg-montsteel-gold text-dark-steel font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-amber-400 transition-colors uppercase"
           >

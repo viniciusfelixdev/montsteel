@@ -47,7 +47,7 @@ export default function ProductsOverview() {
                       src={productImages[product.slug]}
                       alt={product.name}
                       fill
-                      quality={65}
+                      quality={50}
                       loading="eager"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 420px"
@@ -70,7 +70,11 @@ export default function ProductsOverview() {
                   <p className="text-[16px] text-slate-600 dark:text-[#94A3B8] mb-6 leading-relaxed flex-1">
                     {product.shortDesc}
                   </p>
-                  <span className="inline-flex items-center gap-2 border border-montsteel-blue text-montsteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-montsteel-blue hover:text-white group-hover:bg-montsteel-blue group-hover:text-white transition-all self-start">
+                  {/* Texto/borda mais escuros que o padrão --montsteel-blue: em texto pequeno
+                      sobre fundo branco, a cor de marca (#CC8000) fica em ~3.2:1 de contraste,
+                      abaixo do mínimo de 4.5:1 do WCAG AA para texto normal (falha detectada
+                      pelo Lighthouse). #96600A mantém a identidade visual e passa no contraste. */}
+                  <span className="inline-flex items-center gap-2 border border-[#96600A] text-[#96600A] dark:border-montsteel-blue dark:text-montsteel-blue text-sm font-semibold px-4 py-2 rounded-lg hover:bg-montsteel-blue hover:text-white group-hover:bg-montsteel-blue group-hover:text-white transition-all self-start">
                     Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </span>
                 </div>
@@ -86,7 +90,7 @@ export default function ProductsOverview() {
                   src="/images/produtos/niveladoras-de-doca.webp"
                   alt="Niveladora de Doca"
                   fill
-                  quality={65}
+                  quality={50}
                   loading="eager"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw"

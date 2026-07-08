@@ -164,6 +164,7 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
                 alt={client.name}
                 width={160}
                 height={80}
+                quality={50}
                 className="h-16 w-auto object-contain"
               />
             </div>

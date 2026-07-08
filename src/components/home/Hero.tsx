@@ -55,6 +55,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/orcamento"
+              prefetch={false}
               onClick={() => trackButtonClick("solicitar_orcamento", "hero")}
               className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
             >

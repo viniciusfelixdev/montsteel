@@ -73,7 +73,7 @@ export default function CookieConsent() {
           </h2>
           <p className="text-xs text-slate-600 dark:text-[#94A3B8] leading-relaxed">
             Usamos cookies para analisar o tráfego e melhorar sua experiência. Você pode aceitar ou recusar os cookies de análise. Saiba mais na nossa{" "}
-            <Link href="/institucional/privacidade" className="text-montsteel-blue hover:underline">
+            <Link href="/institucional/privacidade" className="text-[#96600A] dark:text-montsteel-blue underline underline-offset-2">
               Privacidade
             </Link>
             .
