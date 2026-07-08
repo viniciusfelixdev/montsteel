@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
@@ -6,21 +7,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ChevronRight } from "lucide-react";
 import { getSegment, SEGMENTS_DATA } from "@/lib/segments";
 import { PRODUCTS, CONTACT_INFO } from "@/lib/constants";
-
-const SEGMENT_IMAGES: Record<string, string> = {
-  "agronegocio": "/images/segmentos/agronegocio.webp",
-  "alimentos-bebidas": "/images/segmentos/alimentos-bebidas.webp",
-  "automotivo": "/images/segmentos/automotivo.webp",
-  "construcao-civil": "/images/segmentos/construcao-civil.webp",
-  "industria": "/images/segmentos/industria.webp",
-  "mineracao": "/images/segmentos/mineracao.webp",
-  "papel-celulose": "/images/segmentos/papel-celulose.webp",
-  "petroquimico": "/images/segmentos/petroquimico.webp",
-  "portuario": "/images/segmentos/portuario.webp",
-  "siderurgico": "/images/segmentos/siderurgico.webp",
-  "sucroalcooleiro": "/images/segmentos/sucroalcooleiro.webp",
-  "varejo-atacado": "/images/segmentos/varejo-atacado.webp",
-};
+import { SEGMENT_BANNER_IMAGES } from "@/lib/segment-banner-images";
 
 export async function generateStaticParams() {
   return SEGMENTS_DATA.map((s) => ({ slug: s.slug }));
@@ -58,16 +45,19 @@ export default async function SegmentoPage({
     <>
       {/* Header */}
       <section className="relative segments-banner-padding overflow-hidden">
-        {SEGMENT_IMAGES[segment.slug] ? (
+        {SEGMENT_BANNER_IMAGES[segment.slug] ? (
           <>
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `url('${SEGMENT_IMAGES[segment.slug]}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              aria-hidden="true"
+            <Image
+              src={SEGMENT_BANNER_IMAGES[segment.slug].src}
+              alt=""
+              fill
+              priority
+              fetchPriority="high"
+              quality={50}
+              sizes="100vw"
+              placeholder="blur"
+              blurDataURL={SEGMENT_BANNER_IMAGES[segment.slug].blur}
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
           </>

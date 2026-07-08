@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { CONTACT_INFO } from "@/lib/constants";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
 import { ArrowLeft, ArrowRight, MapPin, Ruler, Calendar, Building2, Target, CheckCircle2, Quote, Tag } from "lucide-react";
 import { PORTFOLIO_DATA, getPortfolioCase } from "@/lib/portfolio";
 import { getProduct } from "@/lib/products";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 
 export async function generateStaticParams() {
   return PORTFOLIO_DATA.map((c) => ({ slug: c.slug }));
@@ -50,14 +52,17 @@ export default async function PortfolioCasePage({
     <>
       {/* Hero */}
       <section className="relative pt-40 pb-28 overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url('${caso.img}')`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          aria-hidden="true"
+        <Image
+          src={caso.img}
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          quality={50}
+          placeholder={IMAGE_BLUR[caso.img] ? "blur" : "empty"}
+          blurDataURL={IMAGE_BLUR[caso.img]}
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-[#1A1A1A]/80" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />

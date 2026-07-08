@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { ZoomIn, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 
 interface Props {
   images: string[];
@@ -42,6 +43,10 @@ export default function ProductGallery({ images, alt }: Props) {
           src={images[current]}
           alt={`${alt} — foto ${current + 1}`}
           fill
+          priority={current === 0}
+          quality={50}
+          placeholder={IMAGE_BLUR[images[current]] ? "blur" : "empty"}
+          blurDataURL={IMAGE_BLUR[images[current]]}
           sizes="(max-width: 1024px) 100vw, 33vw"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />

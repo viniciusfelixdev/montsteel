@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -8,6 +9,7 @@ import {
 } from "lucide-react";
 import { SEGMENTS } from "@/lib/constants";
 import Reveal from "@/components/shared/Reveal";
+import { getSegmentBannerPreloadUrl } from "@/lib/segment-banner-images";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string; "aria-hidden"?: "true" }>> = {
   Wheat, UtensilsCrossed, Car, Building2, Factory, Mountain,
@@ -31,8 +33,45 @@ const SEGMENT_CARD_IMAGES: Record<string, string> = {
 };
 
 export default function SegmentsGrid() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    // Não esquenta o cache em conexões lentas/com "economia de dados" ligada —
+    // nesse caso o usuário prefere menos bytes a mais velocidade na próxima página.
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+    if (connection?.saveData || connection?.effectiveType === "2g" || connection?.effectiveType === "slow-2g") {
+      return;
+    }
+
+    // Ao a seção de Segmentos entrar na viewport, começa a baixar (prioridade baixa,
+    // sem travar nada) o banner de cada página de segmento na MESMA resolução que
+    // essa página vai pedir. Assim, quando o usuário clica num card, o banner já
+    // está no cache HTTP do navegador e aparece nítido na hora — sem o flash borrado.
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+        for (const seg of SEGMENTS) {
+          const url = getSegmentBannerPreloadUrl(seg.slug);
+          if (!url) continue;
+          const img = new window.Image();
+          img.fetchPriority = "low";
+          img.decoding = "async";
+          img.src = url;
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
+      ref={sectionRef}
       id="segmentos"
       className="cv-auto bg-white dark:bg-dark-mid py-20 scroll-mt-16"
       aria-labelledby="segmentos-titulo"

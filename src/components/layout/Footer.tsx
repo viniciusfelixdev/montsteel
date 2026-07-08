@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Clock, Phone, Mail } from "lucide-react";
 import { CONTACT_INFO, COMPANY_INFO, PRODUCTS, SEGMENTS } from "@/lib/constants";
+import PrefetchBannerLink from "@/components/shared/PrefetchBannerLink";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -122,44 +123,44 @@ export default function Footer() {
             </h3>
             <ul className="space-y-0">
               <li>
-                <Link href="/institucional/quem-somos" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                <PrefetchBannerLink href="/institucional/quem-somos" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
                   Quem Somos
-                </Link>
+                </PrefetchBannerLink>
               </li>
               <li>
-                <Link href="/institucional/portfolio" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                <PrefetchBannerLink href="/institucional/portfolio" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
                   Portfólio
-                </Link>
+                </PrefetchBannerLink>
               </li>
               <li>
-                <Link href="/institucional/normas-abnt" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                <PrefetchBannerLink href="/institucional/normas-abnt" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
                   Normas ABNT
-                </Link>
+                </PrefetchBannerLink>
               </li>
               <li>
-                <Link href="/institucional/trabalhe-conosco" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                <PrefetchBannerLink href="/institucional/trabalhe-conosco" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
                   Trabalhe Conosco
-                </Link>
+                </PrefetchBannerLink>
               </li>
               <li>
-                <Link href="/institucional/fornecedores" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                <PrefetchBannerLink href="/institucional/fornecedores" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
                   Seja um Fornecedor
-                </Link>
+                </PrefetchBannerLink>
               </li>
               <li>
-                <Link href="/blog" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                <PrefetchBannerLink href="/blog" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
                   Blog
-                </Link>
+                </PrefetchBannerLink>
               </li>
               <li>
-                <Link href="/institucional/privacidade" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                <PrefetchBannerLink href="/institucional/privacidade" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
                   Privacidade
-                </Link>
+                </PrefetchBannerLink>
               </li>
               <li>
-                <Link href="/institucional/termos-de-uso" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                <PrefetchBannerLink href="/institucional/termos-de-uso" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
                   Termos de Uso
-                </Link>
+                </PrefetchBannerLink>
               </li>
             </ul>
           </div>
@@ -174,18 +175,18 @@ export default function Footer() {
             <ul className="space-y-0">
               {PRODUCTS.map((p) => (
                 <li key={p.slug}>
-                  <Link
+                  <PrefetchBannerLink
                     href={`/produtos/${p.slug}`}
                     className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors"
                   >
                     {p.name}
-                  </Link>
+                  </PrefetchBannerLink>
                 </li>
               ))}
               <li>
-                <Link href="/servicos" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
+                <PrefetchBannerLink href="/servicos" className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors">
                   Serviços e Manutenções
-                </Link>
+                </PrefetchBannerLink>
               </li>
             </ul>
           </div>
@@ -200,12 +201,12 @@ export default function Footer() {
             <ul className="space-y-0">
               {SEGMENTS.slice(0, 8).map((s) => (
                 <li key={s.slug}>
-                  <Link
+                  <PrefetchBannerLink
                     href={`/segmentos/${s.slug}`}
                     className="block py-2.5 text-sm text-slate-600 dark:text-[#94A3B8] hover:text-dark-steel dark:hover:text-white transition-colors"
                   >
                     {s.name}
-                  </Link>
+                  </PrefetchBannerLink>
                 </li>
               ))}
             </ul>

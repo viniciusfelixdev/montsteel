@@ -4,6 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { trackButtonClick } from "@/components/shared/Analytics";
+import { IMAGE_BLUR } from "@/lib/image-blur";
+
+function scrollToProdutos(e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  document.getElementById("produtos")?.scrollIntoView({ behavior: "smooth" });
+}
 
 export default function Hero() {
   return (
@@ -19,7 +25,9 @@ export default function Hero() {
           fill
           priority
           fetchPriority="high"
-          quality={65}
+          quality={50}
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR["/images/image.webp"]}
           className="object-cover"
           sizes="100vw"
         />
@@ -54,6 +62,7 @@ export default function Hero() {
             </Link>
             <a
               href="#produtos"
+              onClick={scrollToProdutos}
               className="inline-flex items-center justify-center px-8 py-4 bg-white/10 text-white font-bold text-sm uppercase rounded-lg hover:bg-white/20 transition-colors"
             >
               Conhecer Produtos
@@ -65,6 +74,7 @@ export default function Hero() {
       {/* Scroll indicator */}
       <a
         href="#produtos"
+        onClick={scrollToProdutos}
         aria-label="Explorar: rolar para conhecer os produtos"
         className="animate-hero-scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors cursor-pointer"
       >

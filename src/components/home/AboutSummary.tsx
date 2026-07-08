@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Reveal from "@/components/shared/Reveal";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 
 export default function AboutSummary() {
   return (
@@ -50,6 +51,9 @@ export default function AboutSummary() {
               src="/images/geral/montsteel.webp"
               alt="Equipe MontSteel"
               fill
+              quality={50}
+              placeholder="blur"
+              blurDataURL={IMAGE_BLUR["/images/geral/montsteel.webp"]}
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />

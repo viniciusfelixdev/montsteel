@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CONTACT_INFO } from "@/lib/constants";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
@@ -48,14 +49,15 @@ export default async function NormaPage({
       <section className="relative pt-40 pb-28 overflow-hidden bg-gradient-to-br from-dark-steel to-dark-mid">
         {specificImg && (
           <>
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage: `url('${specificImg}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-              aria-hidden="true"
+            <Image
+              src={specificImg}
+              alt=""
+              fill
+              priority
+              fetchPriority="high"
+              quality={50}
+              sizes="100vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />

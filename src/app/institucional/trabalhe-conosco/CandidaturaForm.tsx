@@ -100,11 +100,15 @@ export default function CandidaturaForm({ vagas }: { vagas: string[] }) {
       fd.append("curriculo", data.curriculo[0]);
 
       const res = await fetch("/api/careers", { method: "POST", body: fd });
-      if (!res.ok) throw new Error("Falha no envio");
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw new Error(body?.error || "Falha no envio");
+      }
       setSubmitted(true);
       reset();
-    } catch {
-      setSubmitError("Erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.");
+    } catch (err) {
+      const reason = err instanceof Error ? err.message : "Falha no envio";
+      setSubmitError(`${reason} Tente novamente ou entre em contato pelo WhatsApp.`);
     }
   }
 

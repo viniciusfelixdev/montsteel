@@ -39,7 +39,7 @@ const nextConfig: NextConfig = {
   images: {
     // Next 16 só serve as qualidades explicitamente listadas aqui — sem isso,
     // um quality={65} num <Image> é ignorado e cai de volta para 75.
-    qualities: [65, 75],
+    qualities: [50, 65, 75],
     remotePatterns: [
       // Imagens destacadas dos posts do WordPress Headless (blog).
       { protocol: "https", hostname: "*.wordpress.com" },

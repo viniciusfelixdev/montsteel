@@ -3,8 +3,10 @@ import { CONTACT_INFO } from "@/lib/constants";
 import Image from "next/image";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
+import PrefetchBannerLink from "@/components/shared/PrefetchBannerLink";
 import { MapPin, Ruler, ArrowLeft, ArrowRight, Tag, Calendar } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/lib/portfolio";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 import ClientLogos from "@/components/home/ClientLogos";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 
@@ -29,14 +31,17 @@ export default function PortfolioPage() {
     <>
       {/* Header */}
       <section className="relative institucional-banner-padding-bottom overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/images/geral/montsteel.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          aria-hidden="true"
+        <Image
+          src="/images/geral/montsteel.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          quality={50}
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR["/images/geral/montsteel.webp"]}
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,12 +102,12 @@ export default function PortfolioPage() {
                     </span>
                   </div>
                   <div className="flex items-center justify-between gap-4">
-                    <Link
+                    <PrefetchBannerLink
                       href={`/institucional/portfolio/${o.slug}`}
                       className="inline-flex items-center gap-2 border border-montsteel-blue text-montsteel-blue text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-montsteel-blue hover:text-white transition-all"
                     >
                       Ver estudo de caso <ArrowRight className="w-4 h-4" aria-hidden="true" />
-                    </Link>
+                    </PrefetchBannerLink>
                     <span className="inline-flex items-center gap-1.5 text-xs text-slate-600 dark:text-[#94A3B8]">
                       <Calendar className="w-3.5 h-3.5 text-montsteel-blue" aria-hidden="true" />
                       {o.ano}

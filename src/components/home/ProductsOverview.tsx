@@ -1,10 +1,10 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PRODUCTS } from "@/lib/constants";
 import Reveal from "@/components/shared/Reveal";
+import PrefetchBannerLink from "@/components/shared/PrefetchBannerLink";
 
 const productImages: Record<string, string> = {
   "galpao-de-lona":               "/images/produtos/galpao-de-lona.webp",
@@ -38,13 +38,8 @@ export default function ProductsOverview() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {PRODUCTS.map((product, i) => (
-            <Link key={product.slug} href={`/produtos/${product.slug}`} className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
-              <Reveal
-                as="article"
-                y={30}
-                delay={i * 0.08}
-                className="flex flex-col flex-1"
-              >
+            <Reveal key={product.slug} as="article" y={30} delay={i * 0.08}>
+              <PrefetchBannerLink href={`/produtos/${product.slug}`} className="group flex flex-col h-full bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
                 {/* Imagem */}
                 <div className="relative h-48 overflow-hidden">
                   {productImages[product.slug] ? (
@@ -53,8 +48,9 @@ export default function ProductsOverview() {
                       alt={product.name}
                       fill
                       quality={65}
+                      loading="eager"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 420px"
+                      sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 420px"
                     />
                   ) : (
                     <div className="w-full h-full bg-light-bg dark:bg-dark-steel flex items-center justify-center">
@@ -78,26 +74,22 @@ export default function ProductsOverview() {
                     Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </span>
                 </div>
-              </Reveal>
-            </Link>
+              </PrefetchBannerLink>
+            </Reveal>
           ))}
 
           {/* Niveladoras de Doca */}
-          <Link href="/produtos/niveladoras-de-doca" className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
-            <Reveal
-              as="article"
-              y={30}
-              delay={PRODUCTS.length * 0.08}
-              className="flex flex-col flex-1"
-            >
+          <Reveal as="article" y={30} delay={PRODUCTS.length * 0.08}>
+            <PrefetchBannerLink href="/produtos/niveladoras-de-doca" className="group flex flex-col h-full bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src="/images/produtos/niveladoras-de-doca.webp"
                   alt="Niveladora de Doca"
                   fill
                   quality={65}
+                  loading="eager"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-transparent dark:from-dark-mid/60 to-transparent" />
               </div>
@@ -114,8 +106,8 @@ export default function ProductsOverview() {
                   Saiba mais <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </span>
               </div>
-            </Reveal>
-          </Link>
+            </PrefetchBannerLink>
+          </Reveal>
         </div>
       </div>
     </section>

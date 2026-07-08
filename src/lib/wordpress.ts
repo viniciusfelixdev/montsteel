@@ -57,40 +57,57 @@ export async function getPosts({
   });
   if (categoryId) params.set("categories", String(categoryId));
 
-  const res = await fetch(`${API_URL}/posts?${params.toString()}`, {
-    next: { revalidate: 300 },
-  });
-  if (!res.ok) return { posts: [], totalPages: 0 };
+  try {
+    const res = await fetch(`${API_URL}/posts?${params.toString()}`, {
+      next: { revalidate: 300 },
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!res.ok) return { posts: [], totalPages: 0 };
 
-  const posts: WordPressPost[] = await res.json();
-  const totalPages = Number(res.headers.get("X-WP-TotalPages")) || 1;
-  return { posts, totalPages };
+    const posts: WordPressPost[] = await res.json();
+    const totalPages = Number(res.headers.get("X-WP-TotalPages")) || 1;
+    return { posts, totalPages };
+  } catch {
+    // WordPress fora do ar ou lento demais (>5s) — a página do blog degrada pra
+    // lista vazia em vez de travar o <Suspense> esperando indefinidamente.
+    return { posts: [], totalPages: 0 };
+  }
 }
 
 /** Lista as categorias do WordPress que têm ao menos um post publicado. */
 export async function getCategories(): Promise<WordPressCategory[]> {
   if (!API_URL) return [];
 
-  const res = await fetch(`${API_URL}/categories?per_page=100&orderby=count&order=desc`, {
-    next: { revalidate: 300 },
-  });
-  if (!res.ok) return [];
+  try {
+    const res = await fetch(`${API_URL}/categories?per_page=100&orderby=count&order=desc`, {
+      next: { revalidate: 300 },
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!res.ok) return [];
 
-  const categories: WordPressCategory[] = await res.json();
-  return categories.filter((c) => c.count > 0);
+    const categories: WordPressCategory[] = await res.json();
+    return categories.filter((c) => c.count > 0);
+  } catch {
+    return [];
+  }
 }
 
 /** Busca um post pelo slug. Retorna null se não existir. */
 export async function getPostBySlug(slug: string): Promise<WordPressPost | null> {
   if (!API_URL) return null;
 
-  const res = await fetch(`${API_URL}/posts?slug=${encodeURIComponent(slug)}&_embed`, {
-    next: { revalidate: 300 },
-  });
-  if (!res.ok) return null;
+  try {
+    const res = await fetch(`${API_URL}/posts?slug=${encodeURIComponent(slug)}&_embed`, {
+      next: { revalidate: 300 },
+      signal: AbortSignal.timeout(5000),
+    });
+    if (!res.ok) return null;
 
-  const posts: WordPressPost[] = await res.json();
-  return posts[0] ?? null;
+    const posts: WordPressPost[] = await res.json();
+    return posts[0] ?? null;
+  } catch {
+    return null;
+  }
 }
 
 export function formatarData(iso: string): string {

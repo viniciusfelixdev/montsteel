@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { CONTACT_INFO, COMPANY_INFO } from "@/lib/constants";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 
 export const metadata: Metadata = {
   title: "Termos de Uso | MontSteel",
@@ -82,14 +84,17 @@ export default function TermosDeUsoPage() {
     <>
       {/* Header */}
       <section className="relative pt-40 pb-28 overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/images/privacidade-banner.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          aria-hidden="true"
+        <Image
+          src="/images/privacidade-banner.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          quality={50}
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR["/images/privacidade-banner.webp"]}
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-dark-steel to-transparent" aria-hidden="true" />

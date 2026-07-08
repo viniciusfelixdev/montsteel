@@ -68,6 +68,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-light-bg dark:bg-dark-steel text-dark-steel dark:text-white">
+        {/* Desliga a restauração nativa do navegador (history.scrollRestoration = "auto").
+            Sem isso, ao voltar/avançar o navegador reaplica a posição de scroll antiga
+            (ex.: rodapé) assim que a página entra no DOM, ANTES do Next.js rolar para o
+            topo — resultado: a página "nasce" no rodapé e só depois pula para cima. Como
+            script inline síncrono, roda antes da pintura, sem depender de hidratação. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }`,
+          }}
+        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <a
             href="#main-content"

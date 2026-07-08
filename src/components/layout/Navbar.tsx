@@ -9,6 +9,9 @@ import { NAV_PRODUCTS, NAV_INSTITUCIONAL, SEGMENTS } from "@/lib/constants";
 import SocialLinks from "@/components/shared/SocialLinks";
 import ThemeToggle from "@/components/shared/ThemeToggle";
 import { trackButtonClick } from "@/components/shared/Analytics";
+import PrefetchBannerLink from "@/components/shared/PrefetchBannerLink";
+import { PAGE_BANNER_IMAGES } from "@/lib/page-banner-images";
+import { prefetchBanner } from "@/lib/image-preload";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -60,6 +63,27 @@ export default function Navbar() {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  // Ao abrir um dropdown (ou o menu mobile, que já lista todos os links), já
+  // começa a baixar o banner/hero de cada página listada nele — mesmo princípio
+  // do prefetch da grade de Segmentos na home: quando o usuário efetivamente
+  // clicar num item, a imagem já está no cache HTTP e aparece nítida na hora,
+  // em vez do flash borrado do placeholder.
+  useEffect(() => {
+    const hrefs = mobileOpen
+      ? [...NAV_PRODUCTS.map((p) => p.href), ...SEGMENTS.map((s) => `/segmentos/${s.slug}`), ...NAV_INSTITUCIONAL.map((i) => i.href), "/servicos", "/blog"]
+      : productsOpen
+      ? NAV_PRODUCTS.map((p) => p.href)
+      : segmentsOpen
+      ? SEGMENTS.map((s) => `/segmentos/${s.slug}`)
+      : instOpen
+      ? NAV_INSTITUCIONAL.map((i) => i.href)
+      : [];
+    for (const href of hrefs) {
+      const src = PAGE_BANNER_IMAGES[href];
+      if (src) prefetchBanner(src, 50);
+    }
+  }, [productsOpen, segmentsOpen, instOpen, mobileOpen]);
 
   useEffect(() => {
     if (mobileOpen) {
@@ -191,13 +215,13 @@ export default function Navbar() {
                 {l.label}
               </a>
             ) : (
-              <Link
+              <PrefetchBannerLink
                 key={l.href}
                 href={l.href}
                 className={`text-sm font-medium hover:text-montsteel-gold transition-colors ${useDarkText ? "text-dark-steel/90" : "text-white/90"}`}
               >
                 {l.label}
-              </Link>
+              </PrefetchBannerLink>
             )
           )}
 
@@ -299,14 +323,14 @@ export default function Navbar() {
                   {l.label}
                 </a>
               ) : (
-                <Link
+                <PrefetchBannerLink
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileOpen(false)}
                   className="block px-3 py-3 text-dark-steel/90 dark:text-white/90 hover:text-montsteel-gold rounded-lg hover:bg-white dark:hover:bg-dark-mid transition-colors"
                 >
                   {l.label}
-                </Link>
+                </PrefetchBannerLink>
               )
             )}
             <div className="pt-4">

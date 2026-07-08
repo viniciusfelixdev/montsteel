@@ -6,6 +6,7 @@ import { Warehouse, KeyRound, Maximize2, Wrench } from "lucide-react";
 import { COMPANY_NUMBERS } from "@/lib/constants";
 import Reveal from "@/components/shared/Reveal";
 import { useInViewOnce, usePrefersReducedMotion } from "@/hooks/useInViewOnce";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 
 const numberIcons = [Warehouse, KeyRound, Maximize2, Wrench];
 
@@ -45,7 +46,9 @@ export default function NumbersSection() {
           src="/images/data.webp"
           alt=""
           fill
-          quality={65}
+          quality={50}
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR["/images/data.webp"]}
           sizes="100vw"
           className="object-cover"
         />

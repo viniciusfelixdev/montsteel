@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { CONTACT_INFO } from "@/lib/constants";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
-import TrackedLink from "@/components/shared/TrackedLink";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { ArrowRight } from "lucide-react";
 import ProductGallery from "@/components/products/ProductGallery";
+import { ProductOriginBadges, ProductOrcamentoCta } from "@/components/products/ProductOriginActions";
 import { PRODUCTS_DATA, getProduct } from "@/lib/products";
-import { getSegment } from "@/lib/segments";
 import { SITE_URL } from "@/lib/site";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 
 export async function generateStaticParams() {
   return PRODUCTS_DATA.map((p) => ({ slug: p.slug }));
@@ -32,18 +32,12 @@ export async function generateMetadata({
 
 export default async function ProdutoPage({
   params,
-  searchParams,
 }: {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ from?: string }>;
 }) {
   const { slug } = await params;
-  const { from } = await searchParams;
   const product = getProduct(slug);
   if (!product) notFound();
-
-  const segmentSlug = from?.startsWith("segmentos/") ? from.replace("segmentos/", "") : null;
-  const originSegment = segmentSlug ? getSegment(segmentSlug) : undefined;
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -70,7 +64,9 @@ export default async function ProdutoPage({
           fill
           priority
           fetchPriority="high"
-          quality={65}
+          quality={50}
+          placeholder={IMAGE_BLUR[product.img] ? "blur" : "empty"}
+          blurDataURL={IMAGE_BLUR[product.img]}
           sizes="100vw"
           className="object-cover"
         />
@@ -84,31 +80,19 @@ export default async function ProdutoPage({
             ]}
           />
           <div className="flex flex-wrap items-center gap-3 mb-6">
-            {originSegment && (
-              <Link
-                href={`/segmentos/${originSegment.slug}`}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all group"
-              >
-                <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
-                Voltar para {originSegment.name}
-              </Link>
-            )}
-            <Link
-              href="/#produtos"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all group"
-            >
-              {originSegment ? (
-                <>
-                  Ir para Produtos
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-                </>
-              ) : (
-                <>
-                  <ArrowRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
+            <Suspense
+              fallback={
+                <a
+                  href="/#produtos"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 px-4 py-2.5 rounded-lg"
+                >
+                  <ArrowRight className="w-4 h-4 rotate-180" aria-hidden="true" />
                   Voltar para Produtos
-                </>
-              )}
-            </Link>
+                </a>
+              }
+            >
+              <ProductOriginBadges />
+            </Suspense>
           </div>
           <h1
             className="text-5xl sm:text-7xl font-black uppercase tracking-tight text-white mb-4 font-display"
@@ -231,14 +215,22 @@ export default async function ProdutoPage({
             Fale com nossos especialistas e receba um projeto desenvolvido sob medida para você.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <TrackedLink
-              href={`/orcamento?produto=${product.orcamentoValue}${originSegment ? `&segmento=${originSegment.slug}` : ""}`}
-              trackName={product.ctaLabel}
-              trackLocation="produto_cta_final"
-              className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+            <Suspense
+              fallback={
+                <a
+                  href={`/orcamento?produto=${product.orcamentoValue}`}
+                  className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+                >
+                  {product.ctaLabel}
+                </a>
+              }
             >
-              {product.ctaLabel}
-            </TrackedLink>
+              <ProductOrcamentoCta
+                orcamentoValue={product.orcamentoValue}
+                ctaLabel={product.ctaLabel}
+                className="inline-flex items-center justify-center px-8 py-4 bg-montsteel-gold text-dark-steel font-bold text-sm uppercase rounded-lg hover:bg-amber-400 transition-colors"
+              />
+            </Suspense>
             <a
               href={CONTACT_INFO.whatsappLink}
               target="_blank"

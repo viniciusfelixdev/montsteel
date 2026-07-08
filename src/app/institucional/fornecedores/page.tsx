@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Package, Truck, Wrench, HardHat, Layers,
@@ -10,6 +11,7 @@ import {
 import CustomSelect from "@/components/shared/CustomSelect";
 import { trackFormSubmit } from "@/components/shared/Analytics";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 
 const CATEGORIA_OPTIONS = [
   { value: "aco", label: "Aço e Perfis Metálicos" },
@@ -169,7 +171,7 @@ const etapas = [
 export default function FornecedoresPage() {
   const [enviado, setEnviado] = useState(false);
   const [enviando, setEnviando] = useState(false);
-  const [erro, setErro] = useState(false);
+  const [erro, setErro] = useState<string | null>(null);
   const [form, setForm] = useState({
     razaoSocial: "",
     cnpj: "",
@@ -220,7 +222,7 @@ export default function FornecedoresPage() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setErro(false);
+    setErro(null);
     setEnviando(true);
     try {
       const res = await fetch("/api/contact", {
@@ -228,11 +230,14 @@ export default function FornecedoresPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "fornecedor", ...form }),
       });
-      if (!res.ok) throw new Error("Falha no envio");
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw new Error(body?.error || "Falha no envio");
+      }
       trackFormSubmit("fornecedores");
       setEnviado(true);
-    } catch {
-      setErro(true);
+    } catch (err) {
+      setErro(err instanceof Error ? err.message : "Falha no envio");
     } finally {
       setEnviando(false);
     }
@@ -242,14 +247,17 @@ export default function FornecedoresPage() {
     <>
       {/* Header */}
       <section className="relative institucional-banner-padding-bottom overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/images/fornecedores-banner.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          aria-hidden="true"
+        <Image
+          src="/images/fornecedores-banner.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          quality={50}
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR["/images/fornecedores-banner.webp"]}
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -614,7 +622,7 @@ export default function FornecedoresPage() {
               {erro && (
                 <div className="flex items-center gap-2 bg-red-900/30 border border-red-700/50 rounded-lg px-4 py-3 text-sm text-red-300">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
-                  Erro ao enviar. Tente novamente ou fale conosco pelo WhatsApp.
+                  {erro} Tente novamente ou fale conosco pelo WhatsApp.
                 </div>
               )}
 

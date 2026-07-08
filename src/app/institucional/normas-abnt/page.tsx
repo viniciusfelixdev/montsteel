@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { CONTACT_INFO } from "@/lib/constants";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
 import { ShieldCheck, CheckCircle2, FileText, AlertTriangle, ChevronRight, ArrowLeft } from "lucide-react";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { NORMAS } from "@/lib/normas";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 
 export const metadata: Metadata = {
   title: "Conformidade com Normas ABNT | MontSteel — Galpões e Coberturas Industriais",
@@ -41,14 +43,17 @@ export default function NormasAbntPage() {
     <>
       {/* Header */}
       <section className="relative institucional-banner-padding-bottom overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/images/normas-abnt-banner.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          aria-hidden="true"
+        <Image
+          src="/images/normas-abnt-banner.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          quality={50}
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR["/images/normas-abnt-banner.webp"]}
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

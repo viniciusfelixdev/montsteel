@@ -26,9 +26,15 @@
 }
 
 html {
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
+
+/* scroll-behavior: smooth fica de fora do <html> de propósito — com ele global,
+   o scroll-to-top automático do App Router em CADA navegação vira uma animação
+   lenta que briga com o carregamento de imagens/seções abaixo da dobra, dando a
+   sensação de troca de página travada/lenta (some no rodapé até "resolver o
+   scroll"). Âncoras internas que precisam de scroll suave (ex.: Hero) pedem via
+   JS (scrollIntoView({ behavior: "smooth" })) em vez de depender do CSS global. */
 
 :root {
   /* ===== Banner de SEGMENTOS (/segmentos/[slug]) — não usar fora daqui ===== */
@@ -122,18 +128,26 @@ body {
   overflow-x: hidden;
 }
 
-/* Fade de transição de página usado em app/template.tsx (roda em toda troca de rota). */
+/* Fade de transição de página usado em app/template.tsx (roda em toda troca de rota).
+   Começa em opacity 0.6 (não 0): um elemento que nasce totalmente transparente
+   só é considerado "pintado" pelo Chrome quando a opacidade sobe o suficiente —
+   isso empurra o LCP da página inteira (que vive dentro desse wrapper) para o
+   fim da animação. Começando já bem visível, o conteúdo conta para o LCP quase
+   imediatamente e ainda mantém a sensação de transição suave. */
 @keyframes page-fade-in {
-  from { opacity: 0; }
+  from { opacity: 0.6; }
   to { opacity: 1; }
 }
 .animate-page-fade-in {
   animation: page-fade-in 0.25s ease-out;
 }
 
-/* Entrada do bloco de texto do Hero (home) — dispara uma vez no mount. */
+/* Entrada do bloco de texto do Hero (home) — dispara uma vez no mount.
+   Mesmo motivo do page-fade-in acima: o texto do Hero costuma ser o elemento de
+   LCP da home, então a opacidade não pode começar em 0 — só o translateY carrega
+   a sensação de "entrada", a opacidade já nasce quase totalmente visível. */
 @keyframes hero-enter {
-  from { opacity: 0; transform: translateY(40px); }
+  from { opacity: 0.6; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
 .animate-hero-enter {

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
 import { MapPin, Phone, Mail, Clock, MessageCircle, ArrowLeft } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 
 // react-hook-form + zod só são necessários nesta rota: code-split evita que
 // esse peso vá para o chunk compartilhado carregado por todas as páginas.
@@ -55,14 +57,17 @@ export default function OrcamentoPage() {
     <>
       {/* Page Header */}
       <section className="relative pt-32 pb-16 overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/images/orcamento-banner.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          aria-hidden="true"
+        <Image
+          src="/images/orcamento-banner.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          quality={50}
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR["/images/orcamento-banner.webp"]}
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

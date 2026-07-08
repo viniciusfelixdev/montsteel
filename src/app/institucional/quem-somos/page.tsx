@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import TrackedLink from "@/components/shared/TrackedLink";
+import { IMAGE_BLUR } from "@/lib/image-blur";
 import {
   Target, Eye, Gem, ArrowLeft, ArrowRight, MapPin, Phone, Clock, Truck,
   ShieldCheck, Stamp, HardHat, BadgeCheck,
@@ -70,14 +72,17 @@ export default function QuemSomosPage() {
     <>
       {/* Page Header */}
       <section className="relative institucional-banner-padding-bottom overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "url('/images/quem-somos-banner.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-          aria-hidden="true"
+        <Image
+          src="/images/quem-somos-banner.webp"
+          alt=""
+          fill
+          priority
+          fetchPriority="high"
+          quality={50}
+          placeholder="blur"
+          blurDataURL={IMAGE_BLUR["/images/quem-somos-banner.webp"]}
+          sizes="100vw"
+          className="object-cover"
         />
         <div className="absolute inset-0 bg-[#1A1A1A]/75" aria-hidden="true" />
         <Reveal className="institucional-content-offset institucional-content-min-height relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

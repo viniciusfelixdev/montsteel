@@ -81,7 +81,7 @@ const FIELD_TRACK_NAMES = {
 
 export default function OrcamentoForm() {
   const [submitted, setSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   // Dedupe: cada campo só dispara "formulario_abandono" uma vez por sessão de preenchimento.
   const trackedAbandonFields = useRef<Set<string>>(new Set());
   const successRef = useRef<HTMLDivElement>(null);
@@ -141,14 +141,22 @@ export default function OrcamentoForm() {
   }
 
   async function onSubmit(data: FormData) {
-    setSubmitError(false);
+    setSubmitError(null);
     try {
+      const { dimensoes, ...rest } = data;
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "orcamento", ...data }),
+        // O schema do servidor (src/lib/email.ts) espera `areaNecessaria`, não
+        // `dimensoes` — sem esse mapeamento, o campo chegava sempre em branco
+        // no e-mail (o zod descarta chaves desconhecidas silenciosamente em
+        // vez de dar erro, então o formulário "funcionava" mas perdia o dado).
+        body: JSON.stringify({ type: "orcamento", ...rest, areaNecessaria: dimensoes }),
       });
-      if (!res.ok) throw new Error("Falha no envio");
+      if (!res.ok) {
+        const body = await res.json().catch(() => null);
+        throw new Error(body?.error || "Falha no envio");
+      }
       trackFormSubmit("orcamento", {
         segmento_atuacao: data.segmento,
         tipo_interesse: data.tipoInteresse,
@@ -156,8 +164,8 @@ export default function OrcamentoForm() {
       });
       setSubmitted(true);
       reset();
-    } catch {
-      setSubmitError(true);
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : "Falha no envio");
     }
   }
 
@@ -201,7 +209,7 @@ export default function OrcamentoForm() {
       {submitError && (
         <div className="flex items-center gap-2 bg-red-900/30 border border-red-700/50 rounded-lg px-4 py-3 text-sm text-red-300">
           <AlertCircle className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
-          Erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.
+          {submitError} Tente novamente ou entre em contato pelo WhatsApp.
         </div>
       )}
 
