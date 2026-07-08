@@ -133,7 +133,7 @@ export default async function ProdutoPage({
       {/* Aplicações + Vantagens + Specs */}
       <section className="bg-light-bg dark:bg-dark-steel pt-8 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-slate-200 dark:bg-dark-border rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-slate-200 dark:bg-dark-border rounded-2xl overflow-hidden border border-slate-200 dark:border-dark-border shadow-sm">
 
             {/* Aplicações */}
             <div className="bg-white dark:bg-dark-mid p-8 lg:p-10">

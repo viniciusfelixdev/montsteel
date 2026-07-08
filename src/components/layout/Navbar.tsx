@@ -245,15 +245,18 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className={`lg:hidden p-2 ${useDarkText ? "text-dark-steel" : "text-white"}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={mobileOpen}
-        >
-          {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        {/* Toggle de tema + hambúrguer (mobile) */}
+        <div className="lg:hidden flex items-center gap-1">
+          <ThemeToggle />
+          <button
+            className={`p-2 ${useDarkText ? "text-dark-steel" : "text-white"}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile drawer */}

@@ -107,7 +107,7 @@ export default function NormasAbntPage() {
                 {pilares.map((p) => (
                   <div
                     key={p.titulo}
-                    className="p-6 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border"
+                    className="p-6 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border shadow-sm"
                   >
                     <div className="w-10 h-10 rounded-lg bg-montsteel-blue/20 flex items-center justify-center mb-4">
                       <p.icon className="w-5 h-5 text-montsteel-blue" aria-hidden="true" />

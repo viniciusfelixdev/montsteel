@@ -137,7 +137,7 @@ export default async function SegmentoPage({
                   <Link
                     key={p.slug}
                     href={`/produtos/${p.slug}?from=segmentos/${segment.slug}`}
-                    className="group flex items-center justify-between p-4 bg-white dark:bg-dark-mid rounded-xl hover:bg-light-bg/70 dark:hover:bg-dark-mid/70 transition-colors"
+                    className="group flex items-center justify-between p-4 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border shadow-sm hover:bg-light-bg/70 dark:hover:bg-dark-mid/70 transition-colors"
                   >
                     <div>
                       <p
@@ -153,7 +153,7 @@ export default async function SegmentoPage({
               </div>
 
               {/* Outras soluções */}
-              <div className="bg-white dark:bg-dark-mid rounded-xl p-5">
+              <div className="bg-white dark:bg-dark-mid rounded-xl p-5 border border-slate-200 dark:border-dark-border shadow-sm">
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
                   <div className="flex-1">
                     <p className="text-dark-steel dark:text-white font-semibold text-base mb-1">Não encontrou o que precisa?</p>

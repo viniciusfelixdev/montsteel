@@ -184,6 +184,8 @@ export default function FornecedoresPage() {
   });
   const [categoriaAberta, setCategoriaAberta] = useState<string | null>(categorias[0].titulo);
   const [itemAberto, setItemAberto] = useState<string | null>(null);
+  const successRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
 
   const supplierTrackRef = useRef<HTMLDivElement>(null);
   const supplierPausedRef = useRef(false);
@@ -206,14 +208,50 @@ export default function FornecedoresPage() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  // Centraliza a tela no card de confirmação/erro ao enviar, já que ele fica
+  // no mesmo lugar do formulário e o usuário pode não perceber a mudança se
+  // estiver scrollado (formulário longo, várias seções acima na página).
+  useEffect(() => {
+    if (!enviado) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    successRef.current?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "center",
+    });
+  }, [enviado]);
+
+  useEffect(() => {
+    if (!erro) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    errorRef.current?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "center",
+    });
+  }, [erro]);
+
   const nudgeSuppliers = (dir: number) => {
     const el = supplierTrackRef.current;
     if (!el) return;
     const half = el.scrollWidth / 2;
-    const amount = 260;
+    const children = Array.from(el.children) as HTMLElement[];
+
     if (el.scrollLeft >= half) el.scrollLeft -= half;
-    if (dir < 0 && el.scrollLeft < amount) el.scrollLeft += half;
-    el.scrollBy({ left: dir * amount, behavior: "smooth" });
+    if (dir < 0 && el.scrollLeft < el.clientWidth) el.scrollLeft += half;
+
+    // Como os cards têm larguras diferentes, localizamos o próximo/anterior
+    // card real pelo seu centro em vez de usar um deslocamento fixo em px, e
+    // centralizamos ele na viewport do carrossel.
+    const center = el.scrollLeft + el.clientWidth / 2;
+    const eps = 1;
+    const target =
+      dir > 0
+        ? children.find((c) => c.offsetLeft + c.offsetWidth / 2 > center + eps)
+        : [...children].reverse().find((c) => c.offsetLeft + c.offsetWidth / 2 < center - eps);
+
+    if (!target) return;
+
+    const destination = target.offsetLeft + target.offsetWidth / 2 - el.clientWidth / 2;
+    el.scrollBy({ left: destination - el.scrollLeft, behavior: "smooth" });
   };
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
@@ -491,7 +529,7 @@ export default function FornecedoresPage() {
           </div>
 
           {enviado ? (
-            <div className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center">
+            <div ref={successRef} className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center border border-slate-200 dark:border-dark-border shadow-sm">
               <CheckCircle2 className="w-12 h-12 text-montsteel-gold mx-auto mb-4" aria-hidden="true" />
               <h3
                 className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-2 font-display"
@@ -505,7 +543,7 @@ export default function FornecedoresPage() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="bg-white dark:bg-dark-mid rounded-xl p-8 space-y-5"
+              className="bg-white dark:bg-dark-mid rounded-xl p-8 space-y-5 border border-slate-200 dark:border-dark-border shadow-sm"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
@@ -620,7 +658,7 @@ export default function FornecedoresPage() {
               </div>
 
               {erro && (
-                <div className="flex items-center gap-2 bg-red-900/30 border border-red-700/50 rounded-lg px-4 py-3 text-sm text-red-300">
+                <div ref={errorRef} className="flex items-center gap-2 bg-red-50 dark:bg-red-900/30 border border-red-300 dark:border-red-700/50 rounded-lg px-4 py-3 text-sm text-red-700 dark:text-red-300">
                   <AlertCircle className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
                   {erro} Tente novamente ou fale conosco pelo WhatsApp.
                 </div>

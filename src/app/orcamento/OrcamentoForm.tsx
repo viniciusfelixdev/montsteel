@@ -85,6 +85,7 @@ export default function OrcamentoForm() {
   // Dedupe: cada campo só dispara "formulario_abandono" uma vez por sessão de preenchimento.
   const trackedAbandonFields = useRef<Set<string>>(new Set());
   const successRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
 
   // Pré-preenche produto/segmento vindos de ?produto=...&segmento=..., quando o
   // visitante chega vindo da página de um produto ou de um segmento — evita ter
@@ -105,6 +106,18 @@ export default function OrcamentoForm() {
       block: "center",
     });
   }, [submitted]);
+
+  // Mesmo motivo do efeito acima: se o formulário for longo e o usuário estiver
+  // scrollado perto do fim ao enviar, o aviso de erro (que fica no topo do
+  // formulário) pode passar despercebido sem isso.
+  useEffect(() => {
+    if (!submitError) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    errorRef.current?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "center",
+    });
+  }, [submitError]);
 
   const {
     register,
@@ -171,7 +184,7 @@ export default function OrcamentoForm() {
 
   if (submitted) {
     return (
-      <div ref={successRef} className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center">
+      <div ref={successRef} className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center border border-slate-200 dark:border-dark-border shadow-sm">
         <CheckCircle2 className="w-14 h-14 text-green-400 mx-auto mb-4" aria-hidden="true" />
         <h2
           className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-2 font-display"
@@ -198,7 +211,7 @@ export default function OrcamentoForm() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="bg-white dark:bg-dark-mid rounded-xl p-6 sm:p-8 space-y-6"
+      className="bg-white dark:bg-dark-mid rounded-xl p-6 sm:p-8 space-y-6 border border-slate-200 dark:border-dark-border shadow-sm"
     >
       <h2
         className="text-2xl font-black uppercase text-dark-steel dark:text-white font-display"
@@ -207,7 +220,7 @@ export default function OrcamentoForm() {
       </h2>
 
       {submitError && (
-        <div className="flex items-center gap-2 bg-red-900/30 border border-red-700/50 rounded-lg px-4 py-3 text-sm text-red-300">
+        <div ref={errorRef} className="flex items-center gap-2 bg-red-50 dark:bg-red-900/30 border border-red-300 dark:border-red-700/50 rounded-lg px-4 py-3 text-sm text-red-700 dark:text-red-300">
           <AlertCircle className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
           {submitError} Tente novamente ou entre em contato pelo WhatsApp.
         </div>

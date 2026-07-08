@@ -117,7 +117,7 @@ export default function TrabalheCOnoscoPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {beneficios.map((b) => (
-              <div key={b.titulo} className="p-6 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border">
+              <div key={b.titulo} className="p-6 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border shadow-sm">
                 <div className="w-10 h-10 rounded-lg bg-montsteel-blue/20 flex items-center justify-center mb-4">
                   <b.icon className="w-5 h-5 text-montsteel-blue" aria-hidden="true" />
                 </div>
@@ -145,7 +145,7 @@ export default function TrabalheCOnoscoPage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {areas.map((a) => (
-              <div key={a.area} className="p-6 bg-light-bg dark:bg-dark-steel rounded-xl border border-slate-200 dark:border-dark-border">
+              <div key={a.area} className="p-6 bg-light-bg dark:bg-dark-steel rounded-xl border border-slate-200 dark:border-dark-border shadow-sm">
                 <h3
                   className="text-lg font-black uppercase text-dark-steel dark:text-white mb-2 font-display"
                 >
@@ -173,7 +173,7 @@ export default function TrabalheCOnoscoPage() {
             {vagas.map((v) => (
               <div
                 key={v.titulo}
-                className="flex flex-col sm:flex-row sm:items-center gap-5 justify-between p-6 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border"
+                className="flex flex-col sm:flex-row sm:items-center gap-5 justify-between p-6 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border shadow-sm"
               >
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
@@ -232,7 +232,7 @@ export default function TrabalheCOnoscoPage() {
             </div>
 
             <aside>
-              <div className="bg-light-bg dark:bg-dark-steel rounded-xl p-6 sticky top-24 border border-slate-200 dark:border-dark-border">
+              <div className="bg-light-bg dark:bg-dark-steel rounded-xl p-6 sticky top-24 border border-slate-200 dark:border-dark-border shadow-sm">
                 <h3 className="text-lg font-bold uppercase text-dark-steel dark:text-white mb-6 font-display">
                   Outras Formas de Contato
                 </h3>

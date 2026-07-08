@@ -8,7 +8,7 @@ import {
   FileText, Flame, Anchor, Layers, Leaf, ShoppingCart,
 } from "lucide-react";
 import { SEGMENTS } from "@/lib/constants";
-import Reveal from "@/components/shared/Reveal";
+import Reveal, { RevealGroup } from "@/components/shared/Reveal";
 import { getSegmentBannerPreloadUrl } from "@/lib/segment-banner-images";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string; "aria-hidden"?: "true" }>> = {
@@ -88,22 +88,23 @@ export default function SegmentsGrid() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {SEGMENTS.map((seg, i) => {
+        <RevealGroup
+          as="div"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"
+          y={0}
+          scale={0.95}
+          duration={0.6}
+          stagger={0.08}
+        >
+          {SEGMENTS.map((seg) => {
             const Icon = iconMap[seg.icon] || Factory;
             const bgImage = SEGMENT_CARD_IMAGES[seg.slug];
             return (
-              <Reveal
-                key={seg.slug}
-                y={0}
-                scale={0.95}
-                duration={0.4}
-                delay={i * 0.05}
-              >
+              <div key={seg.slug} className="h-full">
                 <Link
                   href={`/segmentos/${seg.slug}`}
                   className={`group relative flex h-full flex-col items-center justify-center gap-3 p-5 rounded-xl shadow-[0_6px_20px_rgba(15,25,35,0.18)] hover:shadow-[0_14px_32px_rgba(15,25,35,0.28)] hover:-translate-y-1 transition-all text-center overflow-hidden ${
-                    bgImage ? "" : "bg-white dark:bg-dark-mid dark:border dark:border-dark-border"
+                    bgImage ? "" : "bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border"
                   }`}
                 >
                   {bgImage && (
@@ -141,10 +142,10 @@ export default function SegmentsGrid() {
                     {seg.name}
                   </span>
                 </Link>
-              </Reveal>
+              </div>
             );
           })}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );

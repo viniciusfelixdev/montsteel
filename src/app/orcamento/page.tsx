@@ -103,7 +103,7 @@ export default function OrcamentoPage() {
 
             {/* Contact sidebar */}
             <aside>
-              <div className="bg-white dark:bg-dark-mid rounded-xl p-6 sticky top-24">
+              <div className="bg-white dark:bg-dark-mid rounded-xl p-6 sticky top-24 border border-slate-200 dark:border-dark-border shadow-sm">
                 <h2
                   className="text-xl font-bold uppercase text-dark-steel dark:text-white mb-6 font-display"
                 >

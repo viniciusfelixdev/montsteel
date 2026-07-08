@@ -113,7 +113,7 @@ export default async function BlogPostPage({
               />
 
               {/* CTA inline */}
-              <div className="mt-12 p-6 bg-white dark:bg-dark-mid rounded-xl flex flex-col sm:flex-row items-start sm:items-center gap-5">
+              <div className="mt-12 p-6 bg-white dark:bg-dark-mid rounded-xl border border-slate-200 dark:border-dark-border shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-5">
                 <div className="flex-1">
                   <p className="text-dark-steel dark:text-white font-semibold mb-1">Precisa de uma solução como essa?</p>
                   <p className="text-sm text-slate-600 dark:text-[#94A3B8]">Fale com nossos especialistas e receba uma proposta personalizada.</p>
@@ -134,7 +134,7 @@ export default async function BlogPostPage({
 
               {/* Artigos relacionados */}
               {relacionados.length > 0 && (
-                <div className="bg-white dark:bg-dark-mid rounded-xl p-6">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-6 border border-slate-200 dark:border-dark-border shadow-sm">
                   <h3
                     className="text-lg font-black uppercase text-dark-steel dark:text-white mb-5 font-display"
                   >
@@ -163,7 +163,7 @@ export default async function BlogPostPage({
 
               {/* Todos os artigos */}
               {outros.length > 0 && (
-                <div className="bg-white dark:bg-dark-mid rounded-xl p-6">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-6 border border-slate-200 dark:border-dark-border shadow-sm">
                   <h3
                     className="text-lg font-black uppercase text-dark-steel dark:text-white mb-5 font-display"
                   >

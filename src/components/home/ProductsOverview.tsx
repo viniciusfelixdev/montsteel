@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { PRODUCTS } from "@/lib/constants";
-import Reveal from "@/components/shared/Reveal";
+import Reveal, { RevealGroup } from "@/components/shared/Reveal";
 import PrefetchBannerLink from "@/components/shared/PrefetchBannerLink";
 
 const productImages: Record<string, string> = {
@@ -36,9 +36,9 @@ export default function ProductsOverview() {
         </Reveal>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PRODUCTS.map((product, i) => (
-            <Reveal key={product.slug} as="article" y={30} delay={i * 0.08}>
+        <RevealGroup as="div" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {PRODUCTS.map((product) => (
+            <article key={product.slug}>
               <PrefetchBannerLink href={`/produtos/${product.slug}`} className="group flex flex-col h-full bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
                 {/* Imagem */}
                 <div className="relative h-48 overflow-hidden">
@@ -75,11 +75,11 @@ export default function ProductsOverview() {
                   </span>
                 </div>
               </PrefetchBannerLink>
-            </Reveal>
+            </article>
           ))}
 
           {/* Niveladoras de Doca */}
-          <Reveal as="article" y={30} delay={PRODUCTS.length * 0.08}>
+          <article>
             <PrefetchBannerLink href="/produtos/niveladoras-de-doca" className="group flex flex-col h-full bg-white dark:bg-dark-mid rounded-xl overflow-hidden cursor-pointer border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-lg transition-shadow">
               <div className="relative h-48 overflow-hidden">
                 <Image
@@ -107,8 +107,8 @@ export default function ProductsOverview() {
                 </span>
               </div>
             </PrefetchBannerLink>
-          </Reveal>
-        </div>
+          </article>
+        </RevealGroup>
       </div>
     </section>
   );

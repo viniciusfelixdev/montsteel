@@ -156,7 +156,7 @@ export default function QuemSomosPage() {
                   {/* Content */}
                   <div className={`ml-10 lg:ml-0 lg:w-1/2 ${i % 2 === 0 ? "lg:pr-16" : "lg:pl-16"}`}>
                     <Reveal>
-                      <div className="bg-light-bg dark:bg-dark-steel rounded-xl p-7">
+                      <div className="bg-light-bg dark:bg-dark-steel rounded-xl p-7 border border-slate-200 dark:border-dark-border shadow-sm">
                         <span
                           className="text-sm font-black tracking-widest text-montsteel-silver font-display"
                         >

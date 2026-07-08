@@ -74,14 +74,27 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
     const el = trackRef.current;
     if (!el) return;
     const half = el.scrollWidth / 2;
-    const amount = 260;
+    const children = Array.from(el.children) as HTMLElement[];
 
     // Mantém a posição na primeira metade e garante espaço para rolar
     // nos dois sentidos, pulando para a cópia idêntica (invisível).
     if (el.scrollLeft >= half) el.scrollLeft -= half;
-    if (dir < 0 && el.scrollLeft < amount) el.scrollLeft += half;
+    if (dir < 0 && el.scrollLeft < el.clientWidth) el.scrollLeft += half;
 
-    el.scrollBy({ left: dir * amount, behavior: "smooth" });
+    // Como os cards têm larguras diferentes (logos com proporções distintas),
+    // localizamos o próximo/anterior card real pelo seu centro em vez de usar
+    // um deslocamento fixo em px, e centralizamos ele na viewport do carrossel.
+    const center = el.scrollLeft + el.clientWidth / 2;
+    const eps = 1;
+    const target =
+      dir > 0
+        ? children.find((c) => c.offsetLeft + c.offsetWidth / 2 > center + eps)
+        : [...children].reverse().find((c) => c.offsetLeft + c.offsetWidth / 2 < center - eps);
+
+    if (!target) return;
+
+    const destination = target.offsetLeft + target.offsetWidth / 2 - el.clientWidth / 2;
+    el.scrollBy({ left: destination - el.scrollLeft, behavior: "smooth" });
   };
 
   return (
@@ -141,8 +154,8 @@ export default function ClientLogos({ showTitle = true }: { showTitle?: boolean 
           {loop.map((client, i) => (
             <div
               key={`${client.file}-${i}`}
-              className={`shrink-0 rounded-xl px-8 py-5 flex items-center justify-center ${
-                client.dark ? "bg-dark-steel" : "bg-white"
+              className={`shrink-0 rounded-xl px-8 py-5 flex items-center justify-center border shadow-sm ${
+                client.dark ? "bg-dark-steel border-dark-border" : "bg-white border-slate-200 dark:border-dark-border"
               }`}
               aria-hidden={i >= clients.length}
             >

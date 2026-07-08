@@ -43,6 +43,7 @@ export default function CandidaturaForm({ vagas }: { vagas: string[] }) {
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const successRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   const VAGA_OPTIONS = [
@@ -62,6 +63,17 @@ export default function CandidaturaForm({ vagas }: { vagas: string[] }) {
       block: "center",
     });
   }, [submitted]);
+
+  // Mesmo motivo do efeito acima: o aviso de erro fica no topo do formulário —
+  // se o usuário estiver scrollado perto do fim ao enviar, pode passar despercebido.
+  useEffect(() => {
+    if (!submitError) return;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    errorRef.current?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "center",
+    });
+  }, [submitError]);
 
   const {
     register,
@@ -114,7 +126,7 @@ export default function CandidaturaForm({ vagas }: { vagas: string[] }) {
 
   if (submitted) {
     return (
-      <div ref={successRef} className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center">
+      <div ref={successRef} className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center border border-slate-200 dark:border-dark-border shadow-sm">
         <CheckCircle2 className="w-14 h-14 text-green-400 mx-auto mb-4" aria-hidden="true" />
         <h2 className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-2 font-display">
           Candidatura Enviada!
@@ -136,14 +148,14 @@ export default function CandidaturaForm({ vagas }: { vagas: string[] }) {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="bg-white dark:bg-dark-mid rounded-xl p-6 sm:p-8 space-y-6"
+      className="bg-white dark:bg-dark-mid rounded-xl p-6 sm:p-8 space-y-6 border border-slate-200 dark:border-dark-border shadow-sm"
     >
       <h2 className="text-2xl font-black uppercase text-dark-steel dark:text-white font-display">
         Envie sua Candidatura
       </h2>
 
       {submitError && (
-        <div className="flex items-center gap-2 bg-red-900/30 border border-red-700/50 rounded-lg px-4 py-3 text-sm text-red-300">
+        <div ref={errorRef} className="flex items-center gap-2 bg-red-50 dark:bg-red-900/30 border border-red-300 dark:border-red-700/50 rounded-lg px-4 py-3 text-sm text-red-700 dark:text-red-300">
           <AlertCircle className="w-4 h-4 flex-shrink-0" aria-hidden="true" />
           {submitError}
         </div>

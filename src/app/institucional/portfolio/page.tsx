@@ -70,7 +70,7 @@ export default function PortfolioPage() {
             {PORTFOLIO_DATA.map((o) => (
               <article
                 key={o.slug}
-                className="group bg-white dark:bg-dark-mid rounded-xl overflow-hidden flex flex-col"
+                className="group bg-white dark:bg-dark-mid rounded-xl overflow-hidden flex flex-col border border-slate-200 dark:border-dark-border shadow-sm hover:shadow-md transition-shadow"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
@@ -137,7 +137,7 @@ export default function PortfolioPage() {
           {/* Regiões */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {regioes.map((r) => (
-              <div key={r.nome} className="bg-light-bg dark:bg-dark-steel rounded-xl p-6">
+              <div key={r.nome} className="bg-light-bg dark:bg-dark-steel rounded-xl p-6 border border-slate-200 dark:border-dark-border shadow-sm">
                 <div className="flex items-center gap-3 mb-3">
                   <MapPin className="w-5 h-5 text-montsteel-gold" aria-hidden="true" />
                   <h3

@@ -95,7 +95,7 @@ export default async function BlogListing({
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <Link
               href={`/blog/${destaque.slug}`}
-              className="group grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden bg-white dark:bg-dark-mid"
+              className="group grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden bg-white dark:bg-dark-mid border border-slate-200 dark:border-dark-border shadow-sm"
             >
               <div className="relative aspect-[16/9] lg:aspect-auto lg:min-h-[360px] overflow-hidden">
                 <Image
@@ -167,7 +167,7 @@ export default async function BlogListing({
             {/* Artigos */}
             <div className="lg:col-span-2">
               {demais.length === 0 ? (
-                <div className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-10 text-center border border-slate-200 dark:border-dark-border shadow-sm">
                   <p className="text-dark-steel dark:text-white font-semibold mb-2">
                     {activeCategory ? "Nenhum artigo nessa categoria ainda." : "Nenhum artigo publicado no momento."}
                   </p>
@@ -179,7 +179,7 @@ export default async function BlogListing({
                     <Link
                       key={post.id}
                       href={`/blog/${post.slug}`}
-                      className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden"
+                      className="group flex flex-col bg-white dark:bg-dark-mid rounded-xl overflow-hidden border border-slate-200 dark:border-dark-border shadow-sm"
                     >
                       <div className="relative aspect-[16/9] overflow-hidden">
                         <Image
@@ -252,7 +252,7 @@ export default async function BlogListing({
             <aside className="lg:col-span-1 space-y-8 lg:sticky lg:top-20 lg:self-start">
               {/* Categorias */}
               {categories.length > 0 && (
-                <div className="bg-white dark:bg-dark-mid rounded-xl p-6">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-6 border border-slate-200 dark:border-dark-border shadow-sm">
                   <h3 className="text-lg font-black uppercase text-dark-steel dark:text-white mb-5 font-display">
                     CATEGORIAS
                   </h3>
@@ -282,7 +282,7 @@ export default async function BlogListing({
 
               {/* Artigos recentes */}
               {recentPosts.length > 0 && (
-                <div className="bg-white dark:bg-dark-mid rounded-xl p-6">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-6 border border-slate-200 dark:border-dark-border shadow-sm">
                   <h3 className="text-lg font-black uppercase text-dark-steel dark:text-white mb-5 font-display">
                     RECENTES
                   </h3>

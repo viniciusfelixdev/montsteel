@@ -142,7 +142,7 @@ export default function ServicosPage() {
             {servicos.map((s) => (
               <div
                 key={s.titulo}
-                className="bg-white dark:bg-dark-mid rounded-2xl p-10 flex items-start gap-5 min-h-[180px]"
+                className="bg-white dark:bg-dark-mid rounded-2xl p-10 flex items-start gap-5 min-h-[180px] border border-slate-200 dark:border-dark-border shadow-sm"
               >
                 <div className="w-14 h-14 rounded-xl bg-montsteel-blue/15 flex items-center justify-center flex-shrink-0">
                   <s.icon className="w-7 h-7 text-montsteel-blue" aria-hidden="true" />

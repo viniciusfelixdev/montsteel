@@ -114,7 +114,7 @@ export default function TermosDeUsoPage() {
       {/* Conteúdo */}
       <section className="bg-light-bg dark:bg-dark-steel py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-dark-mid rounded-xl p-8 sm:p-12 space-y-10">
+          <div className="bg-white dark:bg-dark-mid rounded-xl p-8 sm:p-12 space-y-10 border border-slate-200 dark:border-dark-border shadow-sm">
             <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
               Estes Termos de Uso regulam o acesso e a utilização do site da MontSteel. Ao navegar por este site, você concorda com as condições descritas abaixo. Leia com atenção antes de utilizar nossos serviços.
             </p>

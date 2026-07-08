@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight, MapPin, Ruler, Calendar, Building2, Target, Chec
 import { PORTFOLIO_DATA, getPortfolioCase } from "@/lib/portfolio";
 import { getProduct } from "@/lib/products";
 import Breadcrumbs from "@/components/shared/Breadcrumbs";
+import BackLink from "@/components/shared/BackLink";
 import { IMAGE_BLUR } from "@/lib/image-blur";
 
 export async function generateStaticParams() {
@@ -74,13 +75,13 @@ export default async function PortfolioCasePage({
               { label: caso.titulo },
             ]}
           />
-          <Link
-            href="/institucional/portfolio"
+          <BackLink
+            fallbackHref="/institucional/portfolio"
             className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-black/50 backdrop-blur-sm border border-white/10 hover:bg-black/70 hover:border-white/30 px-4 py-2.5 rounded-lg transition-all mb-8 group"
           >
             <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" aria-hidden="true" />
             Portfólio
-          </Link>
+          </BackLink>
 
           <h1
             className="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-5 max-w-4xl leading-[0.95] font-display"
@@ -178,7 +179,7 @@ export default async function PortfolioCasePage({
                 >
                   SOLUÇÃO <span className="text-montsteel-blue">APLICADA</span>
                 </h2>
-                <div className="bg-white dark:bg-dark-mid rounded-xl p-8">
+                <div className="bg-white dark:bg-dark-mid rounded-xl p-8 border border-slate-200 dark:border-dark-border shadow-sm">
                   <h3
                     className="text-2xl font-black uppercase text-dark-steel dark:text-white mb-2 font-display"
                   >
@@ -202,7 +203,7 @@ export default async function PortfolioCasePage({
       {caso.depoimento && (
         <section className="bg-white dark:bg-dark-mid py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <figure className="bg-light-bg dark:bg-dark-steel rounded-2xl p-10 sm:p-12">
+            <figure className="bg-light-bg dark:bg-dark-steel rounded-2xl p-10 sm:p-12 border border-slate-200 dark:border-dark-border shadow-sm">
               <Quote className="w-10 h-10 text-montsteel-blue/40 mb-6" aria-hidden="true" />
               <blockquote
                 className="text-2xl sm:text-3xl text-dark-steel dark:text-white leading-snug mb-6 text-balance font-display"

@@ -127,7 +127,7 @@ export default function PrivacidadePage() {
       {/* Conteúdo */}
       <section className="bg-light-bg dark:bg-dark-steel py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white dark:bg-dark-mid rounded-xl p-8 sm:p-12 space-y-10">
+          <div className="bg-white dark:bg-dark-mid rounded-xl p-8 sm:p-12 space-y-10 border border-slate-200 dark:border-dark-border shadow-sm">
             <p className="text-slate-600 dark:text-[#94A3B8] leading-relaxed">
               A MontSteel valoriza a privacidade e a proteção dos dados pessoais de seus clientes, parceiros e visitantes. Esta Política descreve como coletamos, usamos, armazenamos e protegemos seus dados pessoais, em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD).
             </p>

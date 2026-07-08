@@ -171,6 +171,21 @@ body {
   }
 }
 
+/* No mobile, remove as animações de "surgimento" (reveal ao rolar, fade de
+   entrada do Hero, fade de transição de página): o conteúdo já nasce visível,
+   sem transição/transform, em vez de animar a aparição. */
+@media (max-width: 767px) {
+  .js-reveal,
+  .animate-page-fade-in,
+  .animate-hero-enter,
+  .animate-hero-scroll-hint {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* Estiliza o HTML bruto vindo do content.rendered da API do WordPress (/blog/[slug]). */
 .prose-custom {
   color: var(--prose-text);
