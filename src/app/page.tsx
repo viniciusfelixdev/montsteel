@@ -33,6 +33,8 @@ export default function HomePage() {
     <>
       <Hero />
 
+      {/* Âncora para o link "Explorar" do Hero rolar até aqui sem alterar o ClientLogos */}
+      <div id="clientes" className="scroll-mt-16" />
       <ClientLogos />
 
       <ProductsOverview />

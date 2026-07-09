@@ -11,6 +11,11 @@ function scrollToProdutos(e: React.MouseEvent<HTMLAnchorElement>) {
   document.getElementById("produtos")?.scrollIntoView({ behavior: "smooth" });
 }
 
+function scrollToClientes(e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  document.getElementById("clientes")?.scrollIntoView({ behavior: "smooth" });
+}
+
 export default function Hero() {
   return (
     <section
@@ -74,10 +79,10 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <a
-        href="#produtos"
-        onClick={scrollToProdutos}
-        aria-label="Explorar: rolar para conhecer os produtos"
-        className="animate-hero-scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors cursor-pointer"
+        href="#clientes"
+        onClick={scrollToClientes}
+        aria-label="Explorar: rolar até empresas que confiam na MontSteel"
+        className="animate-hero-scroll-hint absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/70 hover:text-white transition-colors cursor-pointer"
       >
         <span className="text-xs uppercase tracking-widest">Explorar</span>
         <div className="animate-bounce">
